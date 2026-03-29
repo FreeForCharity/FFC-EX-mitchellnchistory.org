@@ -61,12 +61,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Detect base path
+        id: basepath
+        run: |
+          # Custom-domain deployments (CNAME present) are served at the
+          # domain root, so basePath must be empty.  Subpath-only repos
+          # need /<repo-name> as the prefix.
+          if [ -f public/CNAME ]; then
+            echo "value=" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=/${{ github.event.repository.name }}" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build with Next.js
         run: npm run build
         env:
-          # Set basePath for GitHub Pages deployment
-          # This ensures images and assets work correctly at the subpath
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.basepath.outputs.value }}
 
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v4
