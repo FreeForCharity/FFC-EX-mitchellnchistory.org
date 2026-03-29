@@ -13,23 +13,13 @@
 
 export const testConfig = {
   /**
-   * Mission Video Configuration
-   * Used in: tests/mission-video.spec.ts
+   * Mission Section Configuration
+   * Used in: tests/mission-section.spec.ts
    */
-  missionVideo: {
-    ariaLabel: 'Free For Charity mission video',
-    title: "Learn about Free For Charity's mission to help nonprofits reduce costs",
-  },
-
-  /**
-   * Application Form Configuration
-   * Used in: tests/application-form.spec.ts
-   */
-  applicationForm: {
-    buttonText: 'Apply to Become a Supported Charity',
-    modalTitle: 'Charity Application Form',
-    loadingText: 'Loading application form...',
-    closeButtonAriaLabel: 'Close application form',
+  missionSection: {
+    sectionId: 'mission',
+    heading: 'Our Mission',
+    text: '501(c)(3)',
   },
 
   /**
@@ -38,12 +28,10 @@ export const testConfig = {
    */
   events: {
     sectionId: 'events',
-    heading: 'Upcoming Events',
-    footerLinkText: 'Events',
-    iframeTitle: 'Facebook Events',
-    facebookLinkText: 'View all events on Facebook',
-    facebookUrl: 'https://www.facebook.com/freeforcharity',
-    descriptionText: 'volunteer opportunities',
+    heading: 'Apple Butter Festival',
+    festivalLinkText: 'Festival Details',
+    festivalLinkHref: '/apple-butter-festival/',
+    descriptionText: 'Bakersville Creekwalk',
   },
 
   /**
@@ -52,20 +40,8 @@ export const testConfig = {
    */
   socialLinks: {
     facebook: {
-      url: 'facebook.com/freeforcharity',
+      url: 'facebook.com/mitchellnchistory.org',
       ariaLabel: 'Facebook',
-    },
-    twitter: {
-      url: 'x.com/freeforcharity1',
-      ariaLabel: 'X (Twitter)',
-    },
-    linkedin: {
-      url: 'linkedin.com/company/freeforcharity',
-      ariaLabel: 'LinkedIn',
-    },
-    github: {
-      url: 'github.com/FreeForCharity/FFC_Single_Page_Template',
-      ariaLabel: 'GitHub',
     },
   },
 
@@ -74,27 +50,9 @@ export const testConfig = {
    * Used in: tests/copyright.spec.ts
    */
   copyright: {
-    text: 'All Rights Are Reserved by Free For Charity a US 501c3 Non Profit',
-    searchText: 'All Rights Are Reserved',
+    text: 'Mitchell County Historical Society. All Rights Reserved.',
     linkUrl: 'https://freeforcharity.org',
-    linkText: 'https://freeforcharity.org',
-  },
-
-  /**
-   * Animated Numbers Configuration
-   * Used in: tests/animated-numbers.spec.ts
-   */
-  animatedNumbers: {
-    sectionHeading: 'Results - 2023',
-    statistics: [
-      { description: 'Organizational partners', value: '221' },
-      { description: 'Total volunteers', value: '3' },
-      {
-        description: 'Organizations accessing technical assistance offerings',
-        value: '221',
-      },
-      { description: 'Volunteer hours contributed to the organization', value: '25' },
-    ],
+    linkText: 'Free For Charity',
   },
 
   /**
@@ -110,9 +68,8 @@ export const testConfig = {
    * Used in: tests/logo.spec.ts
    */
   logo: {
-    headerAlt: 'Free For Charity',
-    heroAlt: 'Hero image',
-    navBarAriaLabel: 'Free For Charity home',
+    headerAlt: 'Mitchell County Historical Society',
+    heroAlt: 'Mitchell County, North Carolina mountain landscape',
   },
 
   /**

@@ -10,14 +10,40 @@ import { testConfig } from './test.config'
  * 3. GTM noscript fallback exists in body
  * 4. GTM ID is configured in the component
  *
+ * Note: The GTM component uses Next.js Script with strategy="lazyOnload",
+ * which defers loading until after the page is fully idle. Tests use
+ * waitForFunction to properly wait for lazy-loaded resources.
+ *
  * Note: Test expectations use values from test.config.ts for easy customization
  */
+
+/**
+ * Helper: wait for the GTM script element to appear in the DOM.
+ * The lazyOnload strategy means the script may not be present immediately.
+ */
+async function waitForGtmScript(page: import('@playwright/test').Page) {
+  await page.waitForFunction(() => document.querySelector('script[id="gtm-script"]') !== null, {
+    timeout: 30000,
+  })
+}
+
+/**
+ * Helper: wait for dataLayer to be initialized.
+ */
+async function waitForDataLayer(page: import('@playwright/test').Page) {
+  await page.waitForFunction(
+    () => typeof window.dataLayer !== 'undefined' && Array.isArray(window.dataLayer),
+    { timeout: 30000 }
+  )
+}
 
 test.describe('Google Tag Manager Integration', () => {
   test('should initialize dataLayer on page load', async ({ page }) => {
     await page.goto('/')
 
-    // Check if dataLayer exists and is initialized
+    // Wait for dataLayer to be initialized (may be delayed with lazyOnload)
+    await waitForDataLayer(page)
+
     const hasDataLayer = await page.evaluate(() => {
       return typeof window.dataLayer !== 'undefined' && Array.isArray(window.dataLayer)
     })
@@ -27,6 +53,9 @@ test.describe('Google Tag Manager Integration', () => {
 
   test('should load GTM script with correct ID', async ({ page }) => {
     await page.goto('/')
+
+    // Wait for the lazy-loaded GTM script to appear
+    await waitForGtmScript(page)
 
     // Check for GTM script element
     const gtmScript = await page.locator('script[id="gtm-script"]').count()
@@ -51,6 +80,9 @@ test.describe('Google Tag Manager Integration', () => {
   test('should push events to dataLayer', async ({ page }) => {
     await page.goto('/')
 
+    // Wait for dataLayer to be initialized (may be delayed with lazyOnload)
+    await waitForDataLayer(page)
+
     // Verify we can push events to dataLayer
     const canPushToDataLayer = await page.evaluate(() => {
       if (typeof window.dataLayer === 'undefined') return false
@@ -66,9 +98,11 @@ test.describe('Google Tag Manager Integration', () => {
   test('should load GTM script after page interaction', async ({ page }) => {
     await page.goto('/')
 
-    // Verify GTM script exists on the page
-    // Note: Next.js Script component with lazyOnload strategy
+    // Wait for the lazy-loaded GTM script to appear
+    // Next.js Script component with lazyOnload strategy
     // defers script loading until after page is interactive
+    await waitForGtmScript(page)
+
     const gtmScript = await page.evaluate(() => {
       const script = document.querySelector('script[id="gtm-script"]')
       return script !== null
@@ -76,7 +110,9 @@ test.describe('Google Tag Manager Integration', () => {
 
     expect(gtmScript).toBe(true)
 
-    // Verify dataLayer is initialized (may be delayed with lazyOnload)
+    // Wait for dataLayer to be initialized (may be delayed with lazyOnload)
+    await waitForDataLayer(page)
+
     const dataLayerInitialized = await page.evaluate(() => {
       return typeof window.dataLayer !== 'undefined'
     })
@@ -98,6 +134,9 @@ test.describe('Google Tag Manager Integration', () => {
     // Accept all cookies
     await page.getByRole('button', { name: 'Accept All' }).click()
 
+    // Wait for dataLayer to be initialized before checking events
+    await waitForDataLayer(page)
+
     // Verify dataLayer receives consent update event
     const hasConsentEvent = await page.evaluate(() => {
       if (typeof window.dataLayer === 'undefined') return false
@@ -116,6 +155,9 @@ test.describe('Google Tag Manager Configuration', () => {
     // The GTM_ID is configured in the component
 
     await page.goto('/')
+
+    // Wait for the lazy-loaded GTM script to appear
+    await waitForGtmScript(page)
 
     // GTM script should always be present with the configured ID
     const gtmScript = await page.locator('script[id="gtm-script"]').count()

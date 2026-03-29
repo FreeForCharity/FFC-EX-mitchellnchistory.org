@@ -14,38 +14,27 @@ import { testConfig } from './test.config'
 
 test.describe('Footer Copyright Notice', () => {
   test('should display copyright notice with current year', async ({ page }) => {
-    // Navigate to the homepage
     await page.goto('/')
 
-    // Get the current year
     const currentYear = new Date().getFullYear()
 
-    // Find the footer paragraph containing the copyright text
-    const footerText = page.locator(`footer p:has-text("${testConfig.copyright.searchText}")`)
+    const footerText = page.locator(`footer p:has-text("© ${currentYear}")`)
 
-    // Verify the copyright notice is visible
     await expect(footerText).toBeVisible()
-
-    // Verify it contains the copyright symbol and current year
     await expect(footerText).toContainText(`© ${currentYear}`)
-
-    // Verify the complete copyright text is present
     await expect(footerText).toContainText(testConfig.copyright.text)
   })
 
-  test('should display link to organization website in copyright notice', async ({ page }) => {
-    // Navigate to the homepage
+  test('should display link to Free For Charity website in copyright notice', async ({ page }) => {
     await page.goto('/')
 
-    // Find the link within the copyright notice
+    const currentYear = new Date().getFullYear()
+
     const copyrightLink = page.locator(
-      `footer p:has-text("${testConfig.copyright.searchText}") a[href="${testConfig.copyright.linkUrl}"]`
+      `footer p:has-text("© ${currentYear}") a[href="${testConfig.copyright.linkUrl}"]`
     )
 
-    // Verify the link is visible
     await expect(copyrightLink).toBeVisible()
-
-    // Verify the link text
     await expect(copyrightLink).toContainText(testConfig.copyright.linkText)
   })
 })
