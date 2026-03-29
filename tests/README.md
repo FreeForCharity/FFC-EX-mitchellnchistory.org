@@ -87,7 +87,6 @@ The configuration file is organized by sections. Here's what each section contro
 #### Copyright Notice (copyright.spec.ts)
 
 - `copyright.text`: Full copyright text
-- `copyright.searchText`: Text to search for when locating copyright element (e.g., 'All Rights Are Reserved')
 - `copyright.linkUrl`: Organization website URL
 - `copyright.linkText`: Displayed link text
 
@@ -246,7 +245,6 @@ export const testConfig = {
 
   copyright: {
     text: 'All Rights Reserved by Acme Charity a 501c3 Non Profit',
-    searchText: 'All Rights Reserved',
     linkUrl: 'https://acmecharity.org',
     linkText: 'https://acmecharity.org',
   },

@@ -51,7 +51,6 @@ export const testConfig = {
    */
   copyright: {
     text: 'Mitchell County Historical Society. All Rights Reserved.',
-    searchText: 'Mitchell County Historical Society',
     linkUrl: 'https://freeforcharity.org',
     linkText: 'Free For Charity',
   },
