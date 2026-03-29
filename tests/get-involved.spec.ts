@@ -26,14 +26,14 @@ test.describe('Get Involved Section', () => {
   test('should have link to membership page', async ({ page }) => {
     await page.goto('/')
 
-    const membershipLink = page.locator('a[href="/membership"]', { hasText: 'Join Today' })
+    const membershipLink = page.locator('a[href="/membership/"]', { hasText: 'Join Today' })
     await expect(membershipLink).toBeVisible()
   })
 
   test('should have link to about page', async ({ page }) => {
     await page.goto('/')
 
-    const aboutLink = page.locator('a[href="/about"]', { hasText: 'Learn More' })
+    const aboutLink = page.locator('a[href="/about/"]', { hasText: 'Learn More' })
     await expect(aboutLink).toBeVisible()
   })
 })

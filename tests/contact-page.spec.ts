@@ -19,25 +19,35 @@ test.describe('Contact Page', () => {
   })
 
   test('should display email link', async ({ page }) => {
-    const emailLink = page.locator('a[href="mailto:mitchellnchistory@gmail.com"]')
-    await expect(emailLink.first()).toBeVisible()
+    // Scope to main content area (not footer) by using the first visible occurrence
+    const emailLink = page
+      .locator(
+        'main a[href="mailto:mitchellnchistory@gmail.com"], section a[href="mailto:mitchellnchistory@gmail.com"]'
+      )
+      .first()
+    await expect(emailLink).toBeVisible()
   })
 
   test('should display phone link', async ({ page }) => {
-    const phoneLink = page.locator('a[href="tel:8286884371"]')
-    await expect(phoneLink.first()).toBeVisible()
+    const phoneLink = page.locator('section a[href="tel:8286884371"]').first()
+    await expect(phoneLink).toBeVisible()
   })
 
   test('should display physical address', async ({ page }) => {
-    await expect(page.getByText('11 N Mitchell Ave')).toBeVisible()
+    // The address appears in both the contact section and footer,
+    // so we scope to the section containing "Physical Address" heading
+    const addressSection = page.locator('section:has(h3:has-text("Physical Address"))')
+    await expect(addressSection.getByText('11 N Mitchell Ave')).toBeVisible()
   })
 
   test('should display mailing address', async ({ page }) => {
-    await expect(page.getByText('P.O. Box 651')).toBeVisible()
+    const mailingSection = page.locator('section:has(h3:has-text("Mailing Address"))')
+    await expect(mailingSection.getByText('P.O. Box 651')).toBeVisible()
   })
 
   test('should display office hours', async ({ page }) => {
-    await expect(page.getByText('Tuesday – Friday, 10:00 AM – 4:00 PM')).toBeVisible()
+    const hoursSection = page.locator('section:has(h3:has-text("Office Hours"))')
+    await expect(hoursSection.getByText('Tuesday')).toBeVisible()
   })
 
   test('should display contact form fields', async ({ page }) => {

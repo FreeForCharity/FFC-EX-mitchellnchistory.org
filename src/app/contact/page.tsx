@@ -1,7 +1,12 @@
-'use client'
-
 import React from 'react'
 import { Mail, Phone, MapPin, Clock } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  description:
+    'Contact the Mitchell County Historical Society. Visit us at the Historic Mitchell County Courthouse in Bakersville, NC.',
+}
 
 export default function ContactPage() {
   return (

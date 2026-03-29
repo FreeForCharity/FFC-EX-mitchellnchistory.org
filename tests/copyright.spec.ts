@@ -18,7 +18,7 @@ test.describe('Footer Copyright Notice', () => {
 
     const currentYear = new Date().getFullYear()
 
-    const footerText = page.locator(`footer p:has-text("${testConfig.copyright.searchText}")`)
+    const footerText = page.locator(`footer p:has-text("© ${currentYear}")`)
 
     await expect(footerText).toBeVisible()
     await expect(footerText).toContainText(`© ${currentYear}`)
@@ -28,8 +28,10 @@ test.describe('Footer Copyright Notice', () => {
   test('should display link to Free For Charity website in copyright notice', async ({ page }) => {
     await page.goto('/')
 
+    const currentYear = new Date().getFullYear()
+
     const copyrightLink = page.locator(
-      `footer p:has-text("${testConfig.copyright.searchText}") a[href="${testConfig.copyright.linkUrl}"]`
+      `footer p:has-text("© ${currentYear}") a[href="${testConfig.copyright.linkUrl}"]`
     )
 
     await expect(copyrightLink).toBeVisible()
