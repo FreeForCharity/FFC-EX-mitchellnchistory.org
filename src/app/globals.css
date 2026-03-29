@@ -2,12 +2,12 @@
 @import 'tailwindcss';
 
 :root {
-  /* Brand tokens */
-  --ffc-primary: #2a6682;
-  --ffc-accent: #f58629;
-  --ffc-yellow: #f5c045;
-  --ffc-black: #000000;
-  --ffc-white: #ffffff;
+  /* Brand tokens - Mitchell County Historical Society */
+  --mchs-primary: #2c5f2d;
+  --mchs-accent: #8b6914;
+  --mchs-dark: #1a3a1c;
+  --mchs-black: #000000;
+  --mchs-white: #ffffff;
 
   /* Layout */
   --ffc-container: 1248px;
@@ -21,11 +21,11 @@ body {
 
 @theme inline {
   /* Tailwind design tokens mapped to brand variables */
-  --color-primary: var(--ffc-primary);
-  --color-accent: var(--ffc-accent);
-  --color-yellow: var(--ffc-yellow);
-  --color-ink: var(--ffc-black);
-  --color-paper: var(--ffc-white);
+  --color-primary: var(--mchs-primary);
+  --color-accent: var(--mchs-accent);
+  --color-dark: var(--mchs-dark);
+  --color-ink: var(--mchs-black);
+  --color-paper: var(--mchs-white);
 
   --radius-xl: var(--ffc-radius-xl);
   --container: var(--ffc-container);

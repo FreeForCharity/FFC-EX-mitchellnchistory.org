@@ -19,21 +19,22 @@ import {
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ffcworkingsite1.org'),
+  metadataBase: new URL('https://mitchellnchistory.org'),
   title: {
-    default: 'Free For Charity | Reduce Costs, Increase Impact',
-    template: '%s | Free For Charity',
+    default: 'Mitchell County Historical Society | Preserving Our Heritage',
+    template: '%s | Mitchell County Historical Society',
   },
   description:
-    'Free For Charity connects students, professionals, and businesses with nonprofits to reduce costs and increase revenues—putting more resources back into their missions.',
+    'The Mitchell County Historical Society is dedicated to preserving, protecting, and sharing the rich history and cultural heritage of Mitchell County, North Carolina.',
   keywords: [
-    'nonprofit',
-    'charity',
-    'volunteer',
-    'donate',
-    'free hosting',
-    'domains',
-    'Microsoft 365',
+    'Mitchell County',
+    'historical society',
+    'North Carolina history',
+    'Bakersville',
+    'McBee Museum',
+    'heritage preservation',
+    'Blue Ridge Mountains',
+    'genealogy',
   ],
   robots: {
     index: true,
@@ -51,26 +52,25 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://ffcworkingsite1.org/',
-    siteName: 'Free For Charity',
-    title: 'Free For Charity | Reduce Costs, Increase Impact',
+    url: 'https://mitchellnchistory.org/',
+    siteName: 'Mitchell County Historical Society',
+    title: 'Mitchell County Historical Society | Preserving Our Heritage',
     description:
-      'Connecting students, professionals, and businesses with nonprofits to reduce costs and increase revenues.',
+      'Preserving, protecting, and sharing the rich history and cultural heritage of Mitchell County, North Carolina.',
     images: [
       {
         url: '/web-app-manifest-512x512.png',
         width: 512,
         height: 512,
-        alt: 'Free For Charity',
+        alt: 'Mitchell County Historical Society',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@freeforcharity',
-    title: 'Free For Charity | Reduce Costs, Increase Impact',
+    title: 'Mitchell County Historical Society | Preserving Our Heritage',
     description:
-      'Connecting students, professionals, and businesses with nonprofits to reduce costs and increase revenues.',
+      'Preserving, protecting, and sharing the rich history and cultural heritage of Mitchell County, North Carolina.',
     images: ['/web-app-manifest-512x512.png'],
   },
   icons: {
@@ -92,19 +92,13 @@ export default function RootLayout({
       <head>
         {/* Preconnect to external domains for faster resource loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://ffcsites.org" />
-        <link rel="preconnect" href="https://www.zeffy.com" />
-        <link rel="preconnect" href="https://widgets.guidestar.org" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://ffcsites.org" />
-        <link rel="dns-prefetch" href="https://www.zeffy.com" />
-        <link rel="dns-prefetch" href="https://www.idealist.org" />
 
         {/* Preload critical LCP image */}
         <link
           rel="preload"
           as="image"
-          href={`${basePath}/Images/figma-hero-img.webp`}
+          href={`${basePath}/Images/mchs-hero.webp`}
           fetchPriority="high"
         />
 
@@ -125,13 +119,10 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         <GoogleTagManagerNoScript />
-        {/* <PopupProvider> */}
         <Header />
         {children}
         <Footer />
         <CookieConsent />
-        {/* <PopupsRootClient /> */}
-        {/* </PopupProvider> */}
       </body>
     </html>
   )
