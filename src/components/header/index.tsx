@@ -69,8 +69,8 @@ const Header: React.FC = () => {
               {/* Desktop Menu */}
               <nav className="hidden lg:block transition-all duration-300">
                 <ul className="flex items-center space-x-[1px] font-navbar font-[600]">
-                  {menuItems.map((item, index) => (
-                    <li key={index} className="relative py-6">
+                  {menuItems.map((item) => (
+                    <li key={item.path} className="relative py-6">
                       <Link
                         href={item.path}
                         onClick={handleLinkClick}
@@ -120,8 +120,8 @@ const Header: React.FC = () => {
               className={`max-w-[700px] mx-auto px-6 py-4 bg-white border-t-[3px] border-[#2c5f2d] shadow-[0_2px_5px_rgba(0,0,0,0.1)] max-h-[80vh] overflow-auto`}
             >
               <ul className="space-y-2">
-                {menuItems.map((item, index) => (
-                  <li key={index}>
+                {menuItems.map((item) => (
+                  <li key={item.path}>
                     <Link
                       href={item.path}
                       onClick={handleLinkClick}
