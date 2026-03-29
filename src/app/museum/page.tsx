@@ -103,7 +103,7 @@ export default function MuseumPage() {
             can learn about and appreciate Mitchell County&apos;s rich heritage.
           </p>
           <Link
-            href="/contact"
+            href="/contact/"
             className="mt-8 inline-block rounded-lg bg-accent px-8 py-3 font-semibold text-paper transition hover:opacity-90"
           >
             Contact Us to Support the Museum

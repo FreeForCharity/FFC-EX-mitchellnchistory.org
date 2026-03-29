@@ -27,11 +27,11 @@ const Footer: React.FC = () => {
           <ul className="space-y-2 text-sm">
             {[
               { name: 'Home', href: '/' },
-              { name: 'About Us', href: '/about' },
-              { name: 'McBee Museum', href: '/museum' },
-              { name: 'Membership', href: '/membership' },
-              { name: 'Apple Butter Festival', href: '/apple-butter-festival' },
-              { name: 'Contact Us', href: '/contact' },
+              { name: 'About Us', href: '/about/' },
+              { name: 'McBee Museum', href: '/museum/' },
+              { name: 'Membership', href: '/membership/' },
+              { name: 'Apple Butter Festival', href: '/apple-butter-festival/' },
+              { name: 'Contact Us', href: '/contact/' },
               { name: 'Online Store', href: 'https://store.mitchellnchistory.org/' },
             ].map((link) => (
               <li key={link.name}>
@@ -60,9 +60,9 @@ const Footer: React.FC = () => {
             <h4 className="text-[28px] text-white">Policies</h4>
             <ul className="space-y-1 text-sm">
               {[
-                { name: 'Privacy Policy', href: '/privacy-policy' },
-                { name: 'Cookie Policy', href: '/cookie-policy' },
-                { name: 'Terms of Service', href: '/terms-of-service' },
+                { name: 'Privacy Policy', href: '/privacy-policy/' },
+                { name: 'Cookie Policy', href: '/cookie-policy/' },
+                { name: 'Terms of Service', href: '/terms-of-service/' },
               ].map((link) => (
                 <li key={link.name}>
                   <Link

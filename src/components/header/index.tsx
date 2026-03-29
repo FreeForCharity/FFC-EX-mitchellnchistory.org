@@ -15,11 +15,11 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Museum', path: '/museum' },
-  { label: 'Membership', path: '/membership' },
-  { label: 'Festival', path: '/apple-butter-festival' },
-  { label: 'Contact', path: '/contact' },
+  { label: 'About', path: '/about/' },
+  { label: 'Museum', path: '/museum/' },
+  { label: 'Membership', path: '/membership/' },
+  { label: 'Festival', path: '/apple-butter-festival/' },
+  { label: 'Contact', path: '/contact/' },
 ]
 
 const Header: React.FC = () => {

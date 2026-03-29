@@ -133,7 +133,7 @@ export default function AppleButterFestivalPage() {
               application details and booth information.
             </p>
             <Link
-              href="/contact"
+              href="/contact/"
               className="mt-8 inline-block rounded-lg bg-primary px-8 py-3 font-semibold text-paper transition hover:opacity-90"
             >
               Contact Us for Details

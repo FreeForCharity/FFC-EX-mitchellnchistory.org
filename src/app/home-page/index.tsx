@@ -25,13 +25,13 @@ export default function HomePage() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
-              href="/membership"
+              href="/membership/"
               className="rounded-lg bg-accent px-8 py-3 font-semibold text-paper transition hover:opacity-90"
             >
               Become a Member
             </Link>
             <Link
-              href="/museum"
+              href="/museum/"
               className="rounded-lg border-2 border-paper px-8 py-3 font-semibold text-paper transition hover:bg-paper hover:text-dark"
             >
               Visit the Museum
@@ -74,7 +74,7 @@ export default function HomePage() {
                 to the stories that shaped our community.
               </p>
               <Link
-                href="/museum"
+                href="/museum/"
                 className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-semibold text-paper transition hover:opacity-90"
               >
                 Learn More About the Museum
@@ -112,7 +112,7 @@ export default function HomePage() {
                 services to our county. Plus, you get special perks as a member.
               </p>
               <Link
-                href="/membership"
+                href="/membership/"
                 className="mt-4 inline-block font-semibold text-accent hover:underline"
               >
                 Join Today →
@@ -125,7 +125,7 @@ export default function HomePage() {
                 Butter Festival. Your time and talent make a real difference.
               </p>
               <Link
-                href="/contact"
+                href="/contact/"
                 className="mt-4 inline-block font-semibold text-accent hover:underline"
               >
                 Get in Touch →
@@ -138,7 +138,7 @@ export default function HomePage() {
                 events, work on projects, and help set priorities for the organization.
               </p>
               <Link
-                href="/about"
+                href="/about/"
                 className="mt-4 inline-block font-semibold text-accent hover:underline"
               >
                 Learn More →
@@ -164,7 +164,7 @@ export default function HomePage() {
                 Cornbread Cookoff.
               </p>
               <Link
-                href="/apple-butter-festival"
+                href="/apple-butter-festival/"
                 className="mt-6 inline-block rounded-lg bg-accent px-6 py-3 font-semibold text-paper transition hover:opacity-90"
               >
                 Festival Details
@@ -196,7 +196,7 @@ export default function HomePage() {
                 events, and society news. Members receive a preview of each edition!
               </p>
               <Link
-                href="/membership"
+                href="/membership/"
                 className="mt-4 inline-block font-semibold text-accent hover:underline"
               >
                 Become a Member for Early Access →

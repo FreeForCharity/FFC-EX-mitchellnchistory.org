@@ -60,7 +60,7 @@ export default function AboutPage() {
                 services to our county. Plus, you get special perks as a member.
               </p>
               <Link
-                href="/membership"
+                href="/membership/"
                 className="mt-4 inline-block font-semibold text-accent hover:underline"
               >
                 Join Today →
@@ -73,7 +73,7 @@ export default function AboutPage() {
                 Butter Festival. Your time and talent make a real difference.
               </p>
               <Link
-                href="/contact"
+                href="/contact/"
                 className="mt-4 inline-block font-semibold text-accent hover:underline"
               >
                 Get in Touch →
@@ -86,7 +86,7 @@ export default function AboutPage() {
                 events, work on projects, and help set priorities for the organization.
               </p>
               <Link
-                href="/contact"
+                href="/contact/"
                 className="mt-4 inline-block font-semibold text-accent hover:underline"
               >
                 Contact Us →
@@ -106,13 +106,13 @@ export default function AboutPage() {
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-4">
               <Link
-                href="/membership"
+                href="/membership/"
                 className="rounded-lg bg-primary px-6 py-3 font-semibold text-paper transition hover:opacity-90"
               >
                 Become a Member
               </Link>
               <Link
-                href="/contact"
+                href="/contact/"
                 className="rounded-lg border-2 border-primary px-6 py-3 font-semibold text-primary transition hover:bg-primary hover:text-paper"
               >
                 Contact Us
