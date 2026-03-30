@@ -14,12 +14,13 @@ import {
   montserrat,
   cinzel,
 } from '@/lib/fonts'
+import { siteUrl } from '@/lib/siteConfig'
 
 // Get basePath for GitHub Pages deployment
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mitchellnchistory.org'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'Mitchell County Historical Society | Preserving Our Heritage',
     template: '%s | Mitchell County Historical Society',
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://mitchellnchistory.org/',
+    url: `${siteUrl}/`,
     siteName: 'Mitchell County Historical Society',
     title: 'Mitchell County Historical Society | Preserving Our Heritage',
     description:
