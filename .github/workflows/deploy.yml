@@ -157,9 +157,9 @@ jobs:
 
           parsed = urlparse(url)
           base_path = parsed.path.rstrip("/")
-          expected_about_path = f"{base_path}/about/" if base_path else "/about/"
+          expected_about_path = f"{base_path}/about" if base_path else "/about"
           expected_asset_path = f"{base_path}/Images/mchs-logo.webp" if base_path else "/Images/mchs-logo.webp"
-          about_url = urljoin(url, "about/")
+          about_url = urljoin(url, "about")
           asset_url = urljoin(url, "Images/mchs-logo.webp")
 
           total_wait_seconds = 180
@@ -204,7 +204,7 @@ jobs:
                   last = f"HTTPError {e.code}"
                   print(f"Attempt {attempt}: HTTPError {e.code}")
                   e.close()
-                except RuntimeError as e:
+              except RuntimeError as e:
                   last = str(e)
                   print(f"Attempt {attempt} validation error: {e}")
               except (urllib.error.URLError, TimeoutError, socket.timeout) as e:

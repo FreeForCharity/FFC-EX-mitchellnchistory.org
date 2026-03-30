@@ -30,7 +30,7 @@ export const testConfig = {
     sectionId: 'events',
     heading: 'Apple Butter Festival',
     festivalLinkText: 'Festival Details',
-    festivalLinkHref: '/apple-butter-festival/',
+    festivalLinkHref: '/apple-butter-festival',
     descriptionText: 'Bakersville Creekwalk',
   },
 
