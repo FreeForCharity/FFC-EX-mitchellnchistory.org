@@ -63,15 +63,48 @@ jobs:
 
       - name: Detect base path
         id: basepath
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
-          # Custom-domain deployments (CNAME present) are served at the
-          # domain root, so basePath must be empty.  Subpath-only repos
-          # need /<repo-name> as the prefix.
-          if [ -f public/CNAME ]; then
-            echo "value=" >> "$GITHUB_OUTPUT"
-          else
-            echo "value=/${{ github.event.repository.name }}" >> "$GITHUB_OUTPUT"
-          fi
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+          import urllib.error
+          import urllib.request
+
+          api_url = f"{os.environ['GITHUB_API_URL']}/repos/{os.environ['GITHUB_REPOSITORY']}/pages"
+          req = urllib.request.Request(
+              api_url,
+              headers={
+                  'Authorization': f"Bearer {os.environ['GITHUB_TOKEN']}",
+                  'Accept': 'application/vnd.github+json',
+                  'X-GitHub-Api-Version': '2022-11-28',
+              },
+          )
+
+          try:
+              with urllib.request.urlopen(req, timeout=30) as resp:
+                  pages = json.load(resp)
+          except urllib.error.HTTPError as exc:
+              print(f"Failed to fetch Pages config: HTTP {exc.code}", file=sys.stderr)
+              raise
+          except urllib.error.URLError as exc:
+              print(f"Failed to fetch Pages config: {exc}", file=sys.stderr)
+              raise
+
+          custom_domain = (pages.get('cname') or '').strip()
+          if custom_domain:
+              value = ''
+              print(f"GitHub Pages custom domain configured: {custom_domain}")
+          else:
+              repo_name = os.environ['GITHUB_REPOSITORY'].split('/', 1)[1]
+              value = f'/{repo_name}'
+              print(f"GitHub Pages custom domain not configured; using project base path {value}")
+
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+              output.write(f"value={value}\n")
+          PY
 
       - name: Build with Next.js
         run: npm run build
@@ -103,10 +136,32 @@ jobs:
         run: |
           python3 - <<'PY'
           import os, sys, time, socket, urllib.request, urllib.error
+          from urllib.parse import urljoin, urlparse
+
+          def fetch(url, timeout_seconds):
+            req = urllib.request.Request(url, method="GET", headers={"User-Agent": "gh-actions-smoke"})
+            with urllib.request.urlopen(req, timeout=timeout_seconds) as resp:
+              return resp.getcode(), resp.read().decode("utf-8", errors="replace"), resp.headers
+
+          def fetch_binary(url, timeout_seconds):
+            req = urllib.request.Request(url, method="GET", headers={"User-Agent": "gh-actions-smoke"})
+            with urllib.request.urlopen(req, timeout=timeout_seconds) as resp:
+              return resp.getcode(), resp.headers
+
           url = os.environ.get("DEPLOY_URL")
           if not url:
               print("DEPLOY_URL not set", file=sys.stderr)
               sys.exit(2)
+          if not url.endswith("/"):
+            url = f"{url}/"
+
+          parsed = urlparse(url)
+          base_path = parsed.path.rstrip("/")
+          expected_about_path = f"{base_path}/about/" if base_path else "/about/"
+          expected_asset_path = f"{base_path}/Images/mchs-logo.webp" if base_path else "/Images/mchs-logo.webp"
+          about_url = urljoin(url, "about/")
+          asset_url = urljoin(url, "Images/mchs-logo.webp")
+
           total_wait_seconds = 180
           delay_seconds = 5
           timeout_seconds = 10
@@ -120,20 +175,38 @@ jobs:
                   sys.exit(1)
               attempt += 1
               try:
-                  req = urllib.request.Request(url, method="GET", headers={"User-Agent": "gh-actions-smoke"})
                   req_timeout = min(timeout_seconds, remaining)
-                  with urllib.request.urlopen(req, timeout=req_timeout) as resp:
-                      code = resp.getcode()
-                  print(f"Attempt {attempt}: HTTP {code}")
+                  home_code, home_html, _ = fetch(url, req_timeout)
+                  if home_code != 200:
+                    raise RuntimeError(f"homepage returned HTTP {home_code}")
+                  if expected_about_path not in home_html:
+                    raise RuntimeError(f"homepage missing expected route reference {expected_about_path}")
+                  if expected_asset_path not in home_html:
+                    raise RuntimeError(f"homepage missing expected asset reference {expected_asset_path}")
+
+                  about_code, _, _ = fetch(about_url, req_timeout)
+                  if about_code != 200:
+                    raise RuntimeError(f"about page returned HTTP {about_code}")
+
+                  asset_code, asset_headers = fetch_binary(asset_url, req_timeout)
+                  if asset_code != 200:
+                    raise RuntimeError(f"asset returned HTTP {asset_code}")
+                  asset_type = asset_headers.get_content_type()
+                  if not asset_type.startswith("image/"):
+                    raise RuntimeError(f"asset content type was {asset_type}")
+
+                  print(
+                    f"Attempt {attempt}: homepage=HTTP {home_code}, about=HTTP {about_code}, asset=HTTP {asset_code} ({asset_type})"
+                  )
                   print("Smoke check passed")
                   sys.exit(0)
               except urllib.error.HTTPError as e:
                   last = f"HTTPError {e.code}"
                   print(f"Attempt {attempt}: HTTPError {e.code}")
-                  try:
-                      e.close()
-                  except Exception:
-                      pass
+                  e.close()
+                except RuntimeError as e:
+                  last = str(e)
+                  print(f"Attempt {attempt} validation error: {e}")
               except (urllib.error.URLError, TimeoutError, socket.timeout) as e:
                   last = str(e)
                   print(f"Attempt {attempt} error: {e}")
