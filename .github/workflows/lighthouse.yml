@@ -41,8 +41,8 @@ jobs:
 
       - name: Build site
         run: npm run build
-        env:
-          NEXT_PUBLIC_BASE_PATH: /FFC_Single_Page_Template
+        # No NEXT_PUBLIC_BASE_PATH: Lighthouse CI serves ./out at localhost root,
+        # so assets must be referenced without a subpath prefix
 
       - name: Run Lighthouse CI
         run: |
