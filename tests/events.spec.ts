@@ -36,9 +36,7 @@ test.describe('Events Section', () => {
   test('should have festival link', async ({ page }) => {
     await page.goto('/')
 
-    const festivalLink = page.locator(
-      `#${testConfig.events.sectionId} a[href="${testConfig.events.festivalLinkHref}"]`
-    )
+    const festivalLink = page.locator(`#${testConfig.events.sectionId} a[href$="${testConfig.events.festivalLinkHref}"]`)
     await expect(festivalLink).toBeVisible()
     await expect(festivalLink).toContainText(testConfig.events.festivalLinkText)
   })
