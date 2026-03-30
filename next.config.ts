@@ -2,7 +2,6 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   output: 'export',
-  trailingSlash: true,
   // Images configuration
   images: {
     // This allows all images, local or external, to load without optimization
