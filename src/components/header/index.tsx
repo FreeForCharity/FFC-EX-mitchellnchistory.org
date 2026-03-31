@@ -17,8 +17,10 @@ const menuItems: MenuItem[] = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about/' },
   { label: 'Museum', path: '/museum/' },
+  { label: 'Articles', path: '/articles/' },
   { label: 'Membership', path: '/membership/' },
   { label: 'Festival', path: '/apple-butter-festival/' },
+  { label: 'Videos', path: '/videos/' },
   { label: 'Contact', path: '/contact/' },
 ]
 
