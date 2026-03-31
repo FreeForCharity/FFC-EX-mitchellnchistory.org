@@ -39,12 +39,19 @@ async function fetchJSON(url) {
  * wp-caption wrappers, and inline styles.
  */
 function cleanHTML(html) {
-  return (
-    html
-      // --- Security: strip dangerous content ---
-      .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
-      .replace(/\s*on\w+="[^"]*"/gi, '')
+  // --- Security: loop-based sanitization to handle nested/obfuscated patterns ---
+  let result = html
+  let previous = ''
+  while (result !== previous) {
+    previous = result
+    result = result
+      .replace(/<script\b[^<]*(?:(?!<\/\s*script\s*>)<[^<]*)*<\/\s*script\s*>/gi, '')
+      .replace(/\s+on\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]*)/gi, '')
       .replace(/href\s*=\s*"javascript:[^"]*"/gi, 'href="#"')
+  }
+
+  return (
+    result
       // Replace data-src with src for lazy-loaded images
       .replace(/src="data:image\/[^"]*"\s*/g, '')
       .replace(/data-src="/g, 'src="')
