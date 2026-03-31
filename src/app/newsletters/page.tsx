@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getWpPage } from '@/data/articles'
 import WpPageContent from '@/components/wp-page-content'
+import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Newsletters',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 }
 
 export default function NewslettersPage() {
-  const page = getWpPage('newsletters')!
+  const page = getWpPage('newsletters')
+  if (!page) notFound()
   return <WpPageContent title={page.title} content={page.content} />
 }

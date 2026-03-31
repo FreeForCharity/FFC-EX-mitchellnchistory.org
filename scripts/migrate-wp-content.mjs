@@ -41,6 +41,10 @@ async function fetchJSON(url) {
 function cleanHTML(html) {
   return (
     html
+      // --- Security: strip dangerous content ---
+      .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
+      .replace(/\s*on\w+="[^"]*"/gi, '')
+      .replace(/href\s*=\s*"javascript:[^"]*"/gi, 'href="#"')
       // Replace data-src with src for lazy-loaded images
       .replace(/src="data:image\/[^"]*"\s*/g, '')
       .replace(/data-src="/g, 'src="')

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getWpPages } from '@/data/articles'
+import { sanitizeHtml } from '@/lib/sanitizeHtml'
 
 const videoSlugs = ['event-videos', '2020-videos', '2019-videos', '2017-videos', '2016-videos']
 
@@ -37,7 +38,10 @@ export default function VideosPage() {
                 {page.title}
               </h2>
               <div className="mt-4 h-1 w-20 rounded bg-accent" />
-              <div className="wp-content mt-8" dangerouslySetInnerHTML={{ __html: page.content }} />
+              <div
+                className="wp-content mt-8"
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(page.content) }}
+              />
             </div>
           </div>
         </section>

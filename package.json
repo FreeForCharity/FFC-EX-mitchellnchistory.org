@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "preview": "npx serve out -l 3000",
-    "lint": "eslint src __tests__",
+    "lint": "eslint src __tests__ tests",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "check-links": "linkinator ./out --recurse --config .linkinatorrc.json",

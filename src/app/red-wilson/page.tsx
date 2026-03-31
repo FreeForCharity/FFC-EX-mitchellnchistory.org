@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getWpPage } from '@/data/articles'
 import WpPageContent from '@/components/wp-page-content'
+import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'A Tribute to Red Wilson',
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
 }
 
 export default function RedWilsonPage() {
-  const page = getWpPage('red-wilson')!
+  const page = getWpPage('red-wilson')
+  if (!page) notFound()
   return <WpPageContent title={page.title} content={page.content} />
 }

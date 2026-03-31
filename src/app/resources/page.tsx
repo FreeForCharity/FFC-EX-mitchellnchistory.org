@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getWpPage } from '@/data/articles'
+import { sanitizeHtml } from '@/lib/sanitizeHtml'
 
 export const metadata: Metadata = {
   title: 'Resources & Links',
@@ -35,7 +36,7 @@ export default function ResourcesPage() {
             <div className="mx-auto max-w-3xl">
               <div
                 className="wp-content"
-                dangerouslySetInnerHTML={{ __html: resourcesPage.content }}
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(resourcesPage.content) }}
               />
             </div>
           </div>
@@ -53,7 +54,7 @@ export default function ResourcesPage() {
               <div className="mt-4 h-1 w-20 rounded bg-accent" />
               <div
                 className="wp-content mt-8"
-                dangerouslySetInnerHTML={{ __html: linksPage.content }}
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(linksPage.content) }}
               />
             </div>
           </div>

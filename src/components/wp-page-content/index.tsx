@@ -1,4 +1,5 @@
 import React from 'react'
+import { sanitizeHtml } from '@/lib/sanitizeHtml'
 
 interface WpPageContentProps {
   title: string
@@ -23,7 +24,10 @@ export default function WpPageContent({ title, content }: WpPageContentProps) {
       <section className="bg-paper py-16">
         <div className="ffc-container">
           <div className="mx-auto max-w-3xl">
-            <div className="wp-content" dangerouslySetInnerHTML={{ __html: content }} />
+            <div
+              className="wp-content"
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }}
+            />
           </div>
         </div>
       </section>

@@ -1,18 +1,11 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import type { ArticleMeta } from '@/data/articles'
+import { formatDate } from '@/lib/formatDate'
 
 const ARTICLES_PER_PAGE = 24
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
-}
 
 interface ArticlesListProps {
   articles: ArticleMeta[]
@@ -22,6 +15,16 @@ interface ArticlesListProps {
 export default function ArticlesList({ articles, categories }: ArticlesListProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
   const [currentPage, setCurrentPage] = useState(1)
+
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {}
+    for (const a of articles) {
+      for (const c of a.categories) {
+        counts[c] = (counts[c] || 0) + 1
+      }
+    }
+    return counts
+  }, [articles])
 
   const filtered =
     selectedCategory === 'All'
@@ -53,22 +56,19 @@ export default function ArticlesList({ articles, categories }: ArticlesListProps
         >
           All ({articles.length})
         </button>
-        {categories.map((cat) => {
-          const count = articles.filter((a) => a.categories.includes(cat)).length
-          return (
-            <button
-              key={cat}
-              onClick={() => handleCategoryChange(cat)}
-              className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-                selectedCategory === cat
-                  ? 'bg-primary text-paper'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              {cat} ({count})
-            </button>
-          )
-        })}
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => handleCategoryChange(cat)}
+            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+              selectedCategory === cat
+                ? 'bg-primary text-paper'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            }`}
+          >
+            {cat} ({categoryCounts[cat] || 0})
+          </button>
+        ))}
       </div>
 
       {/* Articles Grid */}

@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { formatDate } from '@/lib/formatDate'
 
 export interface Article {
   slug: string
@@ -29,14 +30,24 @@ export interface Category {
 
 const DATA_DIR = join(process.cwd(), 'src', 'data', 'articles')
 
+let _postsCache: Article[] | null = null
+let _categoriesCache: Category[] | null = null
+let _pagesCache: WpPage[] | null = null
+
 function loadPosts(): Article[] {
-  const raw = readFileSync(join(DATA_DIR, 'posts.json'), 'utf-8')
-  return JSON.parse(raw) as Article[]
+  if (!_postsCache) {
+    const raw = readFileSync(join(DATA_DIR, 'posts.json'), 'utf-8')
+    _postsCache = JSON.parse(raw) as Article[]
+  }
+  return _postsCache
 }
 
 function loadCategories(): Category[] {
-  const raw = readFileSync(join(DATA_DIR, 'categories.json'), 'utf-8')
-  return JSON.parse(raw) as Category[]
+  if (!_categoriesCache) {
+    const raw = readFileSync(join(DATA_DIR, 'categories.json'), 'utf-8')
+    _categoriesCache = JSON.parse(raw) as Category[]
+  }
+  return _categoriesCache
 }
 
 /** Get all articles (full data) */
@@ -77,13 +88,9 @@ export function getActiveCategories(): string[] {
   return [...cats].sort()
 }
 
-/** Format an article date for display */
+/** Format an article date for display (UTC-safe) */
 export function formatArticleDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
+  return formatDate(dateStr)
 }
 
 export interface WpPage {
@@ -95,8 +102,11 @@ export interface WpPage {
 }
 
 function loadPages(): WpPage[] {
-  const raw = readFileSync(join(DATA_DIR, 'pages.json'), 'utf-8')
-  return JSON.parse(raw) as WpPage[]
+  if (!_pagesCache) {
+    const raw = readFileSync(join(DATA_DIR, 'pages.json'), 'utf-8')
+    _pagesCache = JSON.parse(raw) as WpPage[]
+  }
+  return _pagesCache
 }
 
 /** Get a WordPress page by slug */

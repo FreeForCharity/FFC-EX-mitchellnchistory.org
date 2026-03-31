@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { getAllArticles, getArticleBySlug, formatArticleDate } from '@/data/articles'
+import { sanitizeHtml } from '@/lib/sanitizeHtml'
 import { notFound } from 'next/navigation'
 
 interface ArticlePageProps {
@@ -77,7 +78,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <section className="bg-paper py-16">
         <div className="ffc-container">
           <div className="mx-auto max-w-3xl">
-            <div className="wp-content" dangerouslySetInnerHTML={{ __html: article.content }} />
+            <div
+              className="wp-content"
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(article.content) }}
+            />
 
             {/* Back to articles */}
             <div className="mt-12 border-t border-gray-200 pt-8">
