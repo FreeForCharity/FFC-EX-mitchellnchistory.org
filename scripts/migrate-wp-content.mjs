@@ -88,27 +88,36 @@ function cleanHTML(html) {
  * Decode HTML entities in titles
  */
 function decodeEntities(str) {
-  return str
-    .replace(/&#8217;/g, '\u2019')
-    .replace(/&#8216;/g, '\u2018')
-    .replace(/&#8220;/g, '\u201C')
-    .replace(/&#8221;/g, '\u201D')
-    .replace(/&#8211;/g, '\u2013')
-    .replace(/&#8212;/g, '\u2014')
-    .replace(/&#038;/g, '&')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#8230;/g, '\u2026')
-    .replace(/&hellip;/g, '\u2026')
+  // Use a single-pass numeric/named entity decoder to avoid double-decoding
+  return str.replace(
+    /&#(\d+);|&(amp|lt|gt|quot|hellip|#8217|#8216|#8220|#8221|#8211|#8212|#8230|#038);/g,
+    (match, num, name) => {
+      if (num) return String.fromCodePoint(Number(num))
+      const entities = {
+        amp: '&',
+        lt: '<',
+        gt: '>',
+        quot: '"',
+        hellip: '\u2026',
+        '#8217': '\u2019',
+        '#8216': '\u2018',
+        '#8220': '\u201C',
+        '#8221': '\u201D',
+        '#8211': '\u2013',
+        '#8212': '\u2014',
+        '#8230': '\u2026',
+        '#038': '&',
+      }
+      return entities[name] ?? match
+    }
+  )
 }
 
 /**
  * Strip HTML tags from a string (for plain-text excerpts)
  */
 function stripHTML(html) {
-  return html.replace(/<[^>]+>/g, '').trim()
+  return sanitize(html, { allowedTags: [], allowedAttributes: {} }).trim()
 }
 
 // ---------------------------------------------------------------------------
