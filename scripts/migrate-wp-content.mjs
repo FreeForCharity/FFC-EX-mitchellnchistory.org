@@ -13,6 +13,7 @@
 import { writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import sanitize from 'sanitize-html'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
@@ -39,26 +40,34 @@ async function fetchJSON(url) {
  * wp-caption wrappers, and inline styles.
  */
 function cleanHTML(html) {
-  // --- Security: loop-based sanitization to handle nested/obfuscated patterns ---
-  let result = html
-  let previous = ''
-  while (result !== previous) {
-    previous = result
-    result = result
-      .replace(/<script\b[^<]*(?:(?!<\/\s*script\s*>)<[^<]*)*<\/\s*script\s*>/gi, '')
-      .replace(/\s+on\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]*)/gi, '')
-      .replace(/href\s*=\s*"javascript:[^"]*"/gi, 'href="#"')
-  }
+  // Security: allowlist-based sanitization via sanitize-html
+  const sanitized = sanitize(html, {
+    allowedTags: sanitize.defaults.allowedTags.concat([
+      'img',
+      'figure',
+      'figcaption',
+      'iframe',
+      'video',
+      'audio',
+      'source',
+      'h1',
+      'h2',
+    ]),
+    allowedAttributes: {
+      ...sanitize.defaults.allowedAttributes,
+      img: ['src', 'alt', 'width', 'height', 'loading'],
+      iframe: ['src', 'width', 'height', 'frameborder', 'allowfullscreen'],
+      a: ['href', 'name', 'target', 'rel'],
+      source: ['src', 'type'],
+    },
+    allowedIframeHostnames: ['www.youtube.com', 'youtube.com', 'anchor.fm'],
+  })
 
   return (
-    result
+    sanitized
       // Replace data-src with src for lazy-loaded images
       .replace(/src="data:image\/[^"]*"\s*/g, '')
       .replace(/data-src="/g, 'src="')
-      // Remove inline styles
-      .replace(/\s*style="[^"]*"/g, '')
-      // Remove WordPress-specific classes but keep general ones
-      .replace(/\s*class="[^"]*"/g, '')
       // Remove empty paragraphs
       .replace(/<p>\s*&nbsp;\s*<\/p>/g, '')
       // Remove wp-caption divs but keep the image and caption

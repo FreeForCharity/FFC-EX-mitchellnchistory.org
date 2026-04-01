@@ -1,22 +1,29 @@
+import sanitize from 'sanitize-html'
+
 /**
  * Sanitize HTML from WordPress content to prevent XSS.
- * Strips script tags, event-handler attributes, and javascript: URLs.
- * Uses loop-based removal to handle nested/obfuscated patterns.
+ * Uses sanitize-html with an allowlist of safe tags and attributes.
  */
 export function sanitizeHtml(html: string): string {
-  let result = html
-  let previous = ''
-
-  // Loop until no more changes — handles nested or obfuscated patterns
-  while (result !== previous) {
-    previous = result
-    // Remove <script> tags and their content (allows whitespace in closing tag)
-    result = result.replace(/<script\b[^<]*(?:(?!<\/\s*script\s*>)<[^<]*)*<\/\s*script\s*>/gi, '')
-    // Remove event-handler attributes (on*)
-    result = result.replace(/\s+on\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]*)/gi, '')
-    // Remove javascript: URLs in href/src attributes
-    result = result.replace(/(href|src)\s*=\s*["']?\s*javascript\s*:[^"'>]*/gi, '$1=""')
-  }
-
-  return result
+  return sanitize(html, {
+    allowedTags: sanitize.defaults.allowedTags.concat([
+      'img',
+      'figure',
+      'figcaption',
+      'iframe',
+      'video',
+      'audio',
+      'source',
+      'h1',
+      'h2',
+    ]),
+    allowedAttributes: {
+      ...sanitize.defaults.allowedAttributes,
+      img: ['src', 'alt', 'width', 'height', 'loading'],
+      iframe: ['src', 'width', 'height', 'frameborder', 'allowfullscreen'],
+      a: ['href', 'name', 'target', 'rel'],
+      source: ['src', 'type'],
+    },
+    allowedIframeHostnames: ['www.youtube.com', 'youtube.com', 'anchor.fm'],
+  })
 }
