@@ -65,4 +65,25 @@ describe('sanitizeHtml', () => {
     expect(result).toContain('srcset=')
     expect(result).toContain('sizes=')
   })
+
+  it('strips PayPal tracking pixels', () => {
+    const result = sanitizeHtml(
+      '<img src="//www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" alt="" />'
+    )
+    expect(result).not.toContain('paypal.com')
+    expect(result).not.toContain('<img')
+  })
+
+  it('rewrites WordPress date permalinks to article routes', () => {
+    const result = sanitizeHtml(
+      '<a href="https://mitchellnchistory.org/2019/03/11/joshua-of-the-mountains/">link</a>'
+    )
+    expect(result).toContain('href="/articles/joshua-of-the-mountains/"')
+    expect(result).not.toContain('/2019/')
+  })
+
+  it('rewrites relative WordPress date permalinks', () => {
+    const result = sanitizeHtml('<a href="/2020/01/15/some-article/">link</a>')
+    expect(result).toContain('href="/articles/some-article/"')
+  })
 })

@@ -2,6 +2,9 @@ import sanitize from 'sanitize-html'
 
 const WP_ORIGIN = 'https://mitchellnchistory.org'
 
+/** Known tracking pixel hostnames to strip */
+const TRACKING_PIXEL_HOSTS = ['www.paypal.com']
+
 /** Normalize relative/protocol-relative WordPress URLs to absolute */
 function normalizeWpUrl(url: string): string {
   if (url.startsWith('//mitchellnchistory.org')) {
@@ -11,6 +14,29 @@ function normalizeWpUrl(url: string): string {
     return `${WP_ORIGIN}${url.replace(/^\.\./, '')}`
   }
   return url
+}
+
+/** Check if a URL is a known tracking pixel */
+function isTrackingPixel(src: string): boolean {
+  try {
+    const url = new URL(src, WP_ORIGIN)
+    return TRACKING_PIXEL_HOSTS.includes(url.hostname)
+  } catch {
+    return false
+  }
+}
+
+/**
+ * Rewrite old WordPress permalink URLs to new Next.js article routes.
+ * Matches patterns like /YYYY/MM/DD/slug/ → /articles/slug/
+ */
+function rewriteWpPermalink(href: string): string {
+  const wpPermalinkRe = /^(?:https?:\/\/mitchellnchistory\.org)?\/\d{4}\/\d{2}\/\d{2}\/([^/?#]+)\/?/
+  const match = href.match(wpPermalinkRe)
+  if (match) {
+    return `/articles/${match[1]}/`
+  }
+  return href
 }
 
 /**
@@ -44,11 +70,14 @@ export function sanitizeHtml(html: string): string {
           attribs.rel = 'noopener noreferrer'
         }
         if (attribs.href) {
-          attribs.href = normalizeWpUrl(attribs.href)
+          attribs.href = rewriteWpPermalink(normalizeWpUrl(attribs.href))
         }
         return { tagName, attribs }
       },
       img: (tagName, attribs) => {
+        if (attribs.src && isTrackingPixel(attribs.src)) {
+          return { tagName: '', attribs: {} }
+        }
         if (attribs.src) {
           attribs.src = normalizeWpUrl(attribs.src)
         }
