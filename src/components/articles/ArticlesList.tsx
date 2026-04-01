@@ -48,6 +48,7 @@ export default function ArticlesList({ articles, categories }: ArticlesListProps
       <div className="flex flex-wrap gap-2 mb-10">
         <button
           onClick={() => handleCategoryChange('All')}
+          aria-pressed={selectedCategory === 'All'}
           className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
             selectedCategory === 'All'
               ? 'bg-primary text-paper'
@@ -60,6 +61,7 @@ export default function ArticlesList({ articles, categories }: ArticlesListProps
           <button
             key={cat}
             onClick={() => handleCategoryChange(cat)}
+            aria-pressed={selectedCategory === cat}
             className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
               selectedCategory === cat
                 ? 'bg-primary text-paper'

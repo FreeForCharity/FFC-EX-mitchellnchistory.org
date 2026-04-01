@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getWpPage } from '@/data/articles'
 import { sanitizeHtml } from '@/lib/sanitizeHtml'
+import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Resources & Links',
@@ -11,6 +12,10 @@ export const metadata: Metadata = {
 export default function ResourcesPage() {
   const linksPage = getWpPage('links')
   const resourcesPage = getWpPage('resources')
+
+  if (!linksPage && !resourcesPage) {
+    notFound()
+  }
 
   return (
     <div>

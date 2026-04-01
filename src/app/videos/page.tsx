@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getWpPages } from '@/data/articles'
 import { sanitizeHtml } from '@/lib/sanitizeHtml'
+import { notFound } from 'next/navigation'
 
 const videoSlugs = ['event-videos', '2020-videos', '2019-videos', '2017-videos', '2016-videos']
 
@@ -12,6 +13,10 @@ export const metadata: Metadata = {
 
 export default function VideosPage() {
   const videoPages = getWpPages(videoSlugs)
+
+  if (videoPages.length === 0) {
+    notFound()
+  }
 
   return (
     <div>
