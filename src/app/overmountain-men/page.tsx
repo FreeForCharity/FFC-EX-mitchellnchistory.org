@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Overmountain Men',
   description:
     'Explore the story of the Overmountain Men and the Overmountain Victory National Historic Trail through Mitchell County, NC.',
+  alternates: { canonical: '/overmountain-men/' },
 }
 
 export default function OvermountainMenPage() {

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Tour of Homes',
   description:
     'Annual Tour of Homes event by the Mitchell County Historical Society in North Carolina.',
+  alternates: { canonical: '/tour-of-homes/' },
 }
 
 export default function TourOfHomesPage() {

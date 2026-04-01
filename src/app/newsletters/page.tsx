@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Newsletters',
   description:
     'Read past newsletters and stay up to date with the Mitchell County Historical Society.',
+  alternates: { canonical: '/newsletters/' },
 }
 
 export default function NewslettersPage() {

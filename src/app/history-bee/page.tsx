@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'History Bee',
   description:
     'The Mitchell County History Bee challenges local students on their knowledge of Mitchell County history and heritage.',
+  alternates: { canonical: '/history-bee/' },
 }
 
 export default function HistoryBeePage() {

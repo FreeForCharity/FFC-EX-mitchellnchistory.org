@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation'
 export const metadata: Metadata = {
   title: 'A Tribute to Red Wilson',
   description: 'A tribute to Red Wilson and his contributions to Mitchell County, North Carolina.',
+  alternates: { canonical: '/red-wilson/' },
 }
 
 export default function RedWilsonPage() {

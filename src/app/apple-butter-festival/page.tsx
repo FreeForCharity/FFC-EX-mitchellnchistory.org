@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Apple Butter Festival',
   description:
     'Join us each October along the Bakersville Creekwalk for the annual Apple Butter Festival — live music, crafts, food, and more.',
+  alternates: { canonical: '/apple-butter-festival/' },
 }
 
 export default function AppleButterFestivalPage() {

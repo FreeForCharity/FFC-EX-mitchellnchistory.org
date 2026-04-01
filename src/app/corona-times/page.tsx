@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'The Corona Times',
   description:
     'Documenting life in Mitchell County during the COVID-19 pandemic — a community diary project by MCHS.',
+  alternates: { canonical: '/corona-times/' },
 }
 
 export default function CoronaTimesPage() {

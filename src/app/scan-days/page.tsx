@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Scan Days',
   description:
     'Bring your old family photos and documents to our Scan Days events in Bakersville and Spruce Pine for free digital preservation.',
+  alternates: { canonical: '/scan-days/' },
 }
 
 export default function ScanDaysPage() {

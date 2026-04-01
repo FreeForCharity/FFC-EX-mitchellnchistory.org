@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'McBee Museum',
   description:
     'Visit the McBee Museum in Bakersville, NC — housed in a historic 1890s building with exhibits on Mitchell County history.',
+  alternates: { canonical: '/museum/' },
 }
 
 export default function MuseumPage() {

@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation'
 export const metadata: Metadata = {
   title: 'Mitchell County, NC World War I Inductees',
   description: 'Records of Mitchell County, North Carolina residents inducted during World War I.',
+  alternates: { canonical: '/mitchell-county-nc-world-war-inductees/' },
 }
 
 export default function WwInducteesPage() {

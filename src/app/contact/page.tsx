@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Contact Us',
   description:
     'Contact the Mitchell County Historical Society. Visit us at the Historic Mitchell County Courthouse in Bakersville, NC.',
+  alternates: { canonical: '/contact/' },
 }
 
 export default function ContactPage() {

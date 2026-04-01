@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Penland Cemetery Reclamation & Restoration',
   description:
     'Learn about the Penland Cemetery Reclamation and Restoration Project — preserving an African-American burial ground in Mitchell County, NC.',
+  alternates: { canonical: '/penland-cemetery/' },
 }
 
 export default function PenlandCemeteryPage() {

@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { getAllArticles, getArticleBySlug, formatArticleDate } from '@/data/articles'
 import { sanitizeHtml } from '@/lib/sanitizeHtml'
 import { notFound } from 'next/navigation'
+import { articleJsonLd } from '@/lib/jsonLd'
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>
@@ -23,6 +24,9 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   return {
     title: article.title,
     description: article.excerpt || `Read about ${article.title} from Mitchell County history.`,
+    alternates: {
+      canonical: `/articles/${slug}/`,
+    },
     openGraph: {
       title: article.title,
       description: article.excerpt,
@@ -45,6 +49,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <div>
+      {/* Article JSON-LD structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd(article)) }}
+      />
+
       {/* Hero */}
       <section className="relative bg-dark py-16 text-paper">
         {article.featuredImage && (

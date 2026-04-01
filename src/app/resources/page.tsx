@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Resources & Links',
   description:
     'Helpful resources and links for genealogy, local history research, and Mitchell County information.',
+  alternates: { canonical: '/resources/' },
 }
 
 export default function ResourcesPage() {

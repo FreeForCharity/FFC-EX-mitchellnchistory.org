@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Inez McRae Memorial Scholarship',
   description:
     'The Mitchell County Historical Society awards the annual Inez McRae Memorial Scholarship to a Mitchell County high school senior.',
+  alternates: { canonical: '/scholarship/' },
 }
 
 export default function ScholarshipPage() {

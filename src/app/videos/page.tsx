@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: 'Videos',
   description:
     'Watch videos from Mitchell County Historical Society events, programs, and historical presentations.',
+  alternates: { canonical: '/videos/' },
 }
 
 export default function VideosPage() {

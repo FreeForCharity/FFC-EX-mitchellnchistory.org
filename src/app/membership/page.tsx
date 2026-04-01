@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Membership',
   description:
     'Join the Mitchell County Historical Society and support the preservation of Mitchell County heritage.',
+  alternates: { canonical: '/membership/' },
 }
 
 export default function MembershipPage() {

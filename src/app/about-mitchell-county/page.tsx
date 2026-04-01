@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'About Mitchell County',
   description:
     'Learn about Mitchell County, North Carolina — its geography, history, communities, and cultural heritage in the Blue Ridge Mountains.',
+  alternates: { canonical: '/about-mitchell-county/' },
 }
 
 export default function AboutMitchellCountyPage() {

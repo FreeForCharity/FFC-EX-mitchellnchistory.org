@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Mitchell County, NC World War I Enlistees',
   description:
     'Records of Mitchell County, North Carolina residents who enlisted during World War I.',
+  alternates: { canonical: '/mitchell-county-nc-world-war-enlistees/' },
 }
 
 export default function WwEnlisteesPage() {

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Articles',
   description:
     'Explore stories of the people, places, history, and heritage of Mitchell County, North Carolina.',
+  alternates: { canonical: '/articles/' },
 }
 
 export default function ArticlesPage() {
