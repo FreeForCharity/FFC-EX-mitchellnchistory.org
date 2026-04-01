@@ -55,7 +55,7 @@ function cleanHTML(html) {
     ]),
     allowedAttributes: {
       ...sanitize.defaults.allowedAttributes,
-      img: ['src', 'alt', 'width', 'height', 'loading'],
+      img: ['src', 'alt', 'width', 'height', 'loading', 'srcset', 'sizes'],
       iframe: ['src', 'width', 'height', 'frameborder', 'allowfullscreen'],
       a: ['href', 'name', 'target', 'rel'],
       source: ['src', 'type'],
@@ -65,9 +65,14 @@ function cleanHTML(html) {
 
   return (
     sanitized
+      // Strip Divi/ET Builder shortcodes (e.g. [et_pb_section ...][/et_pb_section])
+      .replace(/\[\/?et_pb_[^\]]*\]/g, '')
       // Replace data-src with src for lazy-loaded images
       .replace(/src="data:image\/[^"]*"\s*/g, '')
       .replace(/data-src="/g, 'src="')
+      // Convert data-srcset/data-sizes to srcset/sizes for responsive images
+      .replace(/data-srcset="/g, 'srcset="')
+      .replace(/data-sizes="/g, 'sizes="')
       // Remove empty paragraphs
       .replace(/<p>\s*&nbsp;\s*<\/p>/g, '')
       // Remove wp-caption divs but keep the image and caption

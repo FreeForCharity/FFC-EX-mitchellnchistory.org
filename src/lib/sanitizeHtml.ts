@@ -19,7 +19,7 @@ export function sanitizeHtml(html: string): string {
     ]),
     allowedAttributes: {
       ...sanitize.defaults.allowedAttributes,
-      img: ['src', 'alt', 'width', 'height', 'loading'],
+      img: ['src', 'alt', 'width', 'height', 'loading', 'srcset', 'sizes'],
       iframe: ['src', 'width', 'height', 'frameborder', 'allowfullscreen'],
       a: ['href', 'name', 'target', 'rel'],
       source: ['src', 'type'],
