@@ -31,6 +31,7 @@ export interface Category {
 const DATA_DIR = join(process.cwd(), 'src', 'data', 'articles')
 
 let _postsCache: Article[] | null = null
+let _slugMap: Map<string, Article> | null = null
 let _categoriesCache: Category[] | null = null
 let _pagesCache: WpPage[] | null = null
 
@@ -72,9 +73,12 @@ export function getAllCategories(): Category[] {
   return loadCategories()
 }
 
-/** Get a single article by slug */
+/** Get a single article by slug (O(1) via cached Map) */
 export function getArticleBySlug(slug: string): Article | undefined {
-  return loadPosts().find((a) => a.slug === slug)
+  if (!_slugMap) {
+    _slugMap = new Map(loadPosts().map((a) => [a.slug, a]))
+  }
+  return _slugMap.get(slug)
 }
 
 /** Get all unique category names that have articles */

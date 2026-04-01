@@ -25,5 +25,13 @@ export function sanitizeHtml(html: string): string {
       source: ['src', 'type'],
     },
     allowedIframeHostnames: ['www.youtube.com', 'youtube.com', 'anchor.fm'],
+    transformTags: {
+      a: (tagName, attribs) => {
+        if (attribs.target === '_blank') {
+          attribs.rel = 'noopener noreferrer'
+        }
+        return { tagName, attribs }
+      },
+    },
   })
 }
