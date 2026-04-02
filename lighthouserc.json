@@ -3,19 +3,19 @@
     "collect": {
       "staticDistDir": "./out",
       "url": [
-        "http://localhost/index.html",
-        "http://localhost/cookie-policy.html",
-        "http://localhost/privacy-policy.html",
-        "http://localhost/terms-of-service.html",
-        "http://localhost/about.html",
-        "http://localhost/contact.html",
-        "http://localhost/membership.html",
-        "http://localhost/museum.html",
-        "http://localhost/articles.html",
-        "http://localhost/scholarship.html",
-        "http://localhost/scan-days.html",
-        "http://localhost/videos.html",
-        "http://localhost/resources.html"
+        "http://localhost/",
+        "http://localhost/cookie-policy/",
+        "http://localhost/privacy-policy/",
+        "http://localhost/terms-of-service/",
+        "http://localhost/about/",
+        "http://localhost/contact/",
+        "http://localhost/membership/",
+        "http://localhost/museum/",
+        "http://localhost/articles/",
+        "http://localhost/scholarship/",
+        "http://localhost/scan-days/",
+        "http://localhost/videos/",
+        "http://localhost/resources/"
       ],
       "numberOfRuns": 3
     },
