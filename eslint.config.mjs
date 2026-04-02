@@ -25,6 +25,8 @@ const eslintConfig = [
       'next-env.d.ts',
       'test-results/**',
       'playwright-report/**',
+      'scripts/**',
+      'src/data/articles/**',
     ],
   },
   {

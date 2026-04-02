@@ -15,6 +15,7 @@ import {
   cinzel,
 } from '@/lib/fonts'
 import { siteUrl } from '@/lib/siteConfig'
+import { organizationJsonLd, safeJsonLdStringify } from '@/lib/jsonLd'
 
 // Get basePath for GitHub Pages deployment
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
@@ -91,6 +92,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Security meta tags (static export cannot set HTTP headers) */}
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+
         {/* Preconnect to external domains for faster resource loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
@@ -104,6 +108,12 @@ export default function RootLayout({
         />
 
         <GoogleTagManager />
+
+        {/* JSON-LD Organization structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLdStringify(organizationJsonLd()) }}
+        />
       </head>
       <body
         className={[
