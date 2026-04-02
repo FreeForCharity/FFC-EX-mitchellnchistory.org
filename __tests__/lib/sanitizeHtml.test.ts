@@ -86,4 +86,10 @@ describe('sanitizeHtml', () => {
     const result = sanitizeHtml('<a href="/2020/01/15/some-article/">link</a>')
     expect(result).toContain('href="/articles/some-article/"')
   })
+
+  it('does not normalize protocol-relative URLs from other domains', () => {
+    const result = sanitizeHtml('<a href="//mitchellnchistory.org.evil.com/malicious">link</a>')
+    expect(result).not.toContain('https://mitchellnchistory.org.evil.com')
+    expect(result).toContain('//mitchellnchistory.org.evil.com')
+  })
 })

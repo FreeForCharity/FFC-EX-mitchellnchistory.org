@@ -7,7 +7,7 @@ const TRACKING_PIXEL_HOSTS = ['www.paypal.com']
 
 /** Normalize relative/protocol-relative WordPress URLs to absolute */
 function normalizeWpUrl(url: string): string {
-  if (url.startsWith('//mitchellnchistory.org')) {
+  if (url.startsWith('//mitchellnchistory.org/') || url === '//mitchellnchistory.org') {
     return `https:${url}`
   }
   if (url.startsWith('../wp-content/') || url.startsWith('/wp-content/')) {
