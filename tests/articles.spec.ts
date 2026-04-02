@@ -23,7 +23,7 @@ test.describe('Articles Listing Page', () => {
 
   test('should show article cards', async ({ page }) => {
     // Article links should appear in the listing
-    const articleLinks = page.locator('a[href^="/articles/"]')
+    const articleLinks = page.locator('a[href*="/articles/"]:not([href$="/articles/"])')
     const count = await articleLinks.count()
     expect(count).toBeGreaterThan(0)
   })
@@ -54,7 +54,7 @@ test.describe('Articles Listing Page', () => {
     await expect(allButton).toHaveAttribute('aria-pressed', 'false')
 
     // Verify articles shown contain the selected category (check first card)
-    const firstCard = page.locator('a[href^="/articles/"]').first()
+    const firstCard = page.locator('a[href*="/articles/"]:not([href$="/articles/"])').first()
     await expect(firstCard).toBeVisible()
 
     // If there's a category badge, it should match
@@ -68,7 +68,7 @@ test.describe('Articles Listing Page', () => {
     // The page should show some indication of how many articles exist
     const bodyText = await page.locator('body').innerText()
     // There should be articles visible (at least one link)
-    const links = page.locator('a[href^="/articles/"]')
+    const links = page.locator('a[href*="/articles/"]:not([href$="/articles/"])')
     expect(await links.count()).toBeGreaterThan(0)
     expect(bodyText.length).toBeGreaterThan(100)
   })
@@ -78,7 +78,7 @@ test.describe('Individual Article Page', () => {
   test('should render a specific article with title, date, and content', async ({ page }) => {
     // Navigate to the first article from the listing
     await page.goto('/articles')
-    const firstArticleLink = page.locator('a[href^="/articles/"]').first()
+    const firstArticleLink = page.locator('a[href*="/articles/"]:not([href$="/articles/"])').first()
     const href = await firstArticleLink.getAttribute('href')
     expect(href).toBeTruthy()
 
@@ -92,7 +92,7 @@ test.describe('Individual Article Page', () => {
     expect(title.length).toBeGreaterThan(0)
 
     // Date should be visible
-    const time = page.locator('time')
+    const time = page.locator('time').first()
     await expect(time).toBeVisible()
 
     // Sanitized content area
@@ -102,7 +102,7 @@ test.describe('Individual Article Page', () => {
 
   test('should show category badges on article page', async ({ page }) => {
     await page.goto('/articles')
-    const firstLink = page.locator('a[href^="/articles/"]').first()
+    const firstLink = page.locator('a[href*="/articles/"]:not([href$="/articles/"])').first()
     await firstLink.click()
     await page.waitForLoadState('domcontentloaded')
 
@@ -116,7 +116,7 @@ test.describe('Individual Article Page', () => {
 
   test('should have back-to-articles link', async ({ page }) => {
     await page.goto('/articles')
-    const firstLink = page.locator('a[href^="/articles/"]').first()
+    const firstLink = page.locator('a[href*="/articles/"]:not([href$="/articles/"])').first()
     await firstLink.click()
     await page.waitForLoadState('domcontentloaded')
 

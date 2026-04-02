@@ -26,6 +26,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Ensure both /about and /about/ resolve (generates dir/index.html)
+  trailingSlash: true,
   // Optional: base path and asset prefix if using a subdirectory deployment
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || '',
