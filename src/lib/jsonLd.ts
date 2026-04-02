@@ -1,5 +1,16 @@
 import { siteUrl } from '@/lib/siteConfig'
 
+/**
+ * Safely serialize a JSON-LD object for embedding in a <script> tag.
+ * Escapes characters that could break out of the script context.
+ */
+export function safeJsonLdStringify(data: Record<string, unknown>): string {
+  return JSON.stringify(data)
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/&/g, '\\u0026')
+}
+
 export function organizationJsonLd() {
   return {
     '@context': 'https://schema.org',

@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import { getAllArticles, getArticleBySlug, formatArticleDate } from '@/data/articles'
 import { sanitizeHtml } from '@/lib/sanitizeHtml'
 import { notFound } from 'next/navigation'
-import { articleJsonLd } from '@/lib/jsonLd'
+import { articleJsonLd, safeJsonLdStringify } from '@/lib/jsonLd'
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>
@@ -52,7 +52,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       {/* Article JSON-LD structured data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd(article)) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLdStringify(articleJsonLd(article)) }}
       />
 
       {/* Hero */}

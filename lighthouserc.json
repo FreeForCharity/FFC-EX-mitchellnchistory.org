@@ -12,8 +12,8 @@
         "http://localhost/membership.html",
         "http://localhost/museum.html",
         "http://localhost/articles.html",
-        "http://localhost/articles/scholarship.html",
-        "http://localhost/articles/scan-days.html",
+        "http://localhost/scholarship.html",
+        "http://localhost/scan-days.html",
         "http://localhost/videos.html",
         "http://localhost/resources.html"
       ],

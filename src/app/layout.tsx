@@ -15,7 +15,7 @@ import {
   cinzel,
 } from '@/lib/fonts'
 import { siteUrl } from '@/lib/siteConfig'
-import { organizationJsonLd } from '@/lib/jsonLd'
+import { organizationJsonLd, safeJsonLdStringify } from '@/lib/jsonLd'
 
 // Get basePath for GitHub Pages deployment
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
@@ -112,7 +112,7 @@ export default function RootLayout({
         {/* JSON-LD Organization structured data */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLdStringify(organizationJsonLd()) }}
         />
       </head>
       <body
