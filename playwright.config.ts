@@ -49,6 +49,8 @@ function findChromiumExecutable(): string | undefined {
  */
 export default defineConfig({
   testDir: './tests',
+  // Smoke specs hit a live deployed URL and have their own config.
+  testIgnore: ['**/smoke/**'],
   // Run tests in parallel for better performance
   fullyParallel: true,
   // Fail the build on CI if you accidentally left test.only in the source code

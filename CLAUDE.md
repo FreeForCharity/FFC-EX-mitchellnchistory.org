@@ -12,23 +12,26 @@ For the broader FFC reference (mission, governance, full agent guidance), see `A
 
 Tooling: Next.js 16 (App Router) + TypeScript (strict) + Tailwind v4 + Jest + Playwright. Node 20 in CI.
 
-| Command                | Purpose                                          |
-| ---------------------- | ------------------------------------------------ |
-| `npm install`          | Install dependencies (~17s)                      |
-| `npm run dev`          | Dev server with Turbopack at `localhost:3000`    |
-| `npm run build`        | Static export to `out/` (~30s)                   |
-| `npm run preview`      | Serve `out/` locally (used by Playwright)        |
-| `npm run format`       | Prettier write                                   |
-| `npm run format:check` | Prettier check (CI gate)                         |
-| `npm run lint`         | ESLint over `src __tests__ tests`                |
-| `npm test`             | Jest unit + a11y tests                           |
-| `npm run test:watch`   | Jest watch mode                                  |
-| `npm run test:e2e`     | Playwright E2E (auto-runs `npm run preview`)     |
-| `npm run check-links`  | Linkinator over built `out/`                     |
+| Command                | Purpose                                           |
+| ---------------------- | ------------------------------------------------- |
+| `npm install`          | Install dependencies (~17s)                       |
+| `npm run dev`          | Dev server with Turbopack at `localhost:3000`     |
+| `npm run build`        | Static export to `out/` (~30s)                    |
+| `npm run preview`      | Serve `out/` locally (used by Playwright)         |
+| `npm run format`       | Prettier write                                    |
+| `npm run format:check` | Prettier check (CI gate)                          |
+| `npm run lint`         | ESLint over `src __tests__ tests`                 |
+| `npm test`             | Jest unit + a11y tests                            |
+| `npm run test:watch`   | Jest watch mode                                   |
+| `npm run test:e2e`     | Playwright E2E (auto-runs `npm run preview`)      |
+| `npm run smoke`        | Post-deploy smoke against live URL (default prod) |
+| `npm run check-links`  | Linkinator over built `out/`                      |
 
 **Run a single Jest test:** `npx jest __tests__/components/Header.test.tsx` or `npx jest -t "renders nav"`. Test files live in `__tests__/` and must match `**/__tests__/**/*.test.{js,ts,tsx}` (see `jest.config.js`).
 
 **Run a single Playwright test:** `npx playwright test tests/navigation.spec.ts` or `npx playwright test -g "footer link"`. The `webServer` config builds via `npm run preview`, so run `npm run build` first if `out/` is stale. Use `npm run test:e2e:ui` for the UI runner, `:headed` for headed mode.
+
+**Post-deploy smoke:** `npm run smoke` runs `tests/smoke/*.spec.ts` against `https://mitchellnchistory.org` (override with `SMOKE_BASE_URL`). It does not start a local server. The main E2E config ignores `tests/smoke/` so these only run on demand.
 
 **Long commands:** `npm install`, `npm run build`, and `npm run test:e2e` need 180+ second timeouts. Never cancel them — let them finish and read the error if they fail.
 
@@ -58,7 +61,7 @@ Sites deploy to two surfaces: a custom domain (no prefix) and `https://freeforch
 
 ```tsx
 import { assetPath } from '@/lib/assetPath'
-<img src={assetPath('/Images/hero.jpg')} alt="..." />
+;<img src={assetPath('/Images/hero.jpg')} alt="..." />
 ```
 
 `<img>` with `assetPath()` is the correct pattern for static export — `next/image` has limitations and ESLint warnings about `<img>` here are expected.
