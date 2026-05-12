@@ -16,6 +16,7 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
+    "smoke": "playwright test --config playwright.smoke.config.ts",
     "prepare": "husky"
   },
   "dependencies": {
