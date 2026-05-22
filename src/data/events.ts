@@ -95,16 +95,23 @@ export const events: Event[] = [
 /**
  * Returns events sorted by their next upcoming occurrence relative to `now`.
  * Each event recurs annually, so an event whose month/day has already passed
- * this year rolls forward to the same date next year.
+ * rolls forward to the same date next year.
+ *
+ * Comparison is done at UTC-day granularity so that an event scheduled for
+ * "today" stays featured all day rather than rolling to next year as soon
+ * as UTC midnight passes (which is mid-evening in US Eastern time).
+ *
+ * On a static export, `now` is the build timestamp, not the visitor's clock.
  */
 export function getEventsByNextOccurrence(
   now: Date = new Date()
 ): Array<Event & { nextDate: Date }> {
+  const startOfToday = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())
   const year = now.getUTCFullYear()
   return events
     .map((event) => {
       let nextDate = new Date(Date.UTC(year, event.month - 1, event.day))
-      if (nextDate.getTime() < now.getTime()) {
+      if (nextDate.getTime() < startOfToday) {
         nextDate = new Date(Date.UTC(year + 1, event.month - 1, event.day))
       }
       return { ...event, nextDate }
