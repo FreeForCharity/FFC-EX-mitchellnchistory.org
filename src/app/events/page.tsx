@@ -64,48 +64,56 @@ export default function EventsPage() {
             {upcoming.map((event) => {
               const detailHref = event.href ?? event.externalHref
               const isExternal = !event.href && !!event.externalHref
+              const cardImage = event.image ?? '/Images/mchs-hero.webp'
               return (
                 <li
                   key={event.slug}
-                  className="flex flex-col rounded-xl border border-gray-200 bg-paper p-6 shadow-sm transition hover:shadow-md"
+                  className="flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-paper shadow-sm transition hover:shadow-md"
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="font-serif-display text-2xl font-bold text-primary">
-                      {event.name}
-                    </h3>
+                  <div className="relative">
+                    <img
+                      src={assetPath(cardImage)}
+                      alt={event.name}
+                      className="aspect-[16/9] w-full object-cover"
+                    />
                     {event.hostedByMchs && (
-                      <span className="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-paper">
+                      <span className="absolute right-3 top-3 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-paper shadow">
                         Hosted by MCHS
                       </span>
                     )}
                   </div>
-                  <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-accent">
-                    {event.dateLabel} · {event.location}
-                  </p>
-                  <p className="mt-4 flex-1 text-gray-700">{event.summary}</p>
-                  {detailHref && (
-                    <div className="mt-6">
-                      {isExternal ? (
-                        <a
-                          href={detailHref}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`Visit the organizer site for ${event.name} (opens in a new tab)`}
-                          className="font-semibold text-accent hover:underline"
-                        >
-                          Visit organizer site →
-                        </a>
-                      ) : (
-                        <Link
-                          href={detailHref}
-                          aria-label={`Read more about ${event.name}`}
-                          className="font-semibold text-accent hover:underline"
-                        >
-                          Event details →
-                        </Link>
-                      )}
-                    </div>
-                  )}
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="font-serif-display text-2xl font-bold text-primary">
+                      {event.name}
+                    </h3>
+                    <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-accent">
+                      {event.dateLabel} · {event.location}
+                    </p>
+                    <p className="mt-4 flex-1 text-gray-700">{event.summary}</p>
+                    {detailHref && (
+                      <div className="mt-6">
+                        {isExternal ? (
+                          <a
+                            href={detailHref}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Visit the organizer site for ${event.name} (opens in a new tab)`}
+                            className="font-semibold text-accent hover:underline"
+                          >
+                            Visit organizer site →
+                          </a>
+                        ) : (
+                          <Link
+                            href={detailHref}
+                            aria-label={`Read more about ${event.name}`}
+                            className="font-semibold text-accent hover:underline"
+                          >
+                            Event details →
+                          </Link>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 </li>
               )
             })}
