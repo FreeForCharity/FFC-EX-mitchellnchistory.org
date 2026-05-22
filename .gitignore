@@ -48,3 +48,6 @@ next-env.d.ts
 # Decap CMS uploads
 /public/uploads
 *.bak
+
+# local audit / scratch artifacts
+/tmp/
