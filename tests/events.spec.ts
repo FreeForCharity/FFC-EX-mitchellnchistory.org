@@ -4,8 +4,11 @@ import { testConfig } from './test.config'
 /**
  * Events Section Tests
  *
- * These tests verify that the Events section (Apple Butter Festival) renders
- * correctly on the homepage.
+ * Verifies the homepage Events & Festivals section, which features whichever
+ * Mitchell County event is nearest to the build date and links to the
+ * standalone /events/ listing page. The featured event rotates, so the
+ * assertions target the stable section heading and "See All Events" link
+ * rather than a specific festival.
  *
  * Note: Test expectations use values from test.config.ts for easy customization
  */
@@ -43,7 +46,7 @@ test.describe('Events Section', () => {
     await expect(festivalLink).toContainText(testConfig.events.festivalLinkText)
   })
 
-  test('should contain description text about Bakersville Creekwalk', async ({ page }) => {
+  test('should contain the configured description text in the events section', async ({ page }) => {
     await page.goto('/')
 
     const eventsSection = page.locator(`#${testConfig.events.sectionId}`)

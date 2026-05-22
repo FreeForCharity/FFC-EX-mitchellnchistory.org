@@ -25,13 +25,18 @@ export const testConfig = {
   /**
    * Events Section Configuration
    * Used in: tests/events.spec.ts
+   *
+   * The featured event on the homepage rotates based on which Mitchell County
+   * festival is nearest to today's date, so test assertions target the stable
+   * section heading and the "See All Events" link rather than a specific
+   * festival name.
    */
   events: {
     sectionId: 'events',
-    heading: 'Apple Butter Festival',
-    festivalLinkText: 'Festival Details',
-    festivalLinkHref: '/apple-butter-festival',
-    descriptionText: 'Bakersville Creekwalk',
+    heading: 'Events & Festivals',
+    festivalLinkText: 'See All Events',
+    festivalLinkHref: '/events/',
+    descriptionText: 'Mitchell County',
   },
 
   /**
