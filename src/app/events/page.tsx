@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   description:
     'A guide to festivals and events held throughout the year in Mitchell County, North Carolina — from the NC Rhododendron Festival to the Apple Butter Festival and more.',
   alternates: { canonical: '/events/' },
+  openGraph: {
+    url: '/events/',
+    title: 'Festivals & Events in Mitchell County',
+    description: 'A year-round guide to festivals and events in Mitchell County, North Carolina.',
+  },
 }
 
 export default function EventsPage() {
@@ -85,6 +90,7 @@ export default function EventsPage() {
                           href={detailHref}
                           target="_blank"
                           rel="noopener noreferrer"
+                          aria-label={`Visit the organizer site for ${event.name} (opens in a new tab)`}
                           className="font-semibold text-accent hover:underline"
                         >
                           Visit organizer site →
@@ -92,6 +98,7 @@ export default function EventsPage() {
                       ) : (
                         <Link
                           href={detailHref}
+                          aria-label={`Read more about ${event.name}`}
                           className="font-semibold text-accent hover:underline"
                         >
                           Event details →
