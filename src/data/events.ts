@@ -32,7 +32,7 @@ export const events: Event[] = [
       "Bakersville's signature summer celebration, honoring the spectacular bloom of Catawba rhododendrons on nearby Roan Mountain. The festival features a parade, live music, arts and crafts vendors, a 10K road race, food, and the crowning of the festival queen.",
     location: 'Downtown Bakersville',
     externalHref: 'https://www.ncrhododendronfestival.org/',
-    image: '/Images/mchs-hero.webp',
+    image: '/Images/event-rhododendron-festival.jpg',
   },
   {
     slug: 'mineral-and-gem-festival',
@@ -44,6 +44,7 @@ export const events: Event[] = [
       'A long-running celebration of the mineral wealth of the Spruce Pine Mining District, featuring vendors selling gems, minerals, jewelry, beads, and fossils alongside demonstrations and family activities.',
     location: 'Spruce Pine',
     externalHref: 'https://ncgemfest.com/',
+    image: '/Images/event-mineral-gem-festival.jpg',
   },
   {
     slug: 'toe-river-studio-tour',
@@ -55,6 +56,7 @@ export const events: Event[] = [
       'A self-guided driving tour through Mitchell and Yancey counties where visitors meet working artists in their studios. One of the most respected studio tours in the Southeast.',
     location: 'Mitchell & Yancey counties',
     externalHref: 'https://toeriverarts.org/studio-tour/',
+    image: '/Images/event-toe-river-studio-tour.jpg',
   },
   {
     slug: 'penland-annual-benefit-auction',
@@ -66,6 +68,7 @@ export const events: Event[] = [
       'Penland School of Craft hosts its annual benefit auction featuring hundreds of works by leading contemporary craft artists. The event supports scholarships and programs at this internationally known craft school.',
     location: 'Penland School of Craft',
     externalHref: 'https://penland.org/the-auction/',
+    image: '/Images/event-penland-auction.jpg',
   },
   {
     slug: 'apple-butter-festival',
@@ -89,6 +92,7 @@ export const events: Event[] = [
     summary:
       'The holiday season opens with a small-town Christmas parade through downtown Bakersville, complete with floats, fire trucks, music, and a visit from Santa.',
     location: 'Downtown Bakersville',
+    image: '/Images/event-bakersville-christmas-parade.jpg',
   },
 ]
 

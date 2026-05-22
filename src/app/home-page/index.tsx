@@ -7,7 +7,7 @@ export default function HomePage() {
   const featured = getFeaturedEvent()
   const featuredDetailHref = featured.href ?? featured.externalHref
   const featuredIsExternal = !featured.href && !!featured.externalHref
-  const featuredImage = featured.image ?? '/Images/mchs-festival.webp'
+  const featuredImage = featured.image ?? '/Images/mchs-hero.webp'
 
   return (
     <div>
