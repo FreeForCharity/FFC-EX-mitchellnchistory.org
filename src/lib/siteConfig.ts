@@ -17,6 +17,7 @@ export const sitemapRoutes = [
   '/newsletters/',
   '/history-bee/',
   '/red-wilson/',
+  '/six-women-six-voices/',
   '/about-mitchell-county/',
   '/tour-of-homes/',
   '/mitchell-county-nc-world-war-inductees/',

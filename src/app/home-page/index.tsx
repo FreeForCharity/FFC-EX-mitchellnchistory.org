@@ -97,6 +97,54 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Featured Program: Six Women, Six Voices */}
+      <section className="bg-paper py-20 border-t border-b border-gray-100">
+        <div className="ffc-container">
+          <div className="items-center gap-12 md:flex flex-row-reverse">
+            <div className="md:w-1/2">
+              <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+                Special Historical Feature
+              </span>
+              <h2 className="mt-2 font-serif-display text-3xl font-bold text-primary md:text-4xl">
+                Six Women, Six Voices
+              </h2>
+              <div className="mt-4 h-1 w-20 rounded bg-accent" />
+              <p className="mt-6 text-lg leading-relaxed text-gray-700">
+                Discover the extraordinary lives, contributions, and enduring legacies of six
+                remarkable women who helped shape Mitchell County. From pioneering the Appalachian
+                craft revival and advocating for women’s voting rights, to preserving our musical
+                heritage and providing vital community healthcare, these trailblazers forged a path
+                of resilience and inspiration.
+              </p>
+              <Link
+                href="/six-women-six-voices/"
+                className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-semibold text-paper transition hover:opacity-90"
+              >
+                Explore Their Stories
+              </Link>
+            </div>
+            <div className="mt-8 md:mt-0 md:w-1/2">
+              <div className="relative overflow-hidden rounded-xl shadow-md">
+                <img
+                  src={assetPath('/Images/mchs-hero.webp')}
+                  alt="Scenic mountains representing Mitchell County heritage"
+                  className="h-80 w-full object-cover transition duration-500 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 text-paper">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+                    Honoring Legacy
+                  </p>
+                  <h3 className="font-serif-display text-xl font-bold">
+                    Celebrating Mitchell County Pioneers
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Get Involved */}
       <section className="bg-paper py-20">
         <div className="ffc-container">
