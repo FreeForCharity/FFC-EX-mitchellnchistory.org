@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
               { name: 'About Us', href: '/about/' },
               { name: 'McBee Museum', href: '/museum/' },
               { name: 'Membership', href: '/membership/' },
-              { name: 'Apple Butter Festival', href: '/apple-butter-festival/' },
+              { name: 'Festivals & Events', href: '/events/' },
               { name: 'Contact Us', href: '/contact/' },
               { name: 'Online Store', href: 'https://store.mitchellnchistory.org/' },
             ].map((link) => (
