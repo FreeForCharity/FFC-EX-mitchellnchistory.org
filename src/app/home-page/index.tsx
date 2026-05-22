@@ -1,8 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 import { assetPath } from '@/lib/assetPath'
+import { getFeaturedEvent } from '@/data/events'
 
 export default function HomePage() {
+  const featured = getFeaturedEvent()
+  const featuredDetailHref = featured.href ?? featured.externalHref
+  const featuredIsExternal = !featured.href && !!featured.externalHref
+  const featuredImage = featured.image ?? '/Images/mchs-festival.webp'
+
   return (
     <div>
       {/* Hero Section */}
@@ -148,32 +154,54 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Events / Festival */}
+      {/* Featured upcoming event */}
       <section id="events" className="bg-dark py-20 text-paper">
         <div className="ffc-container">
-          <div className="items-center gap-12 md:flex">
+          <h2 className="text-center font-serif-display text-3xl font-bold md:text-4xl">
+            Events &amp; Festivals
+          </h2>
+          <div className="mx-auto mt-4 h-1 w-20 rounded bg-accent" />
+          <p className="mt-4 text-center text-sm font-semibold uppercase tracking-widest text-accent">
+            Up Next in Mitchell County
+          </p>
+          <div className="mt-12 items-center gap-12 md:flex">
             <div className="md:w-1/2">
-              <h2 className="font-serif-display text-3xl font-bold md:text-4xl">
-                Apple Butter Festival
-              </h2>
-              <div className="mt-4 h-1 w-20 rounded bg-accent" />
-              <p className="mt-6 text-lg leading-relaxed text-gray-300">
-                Join us each October along the Bakersville Creekwalk for our beloved annual Apple
-                Butter Festival! Experience traditional apple butter making over an open fire, live
-                mountain music, arts &amp; crafts vendors, delicious food, and the Chili &amp;
-                Cornbread Cookoff.
+              <h3 className="font-serif-display text-2xl font-bold md:text-3xl">{featured.name}</h3>
+              <p className="mt-4 text-sm font-semibold uppercase tracking-wide text-gray-300">
+                {featured.dateLabel} · {featured.location}
               </p>
-              <Link
-                href="/apple-butter-festival/"
-                className="mt-6 inline-block rounded-lg bg-accent px-6 py-3 font-semibold text-paper transition hover:opacity-90"
-              >
-                Festival Details
-              </Link>
+              <p className="mt-6 text-lg leading-relaxed text-gray-300">{featured.summary}</p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                {featuredDetailHref &&
+                  (featuredIsExternal ? (
+                    <a
+                      href={featuredDetailHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block rounded-lg bg-accent px-6 py-3 font-semibold text-paper transition hover:opacity-90"
+                    >
+                      Event Details
+                    </a>
+                  ) : (
+                    <Link
+                      href={featuredDetailHref}
+                      className="inline-block rounded-lg bg-accent px-6 py-3 font-semibold text-paper transition hover:opacity-90"
+                    >
+                      Event Details
+                    </Link>
+                  ))}
+                <Link
+                  href="/events/"
+                  className="inline-block rounded-lg border-2 border-paper px-6 py-3 font-semibold text-paper transition hover:bg-paper hover:text-dark"
+                >
+                  See All Events
+                </Link>
+              </div>
             </div>
             <div className="mt-8 md:mt-0 md:w-1/2">
               <img
-                src={assetPath('/Images/mchs-festival.webp')}
-                alt="Apple Butter Festival along the Bakersville Creekwalk"
+                src={assetPath(featuredImage)}
+                alt={featured.name}
                 className="h-64 w-full rounded-xl object-cover"
               />
             </div>
