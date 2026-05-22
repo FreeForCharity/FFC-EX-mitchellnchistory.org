@@ -19,7 +19,9 @@ import { chromium } from 'playwright'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
-const URL_LIST = join(ROOT, 'tmp', 'article-image-urls.json')
+const URL_LIST = process.env.URL_LIST
+  ? join(ROOT, process.env.URL_LIST)
+  : join(ROOT, 'tmp', 'article-image-urls.json')
 const PUBLIC_DIR = join(ROOT, 'public')
 
 const ORIGIN = 'https://mitchellnchistory.org'
@@ -50,13 +52,24 @@ async function clearChallenge(context) {
   await page.close()
 }
 
+/**
+ * Accept any binary asset content-type. We re-use this downloader for images,
+ * PDFs, DOCX, and other downloadable attachments, so don't gate on image/*.
+ * Reject HTML so we catch challenge pages slipping through.
+ */
+function rejectIfHtml(ct, body) {
+  if (ct.startsWith('text/html')) {
+    const peek = body && body.slice ? body.slice(0, 80) : ''
+    throw new Error(`Got HTML (likely a challenge page): ${peek}`)
+  }
+}
+
 async function fetchViaRequest(context, url) {
   const res = await context.request.get(url, { timeout: TIMEOUT_MS })
   if (!res.ok()) throw new Error(`HTTP ${res.status()}`)
   const ct = res.headers()['content-type'] || ''
-  if (!ct.startsWith('image/') && !ct.includes('octet-stream')) {
-    const peek = (await res.text()).slice(0, 80)
-    throw new Error(`Non-image content-type ${ct}: ${peek}`)
+  if (ct.startsWith('text/html')) {
+    rejectIfHtml(ct, await res.text())
   }
   return await res.body()
 }
@@ -66,9 +79,7 @@ async function fetchViaPage(page, url) {
   if (!res) throw new Error('No response from page.goto')
   if (!res.ok()) throw new Error(`HTTP ${res.status()}`)
   const ct = res.headers()['content-type'] || ''
-  if (!ct.startsWith('image/') && !ct.includes('octet-stream')) {
-    throw new Error(`Non-image content-type ${ct}`)
-  }
+  if (ct.startsWith('text/html')) rejectIfHtml(ct, '')
   return await res.body()
 }
 
@@ -93,8 +104,10 @@ async function downloadOne(context, page, url) {
 
 async function main() {
   const data = JSON.parse(readFileSync(URL_LIST, 'utf-8'))
-  const urls = data.all_unique.filter((u) => u.includes('mitchellnchistory.org/wp-content/'))
-  console.log(`Downloading ${urls.length} wp-content images → public/wp-content/uploads/`)
+  // Accept either the {all_unique: [...]} shape (image-urls report) or a plain array.
+  const raw = Array.isArray(data) ? data : data.all_unique || []
+  const urls = raw.filter((u) => u.includes('mitchellnchistory.org/wp-content/'))
+  console.log(`Downloading ${urls.length} wp-content assets → public/wp-content/`)
   console.log(`Concurrency: ${CONCURRENCY}\n`)
 
   const browser = await chromium.launch({ headless: true })

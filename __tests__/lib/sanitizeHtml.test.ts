@@ -70,6 +70,14 @@ describe('sanitizeHtml', () => {
     expect(result).not.toContain('http://')
   })
 
+  it('localizes wp-content URLs inside <a href> (PDF/DOCX downloads)', () => {
+    const result = sanitizeHtml(
+      '<a href="https://mitchellnchistory.org/wp-content/uploads/2020/02/2020-Scholarship-Application.pdf">Apply</a>'
+    )
+    expect(result).toContain('href="/wp-content/uploads/2020/02/2020-Scholarship-Application.pdf"')
+    expect(result).not.toContain('mitchellnchistory.org')
+  })
+
   it('localizes every URL inside a srcset', () => {
     const result = sanitizeHtml(
       '<img src="https://mitchellnchistory.org/wp-content/uploads/a.jpg" srcset="https://mitchellnchistory.org/wp-content/uploads/a-300w.jpg 300w, http://mitchellnchistory.org/wp-content/uploads/a-600w.jpg 600w" alt="" />'

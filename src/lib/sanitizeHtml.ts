@@ -108,7 +108,13 @@ export function sanitizeHtml(html: string): string {
           attribs.rel = 'noopener noreferrer'
         }
         if (attribs.href) {
-          attribs.href = rewriteWpPermalink(normalizeWpHref(attribs.href))
+          // Run localization first so /wp-content/uploads/*.pdf|docx download
+          // links resolve to the self-hosted copy after the cutover. Falls
+          // through to https-upgrade + permalink rewrite for non-asset hrefs.
+          const localized = localizeWpUrl(attribs.href)
+          attribs.href = localized.startsWith('/wp-content/')
+            ? localized
+            : rewriteWpPermalink(normalizeWpHref(localized))
         }
         return { tagName, attribs }
       },
