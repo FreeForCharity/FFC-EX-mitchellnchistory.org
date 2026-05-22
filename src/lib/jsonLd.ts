@@ -53,7 +53,9 @@ export function articleJsonLd(article: {
       },
     },
     ...(article.featuredImage && {
-      image: article.featuredImage.url,
+      image: article.featuredImage.url.startsWith('http')
+        ? article.featuredImage.url
+        : `${siteUrl}${article.featuredImage.url}`,
     }),
   }
 }

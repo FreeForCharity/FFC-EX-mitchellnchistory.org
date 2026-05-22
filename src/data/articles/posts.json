@@ -8,7 +8,7 @@
     "categories": ["Bakersville", "History"],
     "categorySlugs": ["bakersville", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2022/04/McBee-Museum-withMen-Square.jpg",
+      "url": "/wp-content/uploads/2022/04/McBee-Museum-withMen-Square.jpg",
       "alt": "Photo of the McBee Building pre=1920 with several men walking in the street in front of the building"
     }
   },
@@ -21,7 +21,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/05/Billy-Joe-McKinney.jpeg",
+      "url": "/wp-content/uploads/2021/05/Billy-Joe-McKinney.jpeg",
       "alt": ""
     }
   },
@@ -34,7 +34,7 @@
     "categories": ["Heritage", "History", "Icons"],
     "categorySlugs": ["heritage", "history", "icons"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/05/IMG_4723.jpg",
+      "url": "/wp-content/uploads/2021/05/IMG_4723.jpg",
       "alt": ""
     }
   },
@@ -47,7 +47,7 @@
     "categories": ["Heritage", "People"],
     "categorySlugs": ["heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/05/Radcliffe-Charles-Lewis-1.jpeg",
+      "url": "/wp-content/uploads/2021/05/Radcliffe-Charles-Lewis-1.jpeg",
       "alt": ""
     }
   },
@@ -60,7 +60,7 @@
     "categories": ["Heritage", "Icons", "People"],
     "categorySlugs": ["heritage", "icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/05/Screen-Shot-2021-05-02-at-7.11.59-PM.jpeg",
+      "url": "/wp-content/uploads/2021/05/Screen-Shot-2021-05-02-at-7.11.59-PM.jpeg",
       "alt": ""
     }
   },
@@ -73,7 +73,7 @@
     "categories": ["Economics", "History"],
     "categorySlugs": ["economics", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/05/map.jpg",
+      "url": "/wp-content/uploads/2021/05/map.jpg",
       "alt": ""
     }
   },
@@ -86,7 +86,7 @@
     "categories": ["Icons", "People"],
     "categorySlugs": ["icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/05/Roy1.jpg",
+      "url": "/wp-content/uploads/2021/05/Roy1.jpg",
       "alt": ""
     }
   },
@@ -99,7 +99,7 @@
     "categories": ["About the County", "Heritage", "People"],
     "categorySlugs": ["about-the-county", "heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/05/Paul-Thomas-McBee-howler-1928-senior.jpeg",
+      "url": "/wp-content/uploads/2021/05/Paul-Thomas-McBee-howler-1928-senior.jpeg",
       "alt": ""
     }
   },
@@ -112,7 +112,7 @@
     "categories": ["Heritage", "People", "Uncategorized"],
     "categorySlugs": ["heritage", "people", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/05/David-Clingman-Whitson-Family.jpeg",
+      "url": "/wp-content/uploads/2021/05/David-Clingman-Whitson-Family.jpeg",
       "alt": ""
     }
   },
@@ -125,7 +125,7 @@
     "categories": ["Economics", "History", "Places"],
     "categorySlugs": ["economics", "history", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/05/Beautiful_day_on_the_North_Toe_River_4977540136.jpg",
+      "url": "/wp-content/uploads/2021/05/Beautiful_day_on_the_North_Toe_River_4977540136.jpg",
       "alt": ""
     }
   },
@@ -138,7 +138,7 @@
     "categories": ["Economics", "History"],
     "categorySlugs": ["economics", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/03/Picture1.jpg",
+      "url": "/wp-content/uploads/2021/03/Picture1.jpg",
       "alt": ""
     }
   },
@@ -151,7 +151,7 @@
     "categories": ["Heritage", "People"],
     "categorySlugs": ["heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/03/Polly-Wright-Stewart.jpg",
+      "url": "/wp-content/uploads/2021/03/Polly-Wright-Stewart.jpg",
       "alt": ""
     }
   },
@@ -164,7 +164,7 @@
     "categories": ["Economics", "Heritage", "People"],
     "categorySlugs": ["economics", "heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/03/Can-You-Find-Waits-Anderson-.jpeg",
+      "url": "/wp-content/uploads/2021/03/Can-You-Find-Waits-Anderson-.jpeg",
       "alt": ""
     }
   },
@@ -177,7 +177,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/03/Wilmington-Star-News.jpg",
+      "url": "/wp-content/uploads/2021/03/Wilmington-Star-News.jpg",
       "alt": ""
     }
   },
@@ -190,7 +190,7 @@
     "categories": ["Heritage", "People"],
     "categorySlugs": ["heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/02/Screen-Shot-2021-02-17-at-8.13.02-PM.jpg",
+      "url": "/wp-content/uploads/2021/02/Screen-Shot-2021-02-17-at-8.13.02-PM.jpg",
       "alt": ""
     }
   },
@@ -203,7 +203,7 @@
     "categories": ["Heritage", "History", "Overmountain Men", "Places"],
     "categorySlugs": ["heritage", "history", "overmountain-men", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/02/Screen-Shot-2021-01-01-at-3.45.31-PM.png",
+      "url": "/wp-content/uploads/2021/02/Screen-Shot-2021-01-01-at-3.45.31-PM.png",
       "alt": ""
     }
   },
@@ -226,7 +226,7 @@
     "categories": ["Economics", "People"],
     "categorySlugs": ["economics", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2021/01/TGPicture1.jpg",
+      "url": "/wp-content/uploads/2021/01/TGPicture1.jpg",
       "alt": ""
     }
   },
@@ -239,7 +239,7 @@
     "categories": ["Heritage", "History", "People", "Places"],
     "categorySlugs": ["heritage", "history", "people", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/12/wilder1.jpg",
+      "url": "/wp-content/uploads/2020/12/wilder1.jpg",
       "alt": ""
     }
   },
@@ -252,7 +252,7 @@
     "categories": ["Icons", "People"],
     "categorySlugs": ["icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/12/Screen-Shot-2020-12-26-at-7.29.14-PM.png",
+      "url": "/wp-content/uploads/2020/12/Screen-Shot-2020-12-26-at-7.29.14-PM.png",
       "alt": ""
     }
   },
@@ -265,7 +265,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/12/The-Greenlee-House.jpg",
+      "url": "/wp-content/uploads/2020/12/The-Greenlee-House.jpg",
       "alt": ""
     }
   },
@@ -278,7 +278,7 @@
     "categories": ["Heritage", "History"],
     "categorySlugs": ["heritage", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/12/rc2.jpg",
+      "url": "/wp-content/uploads/2020/12/rc2.jpg",
       "alt": ""
     }
   },
@@ -291,7 +291,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/12/nina2.jpg",
+      "url": "/wp-content/uploads/2020/12/nina2.jpg",
       "alt": ""
     }
   },
@@ -304,7 +304,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/12/N-G-Blalock.jpg",
+      "url": "/wp-content/uploads/2020/12/N-G-Blalock.jpg",
       "alt": ""
     }
   },
@@ -317,7 +317,7 @@
     "categories": ["Communities", "History"],
     "categorySlugs": ["communities", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/12/Picture2.jpeg",
+      "url": "/wp-content/uploads/2020/12/Picture2.jpeg",
       "alt": ""
     }
   },
@@ -330,7 +330,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/12/image_p16062coll19.jpg",
+      "url": "/wp-content/uploads/2020/12/image_p16062coll19.jpg",
       "alt": ""
     }
   },
@@ -343,7 +343,7 @@
     "categories": ["Icons", "People"],
     "categorySlugs": ["icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/11/scan_edited-1.jpg",
+      "url": "/wp-content/uploads/2020/11/scan_edited-1.jpg",
       "alt": ""
     }
   },
@@ -356,7 +356,7 @@
     "categories": ["Icons", "People"],
     "categorySlugs": ["icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/11/James-Oliver-Young-ASTC.jpeg",
+      "url": "/wp-content/uploads/2020/11/James-Oliver-Young-ASTC.jpeg",
       "alt": ""
     }
   },
@@ -369,7 +369,7 @@
     "categories": ["Icons", "People"],
     "categorySlugs": ["icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/11/ray.jpeg",
+      "url": "/wp-content/uploads/2020/11/ray.jpeg",
       "alt": ""
     }
   },
@@ -382,7 +382,7 @@
     "categories": ["Heritage", "Places"],
     "categorySlugs": ["heritage", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/10/Picture1.png",
+      "url": "/wp-content/uploads/2020/10/Picture1.png",
       "alt": ""
     }
   },
@@ -395,7 +395,7 @@
     "categories": ["About the County", "People", "Places"],
     "categorySlugs": ["about-the-county", "people", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/10/George-Rufus-and-Elvira-Fullwood-Gibbs-Dale.jpg",
+      "url": "/wp-content/uploads/2020/10/George-Rufus-and-Elvira-Fullwood-Gibbs-Dale.jpg",
       "alt": ""
     }
   },
@@ -408,7 +408,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/10/Mrs.Arizona-Byrd-Harrell.jpg",
+      "url": "/wp-content/uploads/2020/10/Mrs.Arizona-Byrd-Harrell.jpg",
       "alt": ""
     }
   },
@@ -421,7 +421,7 @@
     "categories": ["Economics", "Icons"],
     "categorySlugs": ["economics", "icons"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/10/Brad-Ragan.jpg",
+      "url": "/wp-content/uploads/2020/10/Brad-Ragan.jpg",
       "alt": ""
     }
   },
@@ -434,7 +434,7 @@
     "categories": ["Coronavirus", "History", "People"],
     "categorySlugs": ["coronavirus", "history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/09/Picture1.jpeg",
+      "url": "/wp-content/uploads/2020/09/Picture1.jpeg",
       "alt": ""
     }
   },
@@ -447,7 +447,7 @@
     "categories": ["People", "Places"],
     "categorySlugs": ["people", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/09/clarissa.png",
+      "url": "/wp-content/uploads/2020/09/clarissa.png",
       "alt": ""
     }
   },
@@ -460,7 +460,7 @@
     "categories": ["Economics", "History"],
     "categorySlugs": ["economics", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/09/Picture1Toe.png",
+      "url": "/wp-content/uploads/2020/09/Picture1Toe.png",
       "alt": ""
     }
   },
@@ -473,7 +473,7 @@
     "categories": ["Icons", "People"],
     "categorySlugs": ["icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/09/Picturejb1.png",
+      "url": "/wp-content/uploads/2020/09/Picturejb1.png",
       "alt": ""
     }
   },
@@ -486,7 +486,7 @@
     "categories": ["Economics"],
     "categorySlugs": ["economics"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/09/Telephone-office.jpeg",
+      "url": "/wp-content/uploads/2020/09/Telephone-office.jpeg",
       "alt": ""
     }
   },
@@ -499,7 +499,7 @@
     "categories": ["Economics", "History", "Icons"],
     "categorySlugs": ["economics", "history", "icons"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/08/Robert-B.-Phillips-copy.jpeg",
+      "url": "/wp-content/uploads/2020/08/Robert-B.-Phillips-copy.jpeg",
       "alt": ""
     }
   },
@@ -512,7 +512,7 @@
     "categories": ["Heritage", "People"],
     "categorySlugs": ["heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/08/nathangarland.jpeg",
+      "url": "/wp-content/uploads/2020/08/nathangarland.jpeg",
       "alt": ""
     }
   },
@@ -525,7 +525,7 @@
     "categories": ["Heritage", "History"],
     "categorySlugs": ["heritage", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/08/Picture1.png",
+      "url": "/wp-content/uploads/2020/08/Picture1.png",
       "alt": ""
     }
   },
@@ -538,7 +538,7 @@
     "categories": ["Economics", "History", "People", "Places"],
     "categorySlugs": ["economics", "history", "people", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/08/Screen-Shot-2020-08-03-at-6.55.32-PM.jpeg",
+      "url": "/wp-content/uploads/2020/08/Screen-Shot-2020-08-03-at-6.55.32-PM.jpeg",
       "alt": ""
     }
   },
@@ -551,7 +551,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/08/Charlie-Norman-Family-photo.jpg",
+      "url": "/wp-content/uploads/2020/08/Charlie-Norman-Family-photo.jpg",
       "alt": ""
     }
   },
@@ -564,7 +564,7 @@
     "categories": ["Heritage", "People"],
     "categorySlugs": ["heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/07/Picture1.png",
+      "url": "/wp-content/uploads/2020/07/Picture1.png",
       "alt": ""
     }
   },
@@ -587,7 +587,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/07/Picture1.jpg",
+      "url": "/wp-content/uploads/2020/07/Picture1.jpg",
       "alt": ""
     }
   },
@@ -600,7 +600,7 @@
     "categories": ["People", "Uncategorized"],
     "categorySlugs": ["people", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/06/Garret-Forbes.jpg",
+      "url": "/wp-content/uploads/2020/06/Garret-Forbes.jpg",
       "alt": ""
     }
   },
@@ -623,7 +623,7 @@
     "categories": ["Economics", "Icons"],
     "categorySlugs": ["economics", "icons"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/06/wellborns.jpg",
+      "url": "/wp-content/uploads/2020/06/wellborns.jpg",
       "alt": ""
     }
   },
@@ -636,7 +636,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/06/Picture1.jpg",
+      "url": "/wp-content/uploads/2020/06/Picture1.jpg",
       "alt": ""
     }
   },
@@ -649,7 +649,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/06/Bowman-Class-of-1933-photo-scaled.jpg",
+      "url": "/wp-content/uploads/2020/06/Bowman-Class-of-1933-photo-scaled.jpg",
       "alt": ""
     }
   },
@@ -752,7 +752,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/05/tm.jpg",
+      "url": "/wp-content/uploads/2020/05/tm.jpg",
       "alt": ""
     }
   },
@@ -775,7 +775,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/05/IMG_20200516_201856966.jpg",
+      "url": "/wp-content/uploads/2020/05/IMG_20200516_201856966.jpg",
       "alt": ""
     }
   },
@@ -788,7 +788,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/05/Lewis-Family-photo-2-27-69.jpg",
+      "url": "/wp-content/uploads/2020/05/Lewis-Family-photo-2-27-69.jpg",
       "alt": ""
     }
   },
@@ -801,7 +801,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/05/Bakersville-Methodist-Church.jpg",
+      "url": "/wp-content/uploads/2020/05/Bakersville-Methodist-Church.jpg",
       "alt": ""
     }
   },
@@ -814,7 +814,7 @@
     "categories": ["Icons", "People"],
     "categorySlugs": ["icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/04/rsg.jpg",
+      "url": "/wp-content/uploads/2020/04/rsg.jpg",
       "alt": ""
     }
   },
@@ -907,7 +907,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/04/sthenry.jpg",
+      "url": "/wp-content/uploads/2020/04/sthenry.jpg",
       "alt": ""
     }
   },
@@ -920,7 +920,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/04/Washing-the-Lions-1.jpg",
+      "url": "/wp-content/uploads/2020/04/Washing-the-Lions-1.jpg",
       "alt": ""
     }
   },
@@ -933,7 +933,7 @@
     "categories": ["Coronavirus", "History"],
     "categorySlugs": ["coronavirus", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/04/Picture1.jpg",
+      "url": "/wp-content/uploads/2020/04/Picture1.jpg",
       "alt": ""
     }
   },
@@ -946,7 +946,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/04/Ten-Wilson-Brothers-copy.jpg",
+      "url": "/wp-content/uploads/2020/04/Ten-Wilson-Brothers-copy.jpg",
       "alt": ""
     }
   },
@@ -959,7 +959,7 @@
     "categories": ["Economics"],
     "categorySlugs": ["economics"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/04/Gunter-Building-in-its-incarnation-as-Belk-Broome.jpg",
+      "url": "/wp-content/uploads/2020/04/Gunter-Building-in-its-incarnation-as-Belk-Broome.jpg",
       "alt": ""
     }
   },
@@ -1102,7 +1102,7 @@
     "categories": ["Coronavirus"],
     "categorySlugs": ["coronavirus"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/04/Becky-Burleson-Clinic-Interior-SMALL.jpg",
+      "url": "/wp-content/uploads/2020/04/Becky-Burleson-Clinic-Interior-SMALL.jpg",
       "alt": "Photo of the empty interior of the Bakersville Clinic"
     }
   },
@@ -1215,7 +1215,7 @@
     "categories": ["Coronavirus"],
     "categorySlugs": ["coronavirus"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/03/Roy-Cooper-EM.jpg",
+      "url": "/wp-content/uploads/2020/03/Roy-Cooper-EM.jpg",
       "alt": "Governor Roy Cooper addresses a press conference on March 23, 2020"
     }
   },
@@ -1238,7 +1238,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/12/Holman-and-Horse-2-09-11-19-e1575237843474.png",
+      "url": "/wp-content/uploads/2019/12/Holman-and-Horse-2-09-11-19-e1575237843474.png",
       "alt": "Ms. Lydia Holman and her horse going about her nursing responsibilities in the mountains of Mitchell County."
     }
   },
@@ -1251,7 +1251,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/03/Garrett-Rosannah-Wilson-Gouge.jpg",
+      "url": "/wp-content/uploads/2020/03/Garrett-Rosannah-Wilson-Gouge.jpg",
       "alt": ""
     }
   },
@@ -1264,7 +1264,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/03/Picture1-3.jpg",
+      "url": "/wp-content/uploads/2020/03/Picture1-3.jpg",
       "alt": ""
     }
   },
@@ -1277,7 +1277,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/03/Mother-Buchanans-House.jpeg",
+      "url": "/wp-content/uploads/2020/03/Mother-Buchanans-House.jpeg",
       "alt": ""
     }
   },
@@ -1290,7 +1290,7 @@
     "categories": ["Economics", "People"],
     "categorySlugs": ["economics", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/03/Carnation-Station.jpg",
+      "url": "/wp-content/uploads/2020/03/Carnation-Station.jpg",
       "alt": ""
     }
   },
@@ -1303,7 +1303,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/03/Picture1-2.jpg",
+      "url": "/wp-content/uploads/2020/03/Picture1-2.jpg",
       "alt": ""
     }
   },
@@ -1316,7 +1316,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/02/harrietts-stone.jpg",
+      "url": "/wp-content/uploads/2020/02/harrietts-stone.jpg",
       "alt": ""
     }
   },
@@ -1329,7 +1329,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/02/Sweethearts-Edd-R.-Burleson-and-June-Buchanan-Long-Leaf-Media-scaled-e1581460693820.jpg",
+      "url": "/wp-content/uploads/2020/02/Sweethearts-Edd-R.-Burleson-and-June-Buchanan-Long-Leaf-Media-scaled-e1581460693820.jpg",
       "alt": ""
     }
   },
@@ -1342,7 +1342,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/01/HEAP.jpeg",
+      "url": "/wp-content/uploads/2020/01/HEAP.jpeg",
       "alt": ""
     }
   },
@@ -1365,7 +1365,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/01/bridge.jpg",
+      "url": "/wp-content/uploads/2020/01/bridge.jpg",
       "alt": ""
     }
   },
@@ -1378,7 +1378,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2020/01/gwm.jpg",
+      "url": "/wp-content/uploads/2020/01/gwm.jpg",
       "alt": "Rev. GW Martin"
     }
   },
@@ -1391,7 +1391,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/12/MRA037-scaled.jpeg",
+      "url": "/wp-content/uploads/2019/12/MRA037-scaled.jpeg",
       "alt": "In this photo, sons of James Bailey are shown standing: William Wesley Bailey, Pink Bailey, and John Bailey, as well as John’s wife Mary English Bailey and daughter Cora Lee Bailey.  Seated are Mary “Polly” Cox Bailey, widow of James Bailey, as well as Amanda Bailey, daughter of James and Polly; their son Burgess Bailey is not pictured. "
     }
   },
@@ -1404,7 +1404,7 @@
     "categories": ["Economics"],
     "categorySlugs": ["economics"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/12/Picture1-1.jpg",
+      "url": "/wp-content/uploads/2019/12/Picture1-1.jpg",
       "alt": "The Fraser Fir ornament from the North Carolina Museum of History commemorates North Carolina's Official Christmas Tree – The Fraser Fir - designated an official state symbol in 2005. Designed by N. C. artist Sidney Baynes, the ornament showcases one of the beautiful Christmas tree farms in the state."
     }
   },
@@ -1417,7 +1417,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/12/BILL-KELLER-2.jpeg",
+      "url": "/wp-content/uploads/2019/12/BILL-KELLER-2.jpeg",
       "alt": ""
     }
   },
@@ -1430,7 +1430,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/12/Document-12119_1.jpg",
+      "url": "/wp-content/uploads/2019/12/Document-12119_1.jpg",
       "alt": "Jason E Burleson"
     }
   },
@@ -1453,7 +1453,7 @@
     "categories": ["Icons"],
     "categorySlugs": ["icons"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/12/HelenMcBee.jpg",
+      "url": "/wp-content/uploads/2019/12/HelenMcBee.jpg",
       "alt": "Senior Picture, North Carolina College for Women, 1929"
     }
   },
@@ -1466,7 +1466,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/12/Picture1.jpg",
+      "url": "/wp-content/uploads/2019/12/Picture1.jpg",
       "alt": "Episcopal Church in Bakersville"
     }
   },
@@ -1479,7 +1479,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/12/Holman-and-Horse-2-09-11-19-e1575237843474.png",
+      "url": "/wp-content/uploads/2019/12/Holman-and-Horse-2-09-11-19-e1575237843474.png",
       "alt": "Ms. Lydia Holman and her horse going about her nursing responsibilities in the mountains of Mitchell County."
     }
   },
@@ -1492,7 +1492,7 @@
     "categories": ["People", "Uncategorized"],
     "categorySlugs": ["people", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/11/Cloyd-Thomas-1-e1573692877269.jpg",
+      "url": "/wp-content/uploads/2019/11/Cloyd-Thomas-1-e1573692877269.jpg",
       "alt": ""
     }
   },
@@ -1505,7 +1505,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/11/Biss-Peterson-in-WWII.jpg",
+      "url": "/wp-content/uploads/2019/11/Biss-Peterson-in-WWII.jpg",
       "alt": ""
     }
   },
@@ -1518,7 +1518,7 @@
     "categories": ["History", "Overmountain Men", "People"],
     "categorySlugs": ["history", "overmountain-men", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/10/0d359d44-55aa-4f4a-85f9-1e04533bb52b.jpg",
+      "url": "/wp-content/uploads/2019/10/0d359d44-55aa-4f4a-85f9-1e04533bb52b.jpg",
       "alt": ""
     }
   },
@@ -1531,7 +1531,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/10/Picture1-1.jpg",
+      "url": "/wp-content/uploads/2019/10/Picture1-1.jpg",
       "alt": ""
     }
   },
@@ -1544,7 +1544,7 @@
     "categories": ["History", "Overmountain Men", "People"],
     "categorySlugs": ["history", "overmountain-men", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/10/Picture1.jpg",
+      "url": "/wp-content/uploads/2019/10/Picture1.jpg",
       "alt": ""
     }
   },
@@ -1557,7 +1557,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/10/2232619-1567312840282-4db07edc41bda.jpg",
+      "url": "/wp-content/uploads/2019/10/2232619-1567312840282-4db07edc41bda.jpg",
       "alt": "Cover for Footsteps for Freedom Podcast"
     }
   },
@@ -1570,7 +1570,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/KingsMountain_DeathOfFerguson_Chappel.jpg",
+      "url": "/wp-content/uploads/2019/09/KingsMountain_DeathOfFerguson_Chappel.jpg",
       "alt": "Painting of Patrick Ferguson as he is shot from his horse during the Battle of Kings Mountain"
     }
   },
@@ -1583,7 +1583,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/10/12939087_131773935542.jpg",
+      "url": "/wp-content/uploads/2019/10/12939087_131773935542.jpg",
       "alt": "Photo of Robert Sevier's Grave"
     }
   },
@@ -1596,7 +1596,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/KingsMountain_DeathOfFerguson_Chappel.jpg",
+      "url": "/wp-content/uploads/2019/09/KingsMountain_DeathOfFerguson_Chappel.jpg",
       "alt": "Painting of Patrick Ferguson as he is shot from his horse during the Battle of Kings Mountain"
     }
   },
@@ -1609,7 +1609,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Kings-Mountain.jpg",
+      "url": "/wp-content/uploads/2019/09/Kings-Mountain.jpg",
       "alt": "Photo of the entrance to Kings Mountain National Military Park"
     }
   },
@@ -1622,7 +1622,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/10/Cowpens_-_main_sign_2.jpg",
+      "url": "/wp-content/uploads/2019/10/Cowpens_-_main_sign_2.jpg",
       "alt": "Photo of entrance sign at the Cowpens National Battlefield"
     }
   },
@@ -1635,7 +1635,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/10/DSC00030.jpg",
+      "url": "/wp-content/uploads/2019/10/DSC00030.jpg",
       "alt": "Photo of a Revolutionary War-style encampment"
     }
   },
@@ -1648,7 +1648,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/10/Ovmountain-Trail-Sign.jpg",
+      "url": "/wp-content/uploads/2019/10/Ovmountain-Trail-Sign.jpg",
       "alt": "Photo of an Overmountain Victory Trail Sign"
     }
   },
@@ -1661,7 +1661,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/10/Paths-at-Gillespie-Gap.png",
+      "url": "/wp-content/uploads/2019/10/Paths-at-Gillespie-Gap.png",
       "alt": ""
     }
   },
@@ -1674,7 +1674,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/8939285649_c67b8d89ba_b_22f20749-5056-a36a-07d68a9957680e45.jpg",
+      "url": "/wp-content/uploads/2019/09/8939285649_c67b8d89ba_b_22f20749-5056-a36a-07d68a9957680e45.jpg",
       "alt": "Photo of Overmountain Men Re-Enactors marching at an event with school children"
     }
   },
@@ -1687,7 +1687,7 @@
     "categories": ["History", "Overmountain Men"],
     "categorySlugs": ["history", "overmountain-men"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Untitled-1.jpg",
+      "url": "/wp-content/uploads/2019/09/Untitled-1.jpg",
       "alt": ""
     }
   },
@@ -1700,7 +1700,7 @@
     "categories": ["History", "Overmountain Men", "People"],
     "categorySlugs": ["history", "overmountain-men", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Cling-Visa-Whitson.jpg",
+      "url": "/wp-content/uploads/2019/09/Cling-Visa-Whitson.jpg",
       "alt": ""
     }
   },
@@ -1713,7 +1713,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Yellow-Mountain-Sign.jpg",
+      "url": "/wp-content/uploads/2019/09/Yellow-Mountain-Sign.jpg",
       "alt": "Photo of the historical marker for the Yellow Mountain Road, with the inscription Along a route nearby, the \"Over-Mountain Men\" marched to victory at King's Mountain, 1780."
     }
   },
@@ -1726,7 +1726,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Overmountain-Men-Sycamore-Shoals.jpg",
+      "url": "/wp-content/uploads/2019/09/Overmountain-Men-Sycamore-Shoals.jpg",
       "alt": "Painting of the Overmountain Men gathering at Sycamore Shoals"
     }
   },
@@ -1739,7 +1739,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Fort-watauga-tn1.jpg",
+      "url": "/wp-content/uploads/2019/09/Fort-watauga-tn1.jpg",
       "alt": "Photo of Fort Watauga"
     }
   },
@@ -1752,7 +1752,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/McKeehan-25-1.jpg",
+      "url": "/wp-content/uploads/2019/09/McKeehan-25-1.jpg",
       "alt": "Photo of Mary McKeehan Patton"
     }
   },
@@ -1765,7 +1765,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Musgrove-Mill-Visitor-Center.jpg",
+      "url": "/wp-content/uploads/2019/09/Musgrove-Mill-Visitor-Center.jpg",
       "alt": "Photo of the Visitor's Center at Musgrove Mill"
     }
   },
@@ -1778,7 +1778,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Revolutionary-War-Soldiers.jpg",
+      "url": "/wp-content/uploads/2019/09/Revolutionary-War-Soldiers.jpg",
       "alt": "Painting of Rvolutionary War soldiers in battle"
     }
   },
@@ -1791,7 +1791,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Maj-Patrick-Ferguson-Featured.jpg",
+      "url": "/wp-content/uploads/2019/09/Maj-Patrick-Ferguson-Featured.jpg",
       "alt": "Painting of Major Patrick Ferguson"
     }
   },
@@ -1804,7 +1804,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/John-Sevier-Featured.jpg",
+      "url": "/wp-content/uploads/2019/09/John-Sevier-Featured.jpg",
       "alt": "Painting of John Sevier"
     }
   },
@@ -1817,7 +1817,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Yohn_Battle_of_Kings_Mountain.jpg",
+      "url": "/wp-content/uploads/2019/09/Yohn_Battle_of_Kings_Mountain.jpg",
       "alt": "Painting of unidentified soldiers fighting at Kings Mountain."
     }
   },
@@ -1830,7 +1830,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/William-Campbell-Featured.jpg",
+      "url": "/wp-content/uploads/2019/09/William-Campbell-Featured.jpg",
       "alt": "Painting of WIlliam Campbell"
     }
   },
@@ -1843,7 +1843,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Joseph-McDowell-Jr.jpg",
+      "url": "/wp-content/uploads/2019/09/Joseph-McDowell-Jr.jpg",
       "alt": "Drawing of Joseph McDowell, Jr."
     }
   },
@@ -1856,7 +1856,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Benjamin-Cleveland-Featured.jpg",
+      "url": "/wp-content/uploads/2019/09/Benjamin-Cleveland-Featured.jpg",
       "alt": "Painting of Bernjamin Cleveland"
     }
   },
@@ -1869,7 +1869,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Kings-Mountain.jpg",
+      "url": "/wp-content/uploads/2019/09/Kings-Mountain.jpg",
       "alt": "Photo of the entrance to Kings Mountain National Military Park"
     }
   },
@@ -1882,7 +1882,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Issac-Shelby-Program.jpg",
+      "url": "/wp-content/uploads/2019/09/Issac-Shelby-Program.jpg",
       "alt": "Painting of Isaac Shelby"
     }
   },
@@ -1895,7 +1895,7 @@
     "categories": ["History", "Overmountain Men"],
     "categorySlugs": ["history", "overmountain-men"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/ruben-youngs-wife-at-the-spring.jpg",
+      "url": "/wp-content/uploads/2019/09/ruben-youngs-wife-at-the-spring.jpg",
       "alt": ""
     }
   },
@@ -1908,7 +1908,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Indian-Warrior.jpeg",
+      "url": "/wp-content/uploads/2019/09/Indian-Warrior.jpeg",
       "alt": "Painting of a Native American Warrior"
     }
   },
@@ -1921,7 +1921,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Three_Cherokee.jpg",
+      "url": "/wp-content/uploads/2019/09/Three_Cherokee.jpg",
       "alt": "Woodcut image of members of the Cherokee tribe"
     }
   },
@@ -1934,7 +1934,7 @@
     "categories": ["History", "Overmountain Men"],
     "categorySlugs": ["history", "overmountain-men"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/ggr.jpg",
+      "url": "/wp-content/uploads/2019/09/ggr.jpg",
       "alt": ""
     }
   },
@@ -1947,7 +1947,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Allan_Ramsay_-_King_George_III_in_coronation_robes_-_Google_Art_Project.jpg",
+      "url": "/wp-content/uploads/2019/09/Allan_Ramsay_-_King_George_III_in_coronation_robes_-_Google_Art_Project.jpg",
       "alt": "Painting of King George III"
     }
   },
@@ -1980,7 +1980,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/Overmountain-men-march-map1.gif",
+      "url": "/wp-content/uploads/2019/09/Overmountain-men-march-map1.gif",
       "alt": ""
     }
   },
@@ -1993,7 +1993,7 @@
     "categories": ["OVM Podcast"],
     "categorySlugs": ["ovm-podcast"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/09/KingsMountain_DeathOfFerguson_Chappel.jpg",
+      "url": "/wp-content/uploads/2019/09/KingsMountain_DeathOfFerguson_Chappel.jpg",
       "alt": "Painting of Patrick Ferguson as he is shot from his horse during the Battle of Kings Mountain"
     }
   },
@@ -2006,7 +2006,7 @@
     "categories": ["History", "Overmountain Men"],
     "categorySlugs": ["history", "overmountain-men"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/08/p1763.jpg",
+      "url": "/wp-content/uploads/2019/08/p1763.jpg",
       "alt": ""
     }
   },
@@ -2019,7 +2019,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/08/Untitled1.jpg",
+      "url": "/wp-content/uploads/2019/08/Untitled1.jpg",
       "alt": ""
     }
   },
@@ -2032,7 +2032,7 @@
     "categories": ["Economics", "People"],
     "categorySlugs": ["economics", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/08/Hamme-Tungsten-Mine.jpg",
+      "url": "/wp-content/uploads/2019/08/Hamme-Tungsten-Mine.jpg",
       "alt": ""
     }
   },
@@ -2045,7 +2045,7 @@
     "categories": ["Economics", "History"],
     "categorySlugs": ["economics", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/08/NC-Minerals-Museum-Sign.jpg",
+      "url": "/wp-content/uploads/2019/08/NC-Minerals-Museum-Sign.jpg",
       "alt": ""
     }
   },
@@ -2058,7 +2058,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/07/roby.jpg",
+      "url": "/wp-content/uploads/2019/07/roby.jpg",
       "alt": ""
     }
   },
@@ -2071,7 +2071,7 @@
     "categories": ["Uncategorized"],
     "categorySlugs": ["uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/07/mg.001.jpeg",
+      "url": "/wp-content/uploads/2019/07/mg.001.jpeg",
       "alt": ""
     }
   },
@@ -2084,7 +2084,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/07/Dr.-Kimberly-in-front-of-building-his-medical-practice-was-upstairs-e1563857373917.jpg",
+      "url": "/wp-content/uploads/2019/07/Dr.-Kimberly-in-front-of-building-his-medical-practice-was-upstairs-e1563857373917.jpg",
       "alt": ""
     }
   },
@@ -2097,7 +2097,7 @@
     "categories": ["Communities", "People"],
     "categorySlugs": ["communities", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/07/KilmichaelTower.jpg",
+      "url": "/wp-content/uploads/2019/07/KilmichaelTower.jpg",
       "alt": ""
     }
   },
@@ -2110,7 +2110,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/07/Harvey-Garland-and-Harvey-J.-Miller.jpeg",
+      "url": "/wp-content/uploads/2019/07/Harvey-Garland-and-Harvey-J.-Miller.jpeg",
       "alt": ""
     }
   },
@@ -2123,7 +2123,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/06/dbg.jpg",
+      "url": "/wp-content/uploads/2019/06/dbg.jpg",
       "alt": ""
     }
   },
@@ -2136,7 +2136,7 @@
     "categories": ["Economics", "People"],
     "categorySlugs": ["economics", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/06/Esso-Station-at-19E-and-Greenwood-Road.jpg",
+      "url": "/wp-content/uploads/2019/06/Esso-Station-at-19E-and-Greenwood-Road.jpg",
       "alt": ""
     }
   },
@@ -2149,7 +2149,7 @@
     "categories": ["Economics", "People"],
     "categorySlugs": ["economics", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/06/103.jpg",
+      "url": "/wp-content/uploads/2019/06/103.jpg",
       "alt": ""
     }
   },
@@ -2162,7 +2162,7 @@
     "categories": ["History", "Places"],
     "categorySlugs": ["history", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/06/lolitacrowned.jpg",
+      "url": "/wp-content/uploads/2019/06/lolitacrowned.jpg",
       "alt": ""
     }
   },
@@ -2175,7 +2175,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/06/Preachers-Charlie-Carpenter-Julius-Henline-Molt-Buchanan.jpg",
+      "url": "/wp-content/uploads/2019/06/Preachers-Charlie-Carpenter-Julius-Henline-Molt-Buchanan.jpg",
       "alt": ""
     }
   },
@@ -2188,7 +2188,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/05/williamandnancy.jpg",
+      "url": "/wp-content/uploads/2019/05/williamandnancy.jpg",
       "alt": ""
     }
   },
@@ -2201,7 +2201,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/05/Charles-A.-Murphy-1.jpg",
+      "url": "/wp-content/uploads/2019/05/Charles-A.-Murphy-1.jpg",
       "alt": ""
     }
   },
@@ -2214,7 +2214,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/05/smgreene-e1557186945728.jpg",
+      "url": "/wp-content/uploads/2019/05/smgreene-e1557186945728.jpg",
       "alt": "Reverend Stephen Morgan Greene"
     }
   },
@@ -2227,7 +2227,7 @@
     "categories": ["Communities", "History", "People"],
     "categorySlugs": ["communities", "history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/05/b1.jpg",
+      "url": "/wp-content/uploads/2019/05/b1.jpg",
       "alt": "Bakersville, probably in the late summer of 1899 or 1900. The Baptist church is on the left, the Methodist church on right. The 1868 Mitchell County Courthouse is in the foreground. There is a wooden sidewalk up “Water Street.”"
     }
   },
@@ -2240,7 +2240,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/04/Mickey-McKinney-Whitener-Coe.jpg",
+      "url": "/wp-content/uploads/2019/04/Mickey-McKinney-Whitener-Coe.jpg",
       "alt": "Aunt Mickey standing in front of a portrait of her reading a book, by her husband, Paul W. Whitener, who passed away in 1959, 23 years after their marriage in 1936."
     }
   },
@@ -2253,7 +2253,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/04/Ernest-McKinney.jpeg",
+      "url": "/wp-content/uploads/2019/04/Ernest-McKinney.jpeg",
       "alt": ""
     }
   },
@@ -2266,7 +2266,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/04/Brummetts-Creek-Brethren-1913-B.jpg",
+      "url": "/wp-content/uploads/2019/04/Brummetts-Creek-Brethren-1913-B.jpg",
       "alt": "Brummetts Creek Brethren Church Women 1913"
     }
   },
@@ -2279,7 +2279,7 @@
     "categories": ["Economics"],
     "categorySlugs": ["economics"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/04/westalls.jpg",
+      "url": "/wp-content/uploads/2019/04/westalls.jpg",
       "alt": "Westall's Food Market was located on, at the time US Hwy 19E, across from present day Harris Middle School."
     }
   },
@@ -2292,7 +2292,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/04/zmg.jpg",
+      "url": "/wp-content/uploads/2019/04/zmg.jpg",
       "alt": "Zeb McCurry's Grave Plot B, Row 14, Grave 6, Saint Mihiel American Cemetery and Memorial at Thiaucourt-Regniéville, France."
     }
   },
@@ -2305,7 +2305,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/03/Mitchell-County-Law-Enforcement-1960-1.jpg",
+      "url": "/wp-content/uploads/2019/03/Mitchell-County-Law-Enforcement-1960-1.jpg",
       "alt": "This photograph shows the Mitchell County Law Enforcement team about 1960. Pictured, left to right, are James Edwards and Joe Stewart, Mitchell County deputies; Sam Gouge, Mitchell County Sheriff; Jim Burleson, Spruce Pine Chief of Police; Ray Gunter and Landon “Cotton” Burleson, Spruce Pine Police Department officers; Herb Teague, Spruce Pine Police Department detective; Zeke Howell, Mitchell County Jailer; and North Carolina Highway Patrolmen Charles Radcliffe, R.E. Pipes, and Lee Lance. The automobiles, left to right, have been identified as a 1960 Ford, a 1960 Pontiac, a 1959 Chevrolet, and a 1959 Ford."
     }
   },
@@ -2318,7 +2318,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/03/Unti1tled.jpg",
+      "url": "/wp-content/uploads/2019/03/Unti1tled.jpg",
       "alt": "Dump trucks and a loader attempt to clear record amounts of snow from Oak Avenue in March of 1993."
     }
   },
@@ -2331,7 +2331,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/03/stephen-morgan-collis.jpg",
+      "url": "/wp-content/uploads/2019/03/stephen-morgan-collis.jpg",
       "alt": "Stephen Morgan Collis was born January 30, 1818, most likely near Morganton in Burke County, to John and Hannah P. Buchanan Collis, who were married in Rutherford County on November 24, 1796."
     }
   },
@@ -2344,7 +2344,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/03/Beaver-Creek-School-1930s-e1551577542930.jpg",
+      "url": "/wp-content/uploads/2019/03/Beaver-Creek-School-1930s-e1551577542930.jpg",
       "alt": ""
     }
   },
@@ -2357,7 +2357,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/02/Amelia-Meares-Greenlee.jpg",
+      "url": "/wp-content/uploads/2019/02/Amelia-Meares-Greenlee.jpg",
       "alt": "Picture of Amelia Meares Greenlee"
     }
   },
@@ -2370,7 +2370,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/02/jasondeyton.jpg",
+      "url": "/wp-content/uploads/2019/02/jasondeyton.jpg",
       "alt": "Picture of Jason Deyton"
     }
   },
@@ -2383,7 +2383,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/02/McKinneys.jpg",
+      "url": "/wp-content/uploads/2019/02/McKinneys.jpg",
       "alt": "Picture ofThe couple on the far right in this photograph are Frederick A. McKinney (1878-1968) and his future wife Minnie Lee Wiseman (1883-1972.) They married in 1902.  The females to Fred’s right are his sisters Beatrice (1887-1974) and Dora (1870-1944).  The young man in the center is their cousin Henry Burleson (1885-1975.)  The second girl from the left is Lillian McKinney (1882-1976).  The others pictured were not identified; they may have been friends or family.  This McKinney family had other children Dovie (1875-1913,) Thomas Samuel (1873-1962,) and Emma Evangeline (1865-1956). Their parents were Reuben B. McKinney (1842-1910) and Judy Ann Burleson (1841-1921).  Photo courtesy of Terry Bates."
     }
   },
@@ -2396,7 +2396,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/02/jr.jpg",
+      "url": "/wp-content/uploads/2019/02/jr.jpg",
       "alt": "Jack's Rock, , near Cub Creek, where Jackson Stewart was killed."
     }
   },
@@ -2409,7 +2409,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/01/Dr.-GougeGM.jpg",
+      "url": "/wp-content/uploads/2019/01/Dr.-GougeGM.jpg",
       "alt": "Picture of Dr. AE Gouge"
     }
   },
@@ -2442,7 +2442,7 @@
     "categories": ["Communities", "Places"],
     "categorySlugs": ["communities", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Penland-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Penland-500.jpg",
       "alt": ""
     }
   },
@@ -2455,7 +2455,7 @@
     "categories": ["Communities", "Places"],
     "categorySlugs": ["communities", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Buladean-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Buladean-500.jpg",
       "alt": ""
     }
   },
@@ -2468,7 +2468,7 @@
     "categories": ["Communities", "Places"],
     "categorySlugs": ["communities", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Wing-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Wing-500.jpg",
       "alt": ""
     }
   },
@@ -2491,7 +2491,7 @@
     "categories": ["Communities", "Economics", "Places"],
     "categorySlugs": ["communities", "economics", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Little-Switzerland-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Little-Switzerland-500.jpg",
       "alt": ""
     }
   },
@@ -2504,7 +2504,7 @@
     "categories": ["Communities", "Places"],
     "categorySlugs": ["communities", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Grassy-Creek-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Grassy-Creek-500.jpg",
       "alt": ""
     }
   },
@@ -2517,7 +2517,7 @@
     "categories": ["Communities", "Places"],
     "categorySlugs": ["communities", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Ledger-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Ledger-500.jpg",
       "alt": ""
     }
   },
@@ -2530,7 +2530,7 @@
     "categories": ["Communities", "Places"],
     "categorySlugs": ["communities", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Tipton-Hill-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Tipton-Hill-500.jpg",
       "alt": ""
     }
   },
@@ -2543,7 +2543,7 @@
     "categories": ["Communities", "Places"],
     "categorySlugs": ["communities", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Hawk-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Hawk-500.jpg",
       "alt": ""
     }
   },
@@ -2556,7 +2556,7 @@
     "categories": ["Communities", "History"],
     "categorySlugs": ["communities", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Loafers-Glory-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Loafers-Glory-500.jpg",
       "alt": ""
     }
   },
@@ -2569,7 +2569,7 @@
     "categories": ["About the County", "History"],
     "categorySlugs": ["about-the-county", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/02/History-Bee-Logo-Colored.png",
+      "url": "/wp-content/uploads/2017/02/History-Bee-Logo-Colored.png",
       "alt": "The Mitchell County History Bee Logo"
     }
   },
@@ -2582,7 +2582,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/01/Dr.-Charles-A.-Peterson.jpg",
+      "url": "/wp-content/uploads/2019/01/Dr.-Charles-A.-Peterson.jpg",
       "alt": "Dr. Charles Augustus Peterson practiced medicine in and around Spruce Pine for 52 years."
     }
   },
@@ -2595,7 +2595,7 @@
     "categories": ["Economics"],
     "categorySlugs": ["economics"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/01/map.jpg",
+      "url": "/wp-content/uploads/2019/01/map.jpg",
       "alt": "Map showing the proposed route of the railroad."
     }
   },
@@ -2608,7 +2608,7 @@
     "categories": ["People", "Uncategorized"],
     "categorySlugs": ["people", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/01/Ruby-Wiseman-Deyton-1941.jpg",
+      "url": "/wp-content/uploads/2019/01/Ruby-Wiseman-Deyton-1941.jpg",
       "alt": ""
     }
   },
@@ -2621,7 +2621,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/01/gp.jpg",
+      "url": "/wp-content/uploads/2019/01/gp.jpg",
       "alt": "Picture of George Pritchard"
     }
   },
@@ -2634,7 +2634,7 @@
     "categories": ["Communities", "People"],
     "categorySlugs": ["communities", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/01/Old-Griffith-Store-at-Tipton-Hill.jpg",
+      "url": "/wp-content/uploads/2019/01/Old-Griffith-Store-at-Tipton-Hill.jpg",
       "alt": "Old Griffith Store at Tipton Hill"
     }
   },
@@ -2647,7 +2647,7 @@
     "categories": ["Communities", "Economics", "History"],
     "categorySlugs": ["communities", "economics", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2019/01/Untitled.jpg",
+      "url": "/wp-content/uploads/2019/01/Untitled.jpg",
       "alt": "Picture of the Mt. Mitchell/Switzerland Station"
     }
   },
@@ -2660,7 +2660,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Lunday-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Lunday-500.jpg",
       "alt": "Map of Mitchell County with Lunday highlighted."
     }
   },
@@ -2673,7 +2673,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Peppers-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Peppers-500.jpg",
       "alt": "Map of Mitchell County with Peppers highlighted."
     }
   },
@@ -2686,7 +2686,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Ewart-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Ewart-500.jpg",
       "alt": "Map of Mitchell County with Ewart highlighted."
     }
   },
@@ -2699,7 +2699,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Street-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Street-500.jpg",
       "alt": ""
     }
   },
@@ -2712,7 +2712,7 @@
     "categories": ["Communities", "People"],
     "categorySlugs": ["communities", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Clarissa-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Clarissa-500.jpg",
       "alt": ""
     }
   },
@@ -2725,7 +2725,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Kona-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Kona-500.jpg",
       "alt": ""
     }
   },
@@ -2738,7 +2738,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Poplar-400.jpg",
+      "url": "/wp-content/uploads/2018/12/Poplar-400.jpg",
       "alt": ""
     }
   },
@@ -2751,7 +2751,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Minpro-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Minpro-500.jpg",
       "alt": "Map of Mitchell County with Minpro highlighted"
     }
   },
@@ -2764,7 +2764,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Toecane-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Toecane-500.jpg",
       "alt": "Map of Mitchell County with Toecane highlighted"
     }
   },
@@ -2777,7 +2777,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/spf.jpg",
+      "url": "/wp-content/uploads/2018/12/spf.jpg",
       "alt": "Newspaper clipping announcing the dreaded affects of the Spanish Flu in the Spruce Pine area."
     }
   },
@@ -2790,7 +2790,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Brummetts-Creek-School-ca-1920.jpg",
+      "url": "/wp-content/uploads/2018/12/Brummetts-Creek-School-ca-1920.jpg",
       "alt": "Students at Brummetts Creek School 1920."
     }
   },
@@ -2803,7 +2803,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/bowman.jpg",
+      "url": "/wp-content/uploads/2018/12/bowman.jpg",
       "alt": ""
     }
   },
@@ -2816,7 +2816,7 @@
     "categories": ["Economics", "History", "People"],
     "categorySlugs": ["economics", "history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Ubbstitled.jpg",
+      "url": "/wp-content/uploads/2018/12/Ubbstitled.jpg",
       "alt": ""
     }
   },
@@ -2829,7 +2829,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Untitle2d.jpg",
+      "url": "/wp-content/uploads/2018/12/Untitle2d.jpg",
       "alt": "Mr. S.T. Henry"
     }
   },
@@ -2842,7 +2842,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Pitman-Family-Reunion.jpg",
+      "url": "/wp-content/uploads/2018/12/Pitman-Family-Reunion.jpg",
       "alt": "1950 Pitman Reunion on Hawkins Branch, Minpro Community."
     }
   },
@@ -2855,7 +2855,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Kalmia-500-1.jpg",
+      "url": "/wp-content/uploads/2018/12/Kalmia-500-1.jpg",
       "alt": ""
     }
   },
@@ -2868,7 +2868,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Altapass-500.jpg",
+      "url": "/wp-content/uploads/2018/12/Altapass-500.jpg",
       "alt": "Map of Mitchell County with Altapass highlighted."
     }
   },
@@ -2881,7 +2881,7 @@
     "categories": ["History", "People", "Places"],
     "categorySlugs": ["history", "people", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/07/Cloudland-Hotel-400x400.jpg",
+      "url": "/wp-content/uploads/2018/07/Cloudland-Hotel-400x400.jpg",
       "alt": "Photo of the 2018 Cloudland Hotel Ornament"
     }
   },
@@ -2894,7 +2894,7 @@
     "categories": ["History", "Places"],
     "categorySlugs": ["history", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/12/Baptism-at-Pigeon-Roost.jpg",
+      "url": "/wp-content/uploads/2018/12/Baptism-at-Pigeon-Roost.jpg",
       "alt": "Baptism at Pigeon Roost"
     }
   },
@@ -2917,7 +2917,7 @@
     "categories": ["Economics", "History"],
     "categorySlugs": ["economics", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/11/Screen-Shot-2018-11-22-at-9.03.20-PM.png",
+      "url": "/wp-content/uploads/2018/11/Screen-Shot-2018-11-22-at-9.03.20-PM.png",
       "alt": "Gillespie Gap"
     }
   },
@@ -2930,7 +2930,7 @@
     "categories": ["Communities", "History"],
     "categorySlugs": ["communities", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/11/Singing-School-in-McKinney-Cove.jpg",
+      "url": "/wp-content/uploads/2018/11/Singing-School-in-McKinney-Cove.jpg",
       "alt": ""
     }
   },
@@ -2943,7 +2943,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/11/bell.jpg",
+      "url": "/wp-content/uploads/2018/11/bell.jpg",
       "alt": ""
     }
   },
@@ -2956,7 +2956,7 @@
     "categories": ["Uncategorized"],
     "categorySlugs": ["uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/11/Armistice-Day-Bakersville.jpg",
+      "url": "/wp-content/uploads/2018/11/Armistice-Day-Bakersville.jpg",
       "alt": "Armistice Day Parade in Bakersville circa 1924."
     }
   },
@@ -2969,7 +2969,7 @@
     "categories": ["Uncategorized"],
     "categorySlugs": ["uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/11/bg.jpg",
+      "url": "/wp-content/uploads/2018/11/bg.jpg",
       "alt": ""
     }
   },
@@ -2982,7 +2982,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/11/sp.jpg",
+      "url": "/wp-content/uploads/2018/11/sp.jpg",
       "alt": ""
     }
   },
@@ -2995,7 +2995,7 @@
     "categories": ["Communities", "People"],
     "categorySlugs": ["communities", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/11/damesrocket.jpg",
+      "url": "/wp-content/uploads/2018/11/damesrocket.jpg",
       "alt": ""
     }
   },
@@ -3008,7 +3008,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/11/Harris-High-Senior-Trip-1952.jpg",
+      "url": "/wp-content/uploads/2018/11/Harris-High-Senior-Trip-1952.jpg",
       "alt": "Harris High Senior Trip 1952"
     }
   },
@@ -3021,7 +3021,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/The-Height-of-Fashion-1913.jpg",
+      "url": "/wp-content/uploads/2018/10/The-Height-of-Fashion-1913.jpg",
       "alt": ""
     }
   },
@@ -3034,7 +3034,7 @@
     "categories": ["Communities", "History"],
     "categorySlugs": ["communities", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/Springhouse-Bryant-prop-at-Brummetts-Creek-1948-SB-022.jpg",
+      "url": "/wp-content/uploads/2018/10/Springhouse-Bryant-prop-at-Brummetts-Creek-1948-SB-022.jpg",
       "alt": "Picture of the Bryant springhouse."
     }
   },
@@ -3047,7 +3047,7 @@
     "categories": ["Communities", "Economics", "History"],
     "categorySlugs": ["communities", "economics", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/Restored-Depot.jpg",
+      "url": "/wp-content/uploads/2018/10/Restored-Depot.jpg",
       "alt": "The newly restored exterior of the historic 1923 Spruce Pine Depot."
     }
   },
@@ -3060,7 +3060,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/DeSoto-Hernando-1791.jpeg",
+      "url": "/wp-content/uploads/2018/10/DeSoto-Hernando-1791.jpeg",
       "alt": ""
     }
   },
@@ -3073,7 +3073,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/A.W.-Myra-Wiseman-Sullins.jpg",
+      "url": "/wp-content/uploads/2018/10/A.W.-Myra-Wiseman-Sullins.jpg",
       "alt": ""
     }
   },
@@ -3086,7 +3086,7 @@
     "categories": ["Uncategorized"],
     "categorySlugs": ["uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/10/IMG_0470.jpg",
+      "url": "/wp-content/uploads/2016/10/IMG_0470.jpg",
       "alt": ""
     }
   },
@@ -3099,7 +3099,7 @@
     "categories": ["Communities", "People"],
     "categorySlugs": ["communities", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/Buladean-Presbyterian-grads.jpg",
+      "url": "/wp-content/uploads/2018/10/Buladean-Presbyterian-grads.jpg",
       "alt": "These four are identified, left to right, as Troy Hill (1907-1978), Myrtle Street (1907-2001), Vista Hill (1909-1996), and Lennis Bennett (1906-2007). "
     }
   },
@@ -3112,7 +3112,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/Harrel-Store.jpg",
+      "url": "/wp-content/uploads/2018/10/Harrel-Store.jpg",
       "alt": ""
     }
   },
@@ -3125,7 +3125,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/king.jpg",
+      "url": "/wp-content/uploads/2018/10/king.jpg",
       "alt": "Estella Marie Masters King, David Earl King and their son, Denver."
     }
   },
@@ -3138,7 +3138,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/A-Waits-and-Melissa-Ledford-and-Steve-Ledford-Seated-at-the-old-Cloudland-Hotel-Site-Long-Leaf-Media.jpg",
+      "url": "/wp-content/uploads/2018/10/A-Waits-and-Melissa-Ledford-and-Steve-Ledford-Seated-at-the-old-Cloudland-Hotel-Site-Long-Leaf-Media.jpg",
       "alt": ""
     }
   },
@@ -3151,7 +3151,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/ww1.jpg",
+      "url": "/wp-content/uploads/2018/10/ww1.jpg",
       "alt": ""
     }
   },
@@ -3164,7 +3164,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/Lower-Street-Cannon.jpg",
+      "url": "/wp-content/uploads/2018/10/Lower-Street-Cannon.jpg",
       "alt": ""
     }
   },
@@ -3177,7 +3177,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/Ellis-Reunion.jpg",
+      "url": "/wp-content/uploads/2018/10/Ellis-Reunion.jpg",
       "alt": ""
     }
   },
@@ -3190,7 +3190,7 @@
     "categories": ["Communities", "People"],
     "categorySlugs": ["communities", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/Decoration-Day-1939-Gouge-Cemetery.jpg",
+      "url": "/wp-content/uploads/2018/10/Decoration-Day-1939-Gouge-Cemetery.jpg",
       "alt": ""
     }
   },
@@ -3203,7 +3203,7 @@
     "categories": ["Uncategorized"],
     "categorySlugs": ["uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/Screen-Shot-2018-10-20-at-7.06.25-PM.png",
+      "url": "/wp-content/uploads/2018/10/Screen-Shot-2018-10-20-at-7.06.25-PM.png",
       "alt": ""
     }
   },
@@ -3216,7 +3216,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/fonzer.jpg",
+      "url": "/wp-content/uploads/2018/10/fonzer.jpg",
       "alt": ""
     }
   },
@@ -3229,7 +3229,7 @@
     "categories": ["Heritage", "History", "People", "Uncategorized"],
     "categorySlugs": ["heritage", "history", "people", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/100-County-Quilt-2.jpg",
+      "url": "/wp-content/uploads/2018/10/100-County-Quilt-2.jpg",
       "alt": ""
     }
   },
@@ -3242,7 +3242,7 @@
     "categories": ["Uncategorized"],
     "categorySlugs": ["uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/Silver-Family.jpg",
+      "url": "/wp-content/uploads/2018/10/Silver-Family.jpg",
       "alt": ""
     }
   },
@@ -3255,7 +3255,7 @@
     "categories": ["Communities", "History"],
     "categorySlugs": ["communities", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/10/Untitled.jpg",
+      "url": "/wp-content/uploads/2018/10/Untitled.jpg",
       "alt": "The original monument, as shown in this 1930’s photo, was made of native stone and sat near the present location of Highway 226 and the intersection of the Blue Ridge Parkway at Gillespie Gap."
     }
   },
@@ -3268,7 +3268,7 @@
     "categories": ["Communities", "History"],
     "categorySlugs": ["communities", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/04/LH1908.jpg",
+      "url": "/wp-content/uploads/2018/04/LH1908.jpg",
       "alt": ""
     }
   },
@@ -3281,7 +3281,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/03/Isaac-Hollifield-Featured.jpg",
+      "url": "/wp-content/uploads/2018/03/Isaac-Hollifield-Featured.jpg",
       "alt": "Photo of Isaac Hollifield"
     }
   },
@@ -3294,7 +3294,7 @@
     "categories": ["People", "Uncategorized"],
     "categorySlugs": ["people", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/03/hhs.jpg",
+      "url": "/wp-content/uploads/2018/03/hhs.jpg",
       "alt": ""
     }
   },
@@ -3307,7 +3307,7 @@
     "categories": ["Icons", "People", "Places"],
     "categorySlugs": ["icons", "people", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/03/Doc-Hoppas.jpg",
+      "url": "/wp-content/uploads/2018/03/Doc-Hoppas.jpg",
       "alt": "Picture of Doc Hoppes and his banjo."
     }
   },
@@ -3320,7 +3320,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/02/Brothers-Mack-Young-Thomas-Young-and-Reuben-Young.jpg",
+      "url": "/wp-content/uploads/2018/02/Brothers-Mack-Young-Thomas-Young-and-Reuben-Young.jpg",
       "alt": ""
     }
   },
@@ -3333,7 +3333,7 @@
     "categories": ["Places"],
     "categorySlugs": ["places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/02/Bakersville-Map.png",
+      "url": "/wp-content/uploads/2018/02/Bakersville-Map.png",
       "alt": ""
     }
   },
@@ -3346,7 +3346,7 @@
     "categories": ["Communities", "Economics"],
     "categorySlugs": ["communities", "economics"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/01/Penland-Post-Office-2.jpg",
+      "url": "/wp-content/uploads/2018/01/Penland-Post-Office-2.jpg",
       "alt": ""
     }
   },
@@ -3359,7 +3359,7 @@
     "categories": ["Communities", "Icons"],
     "categorySlugs": ["communities", "icons"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/01/1907-Courthouse.jpg",
+      "url": "/wp-content/uploads/2018/01/1907-Courthouse.jpg",
       "alt": "Photo of the Mitchell County Courthouse in the early 1900s"
     }
   },
@@ -3372,7 +3372,7 @@
     "categories": ["Communities", "Economics"],
     "categorySlugs": ["communities", "economics"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/01/Huntdale-in-the-Early-20th-Century.jpg",
+      "url": "/wp-content/uploads/2018/01/Huntdale-in-the-Early-20th-Century.jpg",
       "alt": ""
     }
   },
@@ -3385,7 +3385,7 @@
     "categories": ["Communities", "Economics"],
     "categorySlugs": ["communities", "economics"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/01/City-Drug-Company-1940s.jpg",
+      "url": "/wp-content/uploads/2018/01/City-Drug-Company-1940s.jpg",
       "alt": ""
     }
   },
@@ -3398,7 +3398,7 @@
     "categories": ["Communities", "People"],
     "categorySlugs": ["communities", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/01/Gouges-of-Glen-Ayre-1930s-1.jpg",
+      "url": "/wp-content/uploads/2018/01/Gouges-of-Glen-Ayre-1930s-1.jpg",
       "alt": ""
     }
   },
@@ -3411,7 +3411,7 @@
     "categories": ["Economics", "History", "People"],
     "categorySlugs": ["economics", "history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/01/Screen-Shot-2018-01-13-at-8.19.04-PM.png",
+      "url": "/wp-content/uploads/2018/01/Screen-Shot-2018-01-13-at-8.19.04-PM.png",
       "alt": ""
     }
   },
@@ -3424,7 +3424,7 @@
     "categories": ["Heritage", "People"],
     "categorySlugs": ["heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/01/Elizabeth-Miller-Harrell-and-Simon-Harrell.jpg",
+      "url": "/wp-content/uploads/2018/01/Elizabeth-Miller-Harrell-and-Simon-Harrell.jpg",
       "alt": ""
     }
   },
@@ -3447,7 +3447,7 @@
     "categories": ["Economics", "Places"],
     "categorySlugs": ["economics", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/01/First-Bakersville-VFD.jpg",
+      "url": "/wp-content/uploads/2018/01/First-Bakersville-VFD.jpg",
       "alt": ""
     }
   },
@@ -3460,7 +3460,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/01/Great-War-Veterans-1984.jpg",
+      "url": "/wp-content/uploads/2018/01/Great-War-Veterans-1984.jpg",
       "alt": ""
     }
   },
@@ -3473,7 +3473,7 @@
     "categories": ["Communities", "History"],
     "categorySlugs": ["communities", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2018/01/Altapass-Front.jpg",
+      "url": "/wp-content/uploads/2018/01/Altapass-Front.jpg",
       "alt": "The Altapass Inn, built by the Holston Land Company in 1915. The hotel was the center of the booming community which many thought was destined to become Mitchell County's largest town."
     }
   },
@@ -3486,7 +3486,7 @@
     "categories": ["Economics", "History", "People"],
     "categorySlugs": ["economics", "history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/12/PBB.jpg",
+      "url": "/wp-content/uploads/2017/12/PBB.jpg",
       "alt": "Pinebridge Bucks Logo"
     }
   },
@@ -3509,7 +3509,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/11/oei.jpg",
+      "url": "/wp-content/uploads/2017/11/oei.jpg",
       "alt": "Picture of the Old English Inn"
     }
   },
@@ -3522,7 +3522,7 @@
     "categories": ["Heritage", "People"],
     "categorySlugs": ["heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/11/Roan-Hunting-Dogs.jpg",
+      "url": "/wp-content/uploads/2017/11/Roan-Hunting-Dogs.jpg",
       "alt": "Fox hunters gathered in front of the Old Cloudland Hotel on top of Roan Mountain."
     }
   },
@@ -3535,7 +3535,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/11/Untitled.jpg",
+      "url": "/wp-content/uploads/2017/11/Untitled.jpg",
       "alt": "The gravestone of Robert Sevier who is buried on the Unimin Property near Bright's Trace."
     }
   },
@@ -3548,7 +3548,7 @@
     "categories": ["About the County"],
     "categorySlugs": ["about-the-county"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/11/Bakersville-Free-School-Hist-Soc005.jpg",
+      "url": "/wp-content/uploads/2017/11/Bakersville-Free-School-Hist-Soc005.jpg",
       "alt": ""
     }
   },
@@ -3561,7 +3561,7 @@
     "categories": ["Heritage", "People"],
     "categorySlugs": ["heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/11/Shotgun-Wedding.jpg",
+      "url": "/wp-content/uploads/2017/11/Shotgun-Wedding.jpg",
       "alt": "Photo of the Shotgun Wedding"
     }
   },
@@ -3574,7 +3574,7 @@
     "categories": ["Heritage"],
     "categorySlugs": ["heritage"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/11/David-Baker-Marker.png",
+      "url": "/wp-content/uploads/2017/11/David-Baker-Marker.png",
       "alt": ""
     }
   },
@@ -3587,7 +3587,7 @@
     "categories": ["Economics", "People"],
     "categorySlugs": ["economics", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/11/Uriah-Pate.png",
+      "url": "/wp-content/uploads/2017/11/Uriah-Pate.png",
       "alt": ""
     }
   },
@@ -3620,7 +3620,7 @@
     "categories": ["About the County", "Places"],
     "categorySlugs": ["about-the-county", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/11/Bakersville-after-the-May-Food.jpg",
+      "url": "/wp-content/uploads/2017/11/Bakersville-after-the-May-Food.jpg",
       "alt": ""
     }
   },
@@ -3633,7 +3633,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/10/flood.jpg",
+      "url": "/wp-content/uploads/2017/10/flood.jpg",
       "alt": ""
     }
   },
@@ -3646,7 +3646,7 @@
     "categories": ["Economics", "Heritage", "Icons"],
     "categorySlugs": ["economics", "heritage", "icons"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/08/Buster-Brown.jpg",
+      "url": "/wp-content/uploads/2017/08/Buster-Brown.jpg",
       "alt": "Buster Brown and his dog Tige in front of the Spruce Pine Store Company."
     }
   },
@@ -3659,7 +3659,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/08/Loafers-Glory-GM-036.jpg",
+      "url": "/wp-content/uploads/2017/08/Loafers-Glory-GM-036.jpg",
       "alt": ""
     }
   },
@@ -3672,7 +3672,7 @@
     "categories": ["Economics"],
     "categorySlugs": ["economics"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/07/Frying-Chicken-Steak-at-Carvers-Gap-50s-SB-040.jpg",
+      "url": "/wp-content/uploads/2017/07/Frying-Chicken-Steak-at-Carvers-Gap-50s-SB-040.jpg",
       "alt": ""
     }
   },
@@ -3685,7 +3685,7 @@
     "categories": ["Economics", "People"],
     "categorySlugs": ["economics", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/07/Buchanan-Gristmill-1.jpg",
+      "url": "/wp-content/uploads/2017/07/Buchanan-Gristmill-1.jpg",
       "alt": ""
     }
   },
@@ -3698,7 +3698,7 @@
     "categories": ["Uncategorized"],
     "categorySlugs": ["uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/08/002-3.jpg",
+      "url": "/wp-content/uploads/2017/08/002-3.jpg",
       "alt": ""
     }
   },
@@ -3711,7 +3711,7 @@
     "categories": ["Communities", "People"],
     "categorySlugs": ["communities", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/08/Three-Sisters-by-Frank-Stanley-Herring-1929.jpg",
+      "url": "/wp-content/uploads/2017/08/Three-Sisters-by-Frank-Stanley-Herring-1929.jpg",
       "alt": ""
     }
   },
@@ -3724,7 +3724,7 @@
     "categories": ["Economics", "People"],
     "categorySlugs": ["economics", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/07/Roby-Buchanan.png",
+      "url": "/wp-content/uploads/2017/07/Roby-Buchanan.png",
       "alt": ""
     }
   },
@@ -3737,7 +3737,7 @@
     "categories": ["Communities", "People", "Places"],
     "categorySlugs": ["communities", "people", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/07/Screen-Shot-2017-07-19-at-8.06.21-PM.png",
+      "url": "/wp-content/uploads/2017/07/Screen-Shot-2017-07-19-at-8.06.21-PM.png",
       "alt": "Horseback riding was a popular attraction at the camp. The girls enjoyed a riding ring that the Park- way threatened when it was constructed. Miss Dwight successfully lobbied Parkway of cials for an access road to link the camp with the ring on an adjacent ridge."
     }
   },
@@ -3750,7 +3750,7 @@
     "categories": ["Communities", "History", "People", "Places", "Uncategorized"],
     "categorySlugs": ["communities", "history", "people", "places", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/07/GillespieGapMonumentDedication.jpg",
+      "url": "/wp-content/uploads/2017/07/GillespieGapMonumentDedication.jpg",
       "alt": "The plaque is ready to be unveiled at Gillespie Gap on July 4, 1927."
     }
   },
@@ -3763,7 +3763,7 @@
     "categories": ["Communities", "People"],
     "categorySlugs": ["communities", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/07/GreenleeHuntingParty.jpg",
+      "url": "/wp-content/uploads/2017/07/GreenleeHuntingParty.jpg",
       "alt": "Picture of Greenlee Hunting Party"
     }
   },
@@ -3776,7 +3776,7 @@
     "categories": ["About the County", "Communities", "History"],
     "categorySlugs": ["about-the-county", "communities", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/06/Screen-Shot-2017-06-25-at-7.46.29-PM.png",
+      "url": "/wp-content/uploads/2017/06/Screen-Shot-2017-06-25-at-7.46.29-PM.png",
       "alt": "Decoration day at the Bear Creek Baptist Church Cemetery is set on the fourth Sunday in June of every year. This photograph was taken in the 1930’s. Today Bear Creek Cemetery contains over 1,700 graves. Allen Sparks was the first person buried at Bear Creek in 1849."
     }
   },
@@ -3789,7 +3789,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/06/Joseph-and-Catherine-Buchanan-Ellis.png",
+      "url": "/wp-content/uploads/2017/06/Joseph-and-Catherine-Buchanan-Ellis.png",
       "alt": "Photo of Joseph and Catherine Buchanan Ellis"
     }
   },
@@ -3812,7 +3812,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/05/Screen-Shot-2017-05-21-at-6.26.31-PM.png",
+      "url": "/wp-content/uploads/2017/05/Screen-Shot-2017-05-21-at-6.26.31-PM.png",
       "alt": ""
     }
   },
@@ -3825,7 +3825,7 @@
     "categories": ["Icons", "People"],
     "categorySlugs": ["icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/05/14589853_1159489697431238_6817002131213807849_o.jpg",
+      "url": "/wp-content/uploads/2017/05/14589853_1159489697431238_6817002131213807849_o.jpg",
       "alt": "Picture of Wayne Ledford"
     }
   },
@@ -3838,7 +3838,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/05/10272522_755637817840363_6467204858077872231_o.jpg",
+      "url": "/wp-content/uploads/2017/05/10272522_755637817840363_6467204858077872231_o.jpg",
       "alt": "William and Nancy Buchanan's home in Little Switzerland."
     }
   },
@@ -3851,7 +3851,7 @@
     "categories": ["About the County", "Economics"],
     "categorySlugs": ["about-the-county", "economics"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/05/Chestnut-Flat-Mine.jpg",
+      "url": "/wp-content/uploads/2017/05/Chestnut-Flat-Mine.jpg",
       "alt": ""
     }
   },
@@ -3864,7 +3864,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/05/18010313_1451952848208853_2541569024782281570_n.jpg",
+      "url": "/wp-content/uploads/2017/05/18010313_1451952848208853_2541569024782281570_n.jpg",
       "alt": "This photo was made the Summer of 1960 at the home of Rom and Connie Duncan. The house was located on Hwy 19E where the \" 50's Diner\" is now located. Shown at the First Duncan Reunion are the sons and daughter of Washington (Wash) Duncan and Martha Pendley Duncan. Not pictured are daughters Ora Duncan Freeman and Sadie Duncan Grindstaff. Left to right- James L. Duncan and wife Maggie Serepta Pendley Duncan; Milton Swan, wife Docia Duncan Swan; Ruth Putnam Duncan wife of Robert Duncan deceased; Dallas Duncan and wife Edna Duncan; Susie Rose wife of Isaac Duncan (Ike) deceased, Connie Jolley Duncan and husband Rom Duncan. Photo courtesy of Nelle Glenn."
     }
   },
@@ -3877,7 +3877,7 @@
     "categories": ["Uncategorized"],
     "categorySlugs": ["uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/05/Teacher-John-A.-Gouge.jpg",
+      "url": "/wp-content/uploads/2017/05/Teacher-John-A.-Gouge.jpg",
       "alt": ""
     }
   },
@@ -3890,7 +3890,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/05/Jacob-Ayers-Civil-War-vet-Glen-Ayre.jpg",
+      "url": "/wp-content/uploads/2017/05/Jacob-Ayers-Civil-War-vet-Glen-Ayre.jpg",
       "alt": "Photo of Jacob Ayers with wife Bridget"
     }
   },
@@ -3903,7 +3903,7 @@
     "categories": ["Communities", "History"],
     "categorySlugs": ["communities", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/05/17992193_1381422428571296_422188751114175517_n.jpg",
+      "url": "/wp-content/uploads/2017/05/17992193_1381422428571296_422188751114175517_n.jpg",
       "alt": ""
     }
   },
@@ -3916,7 +3916,7 @@
     "categories": ["Icons", "People", "Uncategorized"],
     "categorySlugs": ["icons", "people", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/05/TR20220Red20Wilson.jpg",
+      "url": "/wp-content/uploads/2017/05/TR20220Red20Wilson.jpg",
       "alt": "Picture of Red Wilson"
     }
   },
@@ -3929,7 +3929,7 @@
     "categories": ["Communities", "Places"],
     "categorySlugs": ["communities", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/05/dls.jpg",
+      "url": "/wp-content/uploads/2017/05/dls.jpg",
       "alt": "Photo of Little Switzerland"
     }
   },
@@ -3942,7 +3942,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/04/Screen-Shot-2017-04-23-at-2.47.41-PM.png",
+      "url": "/wp-content/uploads/2017/04/Screen-Shot-2017-04-23-at-2.47.41-PM.png",
       "alt": "Mitchell County’s law enforcement community poses for this picture circa 1960. Left to right are: James Edwards, Mitchell County Deputy, Joe Stewart, Mitchell County Deputy, Sam Gouge, Mitchell County Sheriff, Jim Burleson, Chief of Police, Ray Gunter, Spruce Pine Police, Cotton Burleson, Spruce Pine Police, Herb Teague, Detective Spruce Pine, Zeke Howell, Mitchell County Jailer, Charlie Radcliffe, NC Highway Patrolman, R. E. Pipes, NC Highway Patrolman, Lee Lance, NC Highway Patrolman."
     }
   },
@@ -3955,7 +3955,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/04/correctedww1.jpg",
+      "url": "/wp-content/uploads/2017/04/correctedww1.jpg",
       "alt": "In April 1917, one hundred years ago this month, the United States declared war on Germany. Mitchell Countians joined United States forces as they hoped to fight in a “war to end all wars.” Several groups of enlistees would depart at different times. Pictured above, beside the historic courthouse in Bakersville, is the second group of men to leave for service in World War 1. Not all of the men are identified. A partial list includes: John H. McKinney, Charlie Ramsey, Tane Greene, Talmadge Johnson, Carl Loven, Claude Johnson, Glenn Lawrence, Jeff McKinney, Charlie Winters, Willard Buchanan, Avery Carpenter, George Johnson, Bascom Parsons, Stokes McKinney, Homer McKinney, Lonzo Hall, Charlie Woody (of Hanging Rock), a Mr. Pitman (of Altapass), and a Mr. Thomas. Standing at left is Dr. Smith, the medical examiner. Leaning from the window of the courthouse is Mr. D.W. Greene, Superintendent of Mitchell County Schools. Five Mitchell County men perished in the war. They were Fred N. Cox, Wess R. Ellis, Pvt. Charles E Howell, Homer McKinney, and William F. Ramsey."
     }
   },
@@ -3968,7 +3968,7 @@
     "categories": ["Economics", "People"],
     "categorySlugs": ["economics", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/04/Wilson-S.-Jones-Blacksmith.jpg",
+      "url": "/wp-content/uploads/2017/04/Wilson-S.-Jones-Blacksmith.jpg",
       "alt": ""
     }
   },
@@ -3981,7 +3981,7 @@
     "categories": ["Heritage", "History", "Places"],
     "categorySlugs": ["heritage", "history", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/04/IMG0001.jpg",
+      "url": "/wp-content/uploads/2017/04/IMG0001.jpg",
       "alt": ""
     }
   },
@@ -3994,7 +3994,7 @@
     "categories": ["Heritage", "History", "People"],
     "categorySlugs": ["heritage", "history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/03/1.jpg",
+      "url": "/wp-content/uploads/2017/03/1.jpg",
       "alt": ""
     }
   },
@@ -4007,7 +4007,7 @@
     "categories": ["Economics", "People", "Uncategorized"],
     "categorySlugs": ["economics", "people", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/03/Bee-Keepers-G.B.-Barnett-and-Edd-Bennett.jpg",
+      "url": "/wp-content/uploads/2017/03/Bee-Keepers-G.B.-Barnett-and-Edd-Bennett.jpg",
       "alt": ""
     }
   },
@@ -4020,7 +4020,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/03/Screen-Shot-2017-03-11-at-6.46.56-PM.jpg",
+      "url": "/wp-content/uploads/2017/03/Screen-Shot-2017-03-11-at-6.46.56-PM.jpg",
       "alt": "Mr. Saw Cresawn - the snake man of Turkey Cove."
     }
   },
@@ -4033,7 +4033,7 @@
     "categories": ["Communities", "People", "Uncategorized"],
     "categorySlugs": ["communities", "people", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/unspecified-2.jpeg",
+      "url": "/wp-content/uploads/2017/01/unspecified-2.jpeg",
       "alt": "Picture of Thomas Store Glen Ayre"
     }
   },
@@ -4056,7 +4056,7 @@
     "categories": ["Communities", "People"],
     "categorySlugs": ["communities", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/02/Screen-Shot-2017-02-26-at-7.09.30-PM.png",
+      "url": "/wp-content/uploads/2017/02/Screen-Shot-2017-02-26-at-7.09.30-PM.png",
       "alt": ""
     }
   },
@@ -4069,7 +4069,7 @@
     "categories": ["Communities", "Places", "Uncategorized"],
     "categorySlugs": ["communities", "places", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/02/Screen-Shot-2017-02-26-at-7.09.14-PM.png",
+      "url": "/wp-content/uploads/2017/02/Screen-Shot-2017-02-26-at-7.09.14-PM.png",
       "alt": "The bustling community of Toecane in 1910."
     }
   },
@@ -4082,7 +4082,7 @@
     "categories": ["Communities", "Heritage"],
     "categorySlugs": ["communities", "heritage"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/02/Bridge-Hollow-Poplar-Branch-Toe-River-Poplar-NC-ETSU-005.jpg",
+      "url": "/wp-content/uploads/2017/02/Bridge-Hollow-Poplar-Branch-Toe-River-Poplar-NC-ETSU-005.jpg",
       "alt": "The Clinchfield Bridge over the Nolichucky River at the mouth of Hollow Poplar Creek."
     }
   },
@@ -4095,7 +4095,7 @@
     "categories": ["Communities", "Economics", "Places"],
     "categorySlugs": ["communities", "economics", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/02/Red-Hill-Grocery-1940-Joyce-Boone-022.jpg",
+      "url": "/wp-content/uploads/2017/02/Red-Hill-Grocery-1940-Joyce-Boone-022.jpg",
       "alt": "Red Hill Grocery circa 1940"
     }
   },
@@ -4118,7 +4118,7 @@
     "categories": ["About the County", "Icons"],
     "categorySlugs": ["about-the-county", "icons"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/02/Cranking-Model-T-1.jpg",
+      "url": "/wp-content/uploads/2017/02/Cranking-Model-T-1.jpg",
       "alt": ""
     }
   },
@@ -4131,7 +4131,7 @@
     "categories": ["Heritage"],
     "categorySlugs": ["heritage"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Scan-Day-Poster.jpg",
+      "url": "/wp-content/uploads/2017/01/Scan-Day-Poster.jpg",
       "alt": "Image of the Scan Days Poster"
     }
   },
@@ -4144,7 +4144,7 @@
     "categories": ["People", "Uncategorized"],
     "categorySlugs": ["people", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/02/Cleaning-circle-on-RoanReduced-1.jpg",
+      "url": "/wp-content/uploads/2017/02/Cleaning-circle-on-RoanReduced-1.jpg",
       "alt": ""
     }
   },
@@ -4157,7 +4157,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/02/163.jpg",
+      "url": "/wp-content/uploads/2017/02/163.jpg",
       "alt": "The Spruce Pine Boy Scouts of America Troop No. 1 traveled to Washington, D.C. August 8, 1929, posing for this photo. Front row (L-R): William Zeb Buchanan, Jr., Brown Hughes Burleson, James Phillip Young, John Dallas Swann, Albert Lee Canipe, James Carter Phillips, Frank Marvin Whitlock, Billy Smith, Jurians Haywood Goforth, James Hendrix Lyons, William Yarbor Brown, Daniel Oscar Blevins, Jr. Back row (L-R): Frank Alexander Swift, Jr., Guy Wiseman, Harold Berry, Robert Johnson Gilbert, Mr. J.W. Gilbert, William R. Smith (scoutmaster), Ernest Lee Murphy, Reid Berry, William Sydney Kester, John Lewis McNeil, Charles Dorman Berry, Earl McBee, James Clifford Mayberry, Howard Britton Lyons, B.B. “Mutt” Burleson, Sam B. Cannon, Jr."
     }
   },
@@ -4170,7 +4170,7 @@
     "categories": ["History", "Uncategorized"],
     "categorySlugs": ["history", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/02/family-tree-clipart-9c4E4nycE.jpg",
+      "url": "/wp-content/uploads/2017/02/family-tree-clipart-9c4E4nycE.jpg",
       "alt": ""
     }
   },
@@ -4193,7 +4193,7 @@
     "categories": ["Economics"],
     "categorySlugs": ["economics"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Sheep-on-Grassy-Ridge.png",
+      "url": "/wp-content/uploads/2017/01/Sheep-on-Grassy-Ridge.png",
       "alt": ""
     }
   },
@@ -4206,7 +4206,7 @@
     "categories": ["Economics"],
     "categorySlugs": ["economics"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Taylor-Lumber-Company.png",
+      "url": "/wp-content/uploads/2017/01/Taylor-Lumber-Company.png",
       "alt": ""
     }
   },
@@ -4219,7 +4219,7 @@
     "categories": ["People", "Uncategorized"],
     "categorySlugs": ["people", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Screen-Shot-2017-01-26-at-8.05.48-PM-1.png",
+      "url": "/wp-content/uploads/2017/01/Screen-Shot-2017-01-26-at-8.05.48-PM-1.png",
       "alt": "Zachary Taylor McHone (1844 - 1938) in his later years at his home on McHone Mountain above Spruce Pine. Zach was one of 9 children born to Kim and Nancy McHone. Zach had 9 sisters. He served in the 58th CSA Regiment during the Civil War."
     }
   },
@@ -4232,7 +4232,7 @@
     "categories": ["Communities", "Economics", "People"],
     "categorySlugs": ["communities", "economics", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Screen-Shot-2017-01-22-at-7.22.33-PM.jpg",
+      "url": "/wp-content/uploads/2017/01/Screen-Shot-2017-01-22-at-7.22.33-PM.jpg",
       "alt": "The Blevins Brothers Store at Toecane. Date unknown. Brown Blevins was owner. He married Molly Deyton. Brown, Molly and many of their children died from TB in the 1930's"
     }
   },
@@ -4255,7 +4255,7 @@
     "categories": ["Economics", "Heritage"],
     "categorySlugs": ["economics", "heritage"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Piedmont-Theatre.jpeg",
+      "url": "/wp-content/uploads/2017/01/Piedmont-Theatre.jpeg",
       "alt": "Spruce Pine’s first theater was not the Carolina. The Piedmont Theatre, which was originally located on Lower Street where Dellinger’s Christian Bookstore is today, was opened in 1928 by John Taylor. The theater originally hosted silent movies and featured a large pump organ that provided musical accompaniment. It later switched to “talkies” and served as a stage for dance and music recitals. The Piedmont also hosted fundraisers for the Spruce Pine Band when it traveled to the state competition in Greensboro. On January 1, 1938, the Piedmont closed when its equipment and contracts were purchased by the Cherokee Amusement Company, which had opened the Carolina Theatre just before Christmas in 1937. As part of the sale, Taylor agreed to shutter the business and not operate a playhouse in the vicinity for a period of 10 years. There were several times when folks in Spruce Pine had two theaters to choose from. The Baker Theater on Oak Avenue provided the latest Hollywood films as well. This photo was made in the 1930s, when the Piedmont still had a presence on Lower Street."
     }
   },
@@ -4268,7 +4268,7 @@
     "categories": ["Heritage", "Uncategorized"],
     "categorySlugs": ["heritage", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Scan-Day-Poster.jpg",
+      "url": "/wp-content/uploads/2017/01/Scan-Day-Poster.jpg",
       "alt": "Image of the Scan Days Poster"
     }
   },
@@ -4281,7 +4281,7 @@
     "categories": ["About the County", "History"],
     "categorySlugs": ["about-the-county", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Screen-Shot-2017-01-16-at-6.03.01-PM.png",
+      "url": "/wp-content/uploads/2017/01/Screen-Shot-2017-01-16-at-6.03.01-PM.png",
       "alt": "Map of Mitchell and Yancey Counties in 1904"
     }
   },
@@ -4294,7 +4294,7 @@
     "categories": ["Communities", "People", "Uncategorized"],
     "categorySlugs": ["communities", "people", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Screen-Shot-2017-01-16-at-12.54.42-PM.jpg",
+      "url": "/wp-content/uploads/2017/01/Screen-Shot-2017-01-16-at-12.54.42-PM.jpg",
       "alt": "The George Greenlee family poses after a successful hunting expedition. The Greenlees were one of the first families to settle in the region. They named the area Grassy Creek from the lush meadows where their livestock grazed."
     }
   },
@@ -4307,7 +4307,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Screen-Shot-2017-01-15-at-7.28.30-PM.png",
+      "url": "/wp-content/uploads/2017/01/Screen-Shot-2017-01-15-at-7.28.30-PM.png",
       "alt": ""
     }
   },
@@ -4320,7 +4320,7 @@
     "categories": ["Places"],
     "categorySlugs": ["places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/069.tif",
+      "url": "/wp-content/uploads/2017/01/069.tif",
       "alt": "Picture of Crabtree Falls."
     }
   },
@@ -4333,7 +4333,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Screen-Shot-2017-01-15-at-3.41.17-PM.png",
+      "url": "/wp-content/uploads/2017/01/Screen-Shot-2017-01-15-at-3.41.17-PM.png",
       "alt": "The Bandana Store and Post Office was the heart of the community. The old store is now gone."
     }
   },
@@ -4346,7 +4346,7 @@
     "categories": ["People", "Places", "Uncategorized"],
     "categorySlugs": ["people", "places", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/glenn-1.png",
+      "url": "/wp-content/uploads/2017/01/glenn-1.png",
       "alt": ""
     }
   },
@@ -4359,7 +4359,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Alta_Pass_Inn_Alta_Pass_NC_On_CC__ORR.jpg",
+      "url": "/wp-content/uploads/2017/01/Alta_Pass_Inn_Alta_Pass_NC_On_CC__ORR.jpg",
       "alt": ""
     }
   },
@@ -4372,7 +4372,7 @@
     "categories": ["Economics"],
     "categorySlugs": ["economics"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Loading-Tobacco.png",
+      "url": "/wp-content/uploads/2017/01/Loading-Tobacco.png",
       "alt": ""
     }
   },
@@ -4385,7 +4385,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Stewart-Reunion-1929-1.jpg",
+      "url": "/wp-content/uploads/2017/01/Stewart-Reunion-1929-1.jpg",
       "alt": "Photo of the Stewart Family Reunion in 1929"
     }
   },
@@ -4398,7 +4398,7 @@
     "categories": ["People"],
     "categorySlugs": ["people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Screen-Shot-2017-01-08-at-5.54.52-PM.png",
+      "url": "/wp-content/uploads/2017/01/Screen-Shot-2017-01-08-at-5.54.52-PM.png",
       "alt": ""
     }
   },
@@ -4411,7 +4411,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/unspecified.jpeg",
+      "url": "/wp-content/uploads/2017/01/unspecified.jpeg",
       "alt": ""
     }
   },
@@ -4424,7 +4424,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/DSC_5792-Edit-2.jpg",
+      "url": "/wp-content/uploads/2017/01/DSC_5792-Edit-2.jpg",
       "alt": "Squire Peterson's General Store. Relief, North Carolina."
     }
   },
@@ -4437,7 +4437,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Screen-Shot-2017-01-07-at-6.33.29-PM.png",
+      "url": "/wp-content/uploads/2017/01/Screen-Shot-2017-01-07-at-6.33.29-PM.png",
       "alt": "In 1959 , the 30th anniversary of the first graduating class, the old Tipton Hill High School was torn down to make room for the new lunchroom and gym. This building, which was dated May 18, 1921, was funded by the Methodist church and a bible was placed within its walls. This bible was found in 1959 when the building was torn down. Enough funds could not be raised to complete the building so the Mitchell County Board of Education purchased the property on August 26, 1924. By 1927, three years of instruction could be obtained at Tipton Hill High School. Tipton Hill began as a four year High school in 1928. Mr. Yelton was the principal and Mrs. Yelton and Mr. L. R. Vann were the faculty. Seven students graduated that year. In 1930 the High School was accredited by the State Department."
     }
   },
@@ -4450,7 +4450,7 @@
     "categories": ["About the County", "History"],
     "categorySlugs": ["about-the-county", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Slide22.jpg",
+      "url": "/wp-content/uploads/2017/01/Slide22.jpg",
       "alt": "The creation of North Carolina's counties"
     }
   },
@@ -4463,7 +4463,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/map.jpg",
+      "url": "/wp-content/uploads/2017/01/map.jpg",
       "alt": ""
     }
   },
@@ -4476,7 +4476,7 @@
     "categories": ["Communities"],
     "categorySlugs": ["communities"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2017/01/Screen-Shot-2016-12-23-at-7.11.31-PM.jpg",
+      "url": "/wp-content/uploads/2017/01/Screen-Shot-2016-12-23-at-7.11.31-PM.jpg",
       "alt": ""
     }
   },
@@ -4499,7 +4499,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/Dynamite-Hole.jpg",
+      "url": "/wp-content/uploads/2016/12/Dynamite-Hole.jpg",
       "alt": "Four youths stand in a hole blown in the Spruce Pine baseball field on the evening of December 31,1959"
     }
   },
@@ -4512,7 +4512,7 @@
     "categories": ["Economics", "Icons", "Places"],
     "categorySlugs": ["economics", "icons", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/Belk-Lower_Street-Small.jpg",
+      "url": "/wp-content/uploads/2016/12/Belk-Lower_Street-Small.jpg",
       "alt": "Photo of Belk on Lower Street in Spruce Pine in the 1950s"
     }
   },
@@ -4525,7 +4525,7 @@
     "categories": ["People", "Places"],
     "categorySlugs": ["people", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/Rev.-Charles-H.-McKinney.jpg",
+      "url": "/wp-content/uploads/2016/12/Rev.-Charles-H.-McKinney.jpg",
       "alt": ""
     }
   },
@@ -4538,7 +4538,7 @@
     "categories": ["Economics", "Icons", "People", "Places"],
     "categorySlugs": ["economics", "icons", "people", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/Frank-Elma-Wilson-in-Cafe.jpg",
+      "url": "/wp-content/uploads/2016/12/Frank-Elma-Wilson-in-Cafe.jpg",
       "alt": ""
     }
   },
@@ -4551,7 +4551,7 @@
     "categories": ["Communities", "People", "Places", "Uncategorized"],
     "categorySlugs": ["communities", "people", "places", "uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/Screen-Shot-2016-12-27-at-7.52.40-PM.png",
+      "url": "/wp-content/uploads/2016/12/Screen-Shot-2016-12-27-at-7.52.40-PM.png",
       "alt": ""
     }
   },
@@ -4564,7 +4564,7 @@
     "categories": ["Heritage", "Icons", "People"],
     "categorySlugs": ["heritage", "icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/Screen-Shot-2016-07-24-at-8.03.33-PM-1.png",
+      "url": "/wp-content/uploads/2016/12/Screen-Shot-2016-07-24-at-8.03.33-PM-1.png",
       "alt": "Sam Brinkley's beard"
     }
   },
@@ -4577,7 +4577,7 @@
     "categories": ["Economics", "History", "People", "Places"],
     "categorySlugs": ["economics", "history", "people", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/Screen-Shot-2014-04-03-at-10.55.01-PM.jpg",
+      "url": "/wp-content/uploads/2016/12/Screen-Shot-2014-04-03-at-10.55.01-PM.jpg",
       "alt": ""
     }
   },
@@ -4590,7 +4590,7 @@
     "categories": ["Heritage", "People"],
     "categorySlugs": ["heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/Young-Cabin.png",
+      "url": "/wp-content/uploads/2016/12/Young-Cabin.png",
       "alt": ""
     }
   },
@@ -4603,7 +4603,7 @@
     "categories": ["Icons", "People"],
     "categorySlugs": ["icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/Tech-Geeks.png",
+      "url": "/wp-content/uploads/2016/12/Tech-Geeks.png",
       "alt": ""
     }
   },
@@ -4616,7 +4616,7 @@
     "categories": ["Uncategorized"],
     "categorySlugs": ["uncategorized"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/map.jpg",
+      "url": "/wp-content/uploads/2016/12/map.jpg",
       "alt": "Early Mitchell County Map"
     }
   },
@@ -4639,7 +4639,7 @@
     "categories": ["Economics", "Heritage", "Places"],
     "categorySlugs": ["economics", "heritage", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/015.jpg",
+      "url": "/wp-content/uploads/2016/12/015.jpg",
       "alt": ""
     }
   },
@@ -4652,7 +4652,7 @@
     "categories": ["Heritage", "People"],
     "categorySlugs": ["heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/unspecified.jpg",
+      "url": "/wp-content/uploads/2016/12/unspecified.jpg",
       "alt": "Picture of Jim Jones"
     }
   },
@@ -4665,7 +4665,7 @@
     "categories": ["Places"],
     "categorySlugs": ["places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/Bandana-School.jpg",
+      "url": "/wp-content/uploads/2016/12/Bandana-School.jpg",
       "alt": ""
     }
   },
@@ -4678,7 +4678,7 @@
     "categories": ["Heritage", "People"],
     "categorySlugs": ["heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/Wilson-Hunters-.png",
+      "url": "/wp-content/uploads/2016/12/Wilson-Hunters-.png",
       "alt": ""
     }
   },
@@ -4691,7 +4691,7 @@
     "categories": ["Icons", "People"],
     "categorySlugs": ["icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/Helen-McBee-2.png",
+      "url": "/wp-content/uploads/2016/12/Helen-McBee-2.png",
       "alt": ""
     }
   },
@@ -4704,7 +4704,7 @@
     "categories": ["Heritage", "Places"],
     "categorySlugs": ["heritage", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/Fire-Chief-Car-Downtown-Parade-Late-1960s-1.jpeg",
+      "url": "/wp-content/uploads/2016/12/Fire-Chief-Car-Downtown-Parade-Late-1960s-1.jpeg",
       "alt": "Spruce Pine Christmas Parade"
     }
   },
@@ -4727,7 +4727,7 @@
     "categories": ["Economics", "Heritage", "People"],
     "categorySlugs": ["economics", "heritage", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/oldharris.jpg",
+      "url": "/wp-content/uploads/2016/12/oldharris.jpg",
       "alt": "Picture of original Harris School in Spruce Pine"
     }
   },
@@ -4740,7 +4740,7 @@
     "categories": ["History", "Places"],
     "categorySlugs": ["history", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/MarryingTree.jpg",
+      "url": "/wp-content/uploads/2016/12/MarryingTree.jpg",
       "alt": ""
     }
   },
@@ -4753,7 +4753,7 @@
     "categories": ["History", "Places"],
     "categorySlugs": ["history", "places"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/ovm1.jpg",
+      "url": "/wp-content/uploads/2016/12/ovm1.jpg",
       "alt": "Residents from across the region gather at the dedication of the monument to the Overmountain Men at Gillespie Gap on July 4, 1927."
     }
   },
@@ -4766,7 +4766,7 @@
     "categories": ["Economics", "History"],
     "categorySlugs": ["economics", "history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/cms.jpg",
+      "url": "/wp-content/uploads/2016/12/cms.jpg",
       "alt": "In the 1950’s, Charlie Mae Sproles (pictured above) combined a love for mineral and gem collecting with rising interest in the hobby to organize the North Carolina Mineral and Gem Festival. It was an immediate success, with hobbyists flocking to Spruce Pine for the chance to search for rare specimens in the mine pits in the area."
     }
   },
@@ -4779,7 +4779,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/cblue.jpg",
+      "url": "/wp-content/uploads/2016/12/cblue.jpg",
       "alt": "Work on the Crest of the Blue Ridge Highway between Altapass and Pineola began in 1913-1914."
     }
   },
@@ -4792,7 +4792,7 @@
     "categories": ["Icons", "People"],
     "categorySlugs": ["icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/12/slulu.jpg",
+      "url": "/wp-content/uploads/2016/12/slulu.jpg",
       "alt": ""
     }
   },
@@ -4805,7 +4805,7 @@
     "categories": ["Icons", "People"],
     "categorySlugs": ["icons", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/10/DrGouge-Web.jpg",
+      "url": "/wp-content/uploads/2016/10/DrGouge-Web.jpg",
       "alt": "The first child he delivered, Sam Gouge, former Sheriff of Mitchell County, stands between Dr. and Mrs. Gouge, along with Donald and Ronald Willis, the Doc’s last deliveries."
     }
   },
@@ -4838,7 +4838,7 @@
     "categories": ["History"],
     "categorySlugs": ["history"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/10/1763.png",
+      "url": "/wp-content/uploads/2016/10/1763.png",
       "alt": ""
     }
   },
@@ -4851,7 +4851,7 @@
     "categories": ["History", "People"],
     "categorySlugs": ["history", "people"],
     "featuredImage": {
-      "url": "https://mitchellnchistory.org/wp-content/uploads/2016/10/map.jpg",
+      "url": "/wp-content/uploads/2016/10/map.jpg",
       "alt": "Map of DeSoto's expedition"
     }
   },

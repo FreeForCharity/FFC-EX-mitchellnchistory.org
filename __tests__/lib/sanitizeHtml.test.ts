@@ -48,9 +48,36 @@ describe('sanitizeHtml', () => {
     expect(result).toContain('rel="noopener noreferrer"')
   })
 
-  it('normalizes relative wp-content URLs on images', () => {
+  it('localizes relative wp-content image URLs to repo-relative paths', () => {
     const result = sanitizeHtml('<img src="../wp-content/uploads/photo.jpg" alt="photo" />')
-    expect(result).toContain('src="https://mitchellnchistory.org/wp-content/uploads/photo.jpg"')
+    expect(result).toContain('src="/wp-content/uploads/photo.jpg"')
+    expect(result).not.toContain('mitchellnchistory.org')
+  })
+
+  it('localizes absolute https wp-content image URLs to repo-relative paths', () => {
+    const result = sanitizeHtml(
+      '<img src="https://mitchellnchistory.org/wp-content/uploads/2021/05/photo.jpg" alt="" />'
+    )
+    expect(result).toContain('src="/wp-content/uploads/2021/05/photo.jpg"')
+    expect(result).not.toContain('mitchellnchistory.org')
+  })
+
+  it('localizes absolute http wp-content image URLs (fixes mixed content)', () => {
+    const result = sanitizeHtml(
+      '<img src="http://mitchellnchistory.org/wp-content/uploads/2017/01/x.png" alt="" />'
+    )
+    expect(result).toContain('src="/wp-content/uploads/2017/01/x.png"')
+    expect(result).not.toContain('http://')
+  })
+
+  it('localizes every URL inside a srcset', () => {
+    const result = sanitizeHtml(
+      '<img src="https://mitchellnchistory.org/wp-content/uploads/a.jpg" srcset="https://mitchellnchistory.org/wp-content/uploads/a-300w.jpg 300w, http://mitchellnchistory.org/wp-content/uploads/a-600w.jpg 600w" alt="" />'
+    )
+    expect(result).toContain(
+      'srcset="/wp-content/uploads/a-300w.jpg 300w, /wp-content/uploads/a-600w.jpg 600w"'
+    )
+    expect(result).not.toContain('mitchellnchistory.org')
   })
 
   it('normalizes protocol-relative URLs on links', () => {
