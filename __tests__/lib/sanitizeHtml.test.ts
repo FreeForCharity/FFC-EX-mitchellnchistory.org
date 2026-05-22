@@ -48,9 +48,44 @@ describe('sanitizeHtml', () => {
     expect(result).toContain('rel="noopener noreferrer"')
   })
 
-  it('normalizes relative wp-content URLs on images', () => {
+  it('localizes relative wp-content image URLs to repo-relative paths', () => {
     const result = sanitizeHtml('<img src="../wp-content/uploads/photo.jpg" alt="photo" />')
-    expect(result).toContain('src="https://mitchellnchistory.org/wp-content/uploads/photo.jpg"')
+    expect(result).toContain('src="/wp-content/uploads/photo.jpg"')
+    expect(result).not.toContain('mitchellnchistory.org')
+  })
+
+  it('localizes absolute https wp-content image URLs to repo-relative paths', () => {
+    const result = sanitizeHtml(
+      '<img src="https://mitchellnchistory.org/wp-content/uploads/2021/05/photo.jpg" alt="" />'
+    )
+    expect(result).toContain('src="/wp-content/uploads/2021/05/photo.jpg"')
+    expect(result).not.toContain('mitchellnchistory.org')
+  })
+
+  it('localizes absolute http wp-content image URLs (fixes mixed content)', () => {
+    const result = sanitizeHtml(
+      '<img src="http://mitchellnchistory.org/wp-content/uploads/2017/01/x.png" alt="" />'
+    )
+    expect(result).toContain('src="/wp-content/uploads/2017/01/x.png"')
+    expect(result).not.toContain('http://')
+  })
+
+  it('localizes wp-content URLs inside <a href> (PDF/DOCX downloads)', () => {
+    const result = sanitizeHtml(
+      '<a href="https://mitchellnchistory.org/wp-content/uploads/2020/02/2020-Scholarship-Application.pdf">Apply</a>'
+    )
+    expect(result).toContain('href="/wp-content/uploads/2020/02/2020-Scholarship-Application.pdf"')
+    expect(result).not.toContain('mitchellnchistory.org')
+  })
+
+  it('localizes every URL inside a srcset', () => {
+    const result = sanitizeHtml(
+      '<img src="https://mitchellnchistory.org/wp-content/uploads/a.jpg" srcset="https://mitchellnchistory.org/wp-content/uploads/a-300w.jpg 300w, http://mitchellnchistory.org/wp-content/uploads/a-600w.jpg 600w" alt="" />'
+    )
+    expect(result).toContain(
+      'srcset="/wp-content/uploads/a-300w.jpg 300w, /wp-content/uploads/a-600w.jpg 600w"'
+    )
+    expect(result).not.toContain('mitchellnchistory.org')
   })
 
   it('normalizes protocol-relative URLs on links', () => {
@@ -91,5 +126,50 @@ describe('sanitizeHtml', () => {
     const result = sanitizeHtml('<a href="//mitchellnchistory.org.evil.com/malicious">link</a>')
     expect(result).not.toContain('https://mitchellnchistory.org.evil.com')
     expect(result).toContain('//mitchellnchistory.org.evil.com')
+  })
+
+  it('does not localize lookalike hosts (mitchellnchistory.org.evil.com)', () => {
+    const result = sanitizeHtml(
+      '<img src="https://mitchellnchistory.org.evil.com/wp-content/uploads/x.jpg" alt="" />'
+    )
+    expect(result).not.toContain('src="/wp-content/')
+    expect(result).toContain('mitchellnchistory.org.evil.com')
+  })
+
+  it('does not localize URLs with embedded user-info', () => {
+    const result = sanitizeHtml(
+      '<img src="https://attacker@mitchellnchistory.org/wp-content/uploads/x.jpg" alt="" />'
+    )
+    expect(result).not.toContain('src="/wp-content/')
+  })
+
+  it('does not localize URLs on non-standard ports', () => {
+    const result = sanitizeHtml(
+      '<img src="https://mitchellnchistory.org:8080/wp-content/uploads/x.jpg" alt="" />'
+    )
+    expect(result).not.toContain('src="/wp-content/')
+  })
+
+  it('localizes <source> elements pointing at wp-content', () => {
+    const result = sanitizeHtml(
+      '<audio><source src="https://mitchellnchistory.org/wp-content/uploads/2021/podcast.mp3" type="audio/mpeg"></audio>'
+    )
+    expect(result).toContain('src="/wp-content/uploads/2021/podcast.mp3"')
+  })
+
+  it('strips cross-origin <source> from a non-allowlisted host', () => {
+    const result = sanitizeHtml(
+      '<video><source src="https://attacker.example/exploit.mp4" type="video/mp4"></video>'
+    )
+    expect(result).not.toContain('attacker.example')
+    expect(result).not.toContain('<source')
+  })
+
+  it('allows <source> from the iframe-allowed media hosts', () => {
+    const result = sanitizeHtml(
+      '<audio><source src="https://anchor.fm/some-show/episode.mp3" type="audio/mpeg"></audio>'
+    )
+    expect(result).toContain('anchor.fm')
+    expect(result).toContain('<source')
   })
 })

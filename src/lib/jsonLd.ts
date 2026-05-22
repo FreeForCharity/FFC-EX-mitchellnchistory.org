@@ -1,4 +1,5 @@
 import { siteUrl } from '@/lib/siteConfig'
+import { absoluteImageUrl } from '@/lib/imageUrl'
 
 /**
  * Safely serialize a JSON-LD object for embedding in a <script> tag.
@@ -53,7 +54,7 @@ export function articleJsonLd(article: {
       },
     },
     ...(article.featuredImage && {
-      image: article.featuredImage.url,
+      image: absoluteImageUrl(article.featuredImage.url),
     }),
   }
 }

@@ -85,10 +85,15 @@ test.describe('WP Content Images', () => {
     for (let i = 0; i < count; i++) {
       const src = await images.nth(i).getAttribute('src')
       expect(src).toBeTruthy()
-      // No relative ../wp-content paths — should be absolute
+      // No leftover relative ../wp-content paths from the WP migration.
       expect(src).not.toMatch(/^\.\.\//)
-      // Should be a valid URL
-      expect(src).toMatch(/^https?:\/\//)
+      // Either a repo-relative /wp-content/... path served by the static
+      // export (optionally basepath-prefixed for the GH-Pages subpath build)
+      // or a fully-qualified external https URL. Never bare-http or a
+      // hotlink to the legacy mitchellnchistory.org/wp-content origin.
+      expect(src).toMatch(/^(?:\/[^/]|https:\/\/)/)
+      expect(src).not.toMatch(/^https?:\/\/mitchellnchistory\.org\/wp-content\//)
+      expect(src).not.toMatch(/^http:\/\//)
     }
   })
 
