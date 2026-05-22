@@ -148,13 +148,9 @@ function extractReferences(html, fileBasename) {
   const refs = []
   function push(url, kind) {
     if (!url) return
-    if (
-      url.startsWith('data:') ||
-      url.startsWith('mailto:') ||
-      url.startsWith('javascript:') ||
-      url.startsWith('#')
-    )
-      return
+    // Skip non-resolvable schemes. Case-insensitive on the scheme prefix so
+    // mixed-case like JavaScript:... or VBScript:... is also skipped.
+    if (/^(?:data|mailto|javascript|vbscript|tel|sms):/i.test(url) || url.startsWith('#')) return
     refs.push({ url: url.trim(), kind })
   }
 

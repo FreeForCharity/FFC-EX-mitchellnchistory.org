@@ -26,7 +26,10 @@ const SOURCE_ALLOWED_HOSTS = new Set(['www.youtube.com', 'youtube.com', 'anchor.
 function localizeWpUrl(url: string): string {
   if (!url) return url
   let path = url
-  if (path.startsWith('//mitchellnchistory.org')) {
+  // Use full hostname boundary so look-alikes like //mitchellnchistory.org.evil.com
+  // do not match. Matches //mitchellnchistory.org/path, //mitchellnchistory.org alone,
+  // and //mitchellnchistory.org{?#} variants.
+  if (path === '//mitchellnchistory.org' || /^\/\/mitchellnchistory\.org(?=[/?#]|$)/.test(path)) {
     path = path.slice('//mitchellnchistory.org'.length) || '/'
   } else if (WP_ORIGIN_RE.test(path)) {
     path = path.replace(WP_ORIGIN_RE, '')
