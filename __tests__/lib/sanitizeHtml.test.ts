@@ -127,4 +127,49 @@ describe('sanitizeHtml', () => {
     expect(result).not.toContain('https://mitchellnchistory.org.evil.com')
     expect(result).toContain('//mitchellnchistory.org.evil.com')
   })
+
+  it('does not localize lookalike hosts (mitchellnchistory.org.evil.com)', () => {
+    const result = sanitizeHtml(
+      '<img src="https://mitchellnchistory.org.evil.com/wp-content/uploads/x.jpg" alt="" />'
+    )
+    expect(result).not.toContain('src="/wp-content/')
+    expect(result).toContain('mitchellnchistory.org.evil.com')
+  })
+
+  it('does not localize URLs with embedded user-info', () => {
+    const result = sanitizeHtml(
+      '<img src="https://attacker@mitchellnchistory.org/wp-content/uploads/x.jpg" alt="" />'
+    )
+    expect(result).not.toContain('src="/wp-content/')
+  })
+
+  it('does not localize URLs on non-standard ports', () => {
+    const result = sanitizeHtml(
+      '<img src="https://mitchellnchistory.org:8080/wp-content/uploads/x.jpg" alt="" />'
+    )
+    expect(result).not.toContain('src="/wp-content/')
+  })
+
+  it('localizes <source> elements pointing at wp-content', () => {
+    const result = sanitizeHtml(
+      '<audio><source src="https://mitchellnchistory.org/wp-content/uploads/2021/podcast.mp3" type="audio/mpeg"></audio>'
+    )
+    expect(result).toContain('src="/wp-content/uploads/2021/podcast.mp3"')
+  })
+
+  it('strips cross-origin <source> from a non-allowlisted host', () => {
+    const result = sanitizeHtml(
+      '<video><source src="https://attacker.example/exploit.mp4" type="video/mp4"></video>'
+    )
+    expect(result).not.toContain('attacker.example')
+    expect(result).not.toContain('<source')
+  })
+
+  it('allows <source> from the iframe-allowed media hosts', () => {
+    const result = sanitizeHtml(
+      '<audio><source src="https://anchor.fm/some-show/episode.mp3" type="audio/mpeg"></audio>'
+    )
+    expect(result).toContain('anchor.fm')
+    expect(result).toContain('<source')
+  })
 })

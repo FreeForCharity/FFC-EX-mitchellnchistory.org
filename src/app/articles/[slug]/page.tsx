@@ -3,8 +3,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { getAllArticles, getArticleBySlug, formatArticleDate } from '@/data/articles'
 import { sanitizeHtml } from '@/lib/sanitizeHtml'
-import { assetPath } from '@/lib/assetPath'
-import { siteUrl } from '@/lib/siteConfig'
+import { absoluteImageUrl, localImageSrc } from '@/lib/imageUrl'
 import { notFound } from 'next/navigation'
 import { articleJsonLd, safeJsonLdStringify } from '@/lib/jsonLd'
 
@@ -37,9 +36,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       ...(article.featuredImage && {
         images: [
           {
-            url: article.featuredImage.url.startsWith('http')
-              ? article.featuredImage.url
-              : `${siteUrl}${article.featuredImage.url}`,
+            url: absoluteImageUrl(article.featuredImage.url),
             alt: article.featuredImage.alt,
           },
         ],
@@ -68,11 +65,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <section className="relative bg-dark py-16 text-paper">
         {article.featuredImage && (
           <img
-            src={
-              article.featuredImage.url.startsWith('http')
-                ? article.featuredImage.url
-                : assetPath(article.featuredImage.url)
-            }
+            src={localImageSrc(article.featuredImage.url)}
             alt={article.featuredImage.alt || article.title}
             className="absolute inset-0 h-full w-full object-cover opacity-20"
           />

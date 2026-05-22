@@ -1,10 +1,20 @@
 import sanitize from 'sanitize-html'
 import { assetPath } from '@/lib/assetPath'
 
-const WP_ORIGIN_RE = /^https?:\/\/mitchellnchistory\.org/i
+// Anchored on the character right after the hostname (`/`, `:`, `?`, `#`, or
+// end-of-string) so look-alikes like `mitchellnchistory.org.evil.com` cannot
+// match. Defense in depth — every consumer also re-checks the post-strip path.
+const WP_ORIGIN_RE = /^https?:\/\/mitchellnchistory\.org(?=\/|:|\?|#|$)/i
 
 /** Known tracking pixel hostnames to strip */
 const TRACKING_PIXEL_HOSTS = ['www.paypal.com']
+
+/**
+ * Hosts allowed for cross-origin <source> elements (video/audio/picture).
+ * Mirrors allowedIframeHostnames below — sanitize-html does not apply that
+ * allowlist to <source>, so we enforce it ourselves.
+ */
+const SOURCE_ALLOWED_HOSTS = new Set(['www.youtube.com', 'youtube.com', 'anchor.fm'])
 
 /**
  * Rewrite any reference to a WordPress-hosted asset under /wp-content/ to a
@@ -131,8 +141,25 @@ export function sanitizeHtml(html: string): string {
         return { tagName, attribs }
       },
       source: (tagName, attribs) => {
-        if (attribs.src) attribs.src = localizeWpUrl(attribs.src)
-        return { tagName, attribs }
+        if (!attribs.src) return { tagName, attribs }
+        const localized = localizeWpUrl(attribs.src)
+        if (localized.startsWith('/wp-content/') || localized.startsWith('/')) {
+          attribs.src = localized
+          return { tagName, attribs }
+        }
+        // Cross-origin <source> on <video>/<audio>/<picture> must come from the
+        // same allowlist as iframes — sanitize-html's allowedIframeHostnames
+        // does not cover <source>, so drop unrecognized hosts.
+        try {
+          const host = new URL(localized).hostname.toLowerCase()
+          if (SOURCE_ALLOWED_HOSTS.has(host)) {
+            attribs.src = localized
+            return { tagName, attribs }
+          }
+        } catch {
+          /* fall through to strip */
+        }
+        return { tagName: '', attribs: {} }
       },
     },
   })

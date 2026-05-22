@@ -13,7 +13,7 @@
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from 'node:fs'
-import { join, dirname } from 'node:path'
+import { join, dirname, posix, resolve, relative, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright'
 
@@ -29,10 +29,23 @@ const CONCURRENCY = 6
 const TIMEOUT_MS = 30_000
 
 function localPathForUrl(url) {
-  // Upgrade http -> https for consistency before mapping; path is what matters.
+  // u.pathname is e.g. /wp-content/uploads/2021/05/foo.jpg
   const u = new URL(url)
-  // Path will be like /wp-content/uploads/2021/05/foo.jpg
-  return join(PUBLIC_DIR, u.pathname.replace(/^\//, '').split('/').join('/'))
+  // Reject path-traversal in the URL itself before path.join() normalizes it
+  // away. WP REST output is technically untrusted (WP authors can put
+  // arbitrary HTML into posts) so verify defensively.
+  const normalized = posix.normalize(u.pathname)
+  if (!normalized.startsWith('/wp-content/')) {
+    throw new Error(`Refusing to download non-wp-content path: ${u.pathname}`)
+  }
+  const dest = join(PUBLIC_DIR, normalized.slice(1))
+  // Belt-and-suspenders: confirm we did not escape PUBLIC_DIR after platform
+  // normalization (e.g. mixed separators on Windows).
+  const rel = relative(resolve(PUBLIC_DIR), resolve(dest))
+  if (rel.startsWith('..') || rel.includes('..' + sep) || resolve(dest) === resolve(PUBLIC_DIR)) {
+    throw new Error(`Refusing to write outside public/: ${dest}`)
+  }
+  return dest
 }
 
 function normalizeUrl(url) {

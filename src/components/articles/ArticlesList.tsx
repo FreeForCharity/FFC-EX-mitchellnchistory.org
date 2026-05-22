@@ -4,7 +4,7 @@ import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import type { ArticleMeta } from '@/data/articles'
 import { formatDate } from '@/lib/formatDate'
-import { assetPath } from '@/lib/assetPath'
+import { localImageSrc } from '@/lib/imageUrl'
 
 const ARTICLES_PER_PAGE = 24
 
@@ -85,11 +85,7 @@ export default function ArticlesList({ articles, categories }: ArticlesListProps
             {article.featuredImage && (
               <div className="aspect-[16/10] overflow-hidden bg-gray-100">
                 <img
-                  src={
-                    article.featuredImage.url.startsWith('http')
-                      ? article.featuredImage.url
-                      : assetPath(article.featuredImage.url)
-                  }
+                  src={localImageSrc(article.featuredImage.url)}
                   alt={article.featuredImage.alt || article.title}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
