@@ -14,7 +14,12 @@ const TRACKING_PIXEL_HOSTS = ['www.paypal.com']
  * Mirrors allowedIframeHostnames below — sanitize-html does not apply that
  * allowlist to <source>, so we enforce it ourselves.
  */
-const SOURCE_ALLOWED_HOSTS = new Set(['www.youtube.com', 'youtube.com', 'anchor.fm'])
+const SOURCE_ALLOWED_HOSTS = new Set([
+  'www.youtube.com',
+  'youtube.com',
+  'anchor.fm',
+  'open.spotify.com',
+])
 
 /**
  * Rewrite any reference to a WordPress-hosted asset under /wp-content/ to a
@@ -114,7 +119,7 @@ export function sanitizeHtml(html: string): string {
       a: ['href', 'name', 'target', 'rel'],
       source: ['src', 'type'],
     },
-    allowedIframeHostnames: ['www.youtube.com', 'youtube.com', 'anchor.fm'],
+    allowedIframeHostnames: ['www.youtube.com', 'youtube.com', 'anchor.fm', 'open.spotify.com'],
     transformTags: {
       a: (tagName, attribs) => {
         if (attribs.target === '_blank') {
