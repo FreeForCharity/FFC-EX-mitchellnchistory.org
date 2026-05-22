@@ -132,13 +132,18 @@ jobs:
           set -euo pipefail
           base="${URL%/}"
           sitemap_url="${base}/sitemap.xml"
-          sitemap=$(curl -s --max-time 30 -L "$sitemap_url" || true)
-          if ! echo "$sitemap" | grep -q "<loc>"; then
+          # Write to a temp file rather than a shell variable to avoid SIGPIPE
+          # from `echo "$sitemap" | grep -q ...` when sitemap is large: grep exits
+          # on first match, echo gets EPIPE, and pipefail then makes the test
+          # falsely report "no sitemap" even on a valid sitemap.
+          sitemap_file="$(mktemp)"
+          curl -s --max-time 30 -L "$sitemap_url" -o "$sitemap_file" || true
+          if ! grep -q "<loc>" "$sitemap_file"; then
             echo "::notice::No sitemap.xml found at $sitemap_url — skipping per-route check"
             exit 0
           fi
           # Extract each <loc>, normalize to base host
-          mapfile -t locs < <(echo "$sitemap" | grep -oE "<loc>[^<]+</loc>" | sed -E 's/<\/?loc>//g')
+          mapfile -t locs < <(grep -oE "<loc>[^<]+</loc>" "$sitemap_file" | sed -E 's/<\/?loc>//g')
           host=$(echo "$base" | sed -E 's#^https?://([^/]+).*#\1#')
           fail=0
           checked=0
