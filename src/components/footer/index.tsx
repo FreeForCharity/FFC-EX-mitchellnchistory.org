@@ -32,7 +32,6 @@ const Footer: React.FC = () => {
               { name: 'Membership', href: '/membership/' },
               { name: 'Festivals & Events', href: '/events/' },
               { name: 'Contact Us', href: '/contact/' },
-              { name: 'Online Store', href: 'https://store.mitchellnchistory.org/' },
             ].map((link) => (
               <li key={link.name}>
                 {link.href.startsWith('http') ? (

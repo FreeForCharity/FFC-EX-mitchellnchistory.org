@@ -41,12 +41,6 @@ describe('Footer component', () => {
     expect(screen.getByText(new RegExp(currentYear.toString()))).toBeInTheDocument()
   })
 
-  it('should have Online Store link', () => {
-    render(<Footer />)
-    const storeLink = screen.getByText('Online Store')
-    expect(storeLink).toBeInTheDocument()
-  })
-
   it('should have email contact link', () => {
     render(<Footer />)
     const links = screen.getAllByRole('link')

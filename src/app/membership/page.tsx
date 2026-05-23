@@ -41,10 +41,6 @@ export default function MembershipPage() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1 text-accent">✦</span>
-                <span>Discounts at the MCHS Online Store</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 text-accent">✦</span>
                 <span>Advance notice of special presentations and events</span>
               </li>
               <li className="flex items-start gap-3">
