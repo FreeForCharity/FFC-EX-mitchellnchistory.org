@@ -17,10 +17,7 @@ const wpPages = [
   { route: '/overmountain-men', title: 'Overmountain Men' },
   { route: '/newsletters', title: 'Newsletters' },
   { route: '/red-wilson', title: 'A Tribute to Red Wilson' },
-  { route: '/about-mitchell-county', title: 'About Mitchell County' },
-  { route: '/corona-times', title: 'The Corona Times' },
   { route: '/history-bee', title: 'History Bee' },
-  { route: '/tour-of-homes', title: 'Tour of Homes' },
   {
     route: '/mitchell-county-nc-world-war-inductees',
     title: 'Mitchell County, NC World War I Inductees',

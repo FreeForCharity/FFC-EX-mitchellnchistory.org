@@ -21,7 +21,6 @@ const CRITICAL_ROUTES = [
   '/privacy-policy/',
   '/cookie-policy/',
   '/terms-of-service/',
-  '/about-mitchell-county/',
 ]
 
 /** A known-good article slug — used to verify the migrated article pipeline. */

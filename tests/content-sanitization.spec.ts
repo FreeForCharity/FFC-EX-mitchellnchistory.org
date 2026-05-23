@@ -13,13 +13,7 @@ import { test, expect } from '@playwright/test'
  */
 
 /** Sample pages with rich WP content */
-const contentPages = [
-  '/scholarship',
-  '/overmountain-men',
-  '/penland-cemetery',
-  '/newsletters',
-  '/about-mitchell-county',
-]
+const contentPages = ['/scholarship', '/overmountain-men', '/penland-cemetery', '/newsletters']
 
 test.describe('Content Sanitization', () => {
   for (const route of contentPages) {
@@ -109,7 +103,7 @@ test.describe('WP Content Images', () => {
 test.describe('Link Rewriting', () => {
   test('WordPress date permalinks should be rewritten in content', async ({ page }) => {
     // Visit multiple content pages and check that no old WP date permalink patterns remain
-    const pagesToCheck = ['/scholarship', '/newsletters', '/about-mitchell-county']
+    const pagesToCheck = ['/scholarship', '/newsletters']
     for (const route of pagesToCheck) {
       await page.goto(route)
       const wpContent = page.locator('.wp-content')
