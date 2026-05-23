@@ -97,6 +97,69 @@ export const events: Event[] = [
 ]
 
 /**
+ * One-time historical programs MCHS has hosted. Surfaced from the legacy
+ * SiteGround WordPress My Calendar (`mc-events`) post type, filtered to
+ * entries with real content (the bulk of `mc-events` were placeholder
+ * titles whose detail lived in the plugin's custom tables). Annual
+ * recurring festivals appear in `events` above instead.
+ */
+export type PastEvent = {
+  /** ISO date (YYYY-MM-DD) — used for sort + display. */
+  date: string
+  name: string
+  /** Short summary shown on the /events/ page. */
+  summary: string
+  /** Town or venue. */
+  location: string
+  /** Optional MCHS detail page (e.g. /red-wilson/). */
+  href?: string
+}
+
+export const pastEvents: PastEvent[] = [
+  {
+    date: '2023-03-19',
+    name: "A Tribute to Fiddlin' Red Wilson",
+    summary:
+      'A concert tribute to the late Red Wilson, longtime Mitchell County fiddler whose music and broadcasts on WTOE shaped local Old-Time tradition.',
+    location: 'Mitchell County',
+    href: '/red-wilson/',
+  },
+  {
+    date: '2019-11-11',
+    name: 'Veterans Day Celebration',
+    summary:
+      'MCHS hosted a Veterans Day program at the Mitchell County Senior Center in Ledger, honoring local veterans with stories, music, and a meal.',
+    location: 'Mitchell County Senior Center, Ledger',
+  },
+  {
+    date: '2017-03-30',
+    name: 'A Sunday Afternoon of Old-Time, Mountain-Style Gospel Songs',
+    summary:
+      'Samuel McKinney and Rhonda Gouge presented an afternoon of traditional mountain-style gospel music as part of the MCHS program series.',
+    location: 'Mitchell County',
+  },
+  {
+    date: '2017-01-21',
+    name: 'Scan Day in Spruce Pine',
+    summary:
+      'MCHS hosted a Scan Day inviting community members to bring historical photographs and documents for digital scanning, so they could be preserved as part of the public record while originals stayed with their families.',
+    location: 'Spruce Pine',
+  },
+  {
+    date: '2017-01-21',
+    name: 'Scan Day in Bakersville',
+    summary:
+      'Companion Scan Day to the Spruce Pine event — the same offer of free digital scanning of community-held historical photos and documents, held in Bakersville for residents on that side of the county.',
+    location: 'Bakersville',
+  },
+]
+
+/** Returns past events sorted newest-first. */
+export function getPastEventsByDate(): PastEvent[] {
+  return [...pastEvents].sort((a, b) => b.date.localeCompare(a.date))
+}
+
+/**
  * Returns events sorted by their next upcoming occurrence relative to `now`.
  * Each event recurs annually, so an event whose month/day has already passed
  * rolls forward to the same date next year.

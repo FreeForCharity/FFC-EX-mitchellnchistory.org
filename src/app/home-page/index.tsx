@@ -209,46 +209,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Newsletter & Store */}
+      {/* Newsletter */}
       <section className="bg-gray-50 py-20">
         <div className="ffc-container">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="rounded-xl border border-gray-200 bg-paper p-8 shadow-sm">
-              <h3 className="font-serif-display text-2xl font-bold text-primary">
-                The Quarterly Review
-              </h3>
-              <div className="mt-3 h-1 w-16 rounded bg-accent" />
-              <p className="mt-4 text-gray-700">
-                Stay connected with Mitchell County history through our <em>Quarterly Review</em>{' '}
-                newsletter. Each issue features articles on local history, genealogy tips, upcoming
-                events, and society news. Members receive a preview of each edition!
-              </p>
-              <Link
-                href="/membership/"
-                className="mt-4 inline-block font-semibold text-accent hover:underline"
-              >
-                Become a Member for Early Access →
-              </Link>
-            </div>
-            <div className="rounded-xl border border-gray-200 bg-paper p-8 shadow-sm">
-              <h3 className="font-serif-display text-2xl font-bold text-primary">
-                MCHS Online Store
-              </h3>
-              <div className="mt-3 h-1 w-16 rounded bg-accent" />
-              <p className="mt-4 text-gray-700">
-                Browse our collection of books, maps, prints, and other items celebrating Mitchell
-                County heritage. All proceeds support the society&apos;s mission of preserving local
-                history.
-              </p>
-              <a
-                href="https://store.mitchellnchistory.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-block font-semibold text-accent hover:underline"
-              >
-                Visit the Online Store →
-              </a>
-            </div>
+          <div className="mx-auto max-w-2xl rounded-xl border border-gray-200 bg-paper p-8 shadow-sm">
+            <h3 className="font-serif-display text-2xl font-bold text-primary">
+              The Quarterly Review
+            </h3>
+            <div className="mt-3 h-1 w-16 rounded bg-accent" />
+            <p className="mt-4 text-gray-700">
+              Stay connected with Mitchell County history through our <em>Quarterly Review</em>{' '}
+              newsletter. Each issue features articles on local history, genealogy tips, upcoming
+              events, and society news. Members receive a preview of each edition!
+            </p>
+            <Link
+              href="/membership/"
+              className="mt-4 inline-block font-semibold text-accent hover:underline"
+            >
+              Become a Member for Early Access →
+            </Link>
           </div>
         </div>
       </section>
