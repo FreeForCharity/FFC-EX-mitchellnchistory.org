@@ -36,17 +36,37 @@ const REDIRECT_PAGES = new Set(['/ovm/', '/online-store/'])
 
 // Always screenshot these top-level chrome routes so the user can spot-check.
 const ALWAYS_SHOT = new Set([
-  '/', '/about/', '/articles/', '/contact/', '/events/', '/membership/',
-  '/museum/', '/scholarship/', '/newsletters/', '/videos/', '/resources/',
-  '/about-mitchell-county/', '/apple-butter-festival/', '/corona-times/',
-  '/history-bee/', '/overmountain-men/', '/penland-cemetery/',
-  '/red-wilson/', '/scan-days/', '/tour-of-homes/',
+  '/',
+  '/about/',
+  '/articles/',
+  '/contact/',
+  '/events/',
+  '/membership/',
+  '/museum/',
+  '/scholarship/',
+  '/newsletters/',
+  '/videos/',
+  '/resources/',
+  '/about-mitchell-county/',
+  '/apple-butter-festival/',
+  '/corona-times/',
+  '/history-bee/',
+  '/overmountain-men/',
+  '/penland-cemetery/',
+  '/red-wilson/',
+  '/scan-days/',
+  '/tour-of-homes/',
   '/mitchell-county-nc-world-war-inductees/',
   '/mitchell-county-nc-world-war-enlistees/',
-  '/cookie-policy/', '/donation-policy/', '/free-for-charity-donation-policy/',
-  '/privacy-policy/', '/security-acknowledgements/', '/terms-of-service/',
+  '/cookie-policy/',
+  '/donation-policy/',
+  '/free-for-charity-donation-policy/',
+  '/privacy-policy/',
+  '/security-acknowledgements/',
+  '/terms-of-service/',
   '/vulnerability-disclosure-policy/',
-  '/ovm/', '/online-store/',
+  '/ovm/',
+  '/online-store/',
 ])
 
 function walk(dir, out = []) {
@@ -119,9 +139,16 @@ async function reviewPage(page, url) {
     status = res?.status() ?? 0
   } catch (e) {
     return {
-      url, status: 0, error: e.message,
-      consoleErrors, pageErrors, subresFails,
-      hasH1: false, textLen: 0, overflowsX: false, mainHeight: 0,
+      url,
+      status: 0,
+      error: e.message,
+      consoleErrors,
+      pageErrors,
+      subresFails,
+      hasH1: false,
+      textLen: 0,
+      overflowsX: false,
+      mainHeight: 0,
     }
   }
 
@@ -141,9 +168,16 @@ async function reviewPage(page, url) {
   })
 
   return {
-    url, status, consoleErrors, pageErrors, subresFails,
-    hasH1: probe.hasH1, textLen: probe.textLen,
-    overflowsX: probe.overflowsX, mainHeight: probe.mainHeight, title: probe.title,
+    url,
+    status,
+    consoleErrors,
+    pageErrors,
+    subresFails,
+    hasH1: probe.hasH1,
+    textLen: probe.textLen,
+    overflowsX: probe.overflowsX,
+    mainHeight: probe.mainHeight,
+    title: probe.title,
   }
 }
 
@@ -243,10 +277,18 @@ async function main() {
       md.push(`### \`${r.path}\` — **${r.severity}**`)
       md.push(`- status: ${r.status}`)
       md.push(`- title: ${r.title || '(empty)'}`)
-      md.push(`- hasH1: ${r.hasH1}, textLen: ${r.textLen}, mainHeight: ${r.mainHeight}px, overflowsX: ${r.overflowsX}`)
+      md.push(
+        `- hasH1: ${r.hasH1}, textLen: ${r.textLen}, mainHeight: ${r.mainHeight}px, overflowsX: ${r.overflowsX}`
+      )
       if (r.error) md.push(`- ERROR: \`${r.error}\``)
-      if (r.consoleErrors.length) md.push(`- console errors (${r.consoleErrors.length}):\n  - ${r.consoleErrors.slice(0, 5).join('\n  - ')}`)
-      if (r.pageErrors.length) md.push(`- page errors (${r.pageErrors.length}):\n  - ${r.pageErrors.slice(0, 5).join('\n  - ')}`)
+      if (r.consoleErrors.length)
+        md.push(
+          `- console errors (${r.consoleErrors.length}):\n  - ${r.consoleErrors.slice(0, 5).join('\n  - ')}`
+        )
+      if (r.pageErrors.length)
+        md.push(
+          `- page errors (${r.pageErrors.length}):\n  - ${r.pageErrors.slice(0, 5).join('\n  - ')}`
+        )
       if (r.subresFails.length) {
         md.push(`- sub-resource fails (${r.subresFails.length}):`)
         for (const s of r.subresFails.slice(0, 10)) md.push(`  - ${s.status} \`${s.url}\``)
@@ -272,4 +314,7 @@ async function main() {
   process.exit(counts.CRITICAL ? 2 : counts.HIGH ? 1 : 0)
 }
 
-main().catch((e) => { console.error(e); process.exit(3) })
+main().catch((e) => {
+  console.error(e)
+  process.exit(3)
+})
