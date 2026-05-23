@@ -3,18 +3,7 @@ import Link from 'next/link'
 import { assetPath } from '@/lib/assetPath'
 import type { Metadata } from 'next'
 import { getEventsByNextOccurrence, getPastEventsByDate } from '@/data/events'
-
-const PAST_EVENT_DATE_FMT = new Intl.DateTimeFormat('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  timeZone: 'UTC',
-})
-
-function formatPastEventDate(iso: string): string {
-  const [y, m, d] = iso.split('-').map(Number)
-  return PAST_EVENT_DATE_FMT.format(new Date(Date.UTC(y, m - 1, d)))
-}
+import { formatDate } from '@/lib/formatDate'
 
 export const metadata: Metadata = {
   title: 'Festivals & Events in Mitchell County',
@@ -154,7 +143,7 @@ export default function EventsPage() {
                   className="flex flex-col rounded-xl border border-gray-200 bg-gray-50 p-6 shadow-sm"
                 >
                   <p className="text-sm font-semibold uppercase tracking-wide text-accent">
-                    {formatPastEventDate(event.date)} · {event.location}
+                    {formatDate(event.date)} · {event.location}
                   </p>
                   <h3 className="mt-2 font-serif-display text-xl font-bold text-primary">
                     {event.name}

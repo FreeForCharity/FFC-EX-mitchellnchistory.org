@@ -17,7 +17,7 @@
  *   - tmp/screenshots/<slug>.jpg     (flagged pages + curated top-level sample)
  */
 
-import { readdirSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
+import { readdirSync, writeFileSync, mkdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright'
@@ -32,7 +32,7 @@ const PARALLEL = Number(process.env.PARALLEL || 4)
 
 // Paths that intentionally render a meta-refresh redirect — no <h1>, no body
 // text. Treat as expected.
-const REDIRECT_PAGES = new Set(['/ovm/', '/online-store/'])
+const REDIRECT_PAGES = new Set(['/ovm/'])
 
 // Always screenshot these top-level chrome routes so the user can spot-check.
 const ALWAYS_SHOT = new Set([
@@ -47,15 +47,12 @@ const ALWAYS_SHOT = new Set([
   '/newsletters/',
   '/videos/',
   '/resources/',
-  '/about-mitchell-county/',
   '/apple-butter-festival/',
-  '/corona-times/',
   '/history-bee/',
   '/overmountain-men/',
   '/penland-cemetery/',
   '/red-wilson/',
   '/scan-days/',
-  '/tour-of-homes/',
   '/mitchell-county-nc-world-war-inductees/',
   '/mitchell-county-nc-world-war-enlistees/',
   '/cookie-policy/',
@@ -66,7 +63,6 @@ const ALWAYS_SHOT = new Set([
   '/terms-of-service/',
   '/vulnerability-disclosure-policy/',
   '/ovm/',
-  '/online-store/',
 ])
 
 function walk(dir, out = []) {
@@ -100,21 +96,16 @@ async function reviewPage(page, url) {
   page.removeAllListeners('pageerror')
   page.removeAllListeners('response')
 
-  // Track the URLs of benign prefetch 404s so we can correlate console messages.
-  const benignPrefetch404s = new Set()
   page.on('response', (r) => {
     const s = r.status()
     if (s < 400) return
     if (new URL(r.url()).origin !== new URL(BASE).origin) return
     // Next.js static-export quirk: <Link> prefetch tries .txt route files
     // that aren't generated for output:'export'. Links still navigate fine,
-    // these 404s are benign and the matching console.error is too.
+    // these 404s are benign and the matching console.error is filtered below.
     // Static routes use __next.<seg>.__PAGE__.txt; dynamic [slug] routes use
     // __next.<seg>.$d$slug.txt. Match both shapes.
-    if (/\/__next\.[^/]+\.(__PAGE__|\$d\$[^/]+)\.txt(\?|$)/.test(r.url())) {
-      benignPrefetch404s.add(r.url())
-      return
-    }
+    if (/\/__next\.[^/]+\.(__PAGE__|\$d\$[^/]+)\.txt(\?|$)/.test(r.url())) return
     subresFails.push({ status: s, url: r.url() })
   })
   page.on('console', (m) => {
