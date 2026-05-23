@@ -16,9 +16,15 @@ permissions:
   contents: read
 
 jobs:
-  smoke:
+  # Single source of truth for the URL + cert-aware retry. Downstream jobs
+  # depend on probe so they don't start hammering a half-provisioned cert.
+  probe:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    outputs:
+      url: ${{ steps.url.outputs.url }}
+      status: ${{ steps.probe.outputs.status }}
+      attempts: ${{ steps.probe.outputs.attempts }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -82,7 +88,21 @@ jobs:
             echo "::error::Check Pages settings (Settings -> Pages -> Custom domain) and Cloudflare A/AAAA + www CNAME."
             exit 1
           fi
-          # Save body for next step (curl-based content checks)
+
+  # Lightweight curl-based content + sitemap assertions. Doesn't require
+  # a browser, runs quickly, surfaces deploy-time regressions in seconds.
+  inline-checks:
+    needs: probe
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Fetch page body
+        env:
+          URL: ${{ needs.probe.outputs.url }}
+        run: |
+          set -euo pipefail
           curl -s --max-time 30 -L "$URL" > /tmp/page.html
           echo "Body length: $(wc -c < /tmp/page.html) bytes"
 
@@ -127,7 +147,7 @@ jobs:
 
       - name: Sitemap routes 200-check (every URL in sitemap.xml must HTTPS-resolve)
         env:
-          URL: ${{ steps.url.outputs.url }}
+          URL: ${{ needs.probe.outputs.url }}
         run: |
           set -euo pipefail
           base="${URL%/}"
@@ -169,8 +189,20 @@ jobs:
           echo "Checked $checked routes; $fail failed"
           if [ "$fail" -gt 0 ]; then exit 1; fi
 
+  # Compliance + screenshot. This wraps the FFC charity-template compliance
+  # rules (footer policy links, cookie consent on first load, failure-marker
+  # body text) that are driven by per-repo SMOKE_* repo variables. Single
+  # job (not matrix) because these are global assertions that only need to
+  # run once per deploy.
+  visual-compliance:
+    needs: probe
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
       - name: Setup Node for visual check
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
 
@@ -189,7 +221,7 @@ jobs:
       - name: Visual check + screenshot + compliance assertions
         id: visual
         env:
-          URL: ${{ steps.url.outputs.url }}
+          URL: ${{ needs.probe.outputs.url }}
           # Repo variables (Settings -> Secrets and variables -> Actions -> Variables).
           # Set SMOKE_PLACEHOLDER=true on placeholder/under-construction repos to
           # skip ALL compliance assertions (footer + policy links + cookie consent).
@@ -345,24 +377,87 @@ jobs:
 
       - name: Upload screenshot + summary artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: smoke-visual-${{ github.run_number }}
           path: artifacts/
           if-no-files-found: warn
 
-      - name: Smoke summary
-        if: always()
+  # Sharded Playwright test suite — covers ~75 tests across 5 spec files:
+  # post-deploy.spec.ts (infra + SEO + interactivity), article-sampling
+  # (10 random articles per run, seeded by run_number), asset-audit (20
+  # random featured images per run + layout icons), page-invariants
+  # (header/footer/title across every sitemap route), visual-capture
+  # (screenshots of 5 key pages for reviewer eyeballing).
+  #
+  # 4 parallel runners → each shard handles ~19 tests → total wall time
+  # well under 2 min in the happy path even on cold cache.
+  playwright-smoke:
+    needs: probe
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browser (chromium)
+        run: npx playwright install --with-deps chromium
+
+      - name: Run sharded smoke tests (shard ${{ matrix.shard }}/4)
         env:
-          URL: ${{ steps.url.outputs.url }}
-          STATUS: ${{ steps.probe.outputs.status }}
-          ATTEMPTS: ${{ steps.probe.outputs.attempts }}
+          SMOKE_BASE_URL: ${{ needs.probe.outputs.url }}
+        run: |
+          npx playwright test \
+            --config playwright.smoke.config.ts \
+            --shard ${{ matrix.shard }}/4 \
+            --reporter=list,html
+
+      - name: Upload shard artifacts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: smoke-shard-${{ matrix.shard }}-${{ github.run_number }}
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: warn
+
+  # Aggregates results across jobs into a single GHA step summary so a
+  # reviewer doesn't have to click through each job tab to know what
+  # happened.
+  summary:
+    needs: [probe, inline-checks, visual-compliance, playwright-smoke]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Smoke summary
+        env:
+          URL: ${{ needs.probe.outputs.url }}
+          STATUS: ${{ needs.probe.outputs.status }}
+          ATTEMPTS: ${{ needs.probe.outputs.attempts }}
+          PROBE_RESULT: ${{ needs.probe.result }}
+          INLINE_RESULT: ${{ needs.inline-checks.result }}
+          VISUAL_RESULT: ${{ needs.visual-compliance.result }}
+          PLAYWRIGHT_RESULT: ${{ needs.playwright-smoke.result }}
         run: |
           {
             echo "## Post-Deploy Smoke Test"
             echo ""
             echo "- **URL:** $URL"
-            echo "- **HTTPS status:** ${STATUS:-n/a} (probed in ${ATTEMPTS:-n/a} attempt(s))"
-            echo "- **Job result:** ${{ job.status }}"
-            echo "- **Screenshots:** see \`smoke-visual-${{ github.run_number }}\` artifact"
+            echo "- **HTTPS probe:** ${STATUS:-n/a} in ${ATTEMPTS:-n/a} attempt(s) → \`$PROBE_RESULT\`"
+            echo "- **Inline content + sitemap checks:** \`$INLINE_RESULT\`"
+            echo "- **Visual + compliance (single):** \`$VISUAL_RESULT\` (see \`smoke-visual-${{ github.run_number }}\` artifact)"
+            echo "- **Playwright shards (4x):** \`$PLAYWRIGHT_RESULT\` (see \`smoke-shard-*-${{ github.run_number }}\` artifacts)"
           } >> "$GITHUB_STEP_SUMMARY"
