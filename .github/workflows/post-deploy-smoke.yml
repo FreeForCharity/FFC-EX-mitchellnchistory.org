@@ -170,7 +170,7 @@ jobs:
           if [ "$fail" -gt 0 ]; then exit 1; fi
 
       - name: Setup Node for visual check
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
 
