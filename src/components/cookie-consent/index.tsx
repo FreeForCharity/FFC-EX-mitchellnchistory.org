@@ -41,6 +41,7 @@ export default function CookieConsent() {
   const [savedPreferencesBackup, setSavedPreferencesBackup] =
     useState<CookiePreferences>(preferences)
   const modalRef = useRef<HTMLDivElement>(null)
+  const bannerRef = useRef<HTMLDivElement>(null)
   const previousFocusRef = useRef<HTMLElement | null>(null)
 
   const loadGoogleAnalytics = useCallback(() => {
@@ -248,6 +249,43 @@ export default function CookieConsent() {
       delete window.openCookiePreferences
     }
   }, [loadPreferencesFromLocalStorage])
+
+  // Reserve safe-area at the bottom of the page while the banner is visible
+  // so it can't overlay page content (the worst case being a CTA section header
+  // landing right where the banner sits). Re-measures on resize / button wrap
+  // so mobile layouts (where the action buttons stack and grow the banner) get
+  // the right padding too.
+  useEffect(() => {
+    const bannerVisible = showBanner && !showPreferences
+    if (typeof document === 'undefined' || !bannerVisible) return
+
+    // Snapshot the existing inline padding-bottom so cleanup restores the page
+    // to exactly the value it had before this effect ran — instead of always
+    // clobbering it back to ''. Matters if some other code (or a future
+    // component) ever sets body.style.paddingBottom inline.
+    const originalPaddingBottom = document.body.style.paddingBottom
+
+    const applyPadding = () => {
+      if (bannerRef.current) {
+        document.body.style.paddingBottom = `${bannerRef.current.offsetHeight}px`
+      }
+    }
+
+    applyPadding()
+
+    // ResizeObserver isn't available in some older test envs (jsdom < 16 etc.)
+    // — guard so the component still renders if it's missing.
+    let observer: ResizeObserver | null = null
+    if (typeof ResizeObserver !== 'undefined' && bannerRef.current) {
+      observer = new ResizeObserver(applyPadding)
+      observer.observe(bannerRef.current)
+    }
+
+    return () => {
+      observer?.disconnect()
+      document.body.style.paddingBottom = originalPaddingBottom
+    }
+  }, [showBanner, showPreferences])
 
   // Focus management for modal
   useEffect(() => {
@@ -490,6 +528,7 @@ export default function CookieConsent() {
 
   return (
     <div
+      ref={bannerRef}
       className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-gray-200 shadow-2xl"
       role="region"
       aria-label="Cookie consent notice"
