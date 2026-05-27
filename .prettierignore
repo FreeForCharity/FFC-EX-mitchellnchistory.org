@@ -13,6 +13,7 @@ coverage
 test-results
 playwright-report
 .lighthouseci
+.playwright-mcp
 
 # Generated files
 *.log
