@@ -97,6 +97,52 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Featured Program: Six Women, Six Voices */}
+      <section className="border-t border-b border-gray-100 bg-paper py-20">
+        <div className="ffc-container">
+          <div className="items-center gap-12 md:flex md:flex-row-reverse">
+            <div className="md:w-1/2">
+              <span className="text-sm font-semibold uppercase tracking-widest text-accent">
+                Emerging MCHS Program
+              </span>
+              <h2 className="mt-2 font-serif-display text-3xl font-bold text-primary md:text-4xl">
+                Six Women, Six Voices
+              </h2>
+              <div className="mt-4 h-1 w-20 rounded bg-accent" />
+              <p className="mt-6 text-lg leading-relaxed text-gray-700">
+                A forthcoming program celebrating women who shaped the culture, education,
+                healthcare, and heritage of Mitchell County. Help us build it — share family
+                records, suggest names, or join the effort.
+              </p>
+              <Link
+                href="/six-women-six-voices/"
+                className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-semibold text-paper transition hover:opacity-90"
+              >
+                Learn More
+              </Link>
+            </div>
+            <div className="mt-8 md:mt-0 md:w-1/2">
+              <div className="relative overflow-hidden rounded-xl shadow-md">
+                <img
+                  src={assetPath('/Images/mchs-hero.webp')}
+                  alt="Scenic mountains representing Mitchell County heritage"
+                  className="h-80 w-full object-cover transition duration-500 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 text-paper">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+                    In Development
+                  </p>
+                  <h3 className="font-serif-display text-xl font-bold">
+                    Celebrating Mitchell County Women
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Get Involved */}
       <section className="bg-paper py-20">
         <div className="ffc-container">
