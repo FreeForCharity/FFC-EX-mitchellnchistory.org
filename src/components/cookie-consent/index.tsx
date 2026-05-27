@@ -257,12 +257,13 @@ export default function CookieConsent() {
   // the right padding too.
   useEffect(() => {
     const bannerVisible = showBanner && !showPreferences
-    if (!bannerVisible || typeof document === 'undefined') {
-      if (typeof document !== 'undefined') {
-        document.body.style.paddingBottom = ''
-      }
-      return
-    }
+    if (typeof document === 'undefined' || !bannerVisible) return
+
+    // Snapshot the existing inline padding-bottom so cleanup restores the page
+    // to exactly the value it had before this effect ran — instead of always
+    // clobbering it back to ''. Matters if some other code (or a future
+    // component) ever sets body.style.paddingBottom inline.
+    const originalPaddingBottom = document.body.style.paddingBottom
 
     const applyPadding = () => {
       if (bannerRef.current) {
@@ -282,7 +283,7 @@ export default function CookieConsent() {
 
     return () => {
       observer?.disconnect()
-      document.body.style.paddingBottom = ''
+      document.body.style.paddingBottom = originalPaddingBottom
     }
   }, [showBanner, showPreferences])
 
