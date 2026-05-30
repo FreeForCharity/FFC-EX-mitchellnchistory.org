@@ -1,11 +1,12 @@
 name: Deploy to GitHub Pages
 
+# Push-triggered (see #100) — the previous workflow_run + cancel-in-progress:
+# false combination dropped deploys during batch merges. Push events natively
+# batch, and with cancel-in-progress: true the queue collapses to "deploy the
+# latest main, full stop". CI gating is now inline below (the `test` job) so we
+# don't need a separate workflow_run dependency.
 on:
-  # Runs after CI workflow completes successfully on main branch
-  workflow_run:
-    workflows: ['CI - Build and Test']
-    types:
-      - completed
+  push:
     branches: ['main']
 
   # Allows manual deployment from Actions tab
@@ -17,18 +18,72 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Collapse the queue to the latest commit. If a deploy is in-flight when a
+# newer commit lands on main, cancel the in-flight one and start fresh on
+# the newer SHA. The pages artifact upload is atomic so a cancelled mid-flight
+# deploy leaves no inconsistent state.
 concurrency:
   group: 'pages'
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
+  test:
+    name: Test and Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Run linting
+        run: npm run lint
+
+      - name: Run unit tests
+        run: npm test
+        env:
+          CI: true
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Build Next.js site
+        run: npm run build
+        # Note: Do NOT set NEXT_PUBLIC_BASE_PATH here. The basePath is only
+        # needed for the actual Pages deployment (see the `build` job).
+        # E2E tests need to run against a build without basePath since the
+        # test server (serve -s out) doesn't understand basePath routing.
+
+      - name: Run E2E tests
+        run: npm run test:e2e
+        env:
+          CI: true
+
+      - name: Upload build artifacts (for debugging)
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: build-output-deploy
+          path: |
+            .next/
+            out/
+          retention-days: 7
+
   build:
     name: Build for GitHub Pages
     runs-on: ubuntu-latest
-    # Only run if CI workflow succeeded or if manually triggered
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    needs: test
 
     steps:
       - name: Checkout repository
@@ -220,7 +275,11 @@ jobs:
   notify-failure:
     name: Notify on production deploy failure
     needs: [deploy]
-    if: ${{ always() && needs.deploy.result == 'failure' && (github.event_name != 'workflow_run' || github.event.workflow_run.head_branch == 'main') && (github.event_name == 'workflow_run' || github.ref == 'refs/heads/main') }}
+    # Only fire on real production deploys (push to main or manual dispatch).
+    # The push trigger here means context.ref is always refs/heads/main, but
+    # we keep an explicit check so future trigger changes don't silently
+    # widen the notification scope.
+    if: ${{ always() && needs.deploy.result == 'failure' && (github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -232,14 +291,11 @@ jobs:
             const owner = context.repo.owner;
             const repo = context.repo.repo;
 
-            const workflowRun = context.payload && context.payload.workflow_run;
-            const isWorkflowRun = Boolean(workflowRun);
             const deployRunUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
-            const upstreamRunUrl = isWorkflowRun ? workflowRun.html_url : null;
-            const sha = isWorkflowRun ? workflowRun.head_sha : context.sha;
-            const branch = isWorkflowRun
-              ? workflowRun.head_branch
-              : (context.ref && context.ref.startsWith("refs/heads/") ? context.ref.substring("refs/heads/".length) : context.ref);
+            const sha = context.sha;
+            const branch = (context.ref && context.ref.startsWith("refs/heads/"))
+              ? context.ref.substring("refs/heads/".length)
+              : context.ref;
 
             const incidentLabelSpecs = [
               { name: "incident", color: "B60205" },
@@ -271,18 +327,13 @@ jobs:
             const title = `Production deployment failed (${branch})`;
             const bodyLines = [
               `Deploy run: ${deployRunUrl}`,
-            ];
-            if (upstreamRunUrl) {
-              bodyLines.push(`Upstream run: ${upstreamRunUrl}`);
-            }
-            bodyLines.push(
               "",
               `Ref: ${branch}`,
               `SHA: ${sha}`,
               "",
               marker,
-              "_This issue was automatically created by the deploy workflow._"
-            );
+              "_This issue was automatically created by the deploy workflow._",
+            ];
             const body = bodyLines.join("\n");
 
             async function findDuplicateIssueNumber() {
