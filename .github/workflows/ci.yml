@@ -1,12 +1,11 @@
 name: CI - Build and Test
 
 on:
-  # Runs on all pull requests
+  # PR gate only — pushes to main are handled by deploy.yml's inline
+  # test job (see #100). Keeping CI here gives the merge queue a stable
+  # required-check name ("Test and Build") without coupling deploy
+  # success to a separate workflow_run trigger.
   pull_request:
-    branches: ['main']
-
-  # Runs on pushes to main (before deploy)
-  push:
     branches: ['main']
 
   # Allows manual trigger from Actions tab
