@@ -15,9 +15,9 @@ const Footer: React.FC = () => {
         <div className="space-y-6 px-4 sm:px-0">
           <h3 className="text-[28px] text-white">About MCHS</h3>
           <p className="text-gray-300 leading-relaxed">
-            The Mitchell County Historical Society is dedicated to preserving, protecting, and
-            sharing the rich history and cultural heritage of Mitchell County, North Carolina. We
-            are located in the Historic Mitchell County Courthouse in Bakersville.
+            The Mitchell County Historical Society gathers, preserves, and shares the documents,
+            artifacts, and stories of Mitchell County&apos;s past. We are located in the Historic
+            Mitchell County Courthouse in Bakersville.
           </p>
         </div>
 
