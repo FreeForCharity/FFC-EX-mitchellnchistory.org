@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Membership',
   description:
-    'Join the Mitchell County Historical Society and support the preservation of Mitchell County heritage.',
+    'Join the Mitchell County Historical Society and support preservation, programs, research assistance, and shared community history.',
   alternates: { canonical: '/membership/' },
 }
 
@@ -18,8 +18,9 @@ export default function MembershipPage() {
             Become a Member
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
-            Your membership supports the Mitchell County Historical Society&apos;s mission to
-            preserve and share our county&apos;s rich heritage.
+            Your membership helps MCHS light the past, enlighten the present, and illuminate the
+            future through preservation, programs, research assistance, and shared community
+            history.
           </p>
         </div>
       </section>
