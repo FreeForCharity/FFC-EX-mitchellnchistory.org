@@ -26,8 +26,9 @@ export default function HomePage() {
             The History &amp; Heritage of Mitchell County, NC
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-200 md:text-xl">
-            The Mitchell County Historical Society is committed to preserving, protecting, and
-            sharing the rich history and cultural heritage of Mitchell County, North Carolina.
+            The Mitchell County Historical Society gathers, preserves, and shares the documents,
+            artifacts, and stories of Mitchell County&apos;s past so residents can better understand
+            the present and illuminate the future.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
@@ -54,12 +55,20 @@ export default function HomePage() {
               Our Mission
             </h2>
             <div className="mx-auto mt-4 h-1 w-20 rounded bg-accent" />
-            <p className="mt-8 text-lg leading-relaxed text-gray-700">
-              Our mission as a nonpolitical, non-profit 501(c)(3) corporation is to collect,
-              preserve, protect, and publicly display material that is historically significant to
-              Mitchell County. The Society also strives to make the citizens of Mitchell County
-              aware of their heritage.
+            <p className="mt-8 font-serif-display text-2xl leading-relaxed text-gray-700 md:text-3xl">
+              To light the past, enlighten the present, and illuminate the future.
             </p>
+            <p className="mt-6 text-lg leading-relaxed text-gray-700">
+              Through preservation, education, research assistance, community programs, and shared
+              stories, MCHS helps Mitchell County residents connect the past to the present and
+              carry it forward.
+            </p>
+            <Link
+              href="/about/"
+              className="mt-6 inline-block font-semibold text-accent hover:underline"
+            >
+              Read Our Vision &amp; Purpose →
+            </Link>
           </div>
         </div>
       </section>

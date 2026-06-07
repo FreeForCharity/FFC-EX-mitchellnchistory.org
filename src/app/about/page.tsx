@@ -2,10 +2,19 @@ import React from 'react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
+const purposeStatements = [
+  "To gather, preserve, and share documents, artifacts, and stories of Mitchell County's past.",
+  'To encourage individuals and families to become engaged in this process for themselves and the community.',
+  'To encourage residents of all ages to understand and appreciate how this process can benefit them culturally, economically, socially, and academically.',
+  'To provide personal assistance to individuals and/or groups with questions related to local genealogy and history.',
+  'To provide opportunities for residents to gather, discuss, and enjoy communally stories related to Mitchell County history.',
+  'To develop and maintain a sustainable, responsive, collaborative, innovative, and inclusive nonprofit organization serving present and future residents and others interested in Mitchell County history.',
+]
+
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Learn about the Mitchell County Historical Society, our mission, and how you can help preserve Mitchell County heritage.',
+    'Learn about the Mitchell County Historical Society vision, mission, and purpose for preserving and sharing Mitchell County history.',
   alternates: { canonical: '/about/' },
 }
 
@@ -20,26 +29,57 @@ export default function AboutPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
             Nestled in the beautiful Blue Ridge Mountains of western North Carolina, the Mitchell
-            County Historical Society works to collect, preserve, and share the rich history of
-            Mitchell County and its people.
+            County Historical Society gathers, preserves, and shares the documents, artifacts, and
+            stories of Mitchell County&apos;s past.
           </p>
         </div>
       </section>
 
-      {/* Mission */}
+      {/* Vision, Mission, and Purpose */}
       <section className="bg-paper py-20">
         <div className="ffc-container">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="font-serif-display text-3xl font-bold text-primary md:text-4xl">
-              Our Mission
-            </h2>
-            <div className="mx-auto mt-4 h-1 w-20 rounded bg-accent" />
-            <p className="mt-8 text-lg leading-relaxed text-gray-700">
-              Our mission as a nonpolitical, non-profit 501(c)(3) corporation is to collect,
-              preserve, protect, and publicly display material that is historically significant to
-              Mitchell County. The Society also strives to make the citizens of Mitchell County
-              aware of their heritage.
-            </p>
+          <div className="mx-auto max-w-4xl space-y-16">
+            <div className="text-center">
+              <h2 className="font-serif-display text-3xl font-bold text-primary md:text-4xl">
+                Vision
+              </h2>
+              <div className="mx-auto mt-4 h-1 w-20 rounded bg-accent" />
+              <p className="mt-8 text-lg leading-relaxed text-gray-700">
+                We envision a community that is well informed about events from our past, is engaged
+                in discovering family histories and stories, is willing to share those findings with
+                others, appreciates the challenge to understand how those events and stories relate
+                to the present community, enjoys opportunities that bring residents together for
+                further discovery and understanding, and finds ways to weave these processes into
+                the lives of future generations.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <h2 className="font-serif-display text-3xl font-bold text-primary md:text-4xl">
+                Mission
+              </h2>
+              <div className="mx-auto mt-4 h-1 w-20 rounded bg-accent" />
+              <p className="mt-8 font-serif-display text-2xl leading-relaxed text-gray-700 md:text-3xl">
+                To light the past, enlighten the present, and illuminate the future.
+              </p>
+            </div>
+
+            <div>
+              <div className="text-center">
+                <h2 className="font-serif-display text-3xl font-bold text-primary md:text-4xl">
+                  Purpose
+                </h2>
+                <div className="mx-auto mt-4 h-1 w-20 rounded bg-accent" />
+              </div>
+              <ul className="mt-8 space-y-4 text-lg leading-relaxed text-gray-700">
+                {purposeStatements.map((statement) => (
+                  <li key={statement} className="flex items-start gap-3">
+                    <span className="mt-1 text-accent">✦</span>
+                    <span>{statement}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>

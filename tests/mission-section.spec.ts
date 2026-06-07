@@ -26,7 +26,7 @@ test.describe('Mission Section', () => {
     await expect(heading).toContainText(testConfig.missionSection.heading)
   })
 
-  test('should display mission text with 501(c)(3)', async ({ page }) => {
+  test('should display mission text', async ({ page }) => {
     await page.goto('/')
 
     const missionSection = page.locator(`#${testConfig.missionSection.sectionId}`)
