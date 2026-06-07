@@ -27,8 +27,8 @@ export default function HomePage() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-200 md:text-xl">
             The Mitchell County Historical Society gathers, preserves, and shares the documents,
-            artifacts, and stories of Mitchell County&apos;s past so residents can better understand the
-            present and illuminate the future.
+            artifacts, and stories of Mitchell County&apos;s past so residents can better understand
+            the present and illuminate the future.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link

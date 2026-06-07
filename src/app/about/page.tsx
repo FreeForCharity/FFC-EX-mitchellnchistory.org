@@ -3,7 +3,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 const purposeStatements = [
-  'To gather, preserve, and share documents, artifacts, and stories of Mitchell County\'s past.',
+  "To gather, preserve, and share documents, artifacts, and stories of Mitchell County's past.",
   'To encourage individuals and families to become engaged in this process for themselves and the community.',
   'To encourage residents of all ages to understand and appreciate how this process can benefit them culturally, economically, socially, and academically.',
   'To provide personal assistance to individuals and/or groups with questions related to local genealogy and history.',
@@ -45,12 +45,12 @@ export default function AboutPage() {
               </h2>
               <div className="mx-auto mt-4 h-1 w-20 rounded bg-accent" />
               <p className="mt-8 text-lg leading-relaxed text-gray-700">
-                We envision a community that is well informed about events from our past, is
-                engaged in discovering family histories and stories, is willing to share those
-                findings with others, appreciates the challenge to understand how those events and
-                stories relate to the present community, enjoys opportunities that bring residents
-                together for further discovery and understanding, and finds ways to weave these
-                processes into the lives of future generations.
+                We envision a community that is well informed about events from our past, is engaged
+                in discovering family histories and stories, is willing to share those findings with
+                others, appreciates the challenge to understand how those events and stories relate
+                to the present community, enjoys opportunities that bring residents together for
+                further discovery and understanding, and finds ways to weave these processes into
+                the lives of future generations.
               </p>
             </div>
 
