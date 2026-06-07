@@ -19,7 +19,7 @@ export const testConfig = {
   missionSection: {
     sectionId: 'mission',
     heading: 'Our Mission',
-    text: '501(c)(3)',
+    text: 'To light the past, enlighten the present, and illuminate the future.',
   },
 
   /**
