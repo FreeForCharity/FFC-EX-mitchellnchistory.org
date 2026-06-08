@@ -74,7 +74,8 @@ export const testConfig = {
    */
   logo: {
     headerAlt: 'Mitchell County Historical Society',
-    heroAlt: 'Mitchell County, North Carolina mountain landscape',
+    heroAlt:
+      'Historic Mitchell County courthouse, railroad, mountain landscape, and portrait montage',
   },
 
   /**

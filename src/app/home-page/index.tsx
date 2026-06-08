@@ -17,8 +17,8 @@ export default function HomePage() {
         className="relative flex min-h-[70vh] items-center justify-center overflow-hidden bg-dark text-paper"
       >
         <img
-          src={assetPath('/Images/mchs-hero.webp')}
-          alt="Mitchell County, North Carolina mountain landscape"
+          src={assetPath('/Images/mchs-home-hero.webp')}
+          alt="Historic Mitchell County courthouse, railroad, mountain landscape, and portrait montage"
           className="absolute inset-0 h-full w-full object-cover opacity-40"
         />
         <div className="relative z-10 mx-auto max-w-4xl px-4 py-24 text-center">
