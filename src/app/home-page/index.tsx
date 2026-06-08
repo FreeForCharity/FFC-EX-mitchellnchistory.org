@@ -22,8 +22,9 @@ export default function HomePage() {
           className="absolute inset-0 h-full w-full object-cover opacity-40"
         />
         <div className="relative z-10 mx-auto max-w-4xl px-4 py-24 text-center">
-          <h1 className="font-serif-display text-4xl font-bold tracking-tight md:text-6xl">
-            The History &amp; Heritage of Mitchell County, NC
+          <h1 className="font-serif-display text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+            <span className="block">The History &amp; Heritage of</span>
+            <span className="block">Mitchell County, NC</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-200 md:text-xl">
             The Mitchell County Historical Society gathers, preserves, and shares the documents,
