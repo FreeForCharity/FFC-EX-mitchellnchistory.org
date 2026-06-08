@@ -75,9 +75,9 @@ export const events: Event[] = [
     name: 'Apple Butter Festival',
     month: 10,
     day: 11,
-    dateLabel: 'Second Saturday of October',
+    dateLabel: 'Anticipated fall of 2027',
     summary:
-      'MCHS hosts this beloved fall tradition along the Bakersville Creekwalk. Watch apple butter cooked over an open fire, enjoy live mountain music, browse arts and crafts vendors, and take part in our Chili & Cornbread Cookoff.',
+      'MCHS anticipates bringing this beloved fall tradition back along the Bakersville Creekwalk in fall of 2027. Festival details will be shared as plans are confirmed.',
     location: 'Bakersville Creekwalk',
     href: '/apple-butter-festival/',
     image: '/Images/mchs-festival.webp',
