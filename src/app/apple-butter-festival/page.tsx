@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Apple Butter Festival',
   description:
-    'Join us each October along the Bakersville Creekwalk for the annual Apple Butter Festival — live music, crafts, food, and more.',
+    'The Apple Butter Festival is anticipated to return along the Bakersville Creekwalk in fall of 2027.',
   alternates: { canonical: '/apple-butter-festival/' },
 }
 
@@ -25,7 +25,7 @@ export default function AppleButterFestivalPage() {
             Apple Butter Festival
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-200">
-            A beloved annual tradition along the Bakersville Creekwalk each October.
+            This beloved Bakersville Creekwalk tradition is anticipated to return in fall of 2027.
           </p>
         </div>
       </section>
@@ -39,9 +39,9 @@ export default function AppleButterFestivalPage() {
             </h2>
             <div className="mt-4 h-1 w-20 rounded bg-accent" />
             <p className="mt-8 text-lg leading-relaxed text-gray-700">
-              Join us each October along the Bakersville Creekwalk for our beloved annual Apple
-              Butter Festival! This family-friendly event celebrates the traditions and heritage of
-              Mitchell County with something for everyone.
+              The Apple Butter Festival is anticipated to return in fall of 2027 along the
+              Bakersville Creekwalk. This family-friendly event celebrates the traditions and
+              heritage of Mitchell County with something for everyone.
             </p>
           </div>
         </div>
@@ -113,8 +113,8 @@ export default function AppleButterFestivalPage() {
               Apple butter making is a tradition with roots stretching back more than 300 years in
               the Appalachian Mountains. Early settlers brought the craft to the Blue Ridge
               Mountains, where it became an essential part of fall harvest celebrations. The
-              Mitchell County Historical Society is proud to keep this tradition alive through our
-              annual festival.
+              Mitchell County Historical Society is proud to keep this tradition alive through the
+              Apple Butter Festival.
             </p>
           </div>
         </div>
@@ -130,8 +130,8 @@ export default function AppleButterFestivalPage() {
             <div className="mx-auto mt-4 h-1 w-20 rounded bg-accent" />
             <p className="mt-8 text-lg leading-relaxed text-gray-700">
               Interested in being a vendor at the Apple Butter Festival? We welcome arts &amp;
-              crafts vendors, food vendors, and community organizations. Contact us for vendor
-              application details and booth information.
+              crafts vendors, food vendors, and community organizations. Vendor application details
+              and booth information will be shared as plans for fall of 2027 are confirmed.
             </p>
             <Link
               href="/contact/"
