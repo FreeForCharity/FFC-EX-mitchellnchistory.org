@@ -13,6 +13,8 @@ const allRoutes = [
   '/about',
   '/museum',
   '/membership',
+  '/events',
+  '/programs',
   '/apple-butter-festival',
   '/contact',
   '/articles',

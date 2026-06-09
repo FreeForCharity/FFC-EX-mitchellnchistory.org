@@ -20,6 +20,7 @@ const menuItems: MenuItem[] = [
   { label: 'Articles', path: '/articles/' },
   { label: 'Membership', path: '/membership/' },
   { label: 'Events', path: '/events/' },
+  { label: 'Programs', path: '/programs/' },
   { label: 'Videos', path: '/videos/' },
   { label: 'Contact', path: '/contact/' },
 ]
