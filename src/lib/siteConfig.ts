@@ -6,6 +6,7 @@ export const sitemapRoutes = [
   '/museum/',
   '/membership/',
   '/events/',
+  '/programs/',
   '/apple-butter-festival/',
   '/contact/',
   '/articles/',

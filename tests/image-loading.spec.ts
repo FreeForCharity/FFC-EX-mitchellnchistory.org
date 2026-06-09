@@ -32,7 +32,7 @@ test.describe('Image Loading', () => {
     const imageRequests: Array<{ url: string; status: number }> = []
 
     page.on('response', (response) => {
-      if (response.url().includes('mchs-hero')) {
+      if (response.url().includes(testConfig.logo.heroSrcIncludes)) {
         imageRequests.push({
           url: response.url(),
           status: response.status(),

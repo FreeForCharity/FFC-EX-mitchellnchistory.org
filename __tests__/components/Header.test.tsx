@@ -40,6 +40,11 @@ describe('Header component', () => {
     expect(screen.getByText('Home')).toBeInTheDocument()
   })
 
+  it('should display Programs navigation link', () => {
+    render(<Header />)
+    expect(screen.getByText('Programs')).toBeInTheDocument()
+  })
+
   it('should have navigation links', () => {
     render(<Header />)
     const links = screen.getAllByRole('link')

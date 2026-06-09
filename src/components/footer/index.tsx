@@ -31,6 +31,8 @@ const Footer: React.FC = () => {
               { name: 'McBee Museum', href: '/museum/' },
               { name: 'Membership', href: '/membership/' },
               { name: 'Festivals & Events', href: '/events/' },
+              { name: 'Programs', href: '/programs/' },
+              { name: 'Videos', href: '/videos/' },
               { name: 'Contact Us', href: '/contact/' },
             ].map((link) => (
               <li key={link.name}>

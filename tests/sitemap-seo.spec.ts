@@ -16,6 +16,7 @@ const expectedStaticRoutes = [
   '/museum/',
   '/membership/',
   '/events/',
+  '/programs/',
   '/apple-butter-festival/',
   '/contact/',
   '/articles/',

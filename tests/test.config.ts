@@ -76,6 +76,7 @@ export const testConfig = {
     headerAlt: 'Mitchell County Historical Society',
     heroAlt:
       'Historic Mitchell County courthouse, railroad, mountain landscape, and portrait montage',
+    heroSrcIncludes: 'mchs-home-hero',
   },
 
   /**
