@@ -18,6 +18,40 @@ export const youtubeChannelUrl = 'https://www.youtube.com/channel/UCkPa8X-B3R34P
 
 export const programYears: ProgramYear[] = [
   {
+    year: 2026,
+    summary:
+      'The remaining 2026 program season includes Revolutionary-era women of the Toe River Valley, Lost Cove, and the Spruce Pine Mining District.',
+    programs: [
+      {
+        title: 'Six Women. Six Voices. Stories History Left Unfinished',
+        presenter: 'Daniel Barron, in collaboration with Chelsea Wilson Thayler',
+        month: 'July',
+        dateLabel: 'Tuesday, July 14, 2026 at 7:00 p.m.',
+        location: 'Mitchell Senior Citizens Center, Ledger, North Carolina',
+        description:
+          'An original Readers Theater production giving voice to women whose stories have long remained in the shadows of Revolutionary War history, including Dorothy Wiseman Baker, Hannah Baker Davenport, Keziah Robertson Sevier, Agatha Ethington Washburn, and Nancy Ann Griffith Silver.',
+      },
+      {
+        title: 'Lost Cove: Portrait of a Vanished Appalachian Community',
+        presenter: 'Smith',
+        month: 'August',
+        dateLabel: 'Tuesday, August 11, 2026',
+        location: 'Mitchell Senior Citizens Center, Ledger, North Carolina',
+        description:
+          'A presentation tracing the isolated mountain settlement of Lost Cove from its beginnings before the Civil War through its decline and abandonment, using old newspaper accounts, deeds, documents, photographs, and other historical sources.',
+      },
+      {
+        title: 'The Spruce Pine Mining District: Then and Now',
+        presenter: 'Alexander S. Glover Jr., PG, CPG',
+        month: 'September',
+        dateLabel: 'Tuesday, September 15, 2026 at 7:00 p.m.',
+        location: 'Mitchell Senior Citizens Center, Ledger, North Carolina',
+        description:
+          "A look at the history, geology, production, and modern uses of feldspar, quartz, mica, and other mineral resources from one of the world's most significant mineral-producing regions, including the exceptional purity of Spruce Pine quartz and its importance to semiconductors.",
+      },
+    ],
+  },
+  {
     year: 2020,
     summary:
       'Video programs and online presentations produced while public programs were disrupted by the COVID-19 pandemic.',
