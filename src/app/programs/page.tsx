@@ -68,15 +68,15 @@ export default function ProgramsPage() {
                 <h2 className="font-serif-display text-2xl font-bold">Upcoming Programs</h2>
               </div>
               <p className="mt-4 text-gray-700">
-                Current dates and special events are posted as they are confirmed. Visit the events
-                page for the newest public schedule, or contact MCHS with questions about a program.
+                The remaining 2026 program schedule is listed below. Programs are free and open to
+                the public unless otherwise noted.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
-                  href="/events/"
+                  href="#program-schedule"
                   className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-paper transition hover:opacity-90"
                 >
-                  View Events
+                  View Schedule
                 </Link>
                 <Link
                   href="/contact/"
@@ -90,16 +90,16 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-16">
+      <section id="program-schedule" className="bg-gray-50 py-16">
         <div className="ffc-container">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="font-serif-display text-3xl font-bold text-primary md:text-4xl">
-              Recorded Programs
+              Program Schedule & Archive
             </h2>
             <div className="mx-auto mt-4 h-1 w-20 rounded bg-accent" />
             <p className="mt-6 text-lg leading-relaxed text-gray-700">
-              Browse the year-by-year archive below, or visit the MCHS YouTube channel for the full
-              collection of available recordings.
+              Browse upcoming program details and the year-by-year archive below, or visit the MCHS
+              YouTube channel for the full collection of available recordings.
             </p>
             <a
               href={youtubeChannelUrl}
