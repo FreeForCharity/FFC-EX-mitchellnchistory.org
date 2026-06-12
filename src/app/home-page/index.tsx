@@ -2,12 +2,16 @@ import React from 'react'
 import Link from 'next/link'
 import { assetPath } from '@/lib/assetPath'
 import { getFeaturedEvent } from '@/data/events'
+import { getProgramYears } from '@/data/programs'
 
 export default function HomePage() {
   const featured = getFeaturedEvent()
   const featuredDetailHref = featured.href ?? featured.externalHref
   const featuredIsExternal = !featured.href && !!featured.externalHref
   const featuredImage = featured.image ?? '/Images/mchs-hero.webp'
+  const featuredProgram = getProgramYears()
+    .find((year) => year.year === 2026)
+    ?.programs.find((program) => program.title.startsWith('Six Women. Six Voices.'))
 
   return (
     <div>
@@ -113,40 +117,41 @@ export default function HomePage() {
           <div className="items-center gap-12 md:flex md:flex-row-reverse">
             <div className="md:w-1/2">
               <span className="text-sm font-semibold uppercase tracking-widest text-accent">
-                Emerging MCHS Program
+                Upcoming MCHS Program
               </span>
               <h2 className="mt-2 font-serif-display text-3xl font-bold text-primary md:text-4xl">
-                Six Women, Six Voices
+                {featuredProgram?.title ?? 'Six Women. Six Voices.'}
               </h2>
               <div className="mt-4 h-1 w-20 rounded bg-accent" />
+              {featuredProgram?.presenter && (
+                <p className="mt-6 font-semibold text-gray-800">{featuredProgram.presenter}</p>
+              )}
+              {featuredProgram?.dateLabel && (
+                <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-accent">
+                  {featuredProgram.dateLabel}
+                </p>
+              )}
+              {featuredProgram?.location && (
+                <p className="mt-2 text-gray-600">{featuredProgram.location}</p>
+              )}
               <p className="mt-6 text-lg leading-relaxed text-gray-700">
-                A forthcoming program celebrating women who shaped the culture, education,
-                healthcare, and heritage of Mitchell County. Help us build it — share family
-                records, suggest names, or join the effort.
+                {featuredProgram?.description ??
+                  'An original Readers Theater production giving voice to women whose stories have long remained in the shadows of Revolutionary War history.'}
               </p>
               <Link
-                href="/six-women-six-voices/"
+                href="/programs/#program-schedule"
                 className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-semibold text-paper transition hover:opacity-90"
               >
-                Learn More
+                View Program Details
               </Link>
             </div>
             <div className="mt-8 md:mt-0 md:w-1/2">
               <div className="relative overflow-hidden rounded-xl shadow-md">
                 <img
-                  src={assetPath('/Images/mchs-hero.webp')}
-                  alt="Scenic mountains representing Mitchell County heritage"
-                  className="h-80 w-full object-cover transition duration-500 hover:scale-105"
+                  src={assetPath('/Images/six-women-six-voices-flyer.jpg')}
+                  alt="Six Women. Six Voices. Stories History Left Unfinished program flyer"
+                  className="h-auto w-full object-cover transition duration-500 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 text-paper">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-accent">
-                    In Development
-                  </p>
-                  <h3 className="font-serif-display text-xl font-bold">
-                    Celebrating Mitchell County Women
-                  </h3>
-                </div>
               </div>
             </div>
           </div>
