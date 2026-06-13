@@ -64,6 +64,25 @@ test.describe('Articles Listing Page', () => {
     }
   })
 
+  test('should search articles by title and show an empty state', async ({ page }) => {
+    const search = page.getByRole('searchbox', { name: /Search articles/i })
+    await expect(search).toBeVisible()
+
+    await search.fill('McBee Museum')
+
+    await expect(
+      page.getByRole('link', {
+        name: /McBee Museum Building Has Witnessed Over A Century of Mitchell County History/i,
+      })
+    ).toBeVisible()
+    await expect(page.getByText(/Showing \d+ articles? for "McBee Museum"/)).toBeVisible()
+
+    await search.fill('zzzz-no-history-article')
+
+    await expect(page.getByRole('heading', { name: 'No articles found' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Reset filters' })).toBeVisible()
+  })
+
   test('should display article count', async ({ page }) => {
     // The page should show some indication of how many articles exist
     const bodyText = await page.locator('body').innerText()
