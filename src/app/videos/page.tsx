@@ -1,9 +1,34 @@
 import type { Metadata } from 'next'
 import { getWpPages } from '@/data/articles'
+import { youtubeChannelUrl } from '@/data/programs'
 import { sanitizeHtml } from '@/lib/sanitizeHtml'
 import { notFound } from 'next/navigation'
 
 const videoSlugs = ['event-videos', '2020-videos', '2019-videos', '2017-videos', '2016-videos']
+const videoHeadingPattern = /<h4(\s[^>]*)?>([\s\S]*?)<\/h4>/gi
+const videoListTitlePattern = /(<li>[\s\S]*?<strong>)([\s\S]*?)(<\/strong>[\s\S]*?<\/li>)/gi
+
+function linkTitleHtml(innerHtml: string): string | null {
+  const trimmedInnerHtml = innerHtml.trim()
+
+  if (!trimmedInnerHtml || /^<a\b/i.test(trimmedInnerHtml) || /<\/a>/i.test(trimmedInnerHtml)) {
+    return null
+  }
+
+  return `<a href="${youtubeChannelUrl}" target="_blank" rel="noopener noreferrer">${innerHtml}</a>`
+}
+
+function linkVideoListingsToYoutubeChannel(content: string): string {
+  return sanitizeHtml(content)
+    .replace(videoHeadingPattern, (match, attributes = '', innerHtml) => {
+      const linkedTitle = linkTitleHtml(innerHtml)
+      return linkedTitle ? `<h4${attributes}>${linkedTitle}</h4>` : match
+    })
+    .replace(videoListTitlePattern, (match, openingHtml, innerHtml, closingHtml) => {
+      const linkedTitle = linkTitleHtml(innerHtml)
+      return linkedTitle ? `${openingHtml}${linkedTitle}${closingHtml}` : match
+    })
+}
 
 export const metadata: Metadata = {
   title: 'Videos',
@@ -46,7 +71,9 @@ export default function VideosPage() {
               <div className="mt-4 h-1 w-20 rounded bg-accent" />
               <div
                 className="wp-content mt-8"
-                dangerouslySetInnerHTML={{ __html: sanitizeHtml(page.content) }}
+                dangerouslySetInnerHTML={{
+                  __html: linkVideoListingsToYoutubeChannel(page.content),
+                }}
               />
             </div>
           </div>
