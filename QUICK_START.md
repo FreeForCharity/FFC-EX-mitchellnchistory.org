@@ -1,401 +1,149 @@
 # Quick Start Guide
 
-Get up and running with the FFC Single Page Template in 5 minutes.
-
-> **Using this as a template?** See [TEMPLATE_USAGE.md](./TEMPLATE_USAGE.md) for complete setup instructions including GitHub settings configuration.
-
-> **Quick checklist?** See [TEMPLATE_SETUP_CHECKLIST.md](./TEMPLATE_SETUP_CHECKLIST.md) for a printable checklist of required steps.
+Get the Mitchell County Historical Society site running locally.
 
 ## Prerequisites
 
-- **Node.js 20.x** - [Download here](https://nodejs.org/)
-- **npm** (comes with Node.js)
-- **Git** - [Download here](https://git-scm.com/)
+- Node.js 20.x
+- npm
+- Git
 
-## 5-Minute Setup
-
-### 1. Clone the Repository (30 seconds)
+## Clone the Repository
 
 ```bash
-git clone https://github.com/FreeForCharity/FFC_Single_Page_Template.git
-cd FFC_Single_Page_Template
+git clone https://github.com/FreeForCharity/FFC-EX-mitchellnchistory.org.git
+cd FFC-EX-mitchellnchistory.org
 ```
 
-### 2. Install Dependencies (17 seconds)
+## Install Dependencies
 
 ```bash
 npm install
 ```
 
-**Expected output**: 1000+ packages installed successfully
-
-### 3. Start Development Server (1 second)
+## Start Development
 
 ```bash
 npm run dev
 ```
 
-**Open**: [http://localhost:3000](http://localhost:3000)
+Open http://localhost:3000.
 
-**Expected**: Site loads with FFC homepage
-
-### 4. Verify Setup (2 minutes)
-
-Run tests to ensure everything works:
+## Common Commands
 
 ```bash
-# Lint code (2 seconds)
-npm run lint
-
-# Run unit tests (3 seconds)
-npm test
-
-# Build for production (20 seconds)
-npm run build
+npm run dev            # Start local dev server
+npm run build          # Build static production output
+npm run preview        # Preview the built out/ directory
+npm run format         # Format files with Prettier
+npm run format:check   # Check formatting
+npm run lint           # Run ESLint
+npm test               # Run Jest tests
+npm run test:watch     # Run Jest in watch mode
+npm run test:coverage  # Run Jest with coverage
+npm run test:e2e       # Run Playwright tests
+npm run test:e2e:ui    # Open Playwright UI
+npm run check-links    # Check links in the built site
 ```
 
-**Expected**: All checks pass with 0 errors (8 warnings about `<img>` tags and React hooks are expected)
+## Verify a Local Checkout
 
----
-
-## Common Tasks
-
-### Development
+Run the same core checks used by CI:
 
 ```bash
-# Start dev server with hot reload
-npm run dev
-
-# Start on different port
-PORT=3001 npm run dev
-```
-
-### Code Quality
-
-```bash
-# Format code with Prettier
-npm run format
-
-# Check formatting without changes
 npm run format:check
-
-# Lint code with ESLint
 npm run lint
-```
-
-### Testing
-
-```bash
-# Run unit tests
 npm test
-
-# Run tests in watch mode (for development)
-npm run test:watch
-
-# Run tests with coverage report
-npm run test:coverage
-
-# Run E2E tests with Playwright
-npm run test:e2e
-
-# Run E2E tests in headed mode (see browser)
-npm run test:e2e:headed
-
-# Open Playwright UI
-npm run test:e2e:ui
-```
-
-### Building & Previewing
-
-```bash
-# Build for production
 npm run build
-
-# Preview production build locally
-npm run preview
-# Opens at http://localhost:3000
-
-# Check for broken links (requires build first)
-npm run check-links
 ```
 
-### Git Workflow
+## Production URL
 
-```bash
-# Create a feature branch
-git checkout -b feature/your-feature-name
+The live site is:
 
-# Make changes and commit
-git add .
-git commit -m "feat: your feature description"
+https://mitchellnchistory.org
 
-# Push to remote
-git push origin feature/your-feature-name
+The production custom domain is configured through GitHub Pages and `public/CNAME`.
+
+## Project Structure
+
+```text
+src/
+  app/                  Next.js App Router pages and route folders
+  components/           Shared UI components
+  data/                 Static JSON content
+  lib/                  Site config and utilities
+public/                 Static assets and CNAME
+tests/                  Playwright tests
+__tests__/              Jest tests
+.github/workflows/     CI, Lighthouse, deployment, and smoke checks
 ```
 
-**Note**: Pre-commit hooks will automatically run formatting and linting checks.
+## Key Files
 
----
+| File                           | Purpose                            |
+| ------------------------------ | ---------------------------------- |
+| `src/lib/siteConfig.ts`        | Canonical URL and sitemap routes   |
+| `src/app/layout.tsx`           | Metadata and global layout         |
+| `src/app/page.tsx`             | Homepage entry point               |
+| `src/app/home-page/`           | Homepage composition               |
+| `src/components/header/`       | Header and navigation              |
+| `src/components/footer/`       | Footer                             |
+| `next.config.ts`               | Static export and base path config |
+| `.github/workflows/deploy.yml` | GitHub Pages deployment            |
 
-## Project Structure (Quick Reference)
+## Deployment Notes
 
-```
-FFC_Single_Page_Template/
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx          # Root layout with metadata
-│   │   ├── page.tsx            # Homepage
-│   │   └── globals.css         # Global styles
-│   ├── components/             # All UI components
-│   │   ├── Header/             # Navigation header
-│   │   ├── Footer/             # Footer component
-│   │   ├── CookieConsent/      # Cookie consent banner
-│   │   └── ...                 # 80+ other components
-│   ├── lib/
-│   │   └── assetPath.ts        # GitHub Pages asset helper
-│   └── data/                   # Static content data
-├── public/                     # Static assets (images, icons)
-├── tests/                      # Playwright E2E tests
-├── __tests__/                  # Jest unit tests
-├── .github/workflows/          # CI/CD workflows
-└── [config files]              # Next.js, ESLint, etc.
-```
+For normal production builds, leave `NEXT_PUBLIC_BASE_PATH` empty because the site uses the custom domain `mitchellnchistory.org`.
 
----
-
-## Key Files to Know
-
-| File                     | Purpose                               |
-| ------------------------ | ------------------------------------- |
-| `src/app/page.tsx`       | Homepage content                      |
-| `src/app/layout.tsx`     | Site-wide layout and metadata         |
-| `src/components/Header/` | Navigation and mobile menu            |
-| `src/components/Footer/` | Footer with links and copyright       |
-| `next.config.ts`         | Next.js configuration (static export) |
-| `tailwind.config.ts`     | Tailwind CSS configuration            |
-| `package.json`           | Dependencies and scripts              |
-| `.prettierrc.json`       | Prettier formatting rules             |
-| `commitlint.config.js`   | Commit message format rules           |
-
----
-
-## Environment Variables
-
-No environment variables are required for local development. The site works out of the box.
-
-**Optional variables**:
-
-```bash
-# .env.local (create if needed)
-
-# Optional: Set to 'production' to enable search engine indexing
-NEXT_PUBLIC_SITE_ENV=development
-
-# Optional: Override base path for deployment testing
-NEXT_PUBLIC_BASE_PATH=
-
-# Optional: Google Tag Manager ID
-NEXT_PUBLIC_GTM_ID=
-```
-
----
-
-## Making Your First Change
-
-### 1. Edit Homepage Content
-
-Open `src/app/page.tsx` and find the hero section:
-
-```tsx
-<h1 className="text-4xl font-bold">Free For Charity</h1>
-```
-
-Change the text, save, and see it update instantly in your browser!
-
-### 2. Add a New Component
-
-Create `src/components/MyComponent/index.tsx`:
-
-```tsx
-export default function MyComponent() {
-  return (
-    <div className="p-4 bg-blue-500 text-white rounded-lg">
-      <h2>My New Component</h2>
-      <p>This is my first component!</p>
-    </div>
-  )
-}
-```
-
-Import and use it in `src/app/page.tsx`:
-
-```tsx
-import MyComponent from '../components/MyComponent'
-
-export default function Home() {
-  return (
-    <>
-      <MyComponent />
-      {/* ... rest of page */}
-    </>
-  )
-}
-```
-
-### 3. Write a Test
-
-Create `__tests__/components/MyComponent.test.tsx`:
-
-```tsx
-import { render, screen } from '@testing-library/react'
-import MyComponent from '@/components/MyComponent'
-
-describe('MyComponent', () => {
-  it('renders the component', () => {
-    render(<MyComponent />)
-    expect(screen.getByText('My New Component')).toBeInTheDocument()
-  })
-})
-```
-
-Run the test:
-
-```bash
-npm test MyComponent
-```
-
----
+Only set `NEXT_PUBLIC_BASE_PATH` when intentionally testing a GitHub Pages repository subpath build.
 
 ## Troubleshooting
 
-### Port Already in Use
+### Port 3000 is already in use
 
-**Problem**: `Error: listen EADDRINUSE: address already in use :::3000`
-
-**Solution**:
+Use another port:
 
 ```bash
-# Kill process on port 3000
-npx kill-port 3000
-
-# Or use a different port
 PORT=3001 npm run dev
 ```
 
-### Build Fails
+On Windows PowerShell:
 
-**Problem**: `npm run build` fails
+```powershell
+$env:PORT=3001
+npm run dev
+```
 
-**Solution**:
+### Build fails
+
+Run the checks individually to locate the failure:
 
 ```bash
-# Clear Next.js cache
-rm -rf .next
-
-# Reinstall dependencies
-rm -rf node_modules package-lock.json
-npm install
-
-# Try building again
+npm run format:check
+npm run lint
+npm test
 npm run build
 ```
 
-### Tests Fail
+### Playwright fails locally
 
-**Problem**: Unit tests fail with React warnings
-
-**Solution**: Check if you're using React hooks correctly. Warnings about `act(...)` are common and can usually be ignored if tests pass.
-
-**Problem**: E2E tests fail
-
-**Solution**:
+Install browsers:
 
 ```bash
-# Reinstall Playwright browsers
 npx playwright install --with-deps chromium
+```
 
-# Run tests again
+Then rerun:
+
+```bash
 npm run test:e2e
 ```
 
-### Pre-commit Hooks Not Running
+## More Documentation
 
-**Problem**: Git commits succeed without running checks
-
-**Solution**:
-
-```bash
-# Reinstall Husky hooks
-npm run prepare
-
-# Try committing again
-git commit -m "test: verify hooks work"
-```
-
-### Module Not Found Errors
-
-**Problem**: `Cannot find module '@/components/...'`
-
-**Solution**: The `@` alias points to `src/`. Make sure:
-
-1. File paths are correct
-2. TypeScript can resolve the path (check `tsconfig.json`)
-3. Restart your editor/terminal
-
----
-
-## Next Steps
-
-Now that you're set up, check out:
-
-- **[CONTRIBUTING.md](./CONTRIBUTING.md)** - How to contribute to the project
-- **[TESTING.md](./TESTING.md)** - Detailed testing guide
-- **[CODE_QUALITY.md](./CODE_QUALITY.md)** - Code quality standards
-- **[RESPONSIVE_DESIGN.md](./RESPONSIVE_DESIGN.md)** - Responsive design guide
-- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Deployment instructions
-
----
-
-## Getting Help
-
-- **Issues**: [GitHub Issues](https://github.com/FreeForCharity/FFC_Single_Page_Template/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/FreeForCharity/FFC_Single_Page_Template/discussions)
-- **Documentation**: Check the `*.md` files in the repository root
-
----
-
-## Quick Command Reference
-
-```bash
-# Development
-npm run dev                 # Start dev server
-npm run build               # Build for production
-npm run preview             # Preview production build
-
-# Quality Checks
-npm run lint                # Lint code
-npm run format              # Format code
-npm run format:check        # Check formatting
-
-# Testing
-npm test                    # Run unit tests
-npm run test:watch          # Watch mode
-npm run test:coverage       # With coverage
-npm run test:e2e            # E2E tests
-npm run test:e2e:headed     # E2E with browser
-npm run check-links         # Check for broken links
-
-# Other
-npm install                 # Install dependencies
-npm run prepare             # Setup git hooks
-```
-
----
-
-**Welcome to FFC Single Page Template! Happy coding! 🚀**
-
----
-
-**Last Updated**: 2025-12-03  
-**Version**: 0.1.0  
-**Node.js**: 20.x (validated with v20.19.6)
+- [README.md](./README.md)
+- [DEPLOYMENT.md](./DEPLOYMENT.md)
+- [TESTING.md](./TESTING.md)
+- [CODE_QUALITY.md](./CODE_QUALITY.md)
+- [CONTRIBUTING.md](./CONTRIBUTING.md)
