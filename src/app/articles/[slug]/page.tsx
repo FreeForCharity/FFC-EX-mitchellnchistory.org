@@ -67,6 +67,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <img
             src={localImageSrc(article.featuredImage.url)}
             alt={article.featuredImage.alt || article.title}
+            fetchPriority="high"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover opacity-20"
           />
         )}

@@ -114,7 +114,7 @@ export function sanitizeHtml(html: string): string {
     ]),
     allowedAttributes: {
       ...sanitize.defaults.allowedAttributes,
-      img: ['src', 'alt', 'width', 'height', 'loading', 'srcset', 'sizes'],
+      img: ['src', 'alt', 'width', 'height', 'loading', 'decoding', 'srcset', 'sizes'],
       iframe: ['src', 'width', 'height', 'frameborder', 'allowfullscreen'],
       a: ['href', 'name', 'target', 'rel'],
       source: ['src', 'type'],
@@ -145,6 +145,14 @@ export function sanitizeHtml(html: string): string {
         }
         if (attribs.srcset) {
           attribs.srcset = localizeSrcset(attribs.srcset)
+        }
+        // Article bodies render below the page hero, so every content image
+        // starts below the fold — defer them all unless the source opted out.
+        if (!attribs.loading) {
+          attribs.loading = 'lazy'
+        }
+        if (!attribs.decoding) {
+          attribs.decoding = 'async'
         }
         return { tagName, attribs }
       },

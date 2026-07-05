@@ -172,4 +172,22 @@ describe('sanitizeHtml', () => {
     expect(result).toContain('anchor.fm')
     expect(result).toContain('<source')
   })
+
+  it('adds loading="lazy" and decoding="async" to images', () => {
+    const result = sanitizeHtml('<img src="/wp-content/uploads/2020/01/photo.jpg" alt="photo" />')
+    expect(result).toContain('loading="lazy"')
+    expect(result).toContain('decoding="async"')
+  })
+
+  it('does not override an explicit loading attribute', () => {
+    const result = sanitizeHtml('<img src="photo.jpg" alt="photo" loading="eager" />')
+    expect(result).toContain('loading="eager"')
+    expect(result).not.toContain('loading="lazy"')
+  })
+
+  it('does not override an explicit decoding attribute', () => {
+    const result = sanitizeHtml('<img src="photo.jpg" alt="photo" decoding="sync" />')
+    expect(result).toContain('decoding="sync"')
+    expect(result).not.toContain('decoding="async"')
+  })
 })
