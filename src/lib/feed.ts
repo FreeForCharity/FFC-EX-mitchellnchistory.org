@@ -1,5 +1,5 @@
 import { siteUrl } from '@/lib/siteConfig'
-import { parseUTCDate } from '@/lib/formatDate'
+import { parseUTCDateTime } from '@/lib/formatDate'
 
 export interface FeedItem {
   slug: string
@@ -36,11 +36,11 @@ export function stripHtml(html: string): string {
  */
 export function buildRssFeed(articles: FeedItem[]): string {
   const items = [...articles]
-    .sort((a, b) => parseUTCDate(b.date).getTime() - parseUTCDate(a.date).getTime())
+    .sort((a, b) => parseUTCDateTime(b.date).getTime() - parseUTCDateTime(a.date).getTime())
     .slice(0, FEED_ITEM_LIMIT)
     .map((article) => {
       const url = `${siteUrl}/articles/${article.slug}/`
-      const pubDate = parseUTCDate(article.date).toUTCString()
+      const pubDate = parseUTCDateTime(article.date).toUTCString()
       return [
         '    <item>',
         `      <title>${escapeXml(article.title)}</title>`,

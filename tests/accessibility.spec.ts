@@ -15,13 +15,15 @@ test.describe('Skip-to-content link', () => {
     const skipLink = page.getByRole('link', { name: 'Skip to main content' })
     await expect(skipLink).toHaveAttribute('href', '#main-content')
 
-    // Hidden until focused
-    await expect(skipLink).not.toBeInViewport()
+    // Hidden until focused: collapsed to the 1px clipped sr-only box
+    await expect(skipLink).toHaveCSS('position', 'absolute')
+    await expect(skipLink).toHaveCSS('width', '1px')
 
-    // First Tab press lands on the skip link and reveals it
+    // First Tab press lands on the skip link and reveals it as a fixed overlay
     await page.keyboard.press('Tab')
     await expect(skipLink).toBeFocused()
-    await expect(skipLink).toBeInViewport()
+    await expect(skipLink).toHaveCSS('position', 'fixed')
+    await expect(skipLink).not.toHaveCSS('width', '1px')
   })
 
   test('targets the main landmark present on every page', async ({ page }) => {

@@ -45,6 +45,15 @@ describe('buildRssFeed', () => {
     expect(xml).not.toContain('article-1/')
   })
 
+  it('preserves publish times in pubDate and orders same-day posts by time', () => {
+    const xml = buildRssFeed([
+      article(1, { slug: 'morning-post', date: '2020-04-01T08:15:00' }),
+      article(2, { slug: 'evening-post', date: '2020-04-01T20:30:00' }),
+    ])
+    expect(xml).toContain('Wed, 01 Apr 2020 20:30:00 GMT')
+    expect(xml.indexOf('evening-post')).toBeLessThan(xml.indexOf('morning-post'))
+  })
+
   it('escapes markup in titles and excerpts', () => {
     const xml = buildRssFeed([
       article(1, { title: 'Fish & Chips <est. 1900>', excerpt: '<p>A & B</p>' }),

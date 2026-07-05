@@ -1,4 +1,4 @@
-import { formatDate, parseUTCDate } from '@/lib/formatDate'
+import { formatDate, parseUTCDate, parseUTCDateTime } from '@/lib/formatDate'
 
 describe('formatDate', () => {
   it('formats a standard date string', () => {
@@ -46,5 +46,28 @@ describe('parseUTCDate', () => {
     const result = parseUTCDate('not-a-date')
     expect(result).toBeInstanceOf(Date)
     expect(isNaN(result.getTime())).toBe(true)
+  })
+})
+
+describe('parseUTCDateTime', () => {
+  it('preserves the time portion, pinned to UTC', () => {
+    const result = parseUTCDateTime('2022-04-23T16:47:46')
+    expect(result.toISOString()).toBe('2022-04-23T16:47:46.000Z')
+  })
+
+  it('respects an explicit timezone offset', () => {
+    const result = parseUTCDateTime('2022-04-23T16:47:46-05:00')
+    expect(result.toISOString()).toBe('2022-04-23T21:47:46.000Z')
+  })
+
+  it('handles a bare date as midnight UTC', () => {
+    const result = parseUTCDateTime('2024-03-15')
+    expect(result.toISOString()).toBe('2024-03-15T00:00:00.000Z')
+  })
+
+  it('orders same-day timestamps correctly', () => {
+    const morning = parseUTCDateTime('2020-04-01T08:00:00')
+    const evening = parseUTCDateTime('2020-04-01T20:00:00')
+    expect(evening.getTime()).toBeGreaterThan(morning.getTime())
   })
 })
