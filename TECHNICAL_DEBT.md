@@ -4,9 +4,9 @@
 
 **Scope:** This document covers technical items that affect the **internal workings** of the React application, not user-facing features. For UI/UX enhancements and user-visible improvements, see [SITE_IMPROVEMENTS.md](./SITE_IMPROVEMENTS.md).
 
-**Last Updated:** December 2025  
+**Last Updated:** July 2026  
 **Status:** Active Tracking  
-**Repository:** FreeForCharity/FFC_Single_Page_Template
+**Repository:** FreeForCharity/FFC-EX-mitchellnchistory.org
 
 ---
 
@@ -31,7 +31,7 @@ This document tracks technical debt items that:
 - Require monitoring and eventual resolution
 - Are acceptable tradeoffs for now but not ideal long-term
 
-**Current Technical Debt Count:** 1 React Hooks warning + 6 Next.js Image warnings + 4 security vulnerabilities (low severity)
+**Current Technical Debt Count:** 13 Next.js `<img>` warnings (expected for static export — see CLAUDE.md) + 1 `<img>` warning in the articles grid. All React Hooks warnings were eliminated in July 2026 when the unused Free For Charity template components (including every file that carried them) were removed (issue #127 / PR #138).
 
 **Recent Progress (December 2025):** Reduced React Hooks warnings from 10 to 1 (90% reduction) by fixing exhaustive-deps and set-state-in-effect issues.
 
@@ -80,7 +80,11 @@ The project has **1 React Hooks ESLint warning** remaining after recent refactor
 
 ---
 
-### Category 3: `react-hooks/immutability` (1 occurrence)
+### Category 3: ~~`react-hooks/immutability` (1 occurrence)~~ ✅ **RESOLVED**
+
+**Status:** Resolved in July 2026 — `src/components/home/Testimonials/index.tsx` was unreachable template code and was deleted along with all other unused template components (issue #127 / PR #138).
+
+### (Historical) Category 3 details
 
 **Issue:** Direct mutation of state values in Swiper carousel setup.
 
