@@ -51,6 +51,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: '/',
+    types: {
+      'application/rss+xml': [{ url: '/feed.xml', title: 'Mitchell County Historical Society' }],
+    },
   },
   openGraph: {
     type: 'website',
