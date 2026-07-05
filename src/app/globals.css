@@ -79,6 +79,40 @@ body {
   font-family: var(--font-faustina), serif !important;
 }
 
+/* Skip-link target: keep content visible below the fixed 80px header */
+#main-content {
+  scroll-margin-top: 80px;
+}
+
+/* Skip-to-content link: visually hidden until keyboard-focused (WCAG 2.4.1) */
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  border-radius: 0.25rem;
+  background: var(--color-dark);
+  color: var(--color-paper);
+}
+
 /* Screen reader only utility class for accessibility */
 .sr-only {
   position: absolute;

@@ -130,8 +130,11 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         <GoogleTagManagerNoScript />
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Header />
-        {children}
+        <main id="main-content">{children}</main>
         <Footer />
         <CookieConsent />
       </body>
