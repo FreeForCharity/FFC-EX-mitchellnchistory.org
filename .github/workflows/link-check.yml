@@ -1,0 +1,116 @@
+name: Link Check
+
+# Weekly external/internal link check over the built site. Runs off the
+# PR-blocking path on purpose: external hosts flake, and link rot should
+# open an issue rather than block merges. See issue #131.
+on:
+  schedule:
+    # Mondays 10:00 UTC, after Dependabot's 09:00 slot
+    - cron: '0 10 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-links:
+    name: Check links over built site
+    runs-on: ubuntu-latest
+    # Exposes whether the linkinator step itself failed (vs npm ci / build
+    # infra failures) so notify-failure only files the broken-links issue
+    # when links were actually checked and found broken.
+    outputs:
+      linkcheck_outcome: ${{ steps.linkcheck.outcome }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js site
+        run: npm run build
+
+      - name: Run linkinator
+        id: linkcheck
+        run: |
+          set -o pipefail
+          npm run check-links 2>&1 | tee link-check-output.txt
+
+      - name: Upload full output
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: link-check-output
+          path: link-check-output.txt
+          retention-days: 30
+          # The file only exists if the linkinator step ran; skip quietly
+          # when an earlier step (npm ci, build) failed first.
+          if-no-files-found: ignore
+
+  notify-failure:
+    name: File issue on broken links
+    needs: [check-links]
+    # Gate on the linkinator step's own outcome so infra failures (npm ci,
+    # build) don't file a misleading "broken links" issue.
+    if: ${{ always() && needs.check-links.outputs.linkcheck_outcome == 'failure' && github.event_name == 'schedule' }}
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Create or update link-rot issue
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+            const marker = '<!-- ffc-linkcheck:broken-links -->';
+            const title = 'Scheduled link check found broken links';
+            const body = [
+              `The weekly link check failed. Broken links are listed in the run log and the \`link-check-output\` artifact:`,
+              '',
+              `Run: ${runUrl}`,
+              '',
+              'External links that permanently moved or died should be fixed in the source data;',
+              'hosts that block CI traffic can be added to the `skip` list in `.linkinatorrc.json`.',
+              '',
+              marker,
+              '_This issue was automatically created by the link-check workflow._',
+            ].join('\n');
+
+            // Dedupe: comment on an existing open issue instead of filing a new one.
+            let existing = null;
+            try {
+              const issues = await github.paginate(github.rest.issues.listForRepo, {
+                owner,
+                repo,
+                state: 'open',
+                per_page: 100,
+              });
+              existing = issues.find(
+                (i) => !i.pull_request && (i.body || '').includes(marker)
+              );
+            } catch (e) {
+              core.warning(`Could not list issues for dedupe: ${e.message}`);
+            }
+
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: existing.number,
+                body: `Link check failed again: ${runUrl}`,
+              });
+              core.info(`Commented on existing issue #${existing.number}`);
+            } else {
+              const created = await github.rest.issues.create({ owner, repo, title, body });
+              core.info(`Created issue #${created.data.number}`);
+            }

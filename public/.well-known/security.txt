@@ -1,0 +1,8 @@
+# Security contact for mitchellnchistory.org (RFC 9116)
+# NOTE: the Expires field must be refreshed annually.
+Contact: mailto:clarkemoyer@freeforcharity.org
+Policy: https://mitchellnchistory.org/vulnerability-disclosure-policy/
+Acknowledgments: https://mitchellnchistory.org/security-acknowledgements/
+Preferred-Languages: en
+Canonical: https://mitchellnchistory.org/.well-known/security.txt
+Expires: 2027-07-01T00:00:00.000Z

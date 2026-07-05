@@ -6,25 +6,6 @@ const nextConfig: NextConfig = {
   images: {
     // This allows all images, local or external, to load without optimization
     unoptimized: true,
-    // Use remotePatterns instead of deprecated domains
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'ffcworkingsite1.org',
-      },
-      {
-        protocol: 'https',
-        hostname: 'staging.freeforcharity.org',
-      },
-      {
-        protocol: 'https',
-        hostname: 'freeforcharity.org',
-      },
-      {
-        protocol: 'https',
-        hostname: 'static.vecteezy.com',
-      },
-    ],
   },
   // Ensure both /about and /about/ resolve (generates dir/index.html)
   trailingSlash: true,

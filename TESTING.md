@@ -301,7 +301,7 @@ Tests that verify image loading works correctly for both custom domain and GitHu
      - Both logos use identical path
    - **Deployment Compatibility**:
      - Custom domain: `/web-app-manifest-512x512.png`
-   - GitHub Pages: `/FFC_Single_Page_Template/web-app-manifest-512x512.png`
+   - GitHub Pages: `/FFC-EX-mitchellnchistory.org/web-app-manifest-512x512.png`
 
 5. **`images should return 200 status code`**
    - **Purpose**: Verifies images load successfully via HTTP
@@ -342,7 +342,7 @@ Tests run automatically in GitHub Actions with the following configuration:
 - **Trigger**: Every push to main branch
 - **Environment**: Ubuntu latest with Node.js 20
 - **Browser Setup**: `npx playwright install --with-deps chromium`
-- **Build**: Built with `NEXT_PUBLIC_BASE_PATH=/FFC_Single_Page_Template`
+- **Build**: Built with `NEXT_PUBLIC_BASE_PATH=/FFC-EX-mitchellnchistory.org`
 - **Retry Logic**: Failed tests retry 2 times
 - **Failure Handling**: Deployment blocked if tests fail
 
@@ -698,7 +698,7 @@ npm audit
 ## File Structure Reference
 
 ```
-FFC_Single_Page_Template/
+FFC-EX-mitchellnchistory.org/
 ├── tests/                          # Test suite
 │   ├── logo.spec.ts               # Logo visibility tests (3 tests)
 │   ├── github-pages.spec.ts       # Deployment compatibility tests (3 tests)
@@ -769,10 +769,12 @@ FFC_Single_Page_Template/
    - Purpose: Detect unintended UI changes
    - Benefit: Prevent visual bugs from reaching production
 
-6. **Link Validation**
-   - Tool: Custom Playwright tests or broken-link-checker
-   - Purpose: Verify all internal and external links work
-   - Benefit: Prevent 404 errors and broken navigation
+6. **Link Validation** ✅ **IMPLEMENTED**
+   - Tool: Linkinator (`npm run check-links`, config in `.linkinatorrc.json`)
+   - Runs weekly via `.github/workflows/link-check.yml` (Mondays 10:00 UTC) and on demand via workflow dispatch
+   - On failure the workflow files (or updates) a deduplicated link-rot issue with the run link; full output is uploaded as the `link-check-output` artifact
+   - Intentionally off the PR-blocking path: external hosts flake, so link rot opens an issue rather than blocking merges
+   - Hosts that block CI traffic can be added to the `skip` list in `.linkinatorrc.json`
 
 ### Lower Priority
 

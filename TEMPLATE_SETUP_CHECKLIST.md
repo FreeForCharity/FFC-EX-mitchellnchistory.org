@@ -1,5 +1,7 @@
 # Template Setup Checklist
 
+> **Note:** This document describes the reusable **Free For Charity template** this repository was built from, including template placeholder values (e.g. `ffcworkingsite1.org`, `FFC_Single_Page_Template`). It does **not** describe this deployment — the production Mitchell County Historical Society site at https://mitchellnchistory.org. See README.md and DEPLOYMENT.md for this repo's actual configuration.
+
 Quick reference checklist for setting up a new repository from the FFC Single Page Template.
 
 **For complete instructions, see [TEMPLATE_USAGE.md](./TEMPLATE_USAGE.md)**

@@ -1,4 +1,4 @@
-import { siteUrl } from '@/lib/siteConfig'
+import { siteUrl, defaultOgImage } from '@/lib/siteConfig'
 import { absoluteImageUrl } from '@/lib/imageUrl'
 
 /**
@@ -53,8 +53,8 @@ export function articleJsonLd(article: {
         url: `${siteUrl}/web-app-manifest-512x512.png`,
       },
     },
-    ...(article.featuredImage && {
-      image: absoluteImageUrl(article.featuredImage.url),
-    }),
+    image: article.featuredImage
+      ? absoluteImageUrl(article.featuredImage.url)
+      : `${siteUrl}${defaultOgImage.url}`,
   }
 }

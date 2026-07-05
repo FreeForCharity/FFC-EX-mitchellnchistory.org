@@ -6,6 +6,7 @@ import { sanitizeHtml } from '@/lib/sanitizeHtml'
 import { absoluteImageUrl, localImageSrc } from '@/lib/imageUrl'
 import { notFound } from 'next/navigation'
 import { articleJsonLd, safeJsonLdStringify } from '@/lib/jsonLd'
+import { defaultOgImage } from '@/lib/siteConfig'
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>
@@ -33,14 +34,14 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       description: article.excerpt,
       type: 'article',
       publishedTime: article.date,
-      ...(article.featuredImage && {
-        images: [
-          {
-            url: absoluteImageUrl(article.featuredImage.url),
-            alt: article.featuredImage.alt,
-          },
-        ],
-      }),
+      images: article.featuredImage
+        ? [
+            {
+              url: absoluteImageUrl(article.featuredImage.url),
+              alt: article.featuredImage.alt,
+            },
+          ]
+        : [defaultOgImage],
     },
   }
 }
@@ -67,6 +68,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <img
             src={localImageSrc(article.featuredImage.url)}
             alt={article.featuredImage.alt || article.title}
+            fetchPriority="high"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover opacity-20"
           />
         )}

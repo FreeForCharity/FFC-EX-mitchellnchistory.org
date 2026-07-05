@@ -100,6 +100,9 @@ function rewriteWpPermalink(href: string): string {
  * Uses sanitize-html with an allowlist of safe tags and attributes.
  */
 export function sanitizeHtml(html: string): string {
+  // Tracks kept (non-stripped) images within this document so the first one
+  // can stay eager — on short-hero pages it is often the LCP element.
+  let keptImageCount = 0
   return sanitize(html, {
     allowedTags: sanitize.defaults.allowedTags.concat([
       'img',
@@ -114,7 +117,7 @@ export function sanitizeHtml(html: string): string {
     ]),
     allowedAttributes: {
       ...sanitize.defaults.allowedAttributes,
-      img: ['src', 'alt', 'width', 'height', 'loading', 'srcset', 'sizes'],
+      img: ['src', 'alt', 'width', 'height', 'loading', 'decoding', 'srcset', 'sizes'],
       iframe: ['src', 'width', 'height', 'frameborder', 'allowfullscreen'],
       a: ['href', 'name', 'target', 'rel'],
       source: ['src', 'type'],
@@ -145,6 +148,16 @@ export function sanitizeHtml(html: string): string {
         }
         if (attribs.srcset) {
           attribs.srcset = localizeSrcset(attribs.srcset)
+        }
+        // Defer offscreen images, but leave the FIRST image of the document
+        // eager: on pages with a short title hero (e.g. WP-migrated pages)
+        // it can sit in the initial viewport and be the LCP element.
+        keptImageCount += 1
+        if (!attribs.loading && keptImageCount > 1) {
+          attribs.loading = 'lazy'
+        }
+        if (!attribs.decoding) {
+          attribs.decoding = 'async'
         }
         return { tagName, attribs }
       },

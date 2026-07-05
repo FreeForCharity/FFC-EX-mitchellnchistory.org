@@ -1,5 +1,17 @@
 export const siteUrl = 'https://mitchellnchistory.org'
 
+/**
+ * Default social-share (OpenGraph/Twitter/JSON-LD) image. Single source of
+ * truth — referenced by the root layout, article metadata fallback, and
+ * Article JSON-LD. Swap the asset and update here when rebranding.
+ */
+export const defaultOgImage = {
+  url: '/Images/og-default.jpg',
+  width: 1200,
+  height: 630,
+  alt: 'Mitchell County Historical Society',
+} as const
+
 export const sitemapRoutes = [
   '/',
   '/about/',

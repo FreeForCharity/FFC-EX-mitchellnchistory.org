@@ -14,7 +14,7 @@ import {
   montserrat,
   cinzel,
 } from '@/lib/fonts'
-import { siteUrl } from '@/lib/siteConfig'
+import { siteUrl, defaultOgImage } from '@/lib/siteConfig'
 import { organizationJsonLd, safeJsonLdStringify } from '@/lib/jsonLd'
 
 // Get basePath for GitHub Pages deployment
@@ -59,21 +59,14 @@ export const metadata: Metadata = {
     title: 'Mitchell County Historical Society | Preserving Our Heritage',
     description:
       'Preserving, protecting, and sharing the rich history and cultural heritage of Mitchell County, North Carolina.',
-    images: [
-      {
-        url: '/web-app-manifest-512x512.png',
-        width: 512,
-        height: 512,
-        alt: 'Mitchell County Historical Society',
-      },
-    ],
+    images: [defaultOgImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Mitchell County Historical Society | Preserving Our Heritage',
     description:
       'Preserving, protecting, and sharing the rich history and cultural heritage of Mitchell County, North Carolina.',
-    images: ['/web-app-manifest-512x512.png'],
+    images: [defaultOgImage.url],
   },
   icons: {
     icon: [
@@ -94,6 +87,17 @@ export default function RootLayout({
       <head>
         {/* Security meta tags (static export cannot set HTTP headers) */}
         <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+        {/* RSS autodiscovery on every page. Rendered here rather than via
+            metadata alternates.types because Next.js replaces the parent
+            alternates object wholesale on any page that sets its own
+            canonical, which would drop the feed link site-wide. */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Mitchell County Historical Society"
+          href={`${basePath}/feed.xml`}
+        />
 
         {/* Preconnect to external domains for faster resource loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -130,8 +134,11 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         <GoogleTagManagerNoScript />
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Header />
-        {children}
+        <main id="main-content">{children}</main>
         <Footer />
         <CookieConsent />
       </body>

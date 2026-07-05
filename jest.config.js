@@ -20,12 +20,18 @@ const customJestConfig = {
     '!**/node_modules/**',
     '!src/app/layout.tsx', // Exclude layout due to font imports causing issues
   ],
+  // Always collect coverage so the thresholds below actually gate CI's
+  // bare `npm test` run (without this, jest skips threshold evaluation).
+  collectCoverage: true,
+  // Ratchet: set just below measured coverage (41% stmts / 47% branch /
+  // 38% funcs / 44% lines as of 2026-07) so regressions fail CI. Raise as
+  // coverage grows; never lower without discussion.
   coverageThreshold: {
     global: {
-      branches: 5,
-      functions: 5,
-      lines: 5,
-      statements: 5,
+      branches: 40,
+      functions: 30,
+      lines: 38,
+      statements: 35,
     },
   },
   moduleNameMapper: {

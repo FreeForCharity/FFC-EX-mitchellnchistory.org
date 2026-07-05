@@ -1,5 +1,7 @@
 # Content Replacement Guide
 
+> **Note:** This document describes the reusable **Free For Charity template** this repository was built from, including template placeholder values (e.g. `ffcworkingsite1.org`, `FFC_Single_Page_Template`). It does **not** describe this deployment — the production Mitchell County Historical Society site at https://mitchellnchistory.org. See README.md and DEPLOYMENT.md for this repo's actual configuration.
+
 This guide identifies all the content you need to provide to replace the Free For Charity template content with your own charity's information. Each section of the website is listed with the specific variables, the current example content, and a space for you to fill in your charity's information.
 
 ## How to Use This Guide
