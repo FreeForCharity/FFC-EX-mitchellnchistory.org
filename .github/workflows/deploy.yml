@@ -170,6 +170,10 @@ jobs:
         uses: actions/upload-pages-artifact@v5
         with:
           path: ./out
+          # v5 excludes dotfiles by default, which silently dropped
+          # /.well-known/security.txt (RFC 9116) from the deployed site.
+          # .git/.github stay excluded regardless of this setting.
+          include-hidden-files: true
 
   deploy:
     name: Deploy to GitHub Pages
