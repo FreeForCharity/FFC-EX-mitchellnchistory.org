@@ -33,14 +33,21 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       description: article.excerpt,
       type: 'article',
       publishedTime: article.date,
-      ...(article.featuredImage && {
-        images: [
-          {
-            url: absoluteImageUrl(article.featuredImage.url),
-            alt: article.featuredImage.alt,
-          },
-        ],
-      }),
+      images: article.featuredImage
+        ? [
+            {
+              url: absoluteImageUrl(article.featuredImage.url),
+              alt: article.featuredImage.alt,
+            },
+          ]
+        : [
+            {
+              url: '/Images/og-default.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'Mitchell County Historical Society',
+            },
+          ],
     },
   }
 }

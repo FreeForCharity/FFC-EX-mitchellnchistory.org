@@ -64,9 +64,9 @@ export const metadata: Metadata = {
       'Preserving, protecting, and sharing the rich history and cultural heritage of Mitchell County, North Carolina.',
     images: [
       {
-        url: '/web-app-manifest-512x512.png',
-        width: 512,
-        height: 512,
+        url: '/Images/og-default.jpg',
+        width: 1200,
+        height: 630,
         alt: 'Mitchell County Historical Society',
       },
     ],
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     title: 'Mitchell County Historical Society | Preserving Our Heritage',
     description:
       'Preserving, protecting, and sharing the rich history and cultural heritage of Mitchell County, North Carolina.',
-    images: ['/web-app-manifest-512x512.png'],
+    images: ['/Images/og-default.jpg'],
   },
   icons: {
     icon: [

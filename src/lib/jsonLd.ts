@@ -43,6 +43,7 @@ export function articleJsonLd(article: {
     '@type': 'Article',
     headline: article.title,
     datePublished: article.date,
+    dateModified: article.date,
     description: article.excerpt,
     url: `${siteUrl}/articles/${article.slug}/`,
     publisher: {
@@ -53,8 +54,8 @@ export function articleJsonLd(article: {
         url: `${siteUrl}/web-app-manifest-512x512.png`,
       },
     },
-    ...(article.featuredImage && {
-      image: absoluteImageUrl(article.featuredImage.url),
-    }),
+    image: article.featuredImage
+      ? absoluteImageUrl(article.featuredImage.url)
+      : `${siteUrl}/Images/og-default.jpg`,
   }
 }
