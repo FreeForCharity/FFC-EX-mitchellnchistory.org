@@ -281,3 +281,68 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ---------------------------------------------------------------------------
+ * Print styles: researchers print articles and the WW1 roster tables for
+ * offline/family records. Strip navigation chrome, flatten the dark hero,
+ * and keep long tables readable across page breaks.
+ * ------------------------------------------------------------------------- */
+@media print {
+  header,
+  footer,
+  .skip-link,
+  [aria-label='Cookie consent notice'],
+  [aria-labelledby='cookie-preferences-title'] {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+
+  /* Flatten dark hero sections to black-on-white */
+  .bg-dark {
+    background: #fff !important;
+    color: #000 !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  .bg-dark h1,
+  .bg-dark time,
+  .bg-dark p,
+  .text-paper,
+  .text-gray-300 {
+    color: #000 !important;
+  }
+  .bg-dark img {
+    display: none !important;
+  }
+
+  /* Show destinations for external citation links in article bodies */
+  .wp-content a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.85em;
+    word-break: break-all;
+  }
+
+  /* Keep long roster tables readable across page breaks */
+  .wp-content table {
+    font-size: 0.85em;
+  }
+  .wp-content thead {
+    display: table-header-group;
+  }
+  .wp-content tr {
+    break-inside: avoid;
+  }
+  .wp-content img,
+  .wp-content figure {
+    break-inside: avoid;
+    max-width: 100% !important;
+  }
+}
