@@ -173,14 +173,24 @@ describe('sanitizeHtml', () => {
     expect(result).toContain('<source')
   })
 
-  it('adds loading="lazy" and decoding="async" to images', () => {
+  it('adds loading="lazy" and decoding="async" to images after the first', () => {
+    const result = sanitizeHtml(
+      '<img src="/first.jpg" alt="first" /><img src="/second.jpg" alt="second" /><img src="/third.jpg" alt="third" />'
+    )
+    expect(result.match(/loading="lazy"/g)).toHaveLength(2)
+    expect(result.match(/decoding="async"/g)).toHaveLength(3)
+  })
+
+  it('leaves the first image eager (potential LCP element)', () => {
     const result = sanitizeHtml('<img src="/wp-content/uploads/2020/01/photo.jpg" alt="photo" />')
-    expect(result).toContain('loading="lazy"')
+    expect(result).not.toContain('loading=')
     expect(result).toContain('decoding="async"')
   })
 
   it('does not override an explicit loading attribute', () => {
-    const result = sanitizeHtml('<img src="photo.jpg" alt="photo" loading="eager" />')
+    const result = sanitizeHtml(
+      '<img src="a.jpg" alt="a" /><img src="photo.jpg" alt="photo" loading="eager" />'
+    )
     expect(result).toContain('loading="eager"')
     expect(result).not.toContain('loading="lazy"')
   })

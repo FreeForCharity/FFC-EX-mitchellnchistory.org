@@ -100,6 +100,9 @@ function rewriteWpPermalink(href: string): string {
  * Uses sanitize-html with an allowlist of safe tags and attributes.
  */
 export function sanitizeHtml(html: string): string {
+  // Tracks kept (non-stripped) images within this document so the first one
+  // can stay eager — on short-hero pages it is often the LCP element.
+  let keptImageCount = 0
   return sanitize(html, {
     allowedTags: sanitize.defaults.allowedTags.concat([
       'img',
@@ -146,9 +149,11 @@ export function sanitizeHtml(html: string): string {
         if (attribs.srcset) {
           attribs.srcset = localizeSrcset(attribs.srcset)
         }
-        // Article bodies render below the page hero, so every content image
-        // starts below the fold — defer them all unless the source opted out.
-        if (!attribs.loading) {
+        // Defer offscreen images, but leave the FIRST image of the document
+        // eager: on pages with a short title hero (e.g. WP-migrated pages)
+        // it can sit in the initial viewport and be the LCP element.
+        keptImageCount += 1
+        if (!attribs.loading && keptImageCount > 1) {
           attribs.loading = 'lazy'
         }
         if (!attribs.decoding) {

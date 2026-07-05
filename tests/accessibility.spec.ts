@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test'
+import { testConfig } from './test.config'
 
 /**
  * Accessibility affordances — E2E Tests
@@ -8,12 +9,14 @@ import { test, expect } from '@playwright/test'
  * by WCAG 2.4.1 (Bypass Blocks).
  */
 
+const { skipLinkText, skipLinkTarget, landmarkRoutes } = testConfig.accessibility
+
 test.describe('Skip-to-content link', () => {
   test('is the first focusable element and becomes visible on focus', async ({ page }) => {
     await page.goto('/')
 
-    const skipLink = page.getByRole('link', { name: 'Skip to main content' })
-    await expect(skipLink).toHaveAttribute('href', '#main-content')
+    const skipLink = page.getByRole('link', { name: skipLinkText })
+    await expect(skipLink).toHaveAttribute('href', skipLinkTarget)
 
     // Hidden until focused: collapsed to the 1px clipped sr-only box
     await expect(skipLink).toHaveCSS('position', 'absolute')
@@ -27,9 +30,9 @@ test.describe('Skip-to-content link', () => {
   })
 
   test('targets the main landmark present on every page', async ({ page }) => {
-    for (const route of ['/', '/about/', '/articles/']) {
+    for (const route of landmarkRoutes) {
       await page.goto(route)
-      await expect(page.locator('main#main-content')).toHaveCount(1)
+      await expect(page.locator(`main${skipLinkTarget}`)).toHaveCount(1)
     }
   })
 
@@ -37,6 +40,6 @@ test.describe('Skip-to-content link', () => {
     await page.goto('/about/')
     await page.keyboard.press('Tab')
     await page.keyboard.press('Enter')
-    await expect(page).toHaveURL(/#main-content$/)
+    await expect(page).toHaveURL(new RegExp(`${skipLinkTarget}$`))
   })
 })

@@ -33,7 +33,7 @@ This document tracks technical debt items that:
 
 **Current Technical Debt Count:** 13 Next.js `<img>` warnings (expected for static export — see CLAUDE.md) + 1 `<img>` warning in the articles grid. All React Hooks warnings were eliminated in July 2026 when the unused Free For Charity template components (including every file that carried them) were removed (issue #127 / PR #138).
 
-**Recent Progress (December 2025):** Reduced React Hooks warnings from 10 to 1 (90% reduction) by fixing exhaustive-deps and set-state-in-effect issues.
+**Recent Progress:** December 2025 reduced React Hooks warnings from 10 to 1 by fixing exhaustive-deps and set-state-in-effect issues; July 2026 eliminated the last one by deleting the unreachable template components that carried it (#127 / PR #138).
 
 ---
 
@@ -41,7 +41,7 @@ This document tracks technical debt items that:
 
 ### Summary
 
-The project has **1 React Hooks ESLint warning** remaining after recent refactoring (December 2025). This warning is low priority and doesn't affect functionality.
+The project has **no React Hooks ESLint warnings** remaining. The final warning lived in an unused Free For Charity template component that was deleted along with all other unreachable template code in July 2026 (issue #127 / PR #138).
 
 ### Category 1: ~~`react-hooks/set-state-in-effect` (6 occurrences)~~ ✅ **RESOLVED**
 

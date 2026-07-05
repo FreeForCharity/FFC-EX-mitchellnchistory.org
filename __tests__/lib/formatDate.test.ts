@@ -60,6 +60,16 @@ describe('parseUTCDateTime', () => {
     expect(result.toISOString()).toBe('2022-04-23T21:47:46.000Z')
   })
 
+  it('recognizes hour-only offsets, compact offsets, and lowercase z', () => {
+    expect(parseUTCDateTime('2022-04-23T16:47:46+05').toISOString()).toBe(
+      '2022-04-23T11:47:46.000Z'
+    )
+    expect(parseUTCDateTime('2022-04-23T16:47:46+0500').toISOString()).toBe(
+      '2022-04-23T11:47:46.000Z'
+    )
+    expect(parseUTCDateTime('2022-04-23T16:47:46z').toISOString()).toBe('2022-04-23T16:47:46.000Z')
+  })
+
   it('handles a bare date as midnight UTC', () => {
     const result = parseUTCDateTime('2024-03-15')
     expect(result.toISOString()).toBe('2024-03-15T00:00:00.000Z')

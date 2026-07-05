@@ -16,6 +16,11 @@ jobs:
   check-links:
     name: Check links over built site
     runs-on: ubuntu-latest
+    # Exposes whether the linkinator step itself failed (vs npm ci / build
+    # infra failures) so notify-failure only files the broken-links issue
+    # when links were actually checked and found broken.
+    outputs:
+      linkcheck_outcome: ${{ steps.linkcheck.outcome }}
 
     steps:
       - name: Checkout repository
@@ -46,11 +51,16 @@ jobs:
           name: link-check-output
           path: link-check-output.txt
           retention-days: 30
+          # The file only exists if the linkinator step ran; skip quietly
+          # when an earlier step (npm ci, build) failed first.
+          if-no-files-found: ignore
 
   notify-failure:
     name: File issue on broken links
     needs: [check-links]
-    if: ${{ always() && needs.check-links.result == 'failure' && github.event_name == 'schedule' }}
+    # Gate on the linkinator step's own outcome so infra failures (npm ci,
+    # build) don't file a misleading "broken links" issue.
+    if: ${{ always() && needs.check-links.outputs.linkcheck_outcome == 'failure' && github.event_name == 'schedule' }}
     runs-on: ubuntu-latest
     permissions:
       issues: write

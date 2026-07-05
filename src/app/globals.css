@@ -84,19 +84,8 @@ body {
   scroll-margin-top: 80px;
 }
 
-/* Skip-to-content link: visually hidden until keyboard-focused (WCAG 2.4.1) */
-.skip-link {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
+/* Skip-to-content link: visually hidden until keyboard-focused (WCAG 2.4.1).
+   Shares the .sr-only recipe below for its hidden state. */
 .skip-link:focus {
   position: fixed;
   top: 0.5rem;
@@ -114,7 +103,8 @@ body {
 }
 
 /* Screen reader only utility class for accessibility */
-.sr-only {
+.sr-only,
+.skip-link {
   position: absolute;
   width: 1px;
   height: 1px;

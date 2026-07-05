@@ -94,4 +94,27 @@ export const testConfig = {
       cancel: 'Cancel',
     },
   },
+
+  /**
+   * Accessibility Affordances Configuration
+   * Used in: tests/accessibility.spec.ts
+   */
+  accessibility: {
+    skipLinkText: 'Skip to main content',
+    skipLinkTarget: '#main-content',
+    /** Representative routes that must all carry the main landmark */
+    landmarkRoutes: ['/', '/about/', '/articles/'],
+  },
+
+  /**
+   * 404 Page Configuration
+   * Used in: tests/not-found.spec.ts
+   */
+  notFound: {
+    heading: 'Page Not Found',
+    articlesLinkText: 'Search Articles',
+    articlesLinkHref: '/articles/',
+    homeLinkText: 'Go to Homepage',
+    homeLinkHref: '/',
+  },
 }

@@ -6,6 +6,7 @@ import { sanitizeHtml } from '@/lib/sanitizeHtml'
 import { absoluteImageUrl, localImageSrc } from '@/lib/imageUrl'
 import { notFound } from 'next/navigation'
 import { articleJsonLd, safeJsonLdStringify } from '@/lib/jsonLd'
+import { defaultOgImage } from '@/lib/siteConfig'
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>
@@ -40,14 +41,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
               alt: article.featuredImage.alt,
             },
           ]
-        : [
-            {
-              url: '/Images/og-default.jpg',
-              width: 1200,
-              height: 630,
-              alt: 'Mitchell County Historical Society',
-            },
-          ],
+        : [defaultOgImage],
     },
   }
 }

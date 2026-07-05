@@ -1,4 +1,4 @@
-import { siteUrl } from '@/lib/siteConfig'
+import { siteUrl, defaultOgImage } from '@/lib/siteConfig'
 import { absoluteImageUrl } from '@/lib/imageUrl'
 
 /**
@@ -43,7 +43,6 @@ export function articleJsonLd(article: {
     '@type': 'Article',
     headline: article.title,
     datePublished: article.date,
-    dateModified: article.date,
     description: article.excerpt,
     url: `${siteUrl}/articles/${article.slug}/`,
     publisher: {
@@ -56,6 +55,6 @@ export function articleJsonLd(article: {
     },
     image: article.featuredImage
       ? absoluteImageUrl(article.featuredImage.url)
-      : `${siteUrl}/Images/og-default.jpg`,
+      : `${siteUrl}${defaultOgImage.url}`,
   }
 }
