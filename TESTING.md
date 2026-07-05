@@ -769,10 +769,12 @@ FFC_Single_Page_Template/
    - Purpose: Detect unintended UI changes
    - Benefit: Prevent visual bugs from reaching production
 
-6. **Link Validation**
-   - Tool: Custom Playwright tests or broken-link-checker
-   - Purpose: Verify all internal and external links work
-   - Benefit: Prevent 404 errors and broken navigation
+6. **Link Validation** ✅ **IMPLEMENTED**
+   - Tool: Linkinator (`npm run check-links`, config in `.linkinatorrc.json`)
+   - Runs weekly via `.github/workflows/link-check.yml` (Mondays 10:00 UTC) and on demand via workflow dispatch
+   - On failure the workflow files (or updates) a deduplicated link-rot issue with the run link; full output is uploaded as the `link-check-output` artifact
+   - Intentionally off the PR-blocking path: external hosts flake, so link rot opens an issue rather than blocking merges
+   - Hosts that block CI traffic can be added to the `skip` list in `.linkinatorrc.json`
 
 ### Lower Priority
 
