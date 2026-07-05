@@ -2,7 +2,7 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: Free For Charity Website Template
+title: Mitchell County Historical Society Website
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -12,21 +12,20 @@ authors:
     family-names: Moyer
     email: clarkemoyer@freeforcharity.org
     affiliation: Free For Charity
-repository-code: 'https://github.com/FreeForCharity/FFC_Single_Page_Template'
-url: 'https://ffcworkingsite1.org'
+repository-code: 'https://github.com/FreeForCharity/FFC-EX-mitchellnchistory.org'
+url: 'https://mitchellnchistory.org'
 abstract: >-
-  Single-page Next.js 16.0.7 website template built with App
-  Router for Free For Charity nonprofit organization. This
-  template provides a professional, accessible, and
-  performant foundation for nonprofit websites, featuring
-  global popups for donations and volunteer applications,
-  comprehensive testing, and GitHub Pages deployment
-  support.
+  Static Next.js website for the Mitchell County Historical
+  Society (mitchellnchistory.org), preserving and sharing
+  the history of Mitchell County, North Carolina. Built from
+  the Free For Charity single-page template and hosted on
+  GitHub Pages, with ~390 migrated WordPress articles,
+  comprehensive testing, and accessibility tooling.
 keywords:
   - nonprofit
   - charity
   - nextjs
-  - website-template
+  - local-history
   - 501c3
   - typescript
   - tailwindcss

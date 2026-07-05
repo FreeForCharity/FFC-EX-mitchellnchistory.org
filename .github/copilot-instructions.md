@@ -1,4 +1,4 @@
-# Copilot Instructions: FFC_Single_Page_Template
+# Copilot Instructions: FFC-EX-mitchellnchistory.org
 
 Free For Charity nonprofit website. Next.js static site on GitHub Pages.
 

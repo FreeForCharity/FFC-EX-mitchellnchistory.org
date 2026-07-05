@@ -1,5 +1,7 @@
 # Using This Repository as a Template
 
+> **Note:** This document describes the reusable **Free For Charity template** this repository was built from, including template placeholder values (e.g. `ffcworkingsite1.org`, `FFC_Single_Page_Template`). It does **not** describe this deployment — the production Mitchell County Historical Society site at https://mitchellnchistory.org. See README.md and DEPLOYMENT.md for this repo's actual configuration.
+
 This guide helps you create a new repository from this template and configure all required GitHub settings and features. Follow these steps to ensure your new repository has all the functionality of the original template.
 
 ## Table of Contents

@@ -1,6 +1,8 @@
-# Free For Charity Website
+# Mitchell County Historical Society Website
 
-Single-page Next.js 16.0.7 website built with App Router for Free For Charity nonprofit organization.
+The website of the **Mitchell County Historical Society** (Bakersville, North Carolina), live at [https://mitchellnchistory.org](https://mitchellnchistory.org). A static Next.js (App Router) site migrated from the society's legacy WordPress site, carrying ~390 historical articles, the Footsteps for Freedom podcast series, WW1 service rosters, newsletters, and program pages.
+
+Built from the [Free For Charity single-page template](https://github.com/FreeForCharity/FFC-IN-FFC_Single_Page_Template) and hosted free of charge on GitHub Pages as part of Free For Charity's mission to provide websites for 501(c)(3) nonprofits. Template-usage documentation retained in this repository (TEMPLATE_USAGE.md, CONTENT_REPLACEMENT_GUIDE.md) describes the upstream template, not this deployment.
 
 ## 🎉 Phase 5 Implementation Complete
 
@@ -105,19 +107,20 @@ The [**Template Usage Guide (TEMPLATE_USAGE.md)**](./TEMPLATE_USAGE.md) provides
 
 ## Purpose
 
-Free For Charity connects students, professionals, and businesses with nonprofits to reduce operating costs and increase impact. By providing free web hosting, domain names, Microsoft 365 grants assistance, and consulting services, we help nonprofits put more resources back into their charitable missions.
+The Mitchell County Historical Society gathers, preserves, and shares documents, artifacts, and stories of Mitchell County, North Carolina's past. Its mission: "To light the past, enlighten the present, and illuminate the future." The site publishes the society's article archive, event calendar, program pages, newsletters, and membership information.
+
+Free For Charity (a 501(c)(3), EIN 46-2471893) provides the hosting, domain management, and this repository's tooling at no cost to the society.
 
 ## Main Calls-to-Action
 
-The site features two primary CTAs accessible throughout the experience via global popups:
-
-- **Donate**: Support our mission with financial contributions
-- **Volunteer**: Join our team of skilled volunteers helping nonprofits
+- **Membership**: Join the society online via PayPal (`/membership/`)
+- **Events & Programs**: Festivals and monthly programs (`/events/`, `/programs/`)
+- **Articles**: Search and browse ~390 local-history articles (`/articles/`)
 
 ## Deployment
 
-- **Live Site**: [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
-- **GitHub Pages**: [https://freeforcharity.github.io/FFC_Single_Page_Template/](https://freeforcharity.github.io/FFC_Single_Page_Template/)
+- **Live Site**: [https://mitchellnchistory.org](https://mitchellnchistory.org)
+- **GitHub Pages**: [https://freeforcharity.github.io/FFC-EX-mitchellnchistory.org/](https://freeforcharity.github.io/FFC-EX-mitchellnchistory.org/)
 - **Hosting**: GitHub Pages
 - **Deployment**: Automated via GitHub Actions on push to `main` branch
 
@@ -129,49 +132,37 @@ The site is live and fully functional with the following features:
 
 ✅ **Complete and Functional:**
 
-- Core navigation and layout (mobile and desktop responsive)
-- SEO optimization (metadata, sitemap, robots.txt)
-- Static site generation and deployment pipeline
-- All 7 policy pages created and linked (Privacy Policy, Cookie Policy, Terms of Service, Donation Policy, Free For Charity Donation Policy, Vulnerability Disclosure Policy, Security Acknowledgements)
-- Social media links configured (Facebook, Twitter/X, LinkedIn, GitHub)
-- Footer links fully functional with proper destinations
-- Contact information complete (email, phone, addresses)
-- Deployed to live domain: [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
-- Dual deployment: Custom domain and GitHub Pages
+- Fully migrated WordPress content: ~390 articles (100% fidelity verified against the legacy `wp-json` API), self-hosted media, newsletters, and WW1 rosters
+- Articles hub with client-side search, category filters, and pagination
+- Core navigation and layout (mobile and desktop responsive), skip-to-content link, branded 404 page
+- SEO: per-article metadata + JSON-LD, sitemap, robots.txt, RSS feed (`/feed.xml`), social share images
+- Static site generation and deployment pipeline (custom domain + GitHub Pages)
+- Policy pages (Privacy, Cookie, Terms, Donation, Vulnerability Disclosure, Security Acknowledgements)
+- Membership page with PayPal join buttons; cookie consent with GTM integration
 
 ⚠️ **Known Limitations:**
 
-- Global Donate and Volunteer popups present in codebase but currently commented out in `layout.tsx`
-- 6 placeholder links remain in non-critical locations:
-  - 2 program application CTAs in "Ready to Get Started Now?" section (501c3 and Pre-501c3 onboarding links)
-  - 4 informational links in onboarding documentation (domain management and contact references)
-- Contact sections are informational only (no form submission backend)
-- Footer includes a Google+ social media link (service shut down in April 2019 - link should be removed or replaced)
+- Contact pages are informational only (no form submission backend — static export has no server runtime)
+- A few thin legacy pages (`/corona-times/`-style aggregators) had no real content in the source WordPress database either; see issue #86 for the content audit
 
 ## Overview
 
-This is a single-page website with **100+ component files** organized into multiple sections that showcase Free For Charity's programs, services, and resources. The homepage is composed of scrollable sections (Hero, Mission, Programs, Team, FAQ, etc.), with 7 additional policy pages for legal content. The site includes a global popup system for donations and volunteer signups (codebase includes the infrastructure, though the popups are currently commented out in `layout.tsx`).
+This is a multi-route static site. The homepage (`src/app/home-page/`) presents the society's hero, mission, featured event, and program highlights; content pages live under `src/app/<route>/`; and the article archive is generated from WordPress-migrated JSON data.
 
 ### Site Structure
 
-**IMPORTANT:** When new pages or sections are added, explicitly list them here. Keep this documentation up to date.
+**IMPORTANT:** The canonical route list is `sitemapRoutes` in `src/lib/siteConfig.ts` plus per-article routes from `src/data/articles.ts`. Adding a top-level page requires both the `src/app/<route>/` folder and a `sitemapRoutes` entry.
 
-**Homepage (Single Page Application):**
+**Main sections:**
 
-The main page (`/`) is a single-page application composed of scrollable sections:
+- Home (`/`) — hero, mission, nearest-upcoming featured event, program highlights
+- About (`/about/`), Museum (`/museum/`), Membership (`/membership/`), Contact (`/contact/`)
+- Events (`/events/`), Programs (`/programs/`), festival pages
+- Articles hub (`/articles/`) with ~390 article pages (`/articles/<slug>/`)
+- Research resources: Newsletters, Scan Days, Penland Cemetery, WW1 inductee/enlistee rosters, Videos, Resources
+- Feature pages: Overmountain Men (Footsteps for Freedom podcast), Six Women Six Voices, History Bee, Scholarship, Red Wilson
 
-- Hero section
-- Mission statement
-- 2023 Results
-- Testimonials
-- Volunteer call-to-action
-- Support/Donate section
-- Endowment Fund features
-- Programs overview
-- Frequently Asked Questions
-- Team section
-
-**Legal & Policy Pages (7 Separate Routes):**
+**Legal & Policy Pages:**
 
 - Privacy Policy (`/privacy-policy`)
 - Cookie Policy (`/cookie-policy`)
@@ -180,8 +171,6 @@ The main page (`/`) is a single-page application composed of scrollable sections
 - Free For Charity Donation Policy (`/free-for-charity-donation-policy`)
 - Vulnerability Disclosure Policy (`/vulnerability-disclosure-policy`)
 - Security Acknowledgements (`/security-acknowledgements`)
-
-**Note:** All the program information, services, guides, and content are presented as sections within the single-page homepage rather than as separate page routes.
 
 ## Tech Stack
 
@@ -515,7 +504,7 @@ Both platforms provide identical workflows:
 
 **Coexistence with GitHub Pages:**
 
-- Keep GitHub Pages for production (ffcworkingsite1.org)
+- Keep GitHub Pages for production (mitchellnchistory.org)
 - Use Cloudflare Pages or Vercel for PR previews only
 - No conflicts between systems
 
@@ -535,7 +524,7 @@ Both platforms provide identical workflows:
    - Build command: `npm run build`
    - Build output directory: `out`
    - Environment variables: Leave `NEXT_PUBLIC_BASE_PATH` unset
-     - GitHub Pages needs `/FFC_Single_Page_Template` for subdirectory routing
+     - GitHub Pages needs `/FFC-EX-mitchellnchistory.org` for subdirectory routing
      - Cloudflare Pages deploys to root, no basePath needed
 
 4. **Enable Preview Deployments**
@@ -686,8 +675,8 @@ The site is configured for static export and deployed to GitHub Pages:
 
 **Production:**
 
-- Live at: [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
-- GitHub Pages URL: [https://freeforcharity.github.io/FFC_Single_Page_Template/](https://freeforcharity.github.io/FFC_Single_Page_Template/)
+- Live at: [https://mitchellnchistory.org](https://mitchellnchistory.org)
+- GitHub Pages URL: [https://freeforcharity.github.io/FFC-EX-mitchellnchistory.org/](https://freeforcharity.github.io/FFC-EX-mitchellnchistory.org/)
 - Deployment: Automatic via GitHub Actions (`.github/workflows/deploy.yml`)
 - Trigger: Push to `main` branch
 - Build output: Static files in `./out` directory
@@ -724,7 +713,7 @@ We welcome new contributors and believe fresh perspectives are invaluable! **You
 
 #### How to Get Started
 
-1. **Explore the live site:** [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
+1. **Explore the live site:** [https://mitchellnchistory.org](https://mitchellnchistory.org)
 2. **Test thoroughly:** Try all features, navigation, and responsive behavior
 3. **Document findings:** Create a review issue using our template
 4. **Report issues:** File separate issues for bugs and enhancements you discover
@@ -733,7 +722,7 @@ We welcome new contributors and believe fresh perspectives are invaluable! **You
 
 Use our **Reviewer Onboarding template** to document your findings:
 
-[**Create Reviewer Onboarding Issue**](https://github.com/FreeForCharity/FFC_Single_Page_Template/issues/new?assignees=&labels=documentation%2Creview%2Conboarding&template=reviewer-onboarding.md)
+[**Create Reviewer Onboarding Issue**](https://github.com/FreeForCharity/FFC-EX-mitchellnchistory.org/issues/new?assignees=&labels=documentation%2Creview%2Conboarding&template=reviewer-onboarding.md)
 
 The template guides you through:
 

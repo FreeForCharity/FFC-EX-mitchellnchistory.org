@@ -1,8 +1,8 @@
-# Gemini Instructions: FFC_Single_Page_Template
+# Gemini Instructions: FFC-EX-mitchellnchistory.org
 
-Hey Gemini! Welcome to FFC_Single_Page_Template.
+Hey Gemini! Welcome to FFC-EX-mitchellnchistory.org.
 
-**Project:** FFC_Single_Page_Template -- a Free For Charity nonprofit website
+**Project:** FFC-EX-mitchellnchistory.org -- the Mitchell County Historical Society website (mitchellnchistory.org), built from the Free For Charity template
 
 Free For Charity provides free, professionally built websites for 501(c)(3) nonprofit organizations. This repo is one of ~25 charity sites in the FFC family.
 
@@ -110,7 +110,7 @@ Most text content lives in `src/data/` as `.ts` modules or `.json` files in subd
 
 ## Asset Path Helper
 
-The site deploys to `https://freeforcharity.github.io/FFC_Single_Page_Template/` (and your custom domain if configured). The `assetPath()` function from `src/lib/assetPath.ts` handles this automatically.
+The site deploys to `https://freeforcharity.github.io/FFC-EX-mitchellnchistory.org/` (and your custom domain if configured). The `assetPath()` function from `src/lib/assetPath.ts` handles this automatically.
 
 ```tsx
 // Always use assetPath() for images and static assets
