@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { Search, X } from 'lucide-react'
 import type { ArticleMeta } from '@/data/articles'
 import { formatDate } from '@/lib/formatDate'
@@ -15,8 +16,16 @@ interface ArticlesListProps {
 }
 
 export default function ArticlesList({ articles, categories }: ArticlesListProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All')
-  const [searchQuery, setSearchQuery] = useState('')
+  // Deep-linkable filters: /articles/?category=History&q=flood pre-applies
+  // the filter (category chips on article pages link here). Reading search
+  // params requires a <Suspense> boundary around this component.
+  const searchParams = useSearchParams()
+  const categoryParam = searchParams.get('category')
+  const initialCategory =
+    categoryParam && categories.includes(categoryParam) ? categoryParam : 'All'
+
+  const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory)
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('q') ?? '')
   const [currentPage, setCurrentPage] = useState(1)
 
   const categoryCounts = useMemo(() => {

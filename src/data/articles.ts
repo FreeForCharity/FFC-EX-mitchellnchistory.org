@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { formatDate } from '@/lib/formatDate'
+import { formatDate, parseUTCDateTime } from '@/lib/formatDate'
 
 export interface Article {
   slug: string
@@ -95,6 +95,76 @@ export function getActiveCategories(): string[] {
 /** Format an article date for display (UTC-safe) */
 export function formatArticleDate(dateStr: string): string {
   return formatDate(dateStr)
+}
+
+function toMeta({ slug, title, date, excerpt, categories, featuredImage }: Article): ArticleMeta {
+  return { slug, title, date, excerpt, categories, featuredImage }
+}
+
+let _chronoCache: Article[] | null = null
+
+/** All articles sorted newest-first by publish timestamp (cached). */
+function loadChronological(): Article[] {
+  if (!_chronoCache) {
+    _chronoCache = [...loadPosts()].sort(
+      (a, b) => parseUTCDateTime(b.date).getTime() - parseUTCDateTime(a.date).getTime()
+    )
+  }
+  return _chronoCache
+}
+
+/**
+ * Chronological neighbors of an article: the next-newer and next-older
+ * article in the archive. Either side is null at the archive's edges.
+ */
+export function getArticleNeighbors(slug: string): {
+  newer: ArticleMeta | null
+  older: ArticleMeta | null
+} {
+  const chrono = loadChronological()
+  const index = chrono.findIndex((a) => a.slug === slug)
+  if (index === -1) {
+    return { newer: null, older: null }
+  }
+  return {
+    newer: index > 0 ? toMeta(chrono[index - 1]) : null,
+    older: index < chrono.length - 1 ? toMeta(chrono[index + 1]) : null,
+  }
+}
+
+/**
+ * Related articles: same-category articles nearest in publish date,
+ * topped up with chronological neighbors when the category is small.
+ */
+export function getRelatedArticles(slug: string, limit = 3): ArticleMeta[] {
+  const current = getArticleBySlug(slug)
+  if (!current) {
+    return []
+  }
+  const currentTime = parseUTCDateTime(current.date).getTime()
+  const currentCategories = new Set(current.categories)
+
+  const candidates = loadChronological().filter((a) => a.slug !== slug)
+  const related = candidates
+    .filter((a) => a.categories.some((c) => currentCategories.has(c)))
+    .sort(
+      (a, b) =>
+        Math.abs(parseUTCDateTime(a.date).getTime() - currentTime) -
+        Math.abs(parseUTCDateTime(b.date).getTime() - currentTime)
+    )
+    .slice(0, limit)
+
+  if (related.length < limit) {
+    const seen = new Set(related.map((a) => a.slug))
+    for (const a of candidates) {
+      if (related.length >= limit) break
+      if (!seen.has(a.slug)) {
+        related.push(a)
+        seen.add(a.slug)
+      }
+    }
+  }
+  return related.map(toMeta)
 }
 
 export interface WpPage {

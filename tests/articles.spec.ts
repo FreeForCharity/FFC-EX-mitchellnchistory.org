@@ -133,6 +133,44 @@ test.describe('Individual Article Page', () => {
     expect(count).toBeGreaterThanOrEqual(0)
   })
 
+  test('category chip links to a pre-filtered articles hub', async ({ page }) => {
+    await page.goto(
+      '/articles/mcbee-museum-building-has-witnessed-over-a-century-of-mitchell-county-history/'
+    )
+
+    // Chips in the hero are links to /articles/?category=...
+    const chip = page.locator('a[href^="/articles/?category="]').first()
+    await expect(chip).toBeVisible()
+    const chipText = (await chip.innerText()).trim()
+
+    // The hero sits at the top of the page; make sure the fixed header
+    // isn't overlapping the chip when Playwright scrolls it into view.
+    await page.evaluate(() => window.scrollTo(0, 0))
+    await chip.click()
+    await expect(page).toHaveURL(/\/articles\/\?category=/)
+
+    // The corresponding filter chip is active on the hub
+    const activeChip = page.getByRole('button', { name: new RegExp(`^${chipText} \\(\\d+\\)$`) })
+    await expect(activeChip).toHaveAttribute('aria-pressed', 'true')
+  })
+
+  test('article page shows related articles and archive neighbors', async ({ page }) => {
+    await page.goto(
+      '/articles/mcbee-museum-building-has-witnessed-over-a-century-of-mitchell-county-history/'
+    )
+
+    await expect(page.getByRole('heading', { name: 'Related Articles' })).toBeVisible()
+    const relatedLinks = page
+      .locator('section', { has: page.getByRole('heading', { name: 'Related Articles' }) })
+      .locator('a[href^="/articles/"]')
+    expect(await relatedLinks.count()).toBeGreaterThanOrEqual(1)
+
+    // Prev/next navigation exists (middle-of-archive article has both)
+    const adjacentNav = page.getByRole('navigation', { name: 'Adjacent articles' })
+    await expect(adjacentNav).toBeVisible()
+    expect(await adjacentNav.locator('a').count()).toBeGreaterThanOrEqual(1)
+  })
+
   test('should have back-to-articles link', async ({ page }) => {
     await page.goto('/articles')
     const firstLink = page.locator('a[href*="/articles/"]:not([href$="/articles/"])').first()
