@@ -1,4 +1,4 @@
-import { siteUrl } from '@/lib/siteConfig'
+import { siteUrl, siteName, siteDescription } from '@/lib/siteConfig'
 import { parseUTCDateTime } from '@/lib/formatDate'
 
 export interface FeedItem {
@@ -57,9 +57,9 @@ export function buildRssFeed(articles: FeedItem[]): string {
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
     '  <channel>',
-    '    <title>Mitchell County Historical Society</title>',
+    `    <title>${escapeXml(siteName)}</title>`,
     `    <link>${siteUrl}/</link>`,
-    '    <description>Stories of the people, places, history, and heritage of Mitchell County, North Carolina.</description>',
+    `    <description>${escapeXml(siteDescription)}</description>`,
     '    <language>en-us</language>',
     `    <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>`,
     items,

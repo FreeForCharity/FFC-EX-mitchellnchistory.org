@@ -55,6 +55,57 @@ jobs:
           # when an earlier step (npm ci, build) failed first.
           if-no-files-found: ignore
 
+  check-security-txt-expiry:
+    name: Check security.txt expiry
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'schedule' }}
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: File issue if security.txt expires within 30 days
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            const content = fs.readFileSync('public/.well-known/security.txt', 'utf8');
+            const match = content.match(/^Expires:\s*(.+)$/m);
+            if (!match) {
+              core.setFailed('security.txt has no Expires field (required by RFC 9116)');
+              return;
+            }
+            const expires = new Date(match[1].trim());
+            const daysLeft = Math.floor((expires - Date.now()) / 86400000);
+            core.info(`security.txt expires ${expires.toISOString()} (${daysLeft} days)`);
+            if (daysLeft > 30) return;
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const marker = '<!-- ffc-securitytxt:expiry -->';
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner, repo, state: 'open', per_page: 100,
+            });
+            if (issues.some((i) => !i.pull_request && (i.body || '').includes(marker))) {
+              core.info('Expiry issue already open.');
+              return;
+            }
+            await github.rest.issues.create({
+              owner, repo,
+              title: 'security.txt Expires field needs its annual refresh',
+              body: [
+                `\`public/.well-known/security.txt\` expires **${expires.toISOString().slice(0, 10)}** (${daysLeft} days from now).`,
+                '',
+                'RFC 9116 requires a future Expires value; a stale one makes the disclosure contact look unmaintained.',
+                'Update the Expires field to ~1 year out and merge before the current date passes.',
+                '',
+                marker,
+                '_Filed automatically by the link-check workflow._',
+              ].join('\n'),
+            });
+
   notify-failure:
     name: File issue on broken links
     needs: [check-links]

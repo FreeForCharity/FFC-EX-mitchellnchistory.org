@@ -1,10 +1,8 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
-import { axe, toHaveNoViolations } from 'jest-axe'
+import { axe } from 'jest-axe'
 import ArticlesList from '../../src/components/articles/ArticlesList'
 import type { ArticleMeta } from '@/data/articles'
-
-expect.extend(toHaveNoViolations)
 
 function makeArticle(n: number, overrides: Partial<ArticleMeta> = {}): ArticleMeta {
   return {

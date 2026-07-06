@@ -19,6 +19,13 @@ body {
   scroll-behavior: smooth !important;
 }
 
+:root {
+  /* Fixed header heights — shared by the Header component (Tailwind
+     h-[var(...)]) and the skip-link scroll margin so they cannot drift. */
+  --header-height: 80px;
+  --header-height-scrolled: 55px;
+}
+
 @theme inline {
   /* Tailwind design tokens mapped to brand variables */
   --color-primary: var(--mchs-primary);
@@ -79,9 +86,9 @@ body {
   font-family: var(--font-faustina), serif !important;
 }
 
-/* Skip-link target: keep content visible below the fixed 80px header */
+/* Skip-link target: keep content visible below the fixed header */
 #main-content {
-  scroll-margin-top: 80px;
+  scroll-margin-top: var(--header-height);
 }
 
 /* Skip-to-content link: visually hidden until keyboard-focused (WCAG 2.4.1).
@@ -281,8 +288,7 @@ body {
   header,
   footer,
   .skip-link,
-  [aria-label='Cookie consent notice'],
-  [aria-labelledby='cookie-preferences-title'] {
+  .print-hidden {
     display: none !important;
   }
 

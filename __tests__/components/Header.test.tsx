@@ -1,10 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { axe, toHaveNoViolations } from 'jest-axe'
+import { axe } from 'jest-axe'
 import Header from '../../src/components/header'
-
-// Extend Jest matchers
-expect.extend(toHaveNoViolations)
 
 // Mock next/navigation
 jest.mock('next/navigation', () => ({

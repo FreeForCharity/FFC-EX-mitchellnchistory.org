@@ -387,7 +387,7 @@ export default function CookieConsent() {
   if (showPreferences) {
     return (
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
+        className="print-hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
         role="dialog"
         aria-modal="true"
         aria-labelledby="cookie-preferences-title"
@@ -529,7 +529,7 @@ export default function CookieConsent() {
   return (
     <div
       ref={bannerRef}
-      className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-gray-200 shadow-2xl"
+      className="print-hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-gray-200 shadow-2xl"
       role="region"
       aria-label="Cookie consent notice"
     >

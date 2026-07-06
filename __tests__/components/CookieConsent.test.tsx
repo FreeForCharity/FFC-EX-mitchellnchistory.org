@@ -1,10 +1,7 @@
 import React from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
-import { axe, toHaveNoViolations } from 'jest-axe'
+import { axe } from 'jest-axe'
 import CookieConsent from '../../src/components/cookie-consent'
-
-// Extend Jest matchers
-expect.extend(toHaveNoViolations)
 
 // Mock localStorage
 const localStorageMock = (() => {

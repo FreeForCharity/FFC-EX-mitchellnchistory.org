@@ -14,7 +14,7 @@ import {
   montserrat,
   cinzel,
 } from '@/lib/fonts'
-import { siteUrl, defaultOgImage } from '@/lib/siteConfig'
+import { siteUrl, siteName, defaultOgImage } from '@/lib/siteConfig'
 import { organizationJsonLd, safeJsonLdStringify } from '@/lib/jsonLd'
 
 // Get basePath for GitHub Pages deployment
@@ -95,7 +95,7 @@ export default function RootLayout({
         <link
           rel="alternate"
           type="application/rss+xml"
-          title="Mitchell County Historical Society"
+          title={siteName}
           href={`${basePath}/feed.xml`}
         />
 

@@ -49,7 +49,7 @@ const Header: React.FC = () => {
     <header
       id="header"
       className={`w-full bg-white shadow-sm fixed top-0 left-0 right-0 z-50 flex items-center transition-all duration-300 ${
-        isScrolled ? 'h-[55px]' : 'h-[80px]'
+        isScrolled ? 'h-[var(--header-height-scrolled)]' : 'h-[var(--header-height)]'
       }`}
     >
       <div className="w-full">
