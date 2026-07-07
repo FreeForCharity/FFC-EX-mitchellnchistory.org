@@ -36,3 +36,17 @@ export function localImageSrc(url: string): string {
   if (url.startsWith('//')) return 'https:' + url
   return assetPath(url.startsWith('/') ? url : '/' + url)
 }
+
+/**
+ * Return a small WebP thumbnail path for a local `/wp-content` featured
+ * image, for the articles-hub grid where the full-resolution original is
+ * wasteful. Thumbnails are pre-generated at build time by
+ * `scripts/generate-thumbnails.mjs` at a deterministic path — this helper
+ * must produce the identical path. Non-`/wp-content` URLs (e.g. external
+ * or already-processed) fall back to `localImageSrc`.
+ */
+export function thumbnailSrc(url: string): string {
+  if (!url || !url.startsWith('/wp-content')) return localImageSrc(url)
+  const thumb = '/thumbnails' + url.replace(/\.(jpe?g|png|webp|gif)$/i, '.webp')
+  return assetPath(thumb)
+}
