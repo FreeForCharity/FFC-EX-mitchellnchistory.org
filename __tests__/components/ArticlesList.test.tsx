@@ -4,14 +4,14 @@ import { axe } from 'jest-axe'
 import ArticlesList from '../../src/components/articles/ArticlesList'
 import type { ArticleMeta } from '@/data/articles'
 
-// ArticlesList reads deep-link filters from the URL
-let mockSearchParams = new URLSearchParams()
-jest.mock('next/navigation', () => ({
-  useSearchParams: () => mockSearchParams,
-}))
+// ArticlesList reads deep-link filters from window.location.search after
+// mount. Set the query string via history before each render.
+function setSearch(search: string) {
+  window.history.replaceState({}, '', search ? `/articles/?${search}` : '/articles/')
+}
 
 beforeEach(() => {
-  mockSearchParams = new URLSearchParams()
+  setSearch('')
 })
 
 function makeArticle(n: number, overrides: Partial<ArticleMeta> = {}): ArticleMeta {
@@ -135,7 +135,7 @@ describe('ArticlesList', () => {
   })
 
   it('applies an initial category filter from the URL', () => {
-    mockSearchParams = new URLSearchParams('category=History')
+    setSearch('category=History')
     const articles = [makeArticle(1), makeArticle(2)]
     render(<ArticlesList articles={articles} categories={CATEGORIES} />)
 
@@ -148,7 +148,7 @@ describe('ArticlesList', () => {
   })
 
   it('ignores an unknown category in the URL', () => {
-    mockSearchParams = new URLSearchParams('category=NoSuchCategory')
+    setSearch('category=NoSuchCategory')
     const articles = [makeArticle(1), makeArticle(2)]
     render(<ArticlesList articles={articles} categories={CATEGORIES} />)
 

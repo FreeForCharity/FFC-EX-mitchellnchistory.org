@@ -1,14 +1,12 @@
 'use client'
 
-import React, { useState, useMemo } from 'react'
-import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import React, { useState, useMemo, useEffect } from 'react'
 import { Search, X } from 'lucide-react'
 import type { ArticleMeta } from '@/data/articles'
 import { formatDate } from '@/lib/formatDate'
-import { thumbnailSrc } from '@/lib/imageUrl'
+import ArticleCard from '@/components/articles/ArticleCard'
 
-const ARTICLES_PER_PAGE = 24
+export const ARTICLES_PER_PAGE = 24
 
 interface ArticlesListProps {
   articles: ArticleMeta[]
@@ -16,17 +14,24 @@ interface ArticlesListProps {
 }
 
 export default function ArticlesList({ articles, categories }: ArticlesListProps) {
-  // Deep-linkable filters: /articles/?category=History&q=flood pre-applies
-  // the filter (category chips on article pages link here). Reading search
-  // params requires a <Suspense> boundary around this component.
-  const searchParams = useSearchParams()
-  const categoryParam = searchParams.get('category')
-  const initialCategory =
-    categoryParam && categories.includes(categoryParam) ? categoryParam : 'All'
-
-  const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory)
-  const [searchQuery, setSearchQuery] = useState(searchParams.get('q') ?? '')
+  const [selectedCategory, setSelectedCategory] = useState<string>('All')
+  const [searchQuery, setSearchQuery] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
+
+  // Deep-linkable filters: /articles/?category=History&q=flood pre-applies
+  // the filter (category chips on article pages link here). Read from
+  // window after mount rather than via useSearchParams — the latter opts
+  // the whole grid out of static prerendering (BAILOUT_TO_CLIENT_SIDE_
+  // RENDERING), leaving the SSR HTML empty and tanking LCP. This effect
+  // runs once post-hydration so the default grid is server-rendered.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const cat = params.get('category')
+    if (cat && categories.includes(cat)) setSelectedCategory(cat)
+    const q = params.get('q')
+    if (q) setSearchQuery(q)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {}
@@ -156,43 +161,12 @@ export default function ArticlesList({ articles, categories }: ArticlesListProps
       {/* Articles Grid */}
       {pageArticles.length > 0 ? (
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {pageArticles.map((article) => (
-            <Link
+          {pageArticles.map((article, i) => (
+            <ArticleCard
               key={article.slug}
-              href={`/articles/${article.slug}/`}
-              className="group block overflow-hidden rounded-xl border border-gray-200 bg-paper shadow-sm transition-shadow hover:shadow-md"
-            >
-              {article.featuredImage && (
-                <div className="aspect-[16/10] overflow-hidden bg-gray-100">
-                  <img
-                    src={thumbnailSrc(article.featuredImage.url)}
-                    alt={article.featuredImage.alt || article.title}
-                    width={480}
-                    height={300}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              )}
-              <div className="p-5">
-                <div className="flex flex-wrap gap-2 mb-2">
-                  {article.categories.map((cat) => (
-                    <span
-                      key={cat}
-                      className="inline-block rounded bg-green-50 px-2 py-0.5 text-xs font-medium text-primary"
-                    >
-                      {cat}
-                    </span>
-                  ))}
-                </div>
-                <h2 className="font-serif-display text-lg font-bold text-dark group-hover:text-primary transition-colors">
-                  {article.title}
-                </h2>
-                <time className="mt-1 block text-sm text-gray-500">{formatDate(article.date)}</time>
-                <p className="mt-2 line-clamp-3 text-sm text-gray-600">{article.excerpt}</p>
-              </div>
-            </Link>
+              article={article}
+              priority={currentPage === 1 && i < 3}
+            />
           ))}
         </div>
       ) : (

@@ -1,4 +1,3 @@
-import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import ArticlesList from '@/components/articles/ArticlesList'
 import { getArticlesMeta, getActiveCategories } from '@/data/articles'
@@ -31,14 +30,12 @@ export default function ArticlesPage() {
         </div>
       </section>
 
-      {/* Articles List */}
+      {/* Articles List — client component, but its default (unfiltered)
+          view is server-rendered for fast LCP + SEO. URL filters are
+          applied post-hydration (see ArticlesList). */}
       <section className="bg-paper py-16">
         <div className="ffc-container">
-          {/* Suspense boundary required: ArticlesList reads URL search
-              params (deep-linkable category/search filters) */}
-          <Suspense>
-            <ArticlesList articles={articles} categories={categories} />
-          </Suspense>
+          <ArticlesList articles={articles} categories={categories} />
         </div>
       </section>
     </div>
