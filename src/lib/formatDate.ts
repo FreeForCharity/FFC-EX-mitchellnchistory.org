@@ -46,10 +46,11 @@ export function parseUTCDateTime(dateStr: string): Date {
 }
 
 /**
- * Parse a date string as UTC, returning a Date object.
- * Useful for sitemap lastModified and other machine-readable contexts.
+ * Date-only UTC fallback used when full-timestamp parsing fails. Prefer
+ * parseUTCDateTime for all machine-readable contexts — it preserves the
+ * time portion and delegates here only for malformed inputs.
  */
-export function parseUTCDate(dateStr: string): Date {
+function parseUTCDate(dateStr: string): Date {
   const datePart = dateStr.split('T')[0]
   const [yearStr, monthStr, dayStr] = datePart.split('-')
   const year = Number(yearStr)

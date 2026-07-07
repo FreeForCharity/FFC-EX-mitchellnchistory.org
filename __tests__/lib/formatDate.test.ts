@@ -1,4 +1,4 @@
-import { formatDate, parseUTCDate, parseUTCDateTime } from '@/lib/formatDate'
+import { formatDate, parseUTCDateTime } from '@/lib/formatDate'
 
 describe('formatDate', () => {
   it('formats a standard date string', () => {
@@ -26,29 +26,6 @@ describe('formatDate', () => {
   })
 })
 
-describe('parseUTCDate', () => {
-  it('returns a Date object for a valid date string', () => {
-    const result = parseUTCDate('2024-03-15')
-    expect(result).toBeInstanceOf(Date)
-    expect(result.getUTCFullYear()).toBe(2024)
-    expect(result.getUTCMonth()).toBe(2) // March = 2
-    expect(result.getUTCDate()).toBe(15)
-  })
-
-  it('parses date with time portion as UTC', () => {
-    const result = parseUTCDate('2024-12-31T23:59:59')
-    expect(result.getUTCFullYear()).toBe(2024)
-    expect(result.getUTCMonth()).toBe(11) // December = 11
-    expect(result.getUTCDate()).toBe(31)
-  })
-
-  it('falls back to Date constructor for invalid format', () => {
-    const result = parseUTCDate('not-a-date')
-    expect(result).toBeInstanceOf(Date)
-    expect(isNaN(result.getTime())).toBe(true)
-  })
-})
-
 describe('parseUTCDateTime', () => {
   it('preserves the time portion, pinned to UTC', () => {
     const result = parseUTCDateTime('2022-04-23T16:47:46')
@@ -73,6 +50,12 @@ describe('parseUTCDateTime', () => {
   it('handles a bare date as midnight UTC', () => {
     const result = parseUTCDateTime('2024-03-15')
     expect(result.toISOString()).toBe('2024-03-15T00:00:00.000Z')
+  })
+
+  it('falls back to an invalid Date for unparseable input', () => {
+    const result = parseUTCDateTime('not-a-date')
+    expect(result).toBeInstanceOf(Date)
+    expect(isNaN(result.getTime())).toBe(true)
   })
 
   it('orders same-day timestamps correctly', () => {

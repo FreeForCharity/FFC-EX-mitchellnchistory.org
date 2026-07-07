@@ -1,20 +1,18 @@
-import {
-  Open_Sans,
-  Lato,
-  Raleway,
-  Faustina,
-  Cantata_One,
-  Fauna_One,
-  Montserrat,
-  Cinzel,
-} from 'next/font/google'
+import { Open_Sans, Lato, Faustina } from 'next/font/google'
 
-// Configure fonts with proper subsets and display strategy
+// Configure fonts with proper subsets and display strategy.
+//
+// Only families actually rendered by the site are loaded — a July 2026
+// audit (issue #145) removed Raleway, Cantata One, Fauna One, Montserrat,
+// and Cinzel, whose CSS hooks no live component referenced, halving the
+// number of preloaded font files on every page.
+
 export const openSans = Open_Sans({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-open-sans',
-  weight: ['400', '500', '600', '700', '800'],
+  // 800 dropped: no font-extrabold usage anywhere in live components
+  weight: ['400', '500', '600', '700'],
 })
 
 export const lato = Lato({
@@ -24,44 +22,9 @@ export const lato = Lato({
   weight: ['400', '700'],
 })
 
-export const raleway = Raleway({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-raleway',
-  weight: ['400', '500', '600', '700'],
-})
-
 export const faustina = Faustina({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-faustina',
-  weight: ['400', '500', '600', '700'],
-})
-
-export const cantataOne = Cantata_One({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-cantata-one',
-  weight: '400',
-})
-
-export const faunaOne = Fauna_One({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-fauna-one',
-  weight: '400',
-})
-
-export const montserrat = Montserrat({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-montserrat',
-  weight: ['400', '500', '600', '700'],
-})
-
-export const cinzel = Cinzel({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-cinzel',
   weight: ['400', '500', '600', '700'],
 })

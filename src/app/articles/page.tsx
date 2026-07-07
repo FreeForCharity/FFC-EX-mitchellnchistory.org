@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import ArticlesList from '@/components/articles/ArticlesList'
 import { getArticlesMeta, getActiveCategories } from '@/data/articles'
@@ -33,7 +34,11 @@ export default function ArticlesPage() {
       {/* Articles List */}
       <section className="bg-paper py-16">
         <div className="ffc-container">
-          <ArticlesList articles={articles} categories={categories} />
+          {/* Suspense boundary required: ArticlesList reads URL search
+              params (deep-linkable category/search filters) */}
+          <Suspense>
+            <ArticlesList articles={articles} categories={categories} />
+          </Suspense>
         </div>
       </section>
     </div>

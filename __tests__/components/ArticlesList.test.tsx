@@ -1,10 +1,18 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
-import { axe, toHaveNoViolations } from 'jest-axe'
+import { axe } from 'jest-axe'
 import ArticlesList from '../../src/components/articles/ArticlesList'
 import type { ArticleMeta } from '@/data/articles'
 
-expect.extend(toHaveNoViolations)
+// ArticlesList reads deep-link filters from the URL
+let mockSearchParams = new URLSearchParams()
+jest.mock('next/navigation', () => ({
+  useSearchParams: () => mockSearchParams,
+}))
+
+beforeEach(() => {
+  mockSearchParams = new URLSearchParams()
+})
 
 function makeArticle(n: number, overrides: Partial<ArticleMeta> = {}): ArticleMeta {
   return {
@@ -124,6 +132,30 @@ describe('ArticlesList', () => {
 
     expect(input).toHaveValue('')
     expect(screen.getByText(/Showing 1 article/)).toBeInTheDocument()
+  })
+
+  it('applies an initial category filter from the URL', () => {
+    mockSearchParams = new URLSearchParams('category=History')
+    const articles = [makeArticle(1), makeArticle(2)]
+    render(<ArticlesList articles={articles} categories={CATEGORIES} />)
+
+    expect(screen.getByRole('button', { name: /History \(1\)/ })).toHaveAttribute(
+      'aria-pressed',
+      'true'
+    )
+    expect(screen.getByText('Article 2')).toBeInTheDocument()
+    expect(screen.queryByText('Article 1')).not.toBeInTheDocument()
+  })
+
+  it('ignores an unknown category in the URL', () => {
+    mockSearchParams = new URLSearchParams('category=NoSuchCategory')
+    const articles = [makeArticle(1), makeArticle(2)]
+    render(<ArticlesList articles={articles} categories={CATEGORIES} />)
+
+    expect(screen.getByRole('button', { name: /All \(2\)/ })).toHaveAttribute(
+      'aria-pressed',
+      'true'
+    )
   })
 
   it('has no accessibility violations', async () => {

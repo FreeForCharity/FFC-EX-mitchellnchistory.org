@@ -1,10 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { axe, toHaveNoViolations } from 'jest-axe'
+import { axe } from 'jest-axe'
 import Footer from '../../src/components/footer'
-
-// Extend Jest matchers
-expect.extend(toHaveNoViolations)
 
 describe('Footer component', () => {
   it('should render the footer', () => {

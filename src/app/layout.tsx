@@ -4,17 +4,8 @@ import Header from './../components/header'
 import Footer from './../components/footer'
 import CookieConsent from './../components/cookie-consent'
 import GoogleTagManager, { GoogleTagManagerNoScript } from './../components/google-tag-manager'
-import {
-  openSans,
-  lato,
-  raleway,
-  faustina,
-  cantataOne,
-  faunaOne,
-  montserrat,
-  cinzel,
-} from '@/lib/fonts'
-import { siteUrl, defaultOgImage } from '@/lib/siteConfig'
+import { openSans, lato, faustina } from '@/lib/fonts'
+import { siteUrl, siteName, defaultOgImage } from '@/lib/siteConfig'
 import { organizationJsonLd, safeJsonLdStringify } from '@/lib/jsonLd'
 
 // Get basePath for GitHub Pages deployment
@@ -95,7 +86,7 @@ export default function RootLayout({
         <link
           rel="alternate"
           type="application/rss+xml"
-          title="Mitchell County Historical Society"
+          title={siteName}
           href={`${basePath}/feed.xml`}
         />
 
@@ -120,17 +111,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={[
-          'antialiased',
-          openSans.variable,
-          lato.variable,
-          raleway.variable,
-          faustina.variable,
-          cantataOne.variable,
-          faunaOne.variable,
-          montserrat.variable,
-          cinzel.variable,
-        ].join(' ')}
+        className={['antialiased', openSans.variable, lato.variable, faustina.variable].join(' ')}
         suppressHydrationWarning={true}
       >
         <GoogleTagManagerNoScript />

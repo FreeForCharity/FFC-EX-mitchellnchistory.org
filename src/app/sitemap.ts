@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { siteUrl, sitemapRoutes } from '@/lib/siteConfig'
 import { getAllArticles } from '@/data/articles'
-import { parseUTCDate } from '@/lib/formatDate'
+import { parseUTCDateTime } from '@/lib/formatDate'
 
 export const dynamic = 'force-static'
 
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const articleRoutes: MetadataRoute.Sitemap = getAllArticles().map((article) => ({
     url: `${siteUrl}/articles/${article.slug}/`,
-    lastModified: parseUTCDate(article.date),
+    lastModified: parseUTCDateTime(article.date),
     changeFrequency: 'yearly',
     priority: 0.6,
   }))

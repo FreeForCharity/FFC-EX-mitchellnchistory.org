@@ -1,5 +1,10 @@
 export const siteUrl = 'https://mitchellnchistory.org'
 
+export const siteName = 'Mitchell County Historical Society'
+
+export const siteDescription =
+  'Stories of the people, places, history, and heritage of Mitchell County, North Carolina.'
+
 /**
  * Default social-share (OpenGraph/Twitter/JSON-LD) image. Single source of
  * truth — referenced by the root layout, article metadata fallback, and
