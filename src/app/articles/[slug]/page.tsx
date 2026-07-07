@@ -72,8 +72,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       />
 
       {/* Hero */}
-      {/* pt clears the fixed 80px header so the category chips stay visible/clickable */}
-      <section className="relative bg-dark pt-28 pb-16 text-paper">
+      {/* Top padding clears the fixed header (shared --header-height token)
+          so the category chips stay visible/clickable */}
+      <section className="relative bg-dark pt-[calc(var(--header-height)+2rem)] pb-16 text-paper">
         {article.featuredImage && (
           <img
             src={localImageSrc(article.featuredImage.url)}

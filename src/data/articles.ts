@@ -156,13 +156,14 @@ export function getRelatedArticles(slug: string, limit = 3): ArticleMeta[] {
 
   if (related.length < limit) {
     const seen = new Set(related.map((a) => a.slug))
-    for (const a of candidates) {
-      if (related.length >= limit) break
-      if (!seen.has(a.slug)) {
-        related.push(a)
-        seen.add(a.slug)
-      }
-    }
+    const fillers = candidates
+      .filter((a) => !seen.has(a.slug))
+      .sort(
+        (a, b) =>
+          Math.abs(parseUTCDateTime(a.date).getTime() - currentTime) -
+          Math.abs(parseUTCDateTime(b.date).getTime() - currentTime)
+      )
+    related.push(...fillers.slice(0, limit - related.length))
   }
   return related.map(toMeta)
 }
