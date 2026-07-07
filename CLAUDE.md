@@ -12,20 +12,21 @@ For the broader FFC reference (mission, governance, full agent guidance), see `A
 
 Tooling: Next.js 16 (App Router) + TypeScript (strict) + Tailwind v4 + Jest + Playwright. Node 20 in CI.
 
-| Command                | Purpose                                           |
-| ---------------------- | ------------------------------------------------- |
-| `npm install`          | Install dependencies (~17s)                       |
-| `npm run dev`          | Dev server with Turbopack at `localhost:3000`     |
-| `npm run build`        | Static export to `out/` (~30s)                    |
-| `npm run preview`      | Serve `out/` locally (used by Playwright)         |
-| `npm run format`       | Prettier write                                    |
-| `npm run format:check` | Prettier check (CI gate)                          |
-| `npm run lint`         | ESLint over `src __tests__ tests`                 |
-| `npm test`             | Jest unit + a11y tests                            |
-| `npm run test:watch`   | Jest watch mode                                   |
-| `npm run test:e2e`     | Playwright E2E (auto-runs `npm run preview`)      |
-| `npm run smoke`        | Post-deploy smoke against live URL (default prod) |
-| `npm run check-links`  | Linkinator over built `out/`                      |
+| Command                | Purpose                                            |
+| ---------------------- | -------------------------------------------------- |
+| `npm install`          | Install dependencies (~17s)                        |
+| `npm run dev`          | Dev server with Turbopack at `localhost:3000`      |
+| `npm run build`        | Static export to `out/` (~30s)                     |
+| `npm run preview`      | Serve `out/` locally (used by Playwright)          |
+| `npm run format`       | Prettier write                                     |
+| `npm run format:check` | Prettier check (CI gate)                           |
+| `npm run lint`         | ESLint over `src __tests__ tests`                  |
+| `npm test`             | Jest unit + a11y tests                             |
+| `npm run test:watch`   | Jest watch mode                                    |
+| `npm run test:e2e`     | Playwright E2E (auto-runs `npm run preview`)       |
+| `npm run smoke`        | Post-deploy smoke against live URL (default prod)  |
+| `npm run check-links`  | Linkinator over built `out/`                       |
+| `npm run thumbnails`   | Regenerate article grid thumbnails (after migrate) |
 
 **Run a single Jest test:** `npx jest __tests__/components/Header.test.tsx` or `npx jest -t "renders nav"`. Test files live in `__tests__/` and must match `**/__tests__/**/*.test.{js,ts,tsx}` (see `jest.config.js`).
 
@@ -78,7 +79,7 @@ The CI build does **not** set `NEXT_PUBLIC_BASE_PATH` (Playwright runs against a
 
 ### Content pipeline (WordPress migration)
 
-Articles are not authored in the repo. They are migrated from the legacy WordPress site by `scripts/migrate-wp-content.mjs` (fetches `wp-json/wp/v2`) into `src/data/articles/*.json`, which is gitignored from ESLint and consumed by `src/data/articles.ts` with in-memory caches. WordPress HTML is rendered through `src/lib/sanitizeHtml.ts`, which:
+Articles are not authored in the repo. They are migrated from the legacy WordPress site by `scripts/migrate-wp-content.mjs` (fetches `wp-json/wp/v2`) into `src/data/articles/*.json`, which is gitignored from ESLint and consumed by `src/data/articles.ts` with in-memory caches. After adding articles, run `npm run thumbnails` to (re)generate the 480px WebP grid thumbnails under `public/thumbnails/` — these are committed and consumed by `thumbnailSrc()` on the articles hub; a Jest guard fails if any local featured image lacks one. WordPress HTML is rendered through `src/lib/sanitizeHtml.ts`, which:
 
 - Allowlists tags/attributes via `sanitize-html`
 - Whitelists iframe hosts (YouTube, Anchor.fm)
@@ -90,13 +91,13 @@ Any new rendering of WP-derived HTML must go through `sanitizeHtml()`.
 
 ### Layout chrome
 
-`src/app/layout.tsx` is the single root layout: it loads 8 Google Fonts via `src/lib/fonts.ts` (CSS variables), wires `<Header>`, `<Footer>`, `<CookieConsent>`, `<GoogleTagManager>`, and emits the JSON-LD organization script. Metadata defaults (title template, OpenGraph, Twitter, manifest, icons) are defined here and inherited by all pages — override per-page via the `metadata` export.
+`src/app/layout.tsx` is the single root layout: it loads the site's Google Fonts via `src/lib/fonts.ts` (CSS variables — Open Sans, Lato, Faustina after the July 2026 audit), wires `<Header>`, `<Footer>`, `<CookieConsent>`, `<GoogleTagManager>`, and emits the JSON-LD organization script. Metadata defaults (title template, OpenGraph, Twitter, manifest, icons) are defined here and inherited by all pages — override per-page via the `metadata` export.
 
 ### Components & data
 
 - `src/components/<feature>/` — feature-grouped React components (PascalCase filenames).
-- `src/data/` — typed content modules (`articles.ts`, `team.ts`, `faqs.ts`, `testimonials.ts`) plus their backing JSON.
-- `src/lib/` — utilities: `assetPath`, `fonts`, `formatDate`, `jsonLd`, `sanitizeHtml`, `siteConfig`.
+- `src/data/` — the typed content module `articles.ts` plus its backing JSON under `src/data/articles/`.
+- `src/lib/` — utilities: `assetPath`, `fonts`, `formatDate`, `imageUrl`, `jsonLd`, `sanitizeHtml`, `siteConfig`, `feed`.
 
 ### Styling
 
@@ -105,7 +106,7 @@ Tailwind v4 with **CSS-based config** (no `tailwind.config.*` file). Global styl
 ### Testing layout
 
 - Unit/a11y tests in `__tests__/` (Jest + Testing Library + `jest-axe`). `jest.setup.js` extends `jest-dom` and `jest-axe`, and silences the known Next.js `<Link>` `act()` warning.
-- Coverage thresholds are intentionally low (5%) — they are a floor, not a target.
+- Coverage thresholds (`jest.config.js`) are a ratchet set just below measured coverage (~35–40%); `collectCoverage` is on so `npm test` enforces them. Raise as coverage grows; never lower without discussion.
 - E2E tests in `tests/` (Playwright). Config tries system Chromium via `which` before falling back to Playwright's bundled browser (helpful in restricted/sandboxed envs).
 
 ---

@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation'
 import { Search, X } from 'lucide-react'
 import type { ArticleMeta } from '@/data/articles'
 import { formatDate } from '@/lib/formatDate'
-import { localImageSrc } from '@/lib/imageUrl'
+import { thumbnailSrc } from '@/lib/imageUrl'
 
 const ARTICLES_PER_PAGE = 24
 
@@ -165,10 +165,13 @@ export default function ArticlesList({ articles, categories }: ArticlesListProps
               {article.featuredImage && (
                 <div className="aspect-[16/10] overflow-hidden bg-gray-100">
                   <img
-                    src={localImageSrc(article.featuredImage.url)}
+                    src={thumbnailSrc(article.featuredImage.url)}
                     alt={article.featuredImage.alt || article.title}
+                    width={480}
+                    height={300}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               )}
