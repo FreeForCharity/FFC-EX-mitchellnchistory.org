@@ -34,6 +34,12 @@ const Footer: React.FC = () => {
               { name: 'Programs', href: '/programs/' },
               { name: 'Videos', href: '/videos/' },
               { name: 'Contact Us', href: '/contact/' },
+              // Interim FFC donation campaign until MCHS has its own Zeffy form
+              // (tracked by the auto-managed donation-interim issue).
+              {
+                name: 'Donate',
+                href: 'https://www.zeffy.com/donation-form/da2dd4cf-1027-4444-b602-c8656398436e',
+              },
             ].map((link) => (
               <li key={link.name}>
                 {link.href.startsWith('http') ? (
