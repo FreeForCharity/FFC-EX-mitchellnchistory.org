@@ -186,10 +186,14 @@ test.describe('Interactivity', () => {
 
   test('Google Tag Manager script tag is present', async ({ page }) => {
     await page.goto('/')
-    const gtm = await page
-      .locator('script[src*="googletagmanager.com/gtm.js"], script:has-text("gtm.start")')
-      .count()
-    expect(gtm).toBeGreaterThan(0)
+    // GTM is injected by next/script with strategy="lazyOnload", which runs
+    // AFTER the load event - counting synchronously right after goto() races
+    // the injection and flakes to 0. Wait for the tag to attach instead.
+    await expect(
+      page
+        .locator('script[src*="googletagmanager.com/gtm.js"], script:has-text("gtm.start")')
+        .first()
+    ).toBeAttached({ timeout: 15_000 })
   })
 
   test('header has navigation links to known routes', async ({ page }) => {
