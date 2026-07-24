@@ -11,7 +11,7 @@ export default function HomePage() {
   const featuredImage = featured.image ?? '/Images/mchs-hero.webp'
   const featuredProgram = getProgramYears()
     .find((year) => year.year === 2026)
-    ?.programs.find((program) => program.title.startsWith('Six Women. Six Voices.'))
+    ?.programs.find((program) => program.title.startsWith('Lost Cove'))
 
   return (
     <div>
@@ -148,8 +148,8 @@ export default function HomePage() {
             <div className="mt-8 md:mt-0 md:w-1/2">
               <div className="relative overflow-hidden rounded-xl shadow-md">
                 <img
-                  src={assetPath('/Images/six-women-six-voices-flyer.jpg')}
-                  alt="Six Women. Six Voices. Stories History Left Unfinished program flyer"
+                  src={assetPath('/Images/lost-cove-flyer.png')}
+                  alt="Lost Cove: Portrait of a Vanished Appalachian Community program flyer"
                   className="h-auto w-full object-cover transition duration-500 hover:scale-105"
                 />
               </div>
