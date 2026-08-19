@@ -34,6 +34,10 @@ const videoUrlsByTitle: Record<string, string> = {
   'frankie charlie put a stop to it': 'https://www.youtube.com/watch?v=ICOA_6yqd2Q',
   'the uncut story of frankie silver': 'https://www.youtube.com/watch?v=qAFT4OwNhSg',
   "fort san juan spain's failed appalachian outpost": 'https://www.youtube.com/watch?v=1CEMHj7f-i0',
+  // Lost Cove program presentation
+  'lost cove': 'https://youtu.be/zLRIGxXyQYI',
+  'lost cove portrait of a vanished appalachian community': 'https://youtu.be/zLRIGxXyQYI',
+  'lost cove north carolina': 'https://youtu.be/zLRIGxXyQYI',
 }
 
 function normalizeVideoTitle(innerHtml: string): string {
