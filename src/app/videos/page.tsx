@@ -38,6 +38,11 @@ const videoUrlsByTitle: Record<string, string> = {
   'lost cove': 'https://youtu.be/zLRIGxXyQYI',
   'lost cove portrait of a vanished appalachian community': 'https://youtu.be/zLRIGxXyQYI',
   'lost cove north carolina': 'https://youtu.be/zLRIGxXyQYI',
+  // variations including presenter name so WP content variations auto-link
+  'lost cove christy a smith': 'https://youtu.be/zLRIGxXyQYI',
+  'lost cove by christy a smith': 'https://youtu.be/zLRIGxXyQYI',
+  'lost cove christy smith': 'https://youtu.be/zLRIGxXyQYI',
+  'lost cove by christy smith': 'https://youtu.be/zLRIGxXyQYI',
 }
 
 function normalizeVideoTitle(innerHtml: string): string {
@@ -82,7 +87,7 @@ function linkVideoListingsToYoutubeVideos(content: string): string {
 export const metadata: Metadata = {
   title: 'Videos',
   description:
-    'Watch videos from Mitchell County Historical Society events, programs, and historical presentations.',
+    'Watch videos from Mitchell County Historical Society events and programs.',
   alternates: { canonical: '/videos/' },
 }
 
