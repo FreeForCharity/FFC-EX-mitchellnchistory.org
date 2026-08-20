@@ -58,6 +58,32 @@ function normalizeVideoTitle(innerHtml: string): string {
     .toLowerCase()
 }
 
+function getYouTubeId(url: string): string | null {
+  const shortMatch = url.match(/youtu\.be\/([A-Za-z0-9_-]{11})/)
+  if (shortMatch) return shortMatch[1]
+  const longMatch = url.match(/[?&]v=([A-Za-z0-9_-]{11})/)
+  if (longMatch) return longMatch[1]
+  return null
+}
+
+function renderYoutubeThumbnailHtml(title: string, videoUrl: string): string {
+  const id = getYouTubeId(videoUrl)
+  if (!id) return `<a href="${videoUrl}" target="_blank" rel="noopener noreferrer">${title}</a>`
+  const poster = `https://img.youtube.com/vi/${id}/hqdefault.jpg`
+  return `
+    <div class="mch-video relative">
+      <h4 class="font-serif-display text-xl font-semibold">${title}</h4>
+      <div class="mch-video__thumb mt-4 relative cursor-pointer" role="button" tabindex="0" aria-label="Play ${title}"
+           data-yt-src="https://www.youtube.com/embed/${id}?rel=0&amp;showinfo=0&amp;enablejsapi=1">
+        <img src="${poster}" alt="${title} thumbnail" class="w-full h-auto object-cover rounded" loading="lazy" />
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-16 h-16 rounded-full bg-accent/90 text-paper flex items-center justify-center text-2xl">▶</div>
+        </div>
+      </div>
+    </div>
+  `
+}
+
 function linkTitleHtml(innerHtml: string): string | null {
   if (!innerHtml.trim() || /^<a\b/i.test(innerHtml.trim()) || /<\/a>/i.test(innerHtml)) {
     return null
@@ -69,14 +95,14 @@ function linkTitleHtml(innerHtml: string): string | null {
     return null
   }
 
-  return `<a href="${videoUrl}" target="_blank" rel="noopener noreferrer">${innerHtml}</a>`
+  return renderYoutubeThumbnailHtml(innerHtml, videoUrl)
 }
 
 function linkVideoListingsToYoutubeVideos(content: string): string {
   return sanitizeHtml(content)
     .replace(videoHeadingPattern, (match, attributes = '', innerHtml) => {
       const linkedTitle = linkTitleHtml(innerHtml)
-      return linkedTitle ? `<h4${attributes}>${linkedTitle}</h4>` : match
+      return linkedTitle ? `<div${attributes}>${linkedTitle}</div>` : match
     })
     .replace(videoListTitlePattern, (match, openingHtml, innerHtml, closingHtml) => {
       const linkedTitle = linkTitleHtml(innerHtml)
