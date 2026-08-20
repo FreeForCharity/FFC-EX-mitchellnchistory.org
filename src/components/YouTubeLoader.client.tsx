@@ -4,11 +4,30 @@ import { useEffect } from 'react'
 
 export default function YouTubeLoader() {
   useEffect(() => {
+    function getSafeYouTubeSrc(rawSrc: string): string | null {
+      try {
+        const url = new URL(rawSrc, window.location.origin)
+        const allowedHosts = new Set([
+          'www.youtube.com',
+          'youtube.com',
+          'youtu.be',
+          'www.youtube-nocookie.com'
+        ])
+        if (url.protocol !== 'https:') return null
+        if (!allowedHosts.has(url.hostname)) return null
+        return url.toString()
+      } catch {
+        return null
+      }
+    }
+
     function activateThumb(el: HTMLElement) {
-      const src = el.getAttribute('data-yt-src')
-      if (!src) return
+      const rawSrc = el.getAttribute('data-yt-src')
+      if (!rawSrc) return
+      const safeSrc = getSafeYouTubeSrc(rawSrc)
+      if (!safeSrc) return
       const iframe = document.createElement('iframe')
-      iframe.setAttribute('src', src)
+      iframe.setAttribute('src', safeSrc)
       iframe.setAttribute('frameborder', '0')
       iframe.setAttribute(
         'allow',
