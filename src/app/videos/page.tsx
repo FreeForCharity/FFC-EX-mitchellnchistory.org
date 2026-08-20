@@ -35,14 +35,14 @@ const videoUrlsByTitle: Record<string, string> = {
   'the uncut story of frankie silver': 'https://www.youtube.com/watch?v=qAFT4OwNhSg',
   "fort san juan spain's failed appalachian outpost": 'https://www.youtube.com/watch?v=1CEMHj7f-i0',
   // Lost Cove program presentation
-  'lost cove': 'https://youtu.be/zLRIGxXyQYI',
-  'lost cove portrait of a vanished appalachian community': 'https://youtu.be/zLRIGxXyQYI',
-  'lost cove north carolina': 'https://youtu.be/zLRIGxXyQYI',
+  'lost cove': 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
+  'lost cove portrait of a vanished appalachian community': 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
+  'lost cove north carolina': 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
   // variations including presenter name so WP content variations auto-link
-  'lost cove christy a smith': 'https://youtu.be/zLRIGxXyQYI',
-  'lost cove by christy a smith': 'https://youtu.be/zLRIGxXyQYI',
-  'lost cove christy smith': 'https://youtu.be/zLRIGxXyQYI',
-  'lost cove by christy smith': 'https://youtu.be/zLRIGxXyQYI',
+  'lost cove christy a smith': 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
+  'lost cove by christy a smith': 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
+  'lost cove christy smith': 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
+  'lost cove by christy smith': 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
 }
 
 function normalizeVideoTitle(innerHtml: string): string {

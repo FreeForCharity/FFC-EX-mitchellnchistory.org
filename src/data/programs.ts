@@ -39,7 +39,7 @@ export const programYears: ProgramYear[] = [
         location: 'Mitchell Senior Citizens Center, Ledger, North Carolina',
         description:
           'A presentation tracing the isolated mountain settlement of Lost Cove from its beginnings before the Civil War through its decline and abandonment, using old newspaper accounts, deeds, documents, photographs, and other historical sources.',
-        videoUrl: 'https://youtu.be/zLRIGxXyQYI',
+        videoUrl: 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
       },
       {
         title: 'The Spruce Pine Mining District: Then and Now',
