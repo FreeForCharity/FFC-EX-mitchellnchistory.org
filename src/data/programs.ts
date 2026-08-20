@@ -33,7 +33,7 @@ export const programYears: ProgramYear[] = [
       },
       {
         title: 'Lost Cove: Portrait of a Vanished Appalachian Community',
-        presenter: 'Smith',
+        presenter: 'Christy A. Smith',
         month: 'August',
         dateLabel: 'Tuesday, August 11, 2026',
         location: 'Mitchell Senior Citizens Center, Ledger, North Carolina',
