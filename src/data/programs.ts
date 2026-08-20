@@ -33,12 +33,13 @@ export const programYears: ProgramYear[] = [
       },
       {
         title: 'Lost Cove: Portrait of a Vanished Appalachian Community',
-        presenter: 'Smith',
+        presenter: 'Christy A. Smith',
         month: 'August',
         dateLabel: 'Tuesday, August 11, 2026',
         location: 'Mitchell Senior Citizens Center, Ledger, North Carolina',
         description:
           'A presentation tracing the isolated mountain settlement of Lost Cove from its beginnings before the Civil War through its decline and abandonment, using old newspaper accounts, deeds, documents, photographs, and other historical sources.',
+        videoUrl: 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
       },
       {
         title: 'The Spruce Pine Mining District: Then and Now',
