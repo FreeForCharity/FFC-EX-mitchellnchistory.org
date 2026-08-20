@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getWpPages } from '@/data/articles'
 import { sanitizeHtml } from '@/lib/sanitizeHtml'
 import { notFound } from 'next/navigation'
+import YouTubeLoader from '@/components/YouTubeLoader.client'
 
 const videoSlugs = ['event-videos', '2020-videos', '2019-videos', '2017-videos', '2016-videos']
 const videoHeadingPattern = /<h4(\s[^>]*)?>([\s\S]*?)<\/h4>/gi
@@ -126,6 +127,7 @@ export default function VideosPage() {
 
   return (
     <div>
+      <YouTubeLoader />
       {/* Hero */}
       <section className="bg-dark py-20 text-paper">
         <div className="ffc-container">
