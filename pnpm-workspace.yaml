@@ -12,3 +12,7 @@
 #   pnpm 10+. If a dependency legitimately needs its build script, allowlist
 #   it explicitly under onlyBuiltDependencies rather than re-enabling all.
 minimumReleaseAge: 10080
+
+# Explicit empty allowlist: no dependency may run lifecycle scripts. Stated
+# here so the posture survives any future change to pnpm's defaults.
+onlyBuiltDependencies: []
