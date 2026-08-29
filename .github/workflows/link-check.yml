@@ -16,7 +16,7 @@ jobs:
   check-links:
     name: Check links over built site
     runs-on: ubuntu-latest
-    # Exposes whether the linkinator step itself failed (vs npm ci / build
+    # Exposes whether the linkinator step itself failed (vs pnpm install --frozen-lockfile / build
     # infra failures) so notify-failure only files the broken-links issue
     # when links were actually checked and found broken.
     outputs:
@@ -26,23 +26,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Build Next.js site
-        run: npm run build
+        run: pnpm run build
 
       - name: Run linkinator
         id: linkcheck
         run: |
           set -o pipefail
-          npm run check-links 2>&1 | tee link-check-output.txt
+          pnpm run check-links 2>&1 | tee link-check-output.txt
 
       - name: Upload full output
         if: always()
@@ -52,7 +55,7 @@ jobs:
           path: link-check-output.txt
           retention-days: 30
           # The file only exists if the linkinator step ran; skip quietly
-          # when an earlier step (npm ci, build) failed first.
+          # when an earlier step (pnpm install --frozen-lockfile, build) failed first.
           if-no-files-found: ignore
 
   check-security-txt-expiry:
@@ -113,7 +116,7 @@ jobs:
   notify-failure:
     name: File issue on broken links
     needs: [check-links]
-    # Gate on the linkinator step's own outcome so infra failures (npm ci,
+    # Gate on the linkinator step's own outcome so infra failures (pnpm install --frozen-lockfile,
     # build) don't file a misleading "broken links" issue.
     if: ${{ always() && needs.check-links.outputs.linkcheck_outcome == 'failure' && github.event_name == 'schedule' }}
     runs-on: ubuntu-latest

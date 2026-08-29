@@ -12,29 +12,29 @@ For the broader FFC reference (mission, governance, full agent guidance), see `A
 
 Tooling: Next.js 16 (App Router) + TypeScript (strict) + Tailwind v4 + Jest + Playwright. Node 20 in CI.
 
-| Command                | Purpose                                            |
-| ---------------------- | -------------------------------------------------- |
-| `npm install`          | Install dependencies (~17s)                        |
-| `npm run dev`          | Dev server with Turbopack at `localhost:3000`      |
-| `npm run build`        | Static export to `out/` (~30s)                     |
-| `npm run preview`      | Serve `out/` locally (used by Playwright)          |
-| `npm run format`       | Prettier write                                     |
-| `npm run format:check` | Prettier check (CI gate)                           |
-| `npm run lint`         | ESLint over `src __tests__ tests`                  |
-| `npm test`             | Jest unit + a11y tests                             |
-| `npm run test:watch`   | Jest watch mode                                    |
-| `npm run test:e2e`     | Playwright E2E (auto-runs `npm run preview`)       |
-| `npm run smoke`        | Post-deploy smoke against live URL (default prod)  |
-| `npm run check-links`  | Linkinator over built `out/`                       |
-| `npm run thumbnails`   | Regenerate article grid thumbnails (after migrate) |
+| Command                 | Purpose                                            |
+| ----------------------- | -------------------------------------------------- |
+| `pnpm install`          | Install dependencies (~17s)                        |
+| `pnpm run dev`          | Dev server with Turbopack at `localhost:3000`      |
+| `pnpm run build`        | Static export to `out/` (~30s)                     |
+| `pnpm run preview`      | Serve `out/` locally (used by Playwright)          |
+| `pnpm run format`       | Prettier write                                     |
+| `pnpm run format:check` | Prettier check (CI gate)                           |
+| `pnpm run lint`         | ESLint over `src __tests__ tests`                  |
+| `pnpm test`             | Jest unit + a11y tests                             |
+| `pnpm run test:watch`   | Jest watch mode                                    |
+| `pnpm run test:e2e`     | Playwright E2E (auto-runs `pnpm run preview`)      |
+| `pnpm run smoke`        | Post-deploy smoke against live URL (default prod)  |
+| `pnpm run check-links`  | Linkinator over built `out/`                       |
+| `pnpm run thumbnails`   | Regenerate article grid thumbnails (after migrate) |
 
 **Run a single Jest test:** `npx jest __tests__/components/Header.test.tsx` or `npx jest -t "renders nav"`. Test files live in `__tests__/` and must match `**/__tests__/**/*.test.{js,ts,tsx}` (see `jest.config.js`).
 
-**Run a single Playwright test:** `npx playwright test tests/navigation.spec.ts` or `npx playwright test -g "footer link"`. The `webServer` config builds via `npm run preview`, so run `npm run build` first if `out/` is stale. Use `npm run test:e2e:ui` for the UI runner, `:headed` for headed mode.
+**Run a single Playwright test:** `pnpm exec playwright test tests/navigation.spec.ts` or `pnpm exec playwright test -g "footer link"`. The `webServer` config builds via `pnpm run preview`, so run `pnpm run build` first if `out/` is stale. Use `pnpm run test:e2e:ui` for the UI runner, `:headed` for headed mode.
 
-**Post-deploy smoke:** `npm run smoke` runs `tests/smoke/*.spec.ts` against `https://mitchellnchistory.org` (override with `SMOKE_BASE_URL`). It does not start a local server. The main E2E config ignores `tests/smoke/` so these only run on demand.
+**Post-deploy smoke:** `pnpm run smoke` runs `tests/smoke/*.spec.ts` against `https://mitchellnchistory.org` (override with `SMOKE_BASE_URL`). It does not start a local server. The main E2E config ignores `tests/smoke/` so these only run on demand.
 
-**Long commands:** `npm install`, `npm run build`, and `npm run test:e2e` need 180+ second timeouts. Never cancel them — let them finish and read the error if they fail.
+**Long commands:** `pnpm install`, `pnpm run build`, and `pnpm run test:e2e` need 180+ second timeouts. Never cancel them — let them finish and read the error if they fail.
 
 ---
 
@@ -43,7 +43,7 @@ Tooling: Next.js 16 (App Router) + TypeScript (strict) + Tailwind v4 + Jest + Pl
 Husky's `pre-commit` hook runs `format:check` then `lint`. The full CI gate (`.github/workflows/ci.yml`) additionally runs Jest, build, and Playwright. Run them in this order locally before pushing:
 
 ```bash
-npm run format && npm run lint && npm test && npm run build && npm run test:e2e
+pnpm run format && pnpm run lint && pnpm test && pnpm run build && pnpm run test:e2e
 ```
 
 If any step fails, fix the issue and re-run from that step forward.
@@ -79,7 +79,7 @@ The CI build does **not** set `NEXT_PUBLIC_BASE_PATH` (Playwright runs against a
 
 ### Content pipeline (WordPress migration)
 
-Articles are not authored in the repo. They are migrated from the legacy WordPress site by `scripts/migrate-wp-content.mjs` (fetches `wp-json/wp/v2`) into `src/data/articles/*.json`, which is gitignored from ESLint and consumed by `src/data/articles.ts` with in-memory caches. After adding articles, run `npm run thumbnails` to (re)generate the 480px WebP grid thumbnails under `public/thumbnails/` — these are committed and consumed by `thumbnailSrc()` on the articles hub; a Jest guard fails if any local featured image lacks one. WordPress HTML is rendered through `src/lib/sanitizeHtml.ts`, which:
+Articles are not authored in the repo. They are migrated from the legacy WordPress site by `scripts/migrate-wp-content.mjs` (fetches `wp-json/wp/v2`) into `src/data/articles/*.json`, which is gitignored from ESLint and consumed by `src/data/articles.ts` with in-memory caches. After adding articles, run `pnpm run thumbnails` to (re)generate the 480px WebP grid thumbnails under `public/thumbnails/` — these are committed and consumed by `thumbnailSrc()` on the articles hub; a Jest guard fails if any local featured image lacks one. WordPress HTML is rendered through `src/lib/sanitizeHtml.ts`, which:
 
 - Allowlists tags/attributes via `sanitize-html`
 - Whitelists iframe hosts (YouTube, Anchor.fm)
@@ -106,7 +106,7 @@ Tailwind v4 with **CSS-based config** (no `tailwind.config.*` file). Global styl
 ### Testing layout
 
 - Unit/a11y tests in `__tests__/` (Jest + Testing Library + `jest-axe`). `jest.setup.js` extends `jest-dom` and `jest-axe`, and silences the known Next.js `<Link>` `act()` warning.
-- Coverage thresholds (`jest.config.js`) are a ratchet set just below measured coverage (~35–40%); `collectCoverage` is on so `npm test` enforces them. Raise as coverage grows; never lower without discussion.
+- Coverage thresholds (`jest.config.js`) are a ratchet set just below measured coverage (~35–40%); `collectCoverage` is on so `pnpm test` enforces them. Raise as coverage grows; never lower without discussion.
 - E2E tests in `tests/` (Playwright). Config tries system Chromium via `which` before falling back to Playwright's bundled browser (helpful in restricted/sandboxed envs).
 
 ---
