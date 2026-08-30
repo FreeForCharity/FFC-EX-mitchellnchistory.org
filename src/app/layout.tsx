@@ -7,6 +7,7 @@ import GoogleTagManager, { GoogleTagManagerNoScript } from './../components/goog
 import { openSans, lato, faustina } from '@/lib/fonts'
 import { siteUrl, siteName, defaultOgImage } from '@/lib/siteConfig'
 import { organizationJsonLd, safeJsonLdStringify } from '@/lib/jsonLd'
+import { CONSENT_MODE_BOOTSTRAP } from '@/lib/consent-mode'
 
 // Get basePath for GitHub Pages deployment
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
@@ -102,6 +103,13 @@ export default function RootLayout({
           fetchPriority="high"
         />
 
+        {/* Google Consent Mode v2 defaults — MUST run before any Google tag
+            (i.e. before the GoogleTagManager component below) so the
+            region-scoped defaults are already on the dataLayer when GTM/GA4
+            initialise.
+            Granted worldwide, denied (cookieless pings) only where Google's
+            EU User Consent Policy requires opt-in. See src/lib/consent-mode.ts. */}
+        <script dangerouslySetInnerHTML={{ __html: CONSENT_MODE_BOOTSTRAP }} />
         <GoogleTagManager />
 
         {/* JSON-LD Organization structured data */}
