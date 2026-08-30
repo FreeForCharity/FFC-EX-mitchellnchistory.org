@@ -149,7 +149,7 @@ export default function HomePage() {
               <div className="relative overflow-hidden rounded-xl shadow-md">
                 <img
                   src={assetPath('/Images/lost-cove-flyer.png')}
-                  alt="Lost Cove: Portrait of a Vanished Appalachian Community program flyer"
+                  alt={featuredProgram?.title ? `${featuredProgram.title} program flyer` : 'Lost Cove: Portrait of a Vanished Appalachian Community program flyer'}
                   className="h-auto w-full object-cover transition duration-500 hover:scale-105"
                 />
               </div>

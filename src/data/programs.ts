@@ -32,13 +32,13 @@ export const programYears: ProgramYear[] = [
           'An original Readers Theater production giving voice to women whose stories have long remained in the shadows of Revolutionary War history, including Dorothy Wiseman Baker, Hannah Baker Davenport, Keziah Robertson Sevier, Agatha Ethington Washburn, and Nancy Ann Griffith Silver.',
       },
       {
-        title: 'Lost Cove: Portrait of a Vanished Appalachian Community',
-        presenter: 'Smith',
-        month: 'August',
-        dateLabel: 'Tuesday, August 11, 2026',
+      title: 'The Spruce Pine Mining District\u2014Then and Now',
+      presenter: 'Alexander S. Glover Jr., PG, CPG',
+      month: 'September',
+      dateLabel: 'Tuesday, September 8, 2026 at 7:00 p.m.',
         location: 'Mitchell Senior Citizens Center, Ledger, North Carolina',
         description:
-          'A presentation tracing the isolated mountain settlement of Lost Cove from its beginnings before the Civil War through its decline and abandonment, using old newspaper accounts, deeds, documents, photographs, and other historical sources.',
+        "A look at the history, geology, production, and modern uses of feldspar, quartz, mica, and other mineral resources from one of the world's most significant mineral-producing regions, including the exceptional purity of Spruce Pine quartz and its importance to semiconductors.",
       },
       {
         title: 'The Spruce Pine Mining District: Then and Now',
