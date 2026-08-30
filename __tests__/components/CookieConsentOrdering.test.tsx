@@ -6,10 +6,24 @@ import { render, waitFor } from '@testing-library/react'
 // from injecting anything — give this suite a real-looking ID (set BEFORE the
 // component module is required, since the constant is captured at import
 // time) so the injection (and its ordering against the consent update) is
-// observable. isConfigured keeps its real implementation.
+// observable. isConfigured keeps its real implementation. The original env
+// value is saved and restored in afterAll, and the module cache is purged
+// there, so neither the override nor the ID captured by the cached module
+// can leak into other suites.
+const ORIGINAL_GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = 'G-TEST1234567'
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const CookieConsent = require('../../src/components/cookie-consent').default
+
+afterAll(() => {
+  if (ORIGINAL_GA_MEASUREMENT_ID === undefined) {
+    delete process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  } else {
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = ORIGINAL_GA_MEASUREMENT_ID
+  }
+  // Drop the cached component module that captured the test ID.
+  jest.resetModules()
+})
 
 const GA_SCRIPT_SELECTOR = 'script[src*="googletagmanager.com/gtag"]'
 
