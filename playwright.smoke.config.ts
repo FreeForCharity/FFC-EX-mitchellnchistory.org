@@ -5,7 +5,7 @@ import { defineConfig, devices } from '@playwright/test'
  *
  * Targets a live deployed URL (default: https://mitchellnchistory.org).
  * Override via SMOKE_BASE_URL env var, e.g.:
- *   SMOKE_BASE_URL=https://freeforcharity.github.io/FFC-EX-mitchellnchistory.org npm run smoke
+ *   SMOKE_BASE_URL=https://freeforcharity.github.io/FFC-EX-mitchellnchistory.org pnpm run smoke
  *
  * Unlike the main playwright.config.ts, this config does NOT start a local
  * preview server — it hits whatever host SMOKE_BASE_URL points at.

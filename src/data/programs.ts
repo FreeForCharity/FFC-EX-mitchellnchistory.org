@@ -32,13 +32,14 @@ export const programYears: ProgramYear[] = [
           'The Mitchell County Historical Society invites the public to experience a unique Readers Theater production, Six Women. Six Voices. Stories History Left Unfinished, on Tuesday, October 13, 2026, at 7:00 p.m. at Mitchell High School in Ledger, North Carolina. Written and directed by Daniel Barron in collaboration with Chelsea Wilson Thayer, the production gives voice to Toe River Valley Revolutionary War women whose stories have long remained in the shadows of history. Free admission.',
       },
       {
-      title: 'The Spruce Pine Mining District\u2014Then and Now',
-      presenter: 'Alexander S. Glover Jr., PG, CPG',
-      month: 'September',
-      dateLabel: 'Tuesday, September 8, 2026 at 7:00 p.m.',
+        title: 'Lost Cove: Portrait of a Vanished Appalachian Community',
+        presenter: 'Christy A. Smith',
+        month: 'August',
+        dateLabel: 'Tuesday, August 11, 2026',
         location: 'Mitchell Senior Citizens Center, Ledger, North Carolina',
         description:
-        "A look at the history, geology, production, and modern uses of feldspar, quartz, mica, and other mineral resources from one of the world's most significant mineral-producing regions, including the exceptional purity of Spruce Pine quartz and its importance to semiconductors.",
+          'A presentation tracing the isolated mountain settlement of Lost Cove from its beginnings before the Civil War through its decline and abandonment, using old newspaper accounts, deeds, documents, photographs, and other historical sources.',
+        videoUrl: 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
       },
       {
         title: 'The Spruce Pine Mining District: Then and Now',

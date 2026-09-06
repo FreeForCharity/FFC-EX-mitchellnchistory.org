@@ -14,9 +14,9 @@ Quick reference checklist for setting up a new repository from the FFC Single Pa
 - [ ] Create new repository with kebab-case name
 - [ ] Add repository description and topics
 - [ ] Clone repository locally
-- [ ] Run `npm install` to verify dependencies
-- [ ] Run `npm run build` to verify build works
-- [ ] Run `npm run dev` to test locally
+- [ ] Run `pnpm install` to verify dependencies
+- [ ] Run `pnpm run build` to verify build works
+- [ ] Run `pnpm run dev` to test locally
 
 ---
 
@@ -151,7 +151,7 @@ Create ruleset named "Protect Main":
 - [ ] Connect GitHub repository
 - [ ] Configure build settings:
   - Framework: Next.js (Static HTML Export)
-  - Build command: `npm run build`
+  - Build command: `pnpm run build`
   - Output: `out`
 - [ ] Enable automatic preview deployments
 - [ ] Enable PR comments
@@ -175,11 +175,11 @@ Create ruleset named "Protect Main":
 
 ### Test Local Development
 
-- [ ] Run `npm run dev` - Site loads at http://localhost:3000
-- [ ] Run `npm run lint` - Only expected warnings (16 total)
-- [ ] Run `npm test` - All tests pass
-- [ ] Run `npm run build` - Build succeeds
-- [ ] Run `npm run preview` - Built site works
+- [ ] Run `pnpm run dev` - Site loads at http://localhost:3000
+- [ ] Run `pnpm run lint` - Only expected warnings (16 total)
+- [ ] Run `pnpm test` - All tests pass
+- [ ] Run `pnpm run build` - Build succeeds
+- [ ] Run `pnpm run preview` - Built site works
 
 ### Test GitHub Pages Deployment
 
