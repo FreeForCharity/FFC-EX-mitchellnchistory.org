@@ -357,6 +357,28 @@ The project uses separate workflows for better separation of concerns:
 - ✅ Deployment to GitHub Pages
 - ✅ Separate deployment job with environment protection
 
+### Toolchain Requirements and Recent Maintenance (November 2026)
+
+These are the current toolchain constraints. Each one was learned from a CI failure, so check this list before downgrading anything.
+
+- **Node.js**: `package.json` requires Node 22.12 or later (`engines`), because `sanitize-html` 2.17.6+ needs it. All workflows use Node 24.
+- **Next.js 16.4.x**: Next 16.2.x has critical security advisories, and the daily **Security Audit** workflow (`security-audit.yml`, `pnpm audit --prod --audit-level high`) fails on them. Keep `next` and `eslint-config-next` on the same 16.4.x version. `pnpm.overrides` also pins patched `sharp`, `browserslist`, `source-map-js`, `postcss` and `nanoid`.
+- **Playwright 1.64.1 or later**: GitHub's `ubuntu-latest` runner is now Ubuntu 26.04, and older Playwright versions cannot install Chromium there ("Playwright does not support chromium on ubuntu26.04-x64"). The version is set in two places: `@playwright/test` in `package.json` and the `playwright@x.y.z` pin in `post-deploy-smoke.yml`. Bump both together.
+- **TypeScript build excludes tests**: `tsconfig.json` excludes `__tests__`, `tests` and `*.test.*`/`*.spec.ts`. Next 16.4 type-checks every included file during `next build`, and TypeScript 6 no longer loads Jest/Playwright globals by default, so including tests breaks the build. Jest and Playwright still type-check their own files.
+- **Jest and ESM-only dependencies**: `sanitize-html` 2.18 pulls in ESM-only `htmlparser2`, `domhandler`, `domutils`, `dom-serializer`, `domelementtype` and `entities`. `jest.config.js` overrides `transformIgnorePatterns` so these are transformed (the pattern handles pnpm's `.pnpm/<pkg>@<ver>/node_modules/` layout). Add a package to `esmDeps` there if a future upgrade brings in another ESM-only dependency.
+- **pnpm release cooldown**: `pnpm-workspace.yaml` sets `minimumReleaseAge` to 7 days, so a brand-new release cannot be installed until it is a week old.
+
+### Merging Changes (Merge Queue)
+
+`main` is protected. Every change goes through a pull request and the merge queue:
+
+1. Open a PR from a branch (never push to `main`).
+2. Wait for the required checks (CI, CodeQL and the rest) to pass.
+3. **Resolve every review conversation**, including Copilot's automatic review. The ruleset will not merge a PR with unresolved threads. Fix real findings, or reply explaining why not, then resolve.
+4. Add the PR to the merge queue. The queue re-runs the checks on the merged result and merges with a merge commit.
+
+After a merge to `main`, **Deploy to GitHub Pages** publishes the site and **Post-Deploy Smoke Test** checks the live URL.
+
 ### Implemented Quality Enhancements (Phase 1-5)
 
 The following quality improvements have been successfully implemented:
@@ -409,7 +431,6 @@ The following enhancements could further improve the test suite:
 - **Increased Test Coverage**: Target 25-50% coverage for critical components
 - **TypeScript Strict Mode**: Enable additional strict flags
 - **Import Organization**: Add eslint-plugin-import for import sorting
-- **pnpm audit**: Add automated pnpm audit checks to CI with failure threshold
 
 #### Build Quality Gates
 
