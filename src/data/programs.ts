@@ -23,15 +23,6 @@ export const programYears: ProgramYear[] = [
       'The remaining 2026 program season includes Revolutionary-era women of the Toe River Valley, Lost Cove, and the Spruce Pine Mining District.',
     programs: [
       {
-        title: 'Six Women. Six Voices. Stories History Left Unfinished',
-        presenter: 'Daniel Barron, in collaboration with Chelsea Wilson Thayler',
-        month: 'July',
-        dateLabel: 'Tuesday, July 14, 2026 at 7:00 p.m.',
-        location: 'Mitchell Senior Citizens Center, Ledger, North Carolina',
-        description:
-          'An original Readers Theater production giving voice to women whose stories have long remained in the shadows of Revolutionary War history, including Dorothy Wiseman Baker, Hannah Baker Davenport, Keziah Robertson Sevier, Agatha Ethington Washburn, and Nancy Ann Griffith Silver.',
-      },
-      {
         title: 'Lost Cove: Portrait of a Vanished Appalachian Community',
         presenter: 'Christy A. Smith',
         month: 'August',
@@ -49,6 +40,15 @@ export const programYears: ProgramYear[] = [
         location: 'Mitchell Senior Citizens Center, Ledger, North Carolina',
         description:
           "A look at the history, geology, production, and modern uses of feldspar, quartz, mica, and other mineral resources from one of the world's most significant mineral-producing regions, including the exceptional purity of Spruce Pine quartz and its importance to semiconductors.",
+      },
+      {
+        title: 'Six Women. Six Voices. Stories History Left Unfinished',
+        presenter: 'Daniel Barron, in collaboration with Chelsea Wilson Thayer',
+        month: 'October',
+        dateLabel: 'Tuesday, October 13, 2026 at 7:00 p.m.',
+        location: 'Mitchell High School, Ledger, North Carolina',
+        description:
+          'The Mitchell County Historical Society invites the public to experience a unique Readers Theater production, Six Women. Six Voices. Stories History Left Unfinished, on Tuesday, October 13, 2026, at 7:00 p.m. at Mitchell High School in Ledger, North Carolina. Written and directed by Daniel Barron in collaboration with Chelsea Wilson Thayer, the production gives voice to Toe River Valley Revolutionary War women whose stories have long remained in the shadows of history. Free admission.',
       },
     ],
   },
