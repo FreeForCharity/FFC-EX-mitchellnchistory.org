@@ -84,39 +84,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Museum Feature */}
-      <section className="bg-gray-50 py-20">
-        <div className="ffc-container">
-          <div className="items-center gap-12 md:flex">
-            <div className="md:w-1/2">
-              <h2 className="font-serif-display text-3xl font-bold text-primary md:text-4xl">
-                The McBee Museum
-              </h2>
-              <div className="mt-4 h-1 w-20 rounded bg-accent" />
-              <p className="mt-6 text-lg leading-relaxed text-gray-700">
-                Step back in time at the McBee Museum, housed in a historic building dating to the
-                1890s in downtown Bakersville. Explore exhibits showcasing the rich history of
-                Mitchell County — from early settlers and the heritage of the Blue Ridge Mountains
-                to the stories that shaped our community.
-              </p>
-              <Link
-                href="/museum/"
-                className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-semibold text-paper transition hover:opacity-90"
-              >
-                Learn More About the Museum
-              </Link>
-            </div>
-            <div className="mt-8 md:mt-0 md:w-1/2">
-              <img
-                src={assetPath('/Images/mchs-museum.webp')}
-                alt="The McBee Museum in Bakersville, North Carolina"
-                className="h-64 w-full rounded-xl object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Get Involved */}
       <section className="bg-paper py-20">
         <div className="ffc-container">
