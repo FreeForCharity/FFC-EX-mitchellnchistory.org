@@ -17,7 +17,7 @@ test.describe('Articles Listing Page', () => {
   })
 
   test('should display page heading', async ({ page }) => {
-    const heading = page.getByRole('heading', { name: 'Articles & Stories', level: 1 })
+    const heading = page.getByRole('heading', { name: 'Our Stories', level: 1 })
     await expect(heading).toBeVisible()
   })
 
@@ -159,9 +159,9 @@ test.describe('Individual Article Page', () => {
       '/articles/mcbee-museum-building-has-witnessed-over-a-century-of-mitchell-county-history/'
     )
 
-    await expect(page.getByRole('heading', { name: 'Related Articles' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Related Stories' })).toBeVisible()
     const relatedLinks = page
-      .locator('section', { has: page.getByRole('heading', { name: 'Related Articles' }) })
+      .locator('section', { has: page.getByRole('heading', { name: 'Related Stories' }) })
       .locator('a[href^="/articles/"]')
     expect(await relatedLinks.count()).toBeGreaterThanOrEqual(1)
 
@@ -177,7 +177,7 @@ test.describe('Individual Article Page', () => {
     await firstLink.click()
     await page.waitForLoadState('domcontentloaded')
 
-    const backLink = page.getByRole('link', { name: /Back to Articles/i })
+    const backLink = page.getByRole('link', { name: /Back to Our Stories/i })
     await expect(backLink).toBeVisible()
   })
 

@@ -26,15 +26,15 @@ export default function NotFound() {
         <div className="ffc-container">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-lg">
-              If you followed an old link to an article, our Articles page has search and category
-              filters that can help you find it.
+              If you followed an old link to an article, the Our Stories page has search and
+              category filters that can help you find it.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link
                 href="/articles/"
                 className="inline-block rounded bg-dark px-6 py-3 font-medium text-paper hover:opacity-90"
               >
-                Search Articles
+                Search Our Stories
               </Link>
               <Link
                 href="/"
