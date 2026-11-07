@@ -4,6 +4,7 @@
   "private": true,
   "packageManager": "pnpm@10.34.5",
   "scripts": {
+    "audit:high": "pnpm audit --prod --audit-level high",
     "dev": "next dev --turbopack",
     "build": "next build",
     "preview": "pnpm exec serve out -l 3000",
