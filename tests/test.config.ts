@@ -112,7 +112,7 @@ export const testConfig = {
    */
   notFound: {
     heading: 'Page Not Found',
-    articlesLinkText: 'Search Articles',
+    articlesLinkText: 'Search Our Stories',
     articlesLinkHref: '/articles/',
     homeLinkText: 'Go to Homepage',
     homeLinkHref: '/',

@@ -38,6 +38,6 @@ test.describe('404 page', () => {
 
     await page.getByRole('link', { name: articlesLinkText }).click()
     await expect(page).toHaveURL(/\/articles\/$/)
-    await expect(page.getByRole('heading', { name: /Articles/ })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Our Stories/ })).toBeVisible()
   })
 })

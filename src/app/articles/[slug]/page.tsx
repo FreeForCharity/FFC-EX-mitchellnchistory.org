@@ -151,7 +151,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 href="/articles/"
                 className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
               >
-                &larr; Back to Articles
+                &larr; Back to Our Stories
               </Link>
             </div>
           </div>
@@ -163,7 +163,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <section className="border-t border-gray-200 bg-paper py-12">
           <div className="ffc-container">
             <div className="mx-auto max-w-5xl">
-              <h2 className="font-serif-display text-2xl font-bold text-dark">Related Articles</h2>
+              <h2 className="font-serif-display text-2xl font-bold text-dark">Related Stories</h2>
               <div className="mt-6 grid gap-8 md:grid-cols-3">
                 {related.map((rel) => (
                   <Link

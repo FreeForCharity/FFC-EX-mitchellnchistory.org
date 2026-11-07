@@ -11,36 +11,46 @@ export default function HomePage() {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section
-        id="hero"
-        className="relative flex min-h-[70vh] items-center justify-center overflow-hidden bg-dark text-paper"
-      >
-        <img
-          src={assetPath('/Images/mchs-home-hero.webp')}
-          alt="Historic Mitchell County courthouse, railroad, mountain landscape, and portrait montage"
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
-        />
-        <div className="relative z-10 mx-auto max-w-4xl px-4 py-24 text-center">
-          <h1 className="font-serif-display text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-            <span className="block">The History &amp; Heritage of</span>
-            <span className="block">Mitchell County, NC</span>
+      {/* Bright historical montage and welcome */}
+      <section id="hero" aria-labelledby="welcome-heading" className="bg-[#faf6ed]">
+        <div className="mx-auto max-w-[1440px]">
+          <img
+            src={assetPath('/Images/mchs-home-hero-welcome.webp')}
+            alt="Historic Mitchell County courthouse, railroad, mountain landscape, and portrait montage"
+            width={1410}
+            height={1115}
+            fetchPriority="high"
+            className="block h-auto w-full"
+          />
+        </div>
+        <div className="ffc-container py-12 text-center md:py-16">
+          <p className="text-sm font-semibold uppercase tracking-widest text-dark md:text-base">
+            The History &amp; Heritage of Mitchell County, NC
+          </p>
+          <h1
+            id="welcome-heading"
+            className="mx-auto mt-5 max-w-5xl font-serif-display text-4xl font-bold leading-tight tracking-tight text-dark md:text-5xl lg:text-6xl"
+          >
+            Every place has a story. Discover yours.
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-200 md:text-xl">
-            The Mitchell County Historical Society gathers, preserves, and shares the documents,
-            artifacts, and stories of Mitchell County&apos;s past so residents can better understand
-            the present and illuminate the future.
+          <p className="mx-auto mt-7 max-w-4xl text-xl leading-relaxed text-dark md:text-2xl">
+            From the slopes of Roan Mountain to the communities along the Toe River, Mitchell
+            County&apos;s history lives in its people, places, and memories.
+          </p>
+          <p className="mx-auto mt-5 max-w-4xl text-lg leading-relaxed text-dark md:text-xl">
+            Whether your roots run deep here or you are discovering the county for the first time,
+            we invite you to explore the stories that connect us.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
-              href="/membership/"
-              className="rounded-lg bg-accent px-8 py-3 font-semibold text-paper transition hover:opacity-90"
+              href="/articles/"
+              className="rounded-lg bg-dark px-8 py-3 text-lg font-semibold text-paper transition hover:bg-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark"
             >
-              Become a Member
+              Explore Our Stories
             </Link>
             <Link
               href="/museum/"
-              className="rounded-lg border-2 border-paper px-8 py-3 font-semibold text-paper transition hover:bg-paper hover:text-dark"
+              className="rounded-lg border-2 border-accent px-8 py-3 text-lg font-semibold text-dark transition hover:bg-dark hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark"
             >
               Visit the Museum
             </Link>
