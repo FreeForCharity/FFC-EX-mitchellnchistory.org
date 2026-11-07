@@ -2,16 +2,12 @@ import React from 'react'
 import Link from 'next/link'
 import { assetPath } from '@/lib/assetPath'
 import { getFeaturedEvent } from '@/data/events'
-import { getProgramYears } from '@/data/programs'
 
 export default function HomePage() {
   const featured = getFeaturedEvent()
   const featuredDetailHref = featured.href ?? featured.externalHref
   const featuredIsExternal = !featured.href && !!featured.externalHref
   const featuredImage = featured.image ?? '/Images/mchs-hero.webp'
-  const featuredProgram = getProgramYears()
-    .find((year) => year.year === 2026)
-    ?.programs.find((program) => program.title.startsWith('Six Women'))
 
   return (
     <div>
@@ -106,57 +102,6 @@ export default function HomePage() {
                 alt="The McBee Museum in Bakersville, North Carolina"
                 className="h-64 w-full rounded-xl object-cover"
               />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Program: Six Women, Six Voices */}
-      <section className="border-t border-b border-gray-100 bg-paper py-20">
-        <div className="ffc-container">
-          <div className="items-center gap-12 md:flex md:flex-row-reverse">
-            <div className="md:w-1/2">
-              <span className="text-sm font-semibold uppercase tracking-widest text-accent">
-                Upcoming MCHS Program
-              </span>
-              <h2 className="mt-2 font-serif-display text-3xl font-bold text-primary md:text-4xl">
-                {featuredProgram?.title ?? 'Six Women. Six Voices.'}
-              </h2>
-              <div className="mt-4 h-1 w-20 rounded bg-accent" />
-              {featuredProgram?.presenter && (
-                <p className="mt-6 font-semibold text-gray-800">{featuredProgram.presenter}</p>
-              )}
-              {featuredProgram?.dateLabel && (
-                <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-accent">
-                  {featuredProgram.dateLabel}
-                </p>
-              )}
-              {featuredProgram?.location && (
-                <p className="mt-2 text-gray-600">{featuredProgram.location}</p>
-              )}
-              <p className="mt-6 text-lg leading-relaxed text-gray-700">
-                {featuredProgram?.description ??
-                  'An original Readers Theater production giving voice to women whose stories have long remained in the shadows of Revolutionary War history.'}
-              </p>
-              <Link
-                href="/programs/#program-schedule"
-                className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-semibold text-paper transition hover:opacity-90"
-              >
-                View Program Details
-              </Link>
-            </div>
-            <div className="mt-8 md:mt-0 md:w-1/2">
-              <div className="relative overflow-hidden rounded-xl shadow-md">
-                <img
-                  src={assetPath('/Images/six-women-six-voices-flyer.jpg')}
-                  alt={
-                    featuredProgram?.title
-                      ? `${featuredProgram.title} program flyer`
-                      : 'Six Women. Six Voices. Stories History Left Unfinished program flyer'
-                  }
-                  className="h-auto w-full object-cover transition duration-500 hover:scale-105"
-                />
-              </div>
             </div>
           </div>
         </div>
