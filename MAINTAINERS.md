@@ -22,6 +22,19 @@ Founder, Free For Charity
   - Community leadership
   - Maintainer appointments
 
+### Site Content Maintainer
+
+**Dan Barron**  
+Mitchell County Historical Society
+
+- **Role**: Content Maintainer for mitchellnchistory.org
+- **GitHub**: [@DrDan1861](https://github.com/DrDan1861)
+- **Scope**: Site content (programs, articles, images, pages)
+- **Responsibilities**:
+  - Keeping programs, events and historical content current
+  - Opening pull requests for content changes
+  - Coordinating content requests from the Historical Society
+
 ## Free For Charity Team
 
 The Free For Charity organization includes additional team members and board members who contribute to the project's success:
