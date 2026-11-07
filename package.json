@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "packageManager": "pnpm@10.34.5",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "audit:high": "pnpm audit --prod --audit-level high",
     "dev": "next dev --turbopack",

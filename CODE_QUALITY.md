@@ -619,4 +619,4 @@ If you have questions about code quality standards:
 
 **Last Updated**: 2025-12-03  
 **Repository**: FreeForCharity/FFC-EX-mitchellnchistory.org  
-**Node.js**: 20.x (validated with v20.19.6)
+**Node.js**: 22.12 or later (CI uses 24)
