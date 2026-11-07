@@ -540,5 +540,5 @@ For issues or questions about Dependabot:
 **Configuration Version**: 1.0  
 **Last Updated**: 2025-12-03  
 **Repository**: FreeForCharity/FFC-EX-mitchellnchistory.org  
-**Node.js**: 20.x (validated with v20.19.6)  
+**Node.js**: 22.12 or later (CI uses 24)  
 **Maintained By**: FreeForCharity Team

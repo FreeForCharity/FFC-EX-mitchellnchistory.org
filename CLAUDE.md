@@ -10,7 +10,7 @@ For the broader FFC reference (mission, governance, full agent guidance), see `A
 
 ## Commands
 
-Tooling: Next.js 16 (App Router) + TypeScript (strict) + Tailwind v4 + Jest + Playwright. Node 20 in CI.
+Tooling: Next.js 16 (App Router) + TypeScript (strict) + Tailwind v4 + Jest + Playwright. Node 24 in CI.
 
 | Command                 | Purpose                                            |
 | ----------------------- | -------------------------------------------------- |
