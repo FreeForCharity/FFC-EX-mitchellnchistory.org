@@ -40,5 +40,25 @@ const customJestConfig = {
   },
 }
 
+// sanitize-html >= 2.17.7 depends on ESM-only htmlparser2 12 and its dom* /
+// entities siblings. next/jest leaves node_modules untransformed, so let it
+// transform exactly those packages (pnpm nests them under .pnpm/<pkg>@<ver>).
+const esmDeps = [
+  'htmlparser2',
+  'domhandler',
+  'domutils',
+  'dom-serializer',
+  'domelementtype',
+  'entities',
+]
+const esmDepsPattern = esmDeps.join('|')
+
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-module.exports = createJestConfig(customJestConfig)
+module.exports = async () => {
+  const config = await createJestConfig(customJestConfig)()
+  config.transformIgnorePatterns = [
+    `/node_modules/(?!(\\.pnpm/(${esmDepsPattern})@[^/]+/node_modules/)?(${esmDepsPattern})/)`,
+    ...config.transformIgnorePatterns.filter((p) => !p.includes('node_modules')),
+  ]
+  return config
+}
