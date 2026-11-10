@@ -21,7 +21,7 @@ export default function ArticleCard({
   return (
     <Link
       href={`/articles/${article.slug}/`}
-      className="group block overflow-hidden rounded-xl border border-gray-200 bg-paper shadow-sm transition-shadow hover:shadow-md"
+      className="group flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-paper shadow-sm transition-shadow hover:shadow-md"
     >
       {article.featuredImage && (
         <div className="aspect-[16/10] overflow-hidden bg-gray-100">
@@ -37,7 +37,7 @@ export default function ArticleCard({
           />
         </div>
       )}
-      <div className="p-5">
+      <div className="flex flex-1 flex-col p-5">
         <div className="flex flex-wrap gap-2 mb-2">
           {article.categories.map((cat) => (
             <span
@@ -52,7 +52,10 @@ export default function ArticleCard({
           {article.title}
         </h2>
         <time className="mt-1 block text-sm text-gray-500">{formatDate(article.date)}</time>
-        <p className="mt-2 line-clamp-3 text-sm text-gray-600">{article.excerpt}</p>
+        <p className="mt-3 text-sm leading-relaxed text-gray-600">{article.excerpt}</p>
+        <span className="mt-auto pt-5 text-sm font-semibold text-primary">
+          Read the story &rarr;
+        </span>
       </div>
     </Link>
   )
