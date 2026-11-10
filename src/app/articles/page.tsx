@@ -16,15 +16,15 @@ export default function ArticlesPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-dark py-20 text-paper">
+      <section className="bg-dark pt-[calc(var(--header-height)+3rem)] pb-14 text-paper">
         <div className="ffc-container">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="font-serif-display text-4xl font-bold tracking-tight md:text-5xl">
               Our Stories
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
-              Discover the rich history and heritage of Mitchell County through our collection of
-              articles, stories, and historical accounts.
+              Meet the people, explore the places, and discover the everyday experiences that shaped
+              Mitchell County. Browse by topic or search our collection of local history.
             </p>
           </div>
         </div>
@@ -33,7 +33,7 @@ export default function ArticlesPage() {
       {/* Articles List — client component, but its default (unfiltered)
           view is server-rendered for fast LCP + SEO. URL filters are
           applied post-hydration (see ArticlesList). */}
-      <section className="bg-paper py-16">
+      <section className="bg-paper py-12">
         <div className="ffc-container">
           <ArticlesList articles={articles} categories={categories} />
         </div>

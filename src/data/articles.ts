@@ -1,5 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import storyEditorial from '@/data/articles/story-editorial.json'
+import { STORY_TOPICS } from '@/data/storyTopics'
 import { formatDate, parseUTCDateTime } from '@/lib/formatDate'
 
 export interface Article {
@@ -8,6 +10,7 @@ export interface Article {
   date: string
   excerpt: string
   content: string
+  legacyCategories?: string[]
   categories: string[]
   categorySlugs: string[]
   featuredImage: { url: string; alt: string } | null
@@ -18,6 +21,7 @@ export interface ArticleMeta {
   title: string
   date: string
   excerpt: string
+  legacyCategories?: string[]
   categories: string[]
   featuredImage: { url: string; alt: string } | null
 }
@@ -38,7 +42,13 @@ let _pagesCache: WpPage[] | null = null
 function loadPosts(): Article[] {
   if (!_postsCache) {
     const raw = readFileSync(join(DATA_DIR, 'posts.json'), 'utf-8')
-    _postsCache = JSON.parse(raw) as Article[]
+    const editorial = storyEditorial as Record<string, { topics: string[]; summary?: string }>
+    _postsCache = (JSON.parse(raw) as Article[]).map((article) => ({
+      ...article,
+      legacyCategories: article.categories,
+      categories: editorial[article.slug]?.topics ?? article.categories,
+      excerpt: editorial[article.slug]?.summary ?? article.excerpt,
+    }))
   }
   return _postsCache
 }
@@ -58,14 +68,17 @@ export function getAllArticles(): Article[] {
 
 /** Get article metadata for listing (no content) */
 export function getArticlesMeta(): ArticleMeta[] {
-  return loadPosts().map(({ slug, title, date, excerpt, categories, featuredImage }) => ({
-    slug,
-    title,
-    date,
-    excerpt,
-    categories,
-    featuredImage,
-  }))
+  return loadPosts().map(
+    ({ slug, title, date, excerpt, categories, legacyCategories, featuredImage }) => ({
+      slug,
+      title,
+      date,
+      excerpt,
+      categories,
+      legacyCategories,
+      featuredImage,
+    })
+  )
 }
 
 /** Get all categories */
@@ -83,13 +96,8 @@ export function getArticleBySlug(slug: string): Article | undefined {
 
 /** Get all unique category names that have articles */
 export function getActiveCategories(): string[] {
-  const cats = new Set<string>()
-  for (const a of loadPosts()) {
-    for (const c of a.categories) {
-      cats.add(c)
-    }
-  }
-  return [...cats].sort()
+  const active = new Set(loadPosts().flatMap((article) => article.categories))
+  return STORY_TOPICS.filter((topic) => active.has(topic))
 }
 
 /** Format an article date for display (UTC-safe) */
@@ -97,8 +105,16 @@ export function formatArticleDate(dateStr: string): string {
   return formatDate(dateStr)
 }
 
-function toMeta({ slug, title, date, excerpt, categories, featuredImage }: Article): ArticleMeta {
-  return { slug, title, date, excerpt, categories, featuredImage }
+function toMeta({
+  slug,
+  title,
+  date,
+  excerpt,
+  categories,
+  legacyCategories,
+  featuredImage,
+}: Article): ArticleMeta {
+  return { slug, title, date, excerpt, categories, legacyCategories, featuredImage }
 }
 
 let _chronoCache: Article[] | null = null

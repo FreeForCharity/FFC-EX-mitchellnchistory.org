@@ -27,7 +27,11 @@ export default function ArticlesList({ articles, categories }: ArticlesListProps
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const cat = params.get('category')
-    if (cat && categories.includes(cat)) setSelectedCategory(cat)
+    if (
+      cat &&
+      (categories.includes(cat) || articles.some((a) => a.legacyCategories?.includes(cat)))
+    )
+      setSelectedCategory(cat)
     const q = params.get('q')
     if (q) setSearchQuery(q)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -47,7 +51,9 @@ export default function ArticlesList({ articles, categories }: ArticlesListProps
 
   const filtered = articles.filter((article) => {
     const matchesCategory =
-      selectedCategory === 'All' || article.categories.includes(selectedCategory)
+      selectedCategory === 'All' ||
+      article.categories.includes(selectedCategory) ||
+      Boolean(article.legacyCategories?.includes(selectedCategory))
 
     if (!matchesCategory) {
       return false
@@ -61,6 +67,7 @@ export default function ArticlesList({ articles, categories }: ArticlesListProps
       article.title,
       article.excerpt,
       article.categories.join(' '),
+      article.legacyCategories?.join(' ') ?? '',
       formatDate(article.date),
     ]
       .join(' ')
@@ -107,7 +114,7 @@ export default function ArticlesList({ articles, categories }: ArticlesListProps
             type="search"
             value={searchQuery}
             onChange={handleSearchChange}
-            placeholder="Search by title, excerpt, category, or date"
+            placeholder="Search names, places, topics, or dates"
             className="h-12 w-full rounded-lg border border-gray-300 bg-paper pl-12 pr-12 text-base text-dark shadow-sm outline-none transition-colors placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
           {searchQuery && (
@@ -129,12 +136,23 @@ export default function ArticlesList({ articles, categories }: ArticlesListProps
         </p>
       </div>
 
-      {/* Category Filters */}
-      <div className="flex flex-wrap gap-2 mb-10">
+      {/* Topic Filters */}
+      <h2 className="mb-3 font-serif-display text-2xl font-bold text-dark">Browse by topic</h2>
+      <p className="mb-5 max-w-2xl text-gray-600">
+        Choose a topic or search for a person, place, or subject. Stories may appear in more than
+        one topic.
+      </p>
+      {selectedCategory !== 'All' && !categories.includes(selectedCategory) && (
+        <p className="mb-4 text-sm text-gray-600">
+          Viewing original archive category: {selectedCategory}. Choose a topic below to browse more
+          stories.
+        </p>
+      )}
+      <div className="flex flex-wrap gap-2 mb-10" role="group" aria-label="Story topics">
         <button
           onClick={() => handleCategoryChange('All')}
           aria-pressed={selectedCategory === 'All'}
-          className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+          className={`rounded-full min-h-11 px-4 py-2 text-sm font-medium transition-colors ${
             selectedCategory === 'All'
               ? 'bg-primary text-paper'
               : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -147,7 +165,7 @@ export default function ArticlesList({ articles, categories }: ArticlesListProps
             key={cat}
             onClick={() => handleCategoryChange(cat)}
             aria-pressed={selectedCategory === cat}
-            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+            className={`rounded-full min-h-11 px-4 py-2 text-sm font-medium transition-colors ${
               selectedCategory === cat
                 ? 'bg-primary text-paper'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'

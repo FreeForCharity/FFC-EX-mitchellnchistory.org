@@ -147,6 +147,26 @@ describe('ArticlesList', () => {
     expect(screen.queryByText('Article 1')).not.toBeInTheDocument()
   })
 
+  it('keeps original archive category links working after topics change', () => {
+    setSearch('category=Icons')
+    const articles = [
+      makeArticle(1, { categories: ['People and Families'], legacyCategories: ['Icons'] }),
+      makeArticle(2, { categories: ['Communities and Places'], legacyCategories: ['History'] }),
+    ]
+    render(
+      <ArticlesList
+        articles={articles}
+        categories={['People and Families', 'Communities and Places']}
+      />
+    )
+    expect(screen.getByText('Article 1')).toBeInTheDocument()
+    expect(screen.queryByText('Article 2')).not.toBeInTheDocument()
+    expect(screen.getByText(/Viewing original archive category: Icons/)).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Communities and Places (1)' }))
+    expect(screen.getByText('Article 2')).toBeInTheDocument()
+    expect(screen.queryByText('Article 1')).not.toBeInTheDocument()
+  })
+
   it('ignores an unknown category in the URL', () => {
     setSearch('category=NoSuchCategory')
     const articles = [makeArticle(1), makeArticle(2)]
