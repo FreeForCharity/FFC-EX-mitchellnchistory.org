@@ -43,6 +43,7 @@ export const programYears: ProgramYear[] = [
       },
       {
         title: 'Six Women. Six Voices. Stories History Left Unfinished',
+        videoSlug: 'six-women-six-voices-stories-history-left-unfinished',
         presenter: 'Daniel Barron, in collaboration with Chelsea Wilson Thayer',
         month: 'October',
         dateLabel: 'Tuesday, October 13, 2026 at 7:00 p.m.',
