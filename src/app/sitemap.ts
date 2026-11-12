@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { siteUrl, sitemapRoutes } from '@/lib/siteConfig'
 import { getAllArticles } from '@/data/articles'
+import { recordings, recordingPath } from '@/data/videos'
 import { parseUTCDateTime } from '@/lib/formatDate'
 
 export const dynamic = 'force-static'
@@ -22,5 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...staticRoutes, ...articleRoutes]
+  return [
+    ...staticRoutes,
+    ...articleRoutes,
+    ...recordings.map((video) => ({
+      url: `${siteUrl}${recordingPath(video.slug)}`,
+      changeFrequency: 'yearly' as const,
+      priority: 0.6,
+    })),
+  ]
 }

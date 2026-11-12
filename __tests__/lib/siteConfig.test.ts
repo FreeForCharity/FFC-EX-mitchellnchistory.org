@@ -1,3 +1,4 @@
+import { recordings, recordingPath } from '../../src/data/videos'
 import robots from '../../src/app/robots'
 import sitemap from '../../src/app/sitemap'
 import { siteUrl, sitemapRoutes } from '../../src/lib/siteConfig'
@@ -12,13 +13,18 @@ describe('site metadata configuration', () => {
     const entries = sitemap()
     const articles = getAllArticles()
 
-    expect(entries).toHaveLength(sitemapRoutes.length + articles.length)
+    expect(entries).toHaveLength(sitemapRoutes.length + articles.length + recordings.length)
 
     const staticUrls = entries.slice(0, sitemapRoutes.length).map((e) => e.url)
     expect(staticUrls).toEqual(sitemapRoutes.map((route) => `${siteUrl}${route}`))
 
-    const articleUrls = entries.slice(sitemapRoutes.length).map((e) => e.url)
+    const articleUrls = entries
+      .slice(sitemapRoutes.length, sitemapRoutes.length + articles.length)
+      .map((e) => e.url)
     expect(articleUrls.length).toBe(articles.length)
+    expect(entries.slice(sitemapRoutes.length + articles.length).map((entry) => entry.url)).toEqual(
+      recordings.map((video) => `${siteUrl}${recordingPath(video.slug)}`)
+    )
     for (const url of articleUrls) {
       expect(url).toMatch(/\/articles\/[\w-]+\//)
     }
