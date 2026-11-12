@@ -54,18 +54,25 @@ test.describe('WordPress Migrated Pages', () => {
 })
 
 test.describe('WordPress Multi-Content Pages', () => {
-  test('/videos — renders video sections', async ({ page }) => {
+  test('/videos — searches the collection and opens a recording', async ({ page }) => {
     const response = await page.goto('/videos')
     expect(response?.status()).toBe(200)
 
     const heading = page.locator('h1').first()
     await expect(heading).toBeVisible()
-    await expect(heading).toContainText('Videos')
-
-    // Should have at least one wp-content section rendered
-    const wpContent = page.locator('.wp-content')
-    const count = await wpContent.count()
-    expect(count).toBeGreaterThanOrEqual(1)
+    await expect(heading).toContainText('Watch & Discover')
+    await page.getByLabel('Search videos').fill('Lost Cove')
+    await expect(page.getByRole('status')).toHaveText('1 video')
+    await page.locator('article').getByRole('link').click()
+    await expect(page.locator('h1')).toContainText('Lost Cove')
+    await expect(page.locator('iframe')).toHaveAttribute('title', /Lost Cove/)
+    await page.getByRole('link', { name: 'All Videos' }).click()
+    await page.getByRole('button', { name: 'Military History', exact: true }).click()
+    await expect(page.locator('article')).toHaveCount(3)
+    await page.getByLabel('Search videos').fill('no matching recording')
+    await expect(page.getByRole('status')).toHaveText('0 videos')
+    await page.getByRole('button', { name: 'Clear search and filters' }).click()
+    await expect(page.locator('article')).toHaveCount(19)
   })
 
   test('/resources — renders resource content', async ({ page }) => {

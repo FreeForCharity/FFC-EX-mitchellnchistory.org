@@ -5,7 +5,7 @@ export type Program = {
   dateLabel?: string
   location?: string
   description: string
-  videoUrl?: string
+  videoSlug?: string
 }
 
 export type ProgramYear = {
@@ -20,7 +20,7 @@ export const programYears: ProgramYear[] = [
   {
     year: 2026,
     summary:
-      'The remaining 2026 program season includes Revolutionary-era women of the Toe River Valley, Lost Cove, and the Spruce Pine Mining District.',
+      'The 2026 program archive includes Revolutionary-era women of the Toe River Valley, Lost Cove, and the Spruce Pine Mining District.',
     programs: [
       {
         title: 'Lost Cove: Portrait of a Vanished Appalachian Community',
@@ -30,7 +30,7 @@ export const programYears: ProgramYear[] = [
         location: 'Mitchell Senior Citizens Center, Ledger, North Carolina',
         description:
           'A presentation tracing the isolated mountain settlement of Lost Cove from its beginnings before the Civil War through its decline and abandonment, using old newspaper accounts, deeds, documents, photographs, and other historical sources.',
-        videoUrl: 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
+        videoSlug: 'lost-cove-portrait-of-a-vanished-appalachian-community',
       },
       {
         title: 'The Spruce Pine Mining District: Then and Now',
@@ -48,7 +48,7 @@ export const programYears: ProgramYear[] = [
         dateLabel: 'Tuesday, October 13, 2026 at 7:00 p.m.',
         location: 'Mitchell High School, Ledger, North Carolina',
         description:
-          'The Mitchell County Historical Society invites the public to experience a unique Readers Theater production, Six Women. Six Voices. Stories History Left Unfinished, on Tuesday, October 13, 2026, at 7:00 p.m. at Mitchell High School in Ledger, North Carolina. Written and directed by Daniel Barron in collaboration with Chelsea Wilson Thayer, the production gives voice to Toe River Valley Revolutionary War women whose stories have long remained in the shadows of history. Free admission.',
+          'A Readers Theater production giving voice to Revolutionary War women of the Toe River Valley. Written and directed by Daniel Barron in collaboration with Chelsea Wilson Thayer, and presented at Mitchell High School on October 13, 2026.',
       },
     ],
   },
@@ -65,7 +65,7 @@ export const programYears: ProgramYear[] = [
         location: 'Riverside Park, Spruce Pine',
         description:
           'Re-enactors shared the story of the Battle of Kings Mountain and the men who marched through the Toe River Valley.',
-        videoUrl: 'https://www.youtube.com/watch?v=bqJ5djZxQEE',
+        videoSlug: '2020-overmountain-men-celebration-in-spruce-pine',
       },
       {
         title: "Daniel Boone's Tree at Dellinger Mill",
@@ -73,6 +73,7 @@ export const programYears: ProgramYear[] = [
         location: 'Dellinger Mill, Bakersville',
         description:
           'A local story connected to the historic Dellinger Mill property and the legend of Daniel Boone.',
+        videoSlug: 'daniel-boone-s-tree-at-dellinger-mill',
       },
       {
         title: "Dellinger's Mill in Bakersville, North Carolina",
@@ -80,6 +81,7 @@ export const programYears: ProgramYear[] = [
         location: 'Dellinger Mill, Bakersville',
         description:
           "A look at the history of the famous Dellinger's Mill along Cane Creek near Bakersville.",
+        videoSlug: 'dellinger-s-mill-in-bakersville-north-carolina',
       },
     ],
   },
@@ -96,6 +98,7 @@ export const programYears: ProgramYear[] = [
         location: 'Historic Mitchell County Courthouse, Bakersville',
         description:
           'A geologic and cultural tour of Scotland with connections to the Appalachian Mountains.',
+        videoSlug: 'scotland-where-we-came-from-or-did-we-really-ever-leave',
       },
       {
         title: 'The Red & White Strings: Isaac English & The Civil War',
@@ -105,6 +108,7 @@ export const programYears: ProgramYear[] = [
         location: 'English Inn, Spruce Pine',
         description:
           'The story of Isaac and Alice English and the Union officers who escaped through Mitchell County during the Civil War.',
+        videoSlug: 'the-red-white-strings-isaac-english-the-civil-war',
       },
     ],
   },
@@ -121,6 +125,7 @@ export const programYears: ProgramYear[] = [
         location: 'Historic Mitchell County Courthouse, Bakersville',
         description:
           "A presentation on the early cultural crossroads that shaped Mitchell County's history.",
+        videoSlug: 'mitchell-county-early-crossroads-of-culture',
       },
       {
         title: 'The Frankie & Charlie Silver Story',
@@ -130,6 +135,7 @@ export const programYears: ProgramYear[] = [
         location: 'Old Kona Baptist Church, Kona',
         description:
           'A special presentation on Frankie and Charlie Silver, with additional related videos and stories.',
+        videoSlug: 'the-frankie-charlie-silver-story',
       },
       {
         title: 'Rhonda Gouge Plays Music of Mitchell County, NC',
@@ -139,6 +145,7 @@ export const programYears: ProgramYear[] = [
         location: 'Historic Mitchell County Courthouse, Bakersville',
         description:
           'Local music history with songs and stories connected to Mitchell County musicians.',
+        videoSlug: 'rhonda-gouge-plays-music-of-mitchell-county-nc',
       },
       {
         title: "The Toe River: The Valley's Highway",
@@ -147,6 +154,7 @@ export const programYears: ProgramYear[] = [
         dateLabel: 'September 16, 2017',
         location: 'Toe River Arts Council Gallery, Spruce Pine',
         description: 'A human history of the Toe River and its role in the life of the valley.',
+        videoSlug: 'the-toe-river-the-valley-s-highway',
       },
       {
         title: 'The Geology of the Toe River',
@@ -156,6 +164,7 @@ export const programYears: ProgramYear[] = [
         location: 'Toe River Arts Council Gallery, Spruce Pine',
         description:
           'A geologic look at the Toe River and the landscape it cuts through Mitchell County.',
+        videoSlug: 'the-geology-of-the-toe-river',
       },
     ],
   },
@@ -168,22 +177,26 @@ export const programYears: ProgramYear[] = [
         presenter: 'Dr. Lloyd Bailey',
         description:
           'A presentation on World War I and soldiers connected to the Toe River Valley.',
+        videoSlug: 'world-war-i-the-soldiers-of-the-toe-river-valley',
       },
       {
         title: 'The Railroads of the Toe River Valley',
         presenter: 'Warren Harding',
         description: 'A program on the railroads that served the Toe River Valley.',
+        videoSlug: 'the-railroads-of-the-toe-river-valley',
       },
       {
         title: 'Mountain Church Music in the Toe River Valley',
         presenter: 'Rhonda Gouge',
         description:
           'A program exploring mountain church music traditions in the Toe River Valley.',
+        videoSlug: 'mountain-church-music-in-the-toe-river-valley',
       },
       {
         title: 'The Penland Post Office',
         presenter: 'Alicia Swaringen',
         description: 'A local history program about the Penland Post Office.',
+        videoSlug: 'the-penland-post-office',
       },
     ],
   },

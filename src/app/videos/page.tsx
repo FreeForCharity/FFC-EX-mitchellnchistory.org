@@ -1,166 +1,97 @@
 import type { Metadata } from 'next'
-import { getWpPages } from '@/data/articles'
-import { sanitizeHtml } from '@/lib/sanitizeHtml'
-import { notFound } from 'next/navigation'
-import YouTubeLoader from '@/components/YouTubeLoader.client'
-
-const videoSlugs = ['event-videos', '2020-videos', '2019-videos', '2017-videos', '2016-videos']
-const videoHeadingPattern = /<h4(\s[^>]*)?>([\s\S]*?)<\/h4>/gi
-const videoListTitlePattern = /(<li>[\s\S]*?<strong>)([\s\S]*?)(<\/strong>[\s\S]*?<\/li>)/gi
-const videoUrlsByTitle: Record<string, string> = {
-  '2020 overmountain men celebration spruce pine north carolina':
-    'https://www.youtube.com/watch?v=bqJ5djZxQEE',
-  "daniel boone's tree at dellinger mill": 'https://www.youtube.com/watch?v=j1LByGmMwgw',
-  "dellinger's mill in bakersville north carolina": 'https://www.youtube.com/watch?v=ulfk3uN2k58',
-  'scotland where we came from or did we really ever leave':
-    'https://www.youtube.com/watch?v=_Q315dW8S9A',
-  'the red white strings isaac english the civil war':
-    'https://www.youtube.com/watch?v=0V10tE0BfdQ',
-  'mitchell county early crossroads of culture': 'https://www.youtube.com/watch?v=G4rpYqUjLQk',
-  'dr dan barron presentation': 'https://www.youtube.com/watch?v=G4rpYqUjLQk',
-  'the frankie charlie silver story': 'https://www.youtube.com/watch?v=Jv4MqdfofYc',
-  'the music of mitchell county': 'https://www.youtube.com/watch?v=uutvst5eZjQ',
-  'rhonda gouge plays music of mitchell county nc': 'https://www.youtube.com/watch?v=uutvst5eZjQ',
-  'the geology of the toe river': 'https://www.youtube.com/watch?v=K3dZlakA5so',
-  'geology of the toe river': 'https://www.youtube.com/watch?v=K3dZlakA5so',
-  "the toe river the valley's highway": 'https://www.youtube.com/watch?v=zqt_CeaOSCg',
-  'world war i': 'https://www.youtube.com/watch?v=IexUuWMJ21I',
-  'world war i the soldiers of the toe river valley': 'https://www.youtube.com/watch?v=IexUuWMJ21I',
-  'the railroads of the toe river valley': 'https://www.youtube.com/watch?v=uNlqgdWH3KA',
-  'mountain church music': 'https://www.youtube.com/watch?v=y_jBqfMbfEw',
-  'mountain church music in the toe river valley': 'https://www.youtube.com/watch?v=y_jBqfMbfEw',
-  'the penland post office': 'https://www.youtube.com/watch?v=SI4R1DQXsH4',
-  'penland post office': 'https://www.youtube.com/watch?v=SI4R1DQXsH4',
-  'the frankie silver story': 'https://www.youtube.com/watch?v=ZQ6DViANMIc',
-  'frankie charlie put a stop to it': 'https://www.youtube.com/watch?v=ICOA_6yqd2Q',
-  'the uncut story of frankie silver': 'https://www.youtube.com/watch?v=qAFT4OwNhSg',
-  "fort san juan spain's failed appalachian outpost": 'https://www.youtube.com/watch?v=1CEMHj7f-i0',
-  // Lost Cove program presentation
-  'lost cove': 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
-  'lost cove portrait of a vanished appalachian community':
-    'https://www.youtube.com/watch?v=zLRIGxXyQYI',
-  'lost cove north carolina': 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
-  // variations including presenter name so WP content variations auto-link
-  'lost cove christy a smith': 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
-  'lost cove by christy a smith': 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
-  'lost cove christy smith': 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
-  'lost cove by christy smith': 'https://www.youtube.com/watch?v=zLRIGxXyQYI',
-}
-
-function normalizeVideoTitle(innerHtml: string): string {
-  return innerHtml
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&amp;/g, ' ')
-    .replace(/&#x27;|&apos;|’/g, "'")
-    .replace(/…/g, ' ')
-    .replace(/[^a-z0-9']+/gi, ' ')
-    .replace(/\bamp\b/gi, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .toLowerCase()
-}
-
-function getYouTubeId(url: string): string | null {
-  const shortMatch = url.match(/youtu\.be\/([A-Za-z0-9_-]{11})/)
-  if (shortMatch) return shortMatch[1]
-  const longMatch = url.match(/[?&]v=([A-Za-z0-9_-]{11})/)
-  if (longMatch) return longMatch[1]
-  return null
-}
-
-function renderYoutubeThumbnailHtml(title: string, videoUrl: string): string {
-  const id = getYouTubeId(videoUrl)
-  if (!id) return `<a href="${videoUrl}" target="_blank" rel="noopener noreferrer">${title}</a>`
-  const poster = `https://img.youtube.com/vi/${id}/hqdefault.jpg`
-  return `
-    <div class="mch-video relative">
-      <h4 class="font-serif-display text-xl font-semibold">${title}</h4>
-      <div class="mch-video__thumb mt-4 relative cursor-pointer" role="button" tabindex="0" aria-label="Play ${title}"
-           data-yt-src="https://www.youtube.com/embed/${id}?rel=0&amp;showinfo=0&amp;enablejsapi=1">
-        <img src="${poster}" alt="${title} thumbnail" class="w-full h-auto object-cover rounded" loading="lazy" />
-        <div class="absolute inset-0 flex items-center justify-center">
-          <div class="w-16 h-16 rounded-full bg-accent/90 text-paper flex items-center justify-center text-2xl">▶</div>
-        </div>
-      </div>
-    </div>
-  `
-}
-
-function linkTitleHtml(innerHtml: string): string | null {
-  if (!innerHtml.trim() || /^<a\b/i.test(innerHtml.trim()) || /<\/a>/i.test(innerHtml)) {
-    return null
-  }
-
-  const videoUrl = videoUrlsByTitle[normalizeVideoTitle(innerHtml)]
-
-  if (!videoUrl) {
-    return null
-  }
-
-  return renderYoutubeThumbnailHtml(innerHtml, videoUrl)
-}
-
-function linkVideoListingsToYoutubeVideos(content: string): string {
-  return sanitizeHtml(content)
-    .replace(videoHeadingPattern, (match, attributes = '', innerHtml) => {
-      const linkedTitle = linkTitleHtml(innerHtml)
-      return linkedTitle ? `<div${attributes}>${linkedTitle}</div>` : match
-    })
-    .replace(videoListTitlePattern, (match, openingHtml, innerHtml, closingHtml) => {
-      const linkedTitle = linkTitleHtml(innerHtml)
-      return linkedTitle ? `${openingHtml}${linkedTitle}${closingHtml}` : match
-    })
-}
+import Link from 'next/link'
+import VideoCollection from '@/components/VideoCollection'
+import { recordings, recordingPath } from '@/data/videos'
+import { youtubeChannelUrl } from '@/data/programs'
 
 export const metadata: Metadata = {
-  title: 'Videos',
-  description: 'Watch videos from Mitchell County Historical Society events and programs.',
+  title: 'Videos | Watch & Discover',
+  description:
+    'Explore Mitchell County history through recorded presentations, music, local stories, and historic places.',
   alternates: { canonical: '/videos/' },
 }
-
 export default function VideosPage() {
-  const videoPages = getWpPages(videoSlugs)
-
-  if (videoPages.length === 0) {
-    notFound()
-  }
-
+  const featured = recordings[0]
   return (
     <div>
-      <YouTubeLoader />
-      {/* Hero */}
       <section className="bg-dark py-20 text-paper">
+        <div className="ffc-container text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest">
+            Mitchell County Historical Society
+          </p>
+          <h1 className="mt-4 font-serif-display text-4xl font-bold md:text-5xl">
+            Watch &amp; Discover: Mitchell County History
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-200">
+            Meet the people, explore the places, and hear the stories that shaped our mountain
+            communities.
+          </p>
+        </div>
+      </section>
+      <section className="bg-paper py-12">
         <div className="ffc-container">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="font-serif-display text-4xl font-bold tracking-tight md:text-5xl">
-              Videos
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
-              Watch videos from Mitchell County Historical Society events and programs.
-            </p>
+          <div className="grid overflow-hidden rounded-xl bg-white shadow-sm md:grid-cols-2">
+            <Link
+              href={recordingPath(featured.slug)}
+              aria-label={`Watch ${featured.title}`}
+              className="relative aspect-video bg-dark"
+            >
+              <img
+                src={`https://img.youtube.com/vi/${featured.youtubeId}/hqdefault.jpg`}
+                alt="Lost Cove presentation video thumbnail"
+                className="h-full w-full object-cover"
+              />
+              <span
+                className="absolute inset-0 flex items-center justify-center text-5xl text-white"
+                aria-hidden="true"
+              >
+                ▶
+              </span>
+            </Link>
+            <div className="p-8">
+              <p className="font-semibold text-primary">Featured Recording</p>
+              <h2 className="mt-3 font-serif-display text-3xl font-bold text-primary">
+                {featured.title}
+              </h2>
+              <p className="mt-3 text-gray-600">
+                {featured.presenter} · {featured.dateLabel}
+              </p>
+              <p className="mt-4 text-gray-700">{featured.description}</p>
+              <Link
+                href={recordingPath(featured.slug)}
+                className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-semibold text-paper"
+              >
+                Watch Video
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Video Sections */}
-      {videoPages.map((page, i) => (
-        <section key={page.slug} className={i % 2 === 0 ? 'bg-paper py-16' : 'bg-gray-50 py-16'}>
-          <div className="ffc-container">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="font-serif-display text-3xl font-bold text-primary md:text-4xl">
-                {page.title}
-              </h2>
-              <div className="mt-4 h-1 w-20 rounded bg-accent" />
-              <div
-                className="wp-content mt-8"
-                dangerouslySetInnerHTML={{
-                  __html: linkVideoListingsToYoutubeVideos(page.content),
-                }}
-              />
-            </div>
+      <section className="bg-gray-50 py-12">
+        <div className="ffc-container">
+          <h2 className="mb-8 font-serif-display text-3xl font-bold text-primary">
+            Explore the Collection
+          </h2>
+          <VideoCollection />
+        </div>
+      </section>
+      <section className="bg-paper py-12">
+        <div className="ffc-container text-center">
+          <h2 className="font-serif-display text-2xl font-bold text-primary">Keep exploring</h2>
+          <p className="mt-4 text-gray-700">
+            Join us for a public program, or visit our YouTube channel for more recordings and
+            subscriptions.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-6">
+            <Link href="/programs/" className="font-semibold text-primary underline">
+              Programs &amp; Presentations
+            </Link>
+            <a href={youtubeChannelUrl} className="font-semibold text-primary underline">
+              Visit MCHS on YouTube
+            </a>
           </div>
-        </section>
-      ))}
+        </div>
+      </section>
     </div>
   )
 }
