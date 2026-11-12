@@ -14,13 +14,12 @@ export default function MembershipPage() {
       {/* Hero */}
       <section className="bg-dark py-24 text-paper">
         <div className="ffc-container text-center">
-          <h1 className="font-serif-display text-4xl font-bold tracking-tight md:text-5xl">
+          <h1 className="font-serif-display text-4xl font-bold tracking-tight text-balance md:text-5xl">
             Become a Member
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
-            Your membership helps MCHS light the past, enlighten the present, and illuminate the
-            future through preservation, programs, research assistance, and shared community
-            history.
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-balance text-gray-300">
+            Your membership supports preservation, programs, and research that light the past,
+            enlighten the present, and illuminate the future.
           </p>
         </div>
       </section>

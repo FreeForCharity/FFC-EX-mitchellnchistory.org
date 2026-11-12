@@ -26,13 +26,12 @@ export default function EventsPage() {
       {/* Hero */}
       <section className="bg-dark py-24 text-paper">
         <div className="ffc-container text-center">
-          <h1 className="font-serif-display text-4xl font-bold tracking-tight md:text-5xl">
+          <h1 className="font-serif-display text-4xl font-bold tracking-tight text-balance md:text-5xl">
             Festivals &amp; Events in Mitchell County
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
-            A year-round calendar of celebrations across the Blue Ridge — from the bloom of
-            rhododendrons in June to apple butter in October and a Christmas parade to close out the
-            year.
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-balance text-gray-300">
+            Celebrate Mitchell County’s mountain traditions, from June’s rhododendrons and October’s
+            apple butter to the year-end Christmas parade.
           </p>
         </div>
       </section>
