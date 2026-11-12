@@ -10,8 +10,20 @@ export type Recording = {
   year?: number
   description: string
   related?: boolean
+  featuredImage?: string
 }
-const recordingDetails: Record<string, { youtubeId: string; topic: string }> = {
+// Change this slug to rotate the featured recording without rearranging the collection.
+export const featuredRecordingSlug = 'six-women-six-voices-stories-history-left-unfinished'
+
+const recordingDetails: Record<
+  string,
+  { youtubeId: string; topic: string; featuredImage?: string }
+> = {
+  'six-women-six-voices-stories-history-left-unfinished': {
+    youtubeId: 'S_RFod1HZs4',
+    topic: 'People & Communities',
+    featuredImage: '/Images/six-women-six-voices-flyer.jpg',
+  },
   'the-penland-post-office': { youtubeId: 'SI4R1DQXsH4', topic: 'Historic Places' },
   'mountain-church-music-in-the-toe-river-valley': {
     youtubeId: 'y_jBqfMbfEw',

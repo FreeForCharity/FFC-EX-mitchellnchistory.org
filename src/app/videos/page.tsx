@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import VideoCollection from '@/components/VideoCollection'
-import { recordings, recordingPath } from '@/data/videos'
+import { featuredRecordingSlug, recordings, recordingPath } from '@/data/videos'
+import { assetPath } from '@/lib/assetPath'
 import { youtubeChannelUrl } from '@/data/programs'
 
 export const metadata: Metadata = {
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/videos/' },
 }
 export default function VideosPage() {
-  const featured = recordings[0]
+  const featured = recordings.find((video) => video.slug === featuredRecordingSlug) ?? recordings[0]
   return (
     <div>
       <section className="bg-dark py-20 text-paper">
@@ -34,12 +35,16 @@ export default function VideosPage() {
             <Link
               href={recordingPath(featured.slug)}
               aria-label={`Watch ${featured.title}`}
-              className="relative aspect-video bg-dark"
+              className="relative flex items-center justify-center bg-dark"
             >
               <img
-                src={`https://img.youtube.com/vi/${featured.youtubeId}/hqdefault.jpg`}
-                alt="Lost Cove presentation video thumbnail"
-                className="h-full w-full object-cover"
+                src={
+                  featured.featuredImage
+                    ? assetPath(featured.featuredImage)
+                    : `https://img.youtube.com/vi/${featured.youtubeId}/hqdefault.jpg`
+                }
+                alt={`${featured.title} recording artwork`}
+                className="max-h-[34rem] w-full object-contain"
               />
               <span
                 className="absolute inset-0 flex items-center justify-center text-5xl text-white"
@@ -48,7 +53,7 @@ export default function VideosPage() {
                 ▶
               </span>
             </Link>
-            <div className="p-8">
+            <div className="self-center p-8">
               <p className="font-semibold text-primary">Featured Recording</p>
               <h2 className="mt-3 font-serif-display text-3xl font-bold text-primary">
                 {featured.title}

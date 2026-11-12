@@ -61,6 +61,12 @@ test.describe('WordPress Multi-Content Pages', () => {
     const heading = page.locator('h1').first()
     await expect(heading).toBeVisible()
     await expect(heading).toContainText('Watch & Discover')
+    await expect(
+      page.getByRole('link', {
+        name: 'Watch Six Women. Six Voices. Stories History Left Unfinished',
+        exact: true,
+      })
+    ).toHaveAttribute('href', '/videos/six-women-six-voices-stories-history-left-unfinished/')
     await page.getByLabel('Search videos').fill('Lost Cove')
     await expect(page.getByRole('status')).toHaveText('1 video')
     await page.locator('article').getByRole('link').click()
@@ -72,7 +78,7 @@ test.describe('WordPress Multi-Content Pages', () => {
     await page.getByLabel('Search videos').fill('no matching recording')
     await expect(page.getByRole('status')).toHaveText('0 videos')
     await page.getByRole('button', { name: 'Clear search and filters' }).click()
-    await expect(page.locator('article')).toHaveCount(19)
+    await expect(page.locator('article')).toHaveCount(20)
   })
 
   test('/resources — renders resource content', async ({ page }) => {
