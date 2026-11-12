@@ -20,12 +20,12 @@ export default function VideosPage() {
           <p className="text-sm font-semibold uppercase tracking-widest">
             Mitchell County Historical Society
           </p>
-          <h1 className="mt-4 font-serif-display text-4xl font-bold md:text-5xl">
+          <h1 className="mt-4 font-serif-display text-4xl font-bold text-balance md:text-5xl">
             Watch &amp; Discover: Mitchell County History
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-200">
-            Meet the people, explore the places, and hear the stories that shaped our mountain
-            communities.
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-balance text-gray-200">
+            Discover the people, places, and stories that bring Mitchell County’s mountain heritage
+            to life.
           </p>
         </div>
       </section>
