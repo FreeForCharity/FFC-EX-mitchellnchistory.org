@@ -24,17 +24,12 @@ export default function EventsPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative flex min-h-[40vh] items-center justify-center overflow-hidden bg-dark text-paper">
-        <img
-          src={assetPath('/Images/mchs-hero.webp')}
-          alt="Mitchell County, North Carolina mountain landscape"
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
-        />
-        <div className="relative z-10 mx-auto max-w-4xl px-4 py-20 text-center">
+      <section className="bg-dark py-24 text-paper">
+        <div className="ffc-container text-center">
           <h1 className="font-serif-display text-4xl font-bold tracking-tight md:text-5xl">
             Festivals &amp; Events in Mitchell County
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-200">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
             A year-round calendar of celebrations across the Blue Ridge — from the bloom of
             rhododendrons in June to apple butter in October and a Christmas parade to close out the
             year.
