@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { CalendarDays, Video } from 'lucide-react'
 import { getProgramYears, youtubeChannelUrl } from '@/data/programs'
 import { recordingPath } from '@/data/videos'
-import { assetPath } from '@/lib/assetPath'
 
 export const metadata: Metadata = {
   title: 'Programs',
@@ -23,20 +22,12 @@ export default function ProgramsPage() {
 
   return (
     <div>
-      <section className="relative flex min-h-[42vh] items-center justify-center overflow-hidden bg-dark text-paper">
-        <img
-          src={assetPath('/Images/mchs-hero.webp')}
-          alt="Mitchell County mountain landscape"
-          className="absolute inset-0 h-full w-full object-cover opacity-35"
-        />
-        <div className="relative z-10 mx-auto max-w-4xl px-4 py-24 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-gray-200">
-            Monthly Programs
-          </p>
-          <h1 className="mt-4 font-serif-display text-4xl font-bold tracking-tight md:text-5xl">
+      <section className="bg-dark py-24 text-paper">
+        <div className="ffc-container text-center">
+          <h1 className="font-serif-display text-4xl font-bold tracking-tight md:text-5xl">
             Programs
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-200">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
             Follow Mitchell County Historical Society programs by year, revisit recorded
             presentations, and find information about upcoming monthly gatherings.
           </p>

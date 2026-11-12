@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-import { assetPath } from '@/lib/assetPath'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -14,17 +13,12 @@ export default function MuseumPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-dark text-paper">
-        <img
-          src={assetPath('/Images/mchs-museum.webp')}
-          alt="The McBee Museum in Bakersville, North Carolina"
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
-        />
-        <div className="relative z-10 mx-auto max-w-4xl px-4 py-24 text-center">
+      <section className="bg-dark py-24 text-paper">
+        <div className="ffc-container text-center">
           <h1 className="font-serif-display text-4xl font-bold tracking-tight md:text-5xl">
             The McBee Museum
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-200">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
             Step back in time and explore the rich history of Mitchell County, North Carolina.
           </p>
         </div>
