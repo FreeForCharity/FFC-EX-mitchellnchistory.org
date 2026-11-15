@@ -2,8 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { assetPath } from '@/lib/assetPath'
 import type { Metadata } from 'next'
-import { getEventsByNextOccurrence, getPastEventsByDate } from '@/data/events'
-import { formatDate } from '@/lib/formatDate'
+import { getEventsByNextOccurrence } from '@/data/events'
 
 export const metadata: Metadata = {
   title: 'Festivals & Events in Mitchell County',
@@ -19,7 +18,6 @@ export const metadata: Metadata = {
 
 export default function EventsPage() {
   const upcoming = getEventsByNextOccurrence()
-  const past = getPastEventsByDate()
 
   return (
     <div>
@@ -116,47 +114,6 @@ export default function EventsPage() {
           </ul>
         </div>
       </section>
-
-      {/* Past programs */}
-      {past.length > 0 && (
-        <section className="bg-paper py-16">
-          <div className="ffc-container">
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="font-serif-display text-3xl font-bold text-primary md:text-4xl">
-                Past Programs
-              </h2>
-              <div className="mx-auto mt-4 h-1 w-20 rounded bg-accent" />
-              <p className="mt-6 text-lg leading-relaxed text-gray-700">
-                A short record of one-time MCHS programs and tribute concerts from years past.
-              </p>
-            </div>
-            <ul className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
-              {past.map((event) => (
-                <li
-                  key={`${event.date}-${event.name}`}
-                  className="flex flex-col rounded-xl border border-gray-200 bg-gray-50 p-6 shadow-sm"
-                >
-                  <p className="text-sm font-semibold uppercase tracking-wide text-accent">
-                    {formatDate(event.date)} · {event.location}
-                  </p>
-                  <h3 className="mt-2 font-serif-display text-xl font-bold text-primary">
-                    {event.name}
-                  </h3>
-                  <p className="mt-3 flex-1 text-gray-700">{event.summary}</p>
-                  {event.href && (
-                    <Link
-                      href={event.href}
-                      className="mt-4 inline-block font-semibold text-accent hover:underline"
-                    >
-                      Read more →
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
 
       {/* Add your event CTA */}
       <section className="bg-gray-50 py-16">
