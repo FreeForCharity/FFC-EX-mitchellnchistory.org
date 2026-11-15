@@ -30,6 +30,7 @@ const Footer: React.FC = () => {
               { name: 'About Us', href: '/about/' },
               { name: 'McBee Museum', href: '/museum/' },
               { name: 'Membership', href: '/membership/' },
+              { name: 'Donate', href: '/donate/' },
               { name: 'Festivals & Events', href: '/events/' },
               { name: 'Programs', href: '/programs/' },
               { name: 'Videos', href: '/videos/' },

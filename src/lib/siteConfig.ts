@@ -22,6 +22,7 @@ export const sitemapRoutes = [
   '/about/',
   '/museum/',
   '/membership/',
+  '/donate/',
   '/events/',
   '/programs/',
   '/apple-butter-festival/',

@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -117,6 +118,19 @@ export default function MembershipPage() {
         </div>
       </section>
 
+      <section className="bg-paper py-12">
+        <div className="ffc-container text-center">
+          <p className="text-lg text-gray-700">
+            Want to make an additional gift?{' '}
+            <Link
+              href="/donate/"
+              className="font-semibold text-primary underline underline-offset-4"
+            >
+              Support our history with a donation.
+            </Link>
+          </p>
+        </div>
+      </section>
       {/* Other Ways to Join */}
       <section className="bg-paper py-20">
         <div className="ffc-container">
