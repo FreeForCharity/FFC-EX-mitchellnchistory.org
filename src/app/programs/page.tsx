@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { CalendarDays, Video } from 'lucide-react'
+import { Video } from 'lucide-react'
 import { getProgramYears, youtubeChannelUrl } from '@/data/programs'
 import { recordingPath } from '@/data/videos'
 
@@ -36,45 +36,25 @@ export default function ProgramsPage() {
 
       <section className="bg-paper py-16">
         <div className="ffc-container">
-          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div className="mx-auto max-w-3xl">
             <div>
               <h2 className="font-serif-display text-3xl font-bold text-primary md:text-4xl">
                 History, Shared Together
               </h2>
               <div className="mt-4 h-1 w-20 rounded bg-accent" />
               <p className="mt-6 text-lg leading-relaxed text-gray-700">
-                Discover local history through presentations, storytelling, and conversation. Our
-                public programs bring the people and places of the Toe River Valley to life.
+                Discover local history with us beginning in April 2027. Through presentations,
+                storytelling, and conversation, our public programs bring the people and places of
+                the Toe River Valley to life.
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-gray-700">
+                The 2027 program schedule will be posted on this page by February 15, 2027. Check
+                back for more information and a flier for each program as details become available.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-gray-700">
                 Explore past programs below. When a recording is available, select Watch Recording
                 to go directly to its video page.
               </p>
-            </div>
-
-            <div className="rounded-lg border border-gray-200 bg-gray-50 p-6 shadow-sm">
-              <div className="flex items-center gap-3 text-primary">
-                <CalendarDays className="h-7 w-7" aria-hidden="true" />
-                <h2 className="font-serif-display text-2xl font-bold">Upcoming Programs</h2>
-              </div>
-              <p className="mt-4 text-gray-700">
-                Visit Events for upcoming gatherings and newly announced programs. Programs are free
-                and open to the public unless otherwise noted.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link
-                  href="/events/"
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-paper transition hover:opacity-90"
-                >
-                  View Events
-                </Link>
-                <Link
-                  href="/contact/"
-                  className="inline-flex items-center gap-2 rounded-lg border border-primary px-5 py-3 font-semibold text-primary transition hover:bg-green-50"
-                >
-                  Contact MCHS
-                </Link>
-              </div>
             </div>
           </div>
         </div>
