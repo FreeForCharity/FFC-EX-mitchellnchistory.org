@@ -52,12 +52,16 @@ export default function DonatePage() {
         <div className="ffc-container">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="font-serif-display text-3xl font-bold text-primary md:text-4xl">
-              Make a Gift Online
+              Every Gift Helps Preserve Our History
             </h2>
             <div className="mx-auto mt-4 h-1 w-20 rounded bg-accent" />
             <p className="mt-8 text-lg leading-relaxed text-gray-700">
-              Choose an amount of your own and make a secure donation through PayPal. You can pay
-              with PayPal or a debit or credit card.
+              Consider a gift of $25, $50, or $100—or choose any amount meaningful to you. Every
+              contribution helps us preserve and share Mitchell County&apos;s heritage.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-gray-700">
+              Make a secure donation through PayPal. You can pay with PayPal or a debit or credit
+              card.
             </p>
             <a
               href="https://www.paypal.com/donate/?business=ZQKFJ64SQSUC4&currency_code=USD"
