@@ -19,6 +19,7 @@ const menuItems: MenuItem[] = [
   { label: 'Museum', path: '/museum/' },
   { label: 'Our Stories', path: '/articles/' },
   { label: 'Membership', path: '/membership/' },
+  { label: 'Donate', path: '/donate/' },
   { label: 'Events', path: '/events/' },
   { label: 'Programs', path: '/programs/' },
   { label: 'Videos', path: '/videos/' },
@@ -68,7 +69,7 @@ const Header: React.FC = () => {
               </Link>
             </div>
 
-            <div className="flex items-center justify-end sm:pl-[50px] md:pl-[70px] w-full">
+            <div className="flex items-center justify-end sm:pl-6 w-full">
               {/* Desktop Menu */}
               <nav className="hidden lg:block transition-all duration-300">
                 <ul className="flex items-center space-x-[1px] font-navbar font-[600]">
@@ -77,7 +78,7 @@ const Header: React.FC = () => {
                       <Link
                         href={item.path}
                         onClick={handleLinkClick}
-                        className={`flex items-center px-3 py-2 text-[14px] transition-colors duration-200 ${
+                        className={`flex items-center px-2 py-2 text-[14px] transition-colors duration-200 ${
                           isActive(item.path)
                             ? 'text-[#2c5f2d]'
                             : 'text-gray-600 hover:text-gray-500'
