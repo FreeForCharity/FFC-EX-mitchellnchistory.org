@@ -52,6 +52,31 @@ export default function DonatePage() {
         <div className="ffc-container">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="font-serif-display text-3xl font-bold text-primary md:text-4xl">
+              Make a Gift Online
+            </h2>
+            <div className="mx-auto mt-4 h-1 w-20 rounded bg-accent" />
+            <p className="mt-8 text-lg leading-relaxed text-gray-700">
+              Choose an amount of your own and make a secure donation through PayPal. You can pay
+              with PayPal or a debit or credit card.
+            </p>
+            <a
+              href="https://www.paypal.com/donate/?business=ZQKFJ64SQSUC4&currency_code=USD"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-block rounded-lg bg-primary px-8 py-3 font-semibold text-paper transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+            >
+              Donate with PayPal
+            </a>
+            <p className="mt-4 text-sm text-gray-600">
+              Opens the Society&apos;s secure PayPal donation page in a new tab.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section className="bg-gray-50 py-20">
+        <div className="ffc-container">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-serif-display text-3xl font-bold text-primary md:text-4xl">
               Make a Gift by Check
             </h2>
             <div className="mx-auto mt-4 h-1 w-20 rounded bg-accent" />
@@ -77,9 +102,10 @@ export default function DonatePage() {
             </h2>
             <div className="mt-4 h-1 w-20 rounded bg-accent" />
             <p className="mt-8 text-lg leading-relaxed text-gray-700">
-              A donation is a meaningful way to honor someone special or remember a loved one.
-              Please include a note with their name and indicate whether your gift is in honor or in
-              memory.
+              A donation is a meaningful way to honor someone special or remember a loved one. For
+              gifts by check, please include a note with their name and indicate whether your gift
+              is in honor or in memory. For online gifts, email those details to the Society so we
+              can recognize your tribute.
             </p>
             <p className="mt-6 text-lg leading-relaxed text-gray-700">
               For questions about making a gift, contact us at{' '}
